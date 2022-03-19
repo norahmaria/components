@@ -36,8 +36,6 @@ const Select: React.FC<SelectProps> = ({
   const [selected, setSelected] = useState<(string | number)[]>([])
   const container = useRef<HTMLDivElement>(null)
 
-  require('./Select.scss')
-
   const toggleOptions = () => setIsOpen(prev => !prev)
   useOutsideClick(container, '.select', () => setIsOpen(false))
   useEffect(() => onSelectionChange(selected), [selected])

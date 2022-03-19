@@ -1,7 +1,7 @@
 {
   "name": "norahmaria-components",
   "author": "Norah Maria",
-  "version": "0.0.28",
+  "version": "0.0.30",
   "license": "MIT",
   "description": "A lil component library for React",
   "main": "build/index.js",
@@ -42,6 +42,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@types/jest": "^27.4.1",
+    "babel-plugin-react-scoped-css": "^1.1.1",
     "css-loader": "^6.7.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",

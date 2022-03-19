@@ -1,5 +1,3 @@
-import OptionProps from './components/Option.types'
-
 interface SelectProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   multiple?: boolean
