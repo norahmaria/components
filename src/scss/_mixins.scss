@@ -1,0 +1,171 @@
+@import './variables';
+
+@mixin one-pulse($color, $withBorder: false) {
+  $animation-name: unique-id() !global;
+  animation: $animation-name 0.5s $cubic;
+
+  @keyframes #{$animation-name} {
+    from {
+      box-shadow: 0 0 0.5px 0 rgb($color, 0.6);
+
+      @if ($withBorder) {
+        border: 1px solid $color;
+      }
+    }
+
+    to {
+      box-shadow: 0 0 0.5px 4.5px transparent;
+
+      @if ($withBorder) {
+        border: 1px solid transparent;
+      }
+    }
+  }
+}
+
+@mixin default-button($color, $name) {
+  @if $name == 'neutral' {
+    background: $white;
+    border: 1px solid $color;
+
+    color: $black;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: $black;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      border: 1px solid scale-color($color, $lightness: 20%);
+      background: scale-color($color, $lightness: 50%);
+    }
+
+    &.click {
+      @include one-pulse(scale-color($color, $lightness: -50%), $withBorder: true);
+    }
+  } @else {
+    background: $color;
+    border: 1px solid rgb($color, 0.25);
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      background: rgb($color, 0.85);
+    }
+
+    &.click {
+      @include one-pulse($color);
+    }
+  }
+}
+
+@mixin outlined-button($color, $name) {
+  @if $name == 'neutral' {
+    background: $white;
+    border: 1px dashed $black;
+    color: $black;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: $black;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      background: scale-color($color, $lightness: 40%);
+    }
+
+    &.click {
+      @include one-pulse(scale-color($color, $lightness: -50%));
+    }
+  } @else {
+    background: $white;
+    border: 1px dashed $color;
+    color: $color;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: $color;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      background: scale-color($color, $lightness: 92.5%);
+    }
+
+    &.click {
+      @include one-pulse($color);
+    }
+  }
+}
+
+@mixin secondary-button($color, $name) {
+  @if $name == 'neutral' {
+    background: scale-color($color, $lightness: 30%);
+    border: 1px solid transparent;
+    color: $black;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: $black;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      background: scale-color($color, $lightness: -2.5%);
+    }
+
+    &.click {
+      @include one-pulse(scale-color($black, $lightness: 20%), $withBorder: true);
+    }
+  } @else {
+    background: scale-color($color, $saturation: 5%, $lightness: 90%);
+    border: 1px solid transparent;
+    color: scale-color($color, $lightness: -5%);
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: scale-color($color, $lightness: -5%);
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      background: scale-color($color, $saturation: 5%, $lightness: 80%);
+    }
+
+    &.click {
+      @include one-pulse($color, $withBorder: true);
+    }
+  }
+}

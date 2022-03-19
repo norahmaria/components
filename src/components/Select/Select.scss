@@ -1,0 +1,263 @@
+@use '../../scss/mixins';
+@use '../../scss/keyframes';
+@use '../../scss/variables' as *;
+@use '../../scss/resets' as *;
+
+@include resets('.select-nm');
+
+.select-nm {
+  color: $black;
+  position: relative;
+  min-width: 15rem;
+  width: 100%;
+
+  font-size: 0.875rem;
+
+  li {
+    list-style: none;
+  }
+
+  .status {
+    padding-top: 0.7em;
+    line-height: 1.4;
+  }
+
+  .empty {
+    color: rgba($black, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 2em 0.5em;
+
+    svg {
+      height: 0.8em;
+      min-height: 0.8em;
+      max-height: 0.8em;
+    }
+  }
+}
+
+.select-nm.small,
+.select-nm.small > .btn {
+  font-size: 0.75rem;
+}
+
+.select-nm.medium,
+.select-nm.medium > .btn {
+  font-size: 0.875rem;
+}
+
+.select-nm.large,
+.select-nm.large > .btn {
+  font-size: 0.975rem;
+}
+
+.select-nm.disabled {
+  cursor: not-allowed;
+
+  & > .btn {
+    background: darken($white, 3%);
+    border: 1px solid #e8e8e8;
+    color: #898a8a;
+    pointer-events: none;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: #898a8a;
+    }
+  }
+}
+
+.select-nm > .btn {
+  color: $black;
+  border-radius: $br;
+  border: 1px solid $neutral700;
+  background: $white;
+  padding: 0.65em 0.75em 0.65em 0.75em;
+  line-height: 1;
+
+  font-size: 0.875rem;
+
+  cursor: pointer;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  transition: box-shadow 0.25s $cubic, border 0.25s ease;
+  box-shadow: 0 0 0.5px 0 transparent;
+
+  .label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+
+    .tag {
+      background: darken($white, 3%);
+      border: 1px solid #e8e8e8;
+      color: #777878;
+      padding: 0.25rem;
+      border-radius: $br;
+    }
+
+    .placeholder {
+      color: rgb($black, 0.55);
+    }
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    border: 1px solid $primary700;
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0.5px 2px rgb($primary700, 0.2);
+  }
+}
+
+@each $name, $color in $colors {
+  .select-nm.#{$name} > .btn {
+    border: 1px solid $color;
+
+    &.open {
+      box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
+      border: 1px solid $color;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
+    }
+  }
+}
+
+.select-nm > .btn.open {
+  box-shadow: 0 0 0.5px 2px rgb($primary700, 0.2);
+  border: 1px solid $primary700;
+}
+
+.select-nm {
+  .label svg:not(.check-icon) {
+    height: 0.9em;
+    min-height: 0.9em;
+    max-height: 0.9em;
+  }
+
+  .label img {
+    height: 1em;
+    min-height: 1em;
+    max-height: 1em;
+  }
+
+  .check-icon {
+    width: 0.9em;
+    height: 0.9em;
+    min-width: 0.9em;
+    min-height: 0.9em;
+    max-width: 0.9em;
+    max-height: 0.9em;
+  }
+
+  .close-icon,
+  .arrow-icon,
+  .error-icon,
+  .warning-icon {
+    width: 0.8em;
+    height: 0.8em;
+    min-width: 0.8em;
+    min-height: 0.8em;
+    max-width: 0.8em;
+    max-height: 0.8em;
+  }
+
+  .error-icon,
+  .warning-icon {
+    transform: scale(1.2);
+  }
+
+  .close-icon,
+  .arrow-icon,
+  .error-icon,
+  .warning-icon,
+  .inbox-icon,
+  .line-arrow-icon {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: rgb($black, 0.55);
+    }
+  }
+
+  .arrow-icon {
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .line-arrow-icon {
+    transform: rotate(180deg);
+    width: 0.8em;
+    height: 0.8em;
+    min-width: 0.8em;
+    min-height: 0.8em;
+    max-width: 0.8em;
+    max-height: 0.8em;
+  }
+
+  .check-icon {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: $primary700;
+    }
+  }
+}
+
+.select-nm > .options {
+  position: absolute;
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  overflow-y: scroll;
+  max-height: 0px;
+
+  margin-bottom: 0;
+  transform: translateY(0.75rem);
+
+  transition: max-height 0.25s ease-in-out, border 0.25s $cubic, box-shadow 1.5s $cubic,
+    opacity 0.25s ease-in-out;
+  box-shadow: 0 0 0.5px 0 transparent;
+
+  background-color: $white;
+  border-radius: $br;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+
+  padding: 0em 0.85em;
+  opacity: 0;
+
+  &.open {
+    max-height: 25vh;
+    border: 1px solid rgb($neutral700, 0.5);
+    opacity: 1;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  }
+}

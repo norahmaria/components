@@ -1,0 +1,32 @@
+:root {
+  --primary700: hsl(250, 100%, 67%);
+  --error700: hsl(0, 78%, 53%);
+  --warning700: hsl(38, 87%, 53%);
+  --success700: hsl(121, 48%, 35%);
+  --white: hsl(0, 0%, 100%);
+  --neutral700: hsl(228, 11%, 91%);
+  --black: hsl(240, 14%, 14%);
+}
+
+$primary700: #7155ff;
+
+$error700: #e52828;
+
+$warning700: #efa11f;
+
+$success700: #2f8631;
+
+$white: #ffffff;
+$neutral700: #dddfe3;
+$black: #1e1e28;
+
+$colors: (
+  primary: $primary700,
+  warning: $warning700,
+  error: $error700,
+  neutral: $neutral700,
+  success: $success700,
+);
+
+$br: 0.25rem;
+$cubic: cubic-bezier(0, 0, 0.2, 1);

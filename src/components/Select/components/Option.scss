@@ -1,0 +1,71 @@
+@use '../../../scss/variables' as *;
+
+.select-nm > .options > .option,
+.select-nm > .options > .group > .option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 0.5rem;
+
+  border: 1px solid transparent;
+  border-radius: $br;
+
+  padding: 0.4em 0.5em;
+
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out,
+    border 0.25s ease-in-out, padding 0.25s ease-in-out;
+  cursor: pointer;
+
+  .label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &,
+  &[aria-selected='true'] {
+    &:hover,
+    &:focus-visible,
+    &:active {
+      outline: none;
+      background: lighten($black, 82.5%);
+      border: 1px solid lighten($black, 82.5%);
+      padding-left: 1em;
+    }
+
+    &:focus-visible {
+      background: lighten($black, 77.5%);
+    }
+  }
+
+  &[aria-disabled='true'] {
+    background: darken($white, 3%);
+    color: #898a8a;
+    cursor: not-allowed;
+
+    &:hover {
+      padding: 0.4em 0.5em;
+    }
+
+    svg {
+      opacity: 0.45;
+      filter: grayscale(100%);
+    }
+  }
+
+  &[aria-selected='true'] {
+    background: scale-color($primary700, $saturation: 5%, $lightness: 90%);
+    border: 1px solid scale-color($primary700, $saturation: 5%, $lightness: 90%);
+    font-weight: 500;
+  }
+
+  &:first-child {
+    margin-top: 0.9rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0.9rem;
+  }
+}

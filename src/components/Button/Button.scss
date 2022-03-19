@@ -1,0 +1,192 @@
+@use '../../scss/mixins';
+@use '../../scss/keyframes';
+@use '../../scss/resets' as *;
+@use '../../scss/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$colors: (
+  primary: $primary700,
+  warning: $warning700,
+  error: $error700,
+  neutral: $neutral700,
+  success: $success700,
+);
+
+a {
+  text-decoration: none;
+}
+
+@include resets('.btn-nm');
+
+.btn-nm {
+  line-height: 1;
+  margin: 0;
+
+  color: $white;
+
+  padding: 0.6em 0.75em;
+  border-radius: $br;
+  border: none;
+
+  cursor: pointer;
+  transition: background 0.2s $cubic, border 0.2s $cubic;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  svg {
+    width: 0.8em;
+    height: 0.8em;
+  }
+
+  img {
+    width: 0.9em;
+    height: 0.9em;
+  }
+
+  .btn-nm-loading-icon {
+    width: 0.7em;
+    height: 0.7em;
+  }
+
+  svg path,
+  svg rect,
+  svg circle,
+  svg ellipse,
+  svg polyline,
+  svg line,
+  svg polygon {
+    fill: $white;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &.round {
+    border-radius: 1rem;
+  }
+}
+
+.btn-nm.icon {
+  aspect-ratio: 1;
+
+  svg {
+    transform: scale(1.35);
+  }
+
+  &.round {
+    border-radius: 100%;
+  }
+}
+
+.btn-nm.small {
+  font-size: 0.75rem;
+}
+
+.btn-nm.medium {
+  font-size: 0.875rem;
+}
+
+.btn-nm.large {
+  font-size: 0.975rem;
+}
+
+@each $name, $color in $colors {
+  .btn-nm.#{$name} {
+    &.default {
+      @include mixins.default-button($color, $name);
+    }
+
+    &.outlined {
+      @include mixins.outlined-button($color, $name);
+    }
+
+    &.secondary {
+      @include mixins.secondary-button($color, $name);
+    }
+
+    &:disabled {
+      background: darken($white, 3%);
+      border: 1px solid #e8e8e8;
+      color: #898a8a;
+      cursor: not-allowed;
+
+      svg path,
+      svg rect,
+      svg circle,
+      svg ellipse,
+      svg polyline,
+      svg line,
+      svg polygon {
+        fill: #898a8a;
+      }
+
+      &:hover {
+        background: darken($white, 3%);
+        border: 1px solid #e8e8e8;
+        color: #898a8a;
+      }
+    }
+
+    &:focus-visible {
+      @if $name == 'neutral' {
+        outline: 2px solid $black;
+      } @else {
+        outline: 2px solid rgb($color, 0.75);
+      }
+
+      outline-offset: 2px;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .btn-nm.#{$name} > .btn-nm-loading-icon {
+    @if $name == 'neutral' {
+      border: 2px solid $black;
+    } @else {
+      border: 2px solid $color;
+    }
+  }
+
+  .btn-nm.#{$name}.default {
+    .btn-nm-loading-icon {
+      @if $name == 'neutral' {
+        border: 2px solid $black;
+      } @else {
+        border: 2px solid $white;
+      }
+    }
+  }
+
+  .btn-nm.#{$name}:disabled {
+    .btn-nm-loading-icon {
+      border: 2px solid rgb($black, 0.4);
+    }
+  }
+
+  .btn-nm.#{$name},
+  .btn-nm.#{$name}.default {
+    .btn-nm-loading-icon {
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+.btn-nm-loading-icon {
+  border-radius: 100%;
+
+  transform-origin: center;
+  animation: loading 2s cubic-bezier(0.65, 0.26, 0.8, 0.39) infinite;
+}
+
+.btn-nm-loading {
+  pointer-events: none;
+}

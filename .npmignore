@@ -1,0 +1,11 @@
+__mocks__
+.storybook
+node_modules
+src
+.babelrc
+.prettierrc
+declarations.d.ts
+jest.config.ts
+jest.setup.ts
+rollup.config.js
+tsconfig.json
