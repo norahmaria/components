@@ -121,6 +121,7 @@
 
   .close-icon {
     transition: opacity 0.25s $cubic, transform 0.25s $cubic;
+    transform-origin: center;
     transform: scale(0);
     opacity: 0;
   }
