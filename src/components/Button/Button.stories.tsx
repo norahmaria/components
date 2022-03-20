@@ -12,7 +12,7 @@ export default {
 
 const ButtonStory: Story<ButtonProps> = args => <Button {...args} />
 
-export const Default = ButtonStory.bind({})
+export const Default: Story<ButtonProps> = ButtonStory.bind({})
 Default.args = {
   children: 'Hello World',
   rightIcon: null,
@@ -23,4 +23,8 @@ Default.args = {
   variant: 'default',
   round: false,
   isLoading: false,
+  disabled: true,
+  onClick: () => {
+    console.log('has been clickedd')
+  },
 }

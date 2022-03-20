@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { act, render, waitFor } from '@testing-library/react'
 
 import { Button } from '../../components/index'
 
@@ -40,7 +40,7 @@ describe('Button Component', () => {
     expect(button).toBeInTheDocument()
   })
 
-  it('Ignores click if button is loading', () => {
+  it('Does not run onClick if button is loading', () => {
     const onClick = jest.fn()
 
     const { getByTestId } = render(
@@ -57,14 +57,13 @@ describe('Button Component', () => {
   it('Ignores click if button is disabled', () => {
     const onClick = jest.fn()
 
-    const { getByText } = render(
-      <Button onClick={jest.fn()} disabled>
-        Hello World
-      </Button>
-    )
+    const { getByText } = render(<Button onClick={jest.fn()}>Hello World</Button>)
     const button = getByText('Hello World')
 
-    button.click()
+    act(() => {
+      button.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    })
+
     expect(onClick).not.toHaveBeenCalled()
   })
 })

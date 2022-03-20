@@ -5,6 +5,9 @@ import './Button.scss'
 // TODO: Look into adding a lil tooltip box explaining why a btn is disabled
 // TODO: Look into attached buttons: https://ant.design/components/button/#components-button-demo-multiple
 
+// FIX: Test passes even if disabled is not working
+// FIX: Disabled is not passed properly
+
 const Button = ({
   leftIcon,
   rightIcon,
@@ -16,16 +19,16 @@ const Button = ({
   className,
   onClick,
   isLoading,
-  disabled,
   ...props
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
 
   const click = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (isLoading) return
+
     setClicked(true)
     setTimeout(() => setClicked(false), 500)
 
-    if (isLoading) return
     if (onClick) onClick(e)
   }
 
@@ -44,12 +47,12 @@ const Button = ({
 
   return (
     <button
+      {...props}
       onClick={click}
       className={`${getClasses()} ${clicked ? 'click' : ''} ${
         isLoading ? 'btn-nm-loading' : ''
       }`}
       style={{ width: fullWidth ? '100%' : 'max-content' }}
-      {...props}
     >
       {isLoading ? (
         <>
