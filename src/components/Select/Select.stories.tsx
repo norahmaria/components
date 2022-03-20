@@ -25,36 +25,6 @@ import { ReactComponent as BurkinaFaso } from '../../assets/Flags/BF.svg'
 import { ReactComponent as Bulgaria } from '../../assets/Flags/BG.svg'
 import { ReactComponent as TheBahamas } from '../../assets/Flags/BH.svg'
 import { ReactComponent as Burundi } from '../../assets/Flags/BI.svg'
-import { ReactComponent as Benin } from '../../assets/Flags/BJ.svg'
-import { ReactComponent as Brunei } from '../../assets/Flags/BN.svg'
-import { ReactComponent as Bolivia } from '../../assets/Flags/BO.svg'
-import { ReactComponent as Brazil } from '../../assets/Flags/BR.svg'
-import { ReactComponent as Bahrain } from '../../assets/Flags/BS.svg'
-import { ReactComponent as Bhutan } from '../../assets/Flags/BT.svg'
-import { ReactComponent as BouvetIsland } from '../../assets/Flags/BV.svg'
-import { ReactComponent as Botswana } from '../../assets/Flags/BW.svg'
-import { ReactComponent as Belarus } from '../../assets/Flags/BY.svg'
-import { ReactComponent as Belize } from '../../assets/Flags/BZ.svg'
-import { ReactComponent as Canada } from '../../assets/Flags/CA.svg'
-import { ReactComponent as DemocraticRepublicOfTheCongo } from '../../assets/Flags/CD.svg'
-import { ReactComponent as CentralAfricanRepublic } from '../../assets/Flags/CF.svg'
-import { ReactComponent as RepublicOfTheCongo } from '../../assets/Flags/CG.svg'
-import { ReactComponent as Switzerland } from '../../assets/Flags/CH.svg'
-import { ReactComponent as CoteDIvoire } from '../../assets/Flags/CI.svg' // mark
-import { ReactComponent as Chile } from '../../assets/Flags/CL.svg'
-import { ReactComponent as Cameroon } from '../../assets/Flags/CM.svg'
-import { ReactComponent as China } from '../../assets/Flags/CN.svg'
-import { ReactComponent as Colombia } from '../../assets/Flags/CO.svg'
-import { ReactComponent as CostaRica } from '../../assets/Flags/CR.svg'
-import { ReactComponent as Cuba } from '../../assets/Flags/CU.svg'
-import { ReactComponent as CapeVerde } from '../../assets/Flags/CV.svg'
-import { ReactComponent as Curacao } from '../../assets/Flags/CW.svg' // mark
-import { ReactComponent as Cyprus } from '../../assets/Flags/CY.svg'
-import { ReactComponent as TheCzechRepublic } from '../../assets/Flags/CZ.svg'
-import { ReactComponent as Germany } from '../../assets/Flags/DE.svg'
-import { ReactComponent as Djibouti } from '../../assets/Flags/DJ.svg'
-import { ReactComponent as Denmark } from '../../assets/Flags/DK.svg'
-import { ReactComponent as Dominica } from '../../assets/Flags/DM.svg'
 
 import { ReactComponent as Norway } from '../../assets/Flags/NO.svg'
 import { ReactComponent as UnitedStates } from '../../assets/Flags/US.svg'
@@ -65,21 +35,8 @@ export default {
 }
 
 const SelectStory: Story<SelectProps> = args => (
-  <Select
-    multiple
-    status={{
-      type: 'error',
-      message: 'Must select one',
-    }}
-    size="small"
-    label="Country"
-    style={{ width: '18rem' }}
-    onSelectionChange={selected => {
-      console.log(selected)
-    }}
-    {...args}
-  >
-    <Select.Option disabled leftIcon={<UnitedStates />} value="us">
+  <Select {...args} onSelectionChange={() => {}}>
+    <Select.Option leftIcon={<UnitedStates />} value="us">
       United States
     </Select.Option>
 
@@ -87,7 +44,7 @@ const SelectStory: Story<SelectProps> = args => (
       <Select.Option leftIcon={<Norway />} value="no">
         Norway
       </Select.Option>
-      <Select.Option disabled={true} leftIcon={<Sweden />} value="se">
+      <Select.Option disabled leftIcon={<Sweden />} value="se">
         Sweden
       </Select.Option>
       <Select.Option leftIcon={<Albania />} value="al">
@@ -164,4 +121,15 @@ const SelectStory: Story<SelectProps> = args => (
   </Select>
 )
 
-export const Default = SelectStory.bind({})
+export const Default: Story<SelectProps> = SelectStory.bind({})
+
+Default.args = {
+  label: 'Country',
+  onSelectionChange: e => {
+    console.log('ran')
+    console.log(e)
+  },
+  multiple: true,
+  size: 'medium',
+  style: { width: '18rem' },
+}

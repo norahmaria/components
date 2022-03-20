@@ -5,7 +5,7 @@ import './Button.scss'
 // TODO: Look into adding a lil tooltip box explaining why a btn is disabled
 // TODO: Look into attached buttons: https://ant.design/components/button/#components-button-demo-multiple
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   leftIcon,
   rightIcon,
   round = false,
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
   isLoading,
   disabled,
   ...props
-}) => {
+}: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
 
   const click = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

@@ -6,7 +6,7 @@ interface GroupProps
     HTMLUListElement
   > {
   title: string
-  children?: React.ReactElement<OptionProps>[]
+  // children?: React.ReactElement<OptionProps>[]
 }
 
 export default GroupProps

@@ -40,6 +40,7 @@ const Children = ({
               children: React.Children.map(child.props.children, nested => {
                 const { value, disabled } = nested.props
 
+                // if (React.isValidElement(nested)) {
                 return React.cloneElement(nested, {
                   'aria-selected': selected.includes(value),
                   onKeyDown: handleKeyDown(value),
@@ -52,6 +53,7 @@ const Children = ({
                   selected: selected.includes(value),
                   tabIndex: disabled ? -1 : isOpen ? 0 : -1,
                 })
+                // }
               }),
             })
           } else {

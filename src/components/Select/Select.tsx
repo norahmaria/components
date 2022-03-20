@@ -48,7 +48,11 @@ const Select = ({
       if (multiple) {
         selectedIndex > -1 ? modify.splice(selectedIndex, 1) : modify.push(value)
       } else {
-        modify = [value]
+        if (modify[0] === value) {
+          modify = []
+        } else {
+          modify = [value]
+        }
       }
 
       return modify
@@ -68,7 +72,9 @@ const Select = ({
     >
       <button
         type="button"
-        className={`btn ${isOpen ? 'open' : ''}`}
+        className={`btn ${isOpen ? 'open' : ''} ${
+          multiple && selected.length ? 'includes-tags' : ''
+        }`}
         aria-haspopup="listbox"
         aria-errormessage="error"
         aria-disabled={disabled}
@@ -90,10 +96,14 @@ const Select = ({
                 if (title) {
                   return React.Children.map(children, nested => {
                     if (selected.includes(nested.props.value))
-                      return <div className="tag">{nested.props.children}</div>
+                      return (
+                        <div className={multiple ? 'tag' : 'selected'}>
+                          {nested.props.children}
+                        </div>
+                      )
                   })
                 } else if (selected.includes(value)) {
-                  return <div className="tag">{children}</div>
+                  return <div className={multiple ? 'tag' : 'selected'}>{children}</div>
                 }
               }
             })

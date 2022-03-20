@@ -9,7 +9,7 @@ interface ChildrenProps
   multiple: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   isOpen: boolean
-  children?: (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
+  // children?: (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
 }
 
 export default ChildrenProps
