@@ -16,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   onClick,
   isLoading,
+  disabled,
   ...props
 }) => {
   const [clicked, setClicked] = useState(false)
@@ -24,6 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     setClicked(true)
     setTimeout(() => setClicked(false), 500)
 
+    if (isLoading) return
     if (onClick) onClick(e)
   }
 
@@ -51,7 +53,8 @@ const Button: React.FC<ButtonProps> = ({
     >
       {isLoading ? (
         <>
-          <div className="btn-nm-loading-icon"></div> Loading
+          <div data-testid="btn-loading-icon" className="btn-nm-loading-icon"></div>{' '}
+          Loading
         </>
       ) : (
         <>

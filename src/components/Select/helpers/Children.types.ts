@@ -1,3 +1,6 @@
+import OptionProps from '../components/Option.types'
+import GroupProps from '../components/Option.types'
+
 interface ChildrenProps
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   selected: (string | number)[]
@@ -6,6 +9,7 @@ interface ChildrenProps
   multiple: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   isOpen: boolean
+  children?: (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
 }
 
 export default ChildrenProps

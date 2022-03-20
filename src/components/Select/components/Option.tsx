@@ -4,14 +4,14 @@ import './Option.scss'
 import { ReactComponent as CheckMarkIcon } from '../../../assets/Checkmark.svg'
 import OptionProps from './Option.types'
 
-const Option: React.FC<OptionProps> = ({
+const Option = ({
   value,
   selected,
   leftIcon,
   rightIcon,
   disabled = false,
   ...props
-}) => {
+}: OptionProps) => {
   const ref = useRef<HTMLLIElement>(null)
 
   const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon

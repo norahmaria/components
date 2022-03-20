@@ -22,7 +22,7 @@ import Children from './helpers/Children'
 // Clearing one by one
 // Navigate with key up and down
 
-const Select: React.FC<SelectProps> = ({
+const Select = ({
   multiple = false,
   required = false,
   disabled = false,
@@ -31,7 +31,7 @@ const Select: React.FC<SelectProps> = ({
   status,
   size = 'medium',
   ...props
-}) => {
+}: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState<(string | number)[]>([])
   const container = useRef<HTMLDivElement>(null)
@@ -57,6 +57,7 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div
+      data-testid="select"
       className={`
         select-nm ${size} 
         ${status && status.type ? status.type : ''} 
@@ -107,6 +108,9 @@ const Select: React.FC<SelectProps> = ({
           <WarningIcon className="warning-icon" />
         ) : selected.length ? (
           <CloseIcon
+            data-testid="close-icon"
+            role="button"
+            aria-label="Clear selected"
             className="close-icon"
             onClick={() => {
               setSelected([])

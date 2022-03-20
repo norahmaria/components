@@ -41,7 +41,10 @@ export default {
     commonjs(),
     terser(),
     del({ targets: 'build/*' }),
-    typescript({ tsconfig: './tsconfig.json' }),
+    typescript({
+      tsconfig: './tsconfig.json',
+      exclude: ['**/*.stories.tsx', '**/*.test.tsx'],
+    }),
     postcss(),
     url(),
     svgr(),

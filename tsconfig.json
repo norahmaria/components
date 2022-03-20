@@ -12,5 +12,5 @@
     "esModuleInterop": true
   },
   "include": ["declarations.d.ts", "src/**/*"],
-  "exclude": ["node_modules", "build", "**/*.stories.tsx"]
+  "exclude": ["node_modules", "build"]
 }

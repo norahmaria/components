@@ -67,6 +67,10 @@ export default {
 const SelectStory: Story<SelectProps> = args => (
   <Select
     multiple
+    status={{
+      type: 'error',
+      message: 'Must select one',
+    }}
     size="small"
     label="Country"
     style={{ width: '18rem' }}
@@ -75,7 +79,7 @@ const SelectStory: Story<SelectProps> = args => (
     }}
     {...args}
   >
-    <Select.Option leftIcon={<UnitedStates />} value="us">
+    <Select.Option disabled leftIcon={<UnitedStates />} value="us">
       United States
     </Select.Option>
 

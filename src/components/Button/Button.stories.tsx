@@ -17,7 +17,7 @@ Default.args = {
   children: 'Hello World',
   rightIcon: null,
   leftIcon: <Arrow />,
-  size: 'small',
+  size: 'medium',
   fullWidth: false,
   color: 'primary',
   variant: 'default',

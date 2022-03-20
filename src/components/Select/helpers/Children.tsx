@@ -1,7 +1,7 @@
 import React from 'react'
 import ChildrenProps from './Children.types'
 
-const Children: React.FC<ChildrenProps> = ({
+const Children = ({
   updateSelected,
   setIsOpen,
   selected,
@@ -9,7 +9,7 @@ const Children: React.FC<ChildrenProps> = ({
   multiple,
   isOpen,
   ...props
-}) => {
+}: ChildrenProps) => {
   const handleKeyDown =
     (value: number | string) => (e: React.KeyboardEvent<HTMLLIElement>) => {
       switch (e.key) {

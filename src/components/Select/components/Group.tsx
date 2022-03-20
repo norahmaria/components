@@ -1,16 +1,12 @@
 import React from 'react'
 import './Group.scss'
 
-import { ReactComponent as LineArrow } from '../../../assets/Arrow_Line.svg'
 import GroupProps from '../components/Group.types'
 
-const Group: React.FC<GroupProps> = ({ title, ...props }) => {
+const Group = ({ title, ...props }: GroupProps) => {
   return (
-    <ul className="group" {...props}>
-      <div className="title">
-        {/* <LineArrow /> */}
-        {title}
-      </div>
+    <ul className="group" data-testid="select-group" {...props}>
+      <div className="title">{title}</div>
       {props.children}
     </ul>
   )
