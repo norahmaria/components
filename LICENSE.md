@@ -6,7 +6,7 @@ Learn more on [Wikipedia](https://simple.wikipedia.org/wiki/GNU_General_Public_L
 > The license of the software can not be changed or removed. It must always use the GPL.
 
 You're free to modify, redistribute and sell, **as long as _your_ project is open source 🚀**  
-And keeps the same license, _to keep it open source_.
+And keep the same license, _to keep it open source_.
 
 _If the user does not agree to follow the GPL_, they can still use the
 software under copyright laws. They can use it and make copies or
