@@ -6,6 +6,7 @@ Learn more on [Wikipedia](https://simple.wikipedia.org/wiki/GNU_General_Public_L
 > get a copy must be included with the software. If the software
 > is able to be downloaded from the internet, the source code must
 > also be available for downloading.
+>
 > • The license of the software can not be changed or removed. It
 > must always use the GPL.
 
