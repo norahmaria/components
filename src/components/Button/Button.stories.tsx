@@ -23,7 +23,7 @@ Default.args = {
   variant: 'default',
   round: false,
   isLoading: false,
-  disabled: true,
+  disabled: false,
   onClick: () => {
     console.log('has been clickedd')
   },

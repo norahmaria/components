@@ -1,4 +1,5 @@
 export { default as Button } from './Button/Button'
+export { default as Checkbox } from './Checkbox/Checkbox'
 
 import SelectComponent from './Select/Select'
 import Option from './Select/components/Option'

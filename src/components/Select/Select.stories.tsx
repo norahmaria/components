@@ -129,7 +129,7 @@ Default.args = {
     console.log('ran')
     console.log(e)
   },
-  multiple: true,
+  multiple: false,
   size: 'medium',
   style: { width: '18rem' },
 }
