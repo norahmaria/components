@@ -1,8 +1,10 @@
 import { Story } from '@storybook/react'
 import React from 'react'
 
-import { Select } from '../../components'
+import { Select as SelectComponent } from '../../components'
 import SelectProps from './Select.types'
+
+import hideControls from '../../helpers/storybook/hideControls'
 
 import { ReactComponent as Andorra } from '../../assets/Flags/AD.svg'
 import { ReactComponent as UnitedArabEmirates } from '../../assets/Flags/AE.svg'
@@ -30,106 +32,178 @@ import { ReactComponent as Norway } from '../../assets/Flags/NO.svg'
 import { ReactComponent as UnitedStates } from '../../assets/Flags/US.svg'
 import { ReactComponent as Sweden } from '../../assets/Flags/SE.svg'
 
+const hiddenProperties = hideControls(['style'])
+
 export default {
   title: 'Select',
+  argTypes: {
+    multiple: {
+      description: 'Allow for multi select',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      description: 'Set select to be required or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      description: 'Set select to be disabled or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    size: {
+      description: 'The size of the select',
+      table: {
+        type: { summary: 'small | medium | large' },
+        defaultValue: { summary: 'medium' },
+      },
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+    label: {
+      description: 'The select label',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    onSelectionChange: {
+      description:
+        'The function to call when selection changes, the parameter will give you the value of the selected item(s)',
+      table: {
+        type: { summary: '(selected: (string | number)[]) => void' },
+      },
+    },
+    children: {
+      description: `The component expects you to use Select.Option or Select.Group as it's children`,
+      table: {
+        type: {
+          summary: `custom`,
+        },
+      },
+    },
+    status: {
+      description: 'Error or warning messages',
+      table: {
+        type: {
+          summary: `{
+          type: 'warning' | 'error'
+          message: string
+        } | null`,
+        },
+      },
+      control: {
+        type: 'object',
+      },
+    },
+    ...hiddenProperties,
+  },
 }
 
 const SelectStory: Story<SelectProps> = args => (
-  <Select {...args} onSelectionChange={() => {}}>
-    <Select.Option leftIcon={<UnitedStates />} value="us">
+  <SelectComponent {...args} onSelectionChange={() => {}}>
+    <SelectComponent.Option leftIcon={<UnitedStates />} value="us">
       United States
-    </Select.Option>
+    </SelectComponent.Option>
 
-    <Select.Group title="Europe">
-      <Select.Option leftIcon={<Norway />} value="no">
+    <SelectComponent.Group title="Europe">
+      <SelectComponent.Option leftIcon={<Norway />} value="no">
         Norway
-      </Select.Option>
-      <Select.Option disabled leftIcon={<Sweden />} value="se">
+      </SelectComponent.Option>
+      <SelectComponent.Option disabled leftIcon={<Sweden />} value="se">
         Sweden
-      </Select.Option>
-      <Select.Option leftIcon={<Albania />} value="al">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Albania />} value="al">
         Albania
-      </Select.Option>
-      <Select.Option leftIcon={<Austria />} value="at">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Austria />} value="at">
         Austria
-      </Select.Option>
-      <Select.Option leftIcon={<BosniaAndHerzegovina />} value="ba">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<BosniaAndHerzegovina />} value="ba">
         Bosnia And Herzegovina
-      </Select.Option>
-    </Select.Group>
+      </SelectComponent.Option>
+    </SelectComponent.Group>
 
-    <Select.Group title="Asia">
-      <Select.Option leftIcon={<UnitedArabEmirates />} value="ae">
+    <SelectComponent.Group title="Asia">
+      <SelectComponent.Option leftIcon={<UnitedArabEmirates />} value="ae">
         United Arab Emirates
-      </Select.Option>
-      <Select.Option leftIcon={<Afghanistan />} value="af">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Afghanistan />} value="af">
         Afghanistan
-      </Select.Option>
-      <Select.Option leftIcon={<Armenia />} value="am">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Armenia />} value="am">
         Armenia
-      </Select.Option>
-      <Select.Option leftIcon={<Azerbaijan />} value="az">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Azerbaijan />} value="az">
         Azerbaijan
-      </Select.Option>
-      <Select.Option leftIcon={<Bangladesh />} value="bd">
+      </SelectComponent.Option>
+      <SelectComponent.Option leftIcon={<Bangladesh />} value="bd">
         Bangladesh
-      </Select.Option>
-    </Select.Group>
+      </SelectComponent.Option>
+    </SelectComponent.Group>
 
-    <Select.Option leftIcon={<Andorra />} value="ad">
+    <SelectComponent.Option leftIcon={<Andorra />} value="ad">
       Andorra
-    </Select.Option>
-    <Select.Option leftIcon={<AntiguaAndBarbuda />} value="ag">
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<AntiguaAndBarbuda />} value="ag">
       Antigua And Barbuda
-    </Select.Option>
+    </SelectComponent.Option>
 
-    <Select.Option leftIcon={<NetherlandsAntilles />} value="an">
+    <SelectComponent.Option leftIcon={<NetherlandsAntilles />} value="an">
       Netherlands Antilles
-    </Select.Option>
-    <Select.Option leftIcon={<Angola />} value="ao">
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<Angola />} value="ao">
       Angola
-    </Select.Option>
-    <Select.Option leftIcon={<Argentina />} value="ar">
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<Argentina />} value="ar">
       Argentina
-    </Select.Option>
+    </SelectComponent.Option>
 
-    <Select.Option leftIcon={<Australia />} value="au">
+    <SelectComponent.Option leftIcon={<Australia />} value="au">
       Australia
-    </Select.Option>
-    <Select.Option leftIcon={<Aruba />} value="aw">
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<Aruba />} value="aw">
       Aruba
-    </Select.Option>
+    </SelectComponent.Option>
 
-    <Select.Option leftIcon={<Barbados />} value="bb">
+    <SelectComponent.Option leftIcon={<Barbados />} value="bb">
       Barbados
-    </Select.Option>
-    <Select.Option value="be" leftIcon={<Belgium />}>
+    </SelectComponent.Option>
+    <SelectComponent.Option value="be" leftIcon={<Belgium />}>
       Belgium
-    </Select.Option>
-    <Select.Option value="bf" leftIcon={<BurkinaFaso />}>
+    </SelectComponent.Option>
+    <SelectComponent.Option value="bf" leftIcon={<BurkinaFaso />}>
       Burkina Faso
-    </Select.Option>
-    <Select.Option value="bg" leftIcon={<Bulgaria />}>
+    </SelectComponent.Option>
+    <SelectComponent.Option value="bg" leftIcon={<Bulgaria />}>
       Bulgaria
-    </Select.Option>
-    <Select.Option value="bh" leftIcon={<TheBahamas />}>
+    </SelectComponent.Option>
+    <SelectComponent.Option value="bh" leftIcon={<TheBahamas />}>
       The Bahamas
-    </Select.Option>
-    <Select.Option value="bi" leftIcon={<Burundi />}>
+    </SelectComponent.Option>
+    <SelectComponent.Option value="bi" leftIcon={<Burundi />}>
       Burundi
-    </Select.Option>
-  </Select>
+    </SelectComponent.Option>
+  </SelectComponent>
 )
 
-export const Default: Story<SelectProps> = SelectStory.bind({})
-
-Default.args = {
+export const Select: Story<SelectProps> = SelectStory.bind({})
+Select.args = {
   label: 'Country',
-  onSelectionChange: e => {
-    console.log('ran')
-    console.log(e)
+  onSelectionChange: change => {
+    console.log(change)
   },
   multiple: false,
   size: 'medium',
   style: { width: '18rem' },
+  required: false,
+  disabled: false,
 }

@@ -13,7 +13,10 @@ interface SelectProps
   } | null
   label: string
   onSelectionChange: (selected: (string | number)[]) => void
-  // children?: (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
+  children?:
+    | (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
+    | React.ReactElement<OptionProps>
+    | React.ReactElement<GroupProps>
 }
 
 export default SelectProps
