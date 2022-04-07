@@ -135,6 +135,7 @@ const Select = ({
       <ul
         className={`options ${isOpen ? 'open' : ''}`}
         role="listbox"
+        aria-label={label}
         aria-multiselectable={multiple}
         aria-activedescendant={selected[selected.length]?.toString()}
         tabIndex={-1}

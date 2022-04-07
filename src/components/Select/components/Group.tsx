@@ -5,10 +5,12 @@ import GroupProps from '../components/Group.types'
 
 const Group = ({ title, ...props }: GroupProps) => {
   return (
-    <ul className="group" data-testid="select-group" {...props}>
-      <div className="title">{title}</div>
-      {props.children}
-    </ul>
+    <li className="group" {...props}>
+      <ul data-testid="select-group">
+        <li className="title">{title}</li>
+        {props.children}
+      </ul>
+    </li>
   )
 }
 

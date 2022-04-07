@@ -1,96 +1,106 @@
 @use '../../../scss/variables' as *;
 
+// .select-nm .group {
+//   margin-top: -0.75rem;
+// }
+
 .select-nm > .options > .group + .group,
 .select-nm > .options > .group ~ .group {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  ul {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }
 
 .select-nm > .options > .group:last-of-type:not(:last-child) {
-  border-bottom: 1px solid rgba($black, 0.25);
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.5rem;
+  ul {
+    border-bottom: 1px solid rgba($black, 0.25);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .select-nm > .options > .group {
-  display: grid;
-  gap: 0.35rem;
-  width: 100%;
+  ul {
+    display: grid;
+    gap: 0.35rem;
+    width: 100%;
 
-  .title {
-    display: flex;
-    gap: 0.3rem;
-    align-items: center;
+    .title {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
 
-    font-size: 0.975em;
-    padding: 0.4em 0.5em;
-    overflow: hidden;
+      font-size: 0.975em;
+      padding: 0.4em 0.5em;
+      overflow: hidden;
 
-    color: inherit;
-    color: rgba($black, 0.65);
-    justify-content: center;
+      color: inherit;
+      color: rgba($black, 0.65);
+      justify-content: center;
 
-    &:before,
-    &:after {
-      background-color: rgba($black, 0.65);
-      content: '';
-      display: inline-block;
-      height: 1px;
-      border-radius: 100%;
-      position: relative;
-      vertical-align: middle;
-      width: 40%;
-    }
+      &:before,
+      &:after {
+        background-color: rgba($black, 0.65);
+        content: '';
+        display: inline-block;
+        height: 1px;
+        border-radius: 100%;
+        position: relative;
+        vertical-align: middle;
+        width: 40%;
+      }
 
-    &:before {
-      right: 0.5em;
-      margin-left: -50%;
-    }
+      &:before {
+        right: 0.5em;
+        margin-left: -50%;
+      }
 
-    &:after {
-      left: 0.5em;
-      margin-right: -50%;
-    }
+      &:after {
+        left: 0.5em;
+        margin-right: -50%;
+      }
 
-    svg {
-      width: 0.8em;
-      height: 0.8em;
-      max-width: 0.8em;
-      max-height: 0.8em;
-      min-width: 0.8em;
-      min-height: 0.8em;
+      svg {
+        width: 0.8em;
+        height: 0.8em;
+        max-width: 0.8em;
+        max-height: 0.8em;
+        min-width: 0.8em;
+        min-height: 0.8em;
 
-      transform: rotate(180deg);
+        transform: rotate(180deg);
 
-      path,
-      rect {
-        fill: rgba($black, 0.45);
+        path,
+        rect {
+          fill: rgba($black, 0.45);
+        }
       }
     }
-  }
 
-  &:first-child {
-    margin-top: 0.9rem;
-  }
-
-  &:last-child {
-    margin-bottom: 0.9rem;
-  }
-
-  .option {
-    &:first-of-type {
-      margin-top: 0;
+    &:first-child {
+      margin-top: 0.9rem;
     }
 
-    &:last-of-type {
-      margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0.9rem;
     }
-  }
 
-  .option:last-of-type {
-    &:last-of-type {
-      margin-bottom: 0rem;
+    .option {
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .option:last-of-type {
+      &:last-of-type {
+        margin-bottom: 0rem;
+      }
     }
   }
 }

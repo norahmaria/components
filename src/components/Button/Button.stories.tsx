@@ -79,7 +79,9 @@ const sharedArgs: ButtonProps = {
   fullWidth: false,
   color: 'primary',
   round: false,
-  onClick: () => {},
+  onClick: clicked => {
+    console.log(clicked)
+  },
 }
 
 export const Default: Story<ButtonProps> = ButtonStory.bind({})

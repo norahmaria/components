@@ -23,10 +23,6 @@ import { ReactComponent as BosniaAndHerzegovina } from '../../assets/Flags/BA.sv
 import { ReactComponent as Barbados } from '../../assets/Flags/BB.svg'
 import { ReactComponent as Bangladesh } from '../../assets/Flags/BD.svg'
 import { ReactComponent as Belgium } from '../../assets/Flags/BE.svg'
-import { ReactComponent as BurkinaFaso } from '../../assets/Flags/BF.svg'
-import { ReactComponent as Bulgaria } from '../../assets/Flags/BG.svg'
-import { ReactComponent as TheBahamas } from '../../assets/Flags/BH.svg'
-import { ReactComponent as Burundi } from '../../assets/Flags/BI.svg'
 
 import { ReactComponent as Norway } from '../../assets/Flags/NO.svg'
 import { ReactComponent as UnitedStates } from '../../assets/Flags/US.svg'
@@ -36,6 +32,18 @@ const hiddenProperties = hideControls(['style'])
 
 export default {
   title: 'Select',
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: 'scrollable-region-focusable',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
   argTypes: {
     multiple: {
       description: 'Allow for multi select',
@@ -95,9 +103,9 @@ export default {
       table: {
         type: {
           summary: `{
-          type: 'warning' | 'error'
-          message: string
-        } | null`,
+            type: 'warning' | 'error'
+            message: string
+          } | null`,
         },
       },
       control: {
@@ -180,20 +188,21 @@ const SelectStory: Story<SelectProps> = args => (
     <SelectComponent.Option value="be" leftIcon={<Belgium />}>
       Belgium
     </SelectComponent.Option>
-    <SelectComponent.Option value="bf" leftIcon={<BurkinaFaso />}>
-      Burkina Faso
-    </SelectComponent.Option>
-    <SelectComponent.Option value="bg" leftIcon={<Bulgaria />}>
-      Bulgaria
-    </SelectComponent.Option>
-    <SelectComponent.Option value="bh" leftIcon={<TheBahamas />}>
-      The Bahamas
-    </SelectComponent.Option>
-    <SelectComponent.Option value="bi" leftIcon={<Burundi />}>
-      Burundi
-    </SelectComponent.Option>
   </SelectComponent>
 )
+
+// SelectStory.parameters = {
+//   a11y: {
+//     config: {
+//       rules: [
+//         {
+//           id: 'scrollable-region-focusable',
+//           enabled: false,
+//         },
+//       ],
+//     },
+//   },
+// }
 
 export const Select: Story<SelectProps> = SelectStory.bind({})
 Select.args = {

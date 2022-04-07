@@ -1,7 +1,7 @@
 @use '../../../scss/variables' as *;
 
 .select-nm > .options > .option,
-.select-nm > .options > .group > .option {
+.select-nm > .options > .group .option {
   display: flex;
   justify-content: space-between;
   align-items: center;

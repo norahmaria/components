@@ -18,7 +18,6 @@ describe('Button Component', () => {
     )
 
     expect(buttons.getAllByRole('button')).toMatchSnapshot()
-    expect(buttons.getAllByRole('button')).toHaveLength(2)
   })
 
   it('Can toggle click class', async () => {
@@ -34,36 +33,36 @@ describe('Button Component', () => {
   })
 
   it('Can render loading icon', () => {
-    const { getByTestId } = render(<Button isLoading={true}>Hello World</Button>)
-    const button = getByTestId('btn-loading-icon')
-
-    expect(button).toBeInTheDocument()
-  })
-
-  it('Does not run onClick if button is loading', () => {
-    const onClick = jest.fn()
-
     const { getByTestId } = render(
-      <Button onClick={jest.fn()} isLoading={true}>
-        Hello World
-      </Button>
+      <Button isLoading={true}>Hello World</Button>
     )
-    const button = getByTestId('btn-loading-icon')
+    const loadingIcon = getByTestId('btn-loading-icon')
 
-    button.click()
-    expect(onClick).not.toHaveBeenCalled()
+    expect(loadingIcon).toBeInTheDocument()
   })
 
-  it('Ignores click if button is disabled', () => {
-    const onClick = jest.fn()
+  it('Ignores click if button is loading or disabled', () => {
+    const loadingClick = jest.fn()
+    const disabledClick = jest.fn()
 
-    const { getByText } = render(<Button onClick={jest.fn()}>Hello World</Button>)
-    const button = getByText('Hello World')
+    const { getByTestId, getByText } = render(
+      <>
+        <Button onClick={jest.fn()} isLoading={true}>
+          Loading Button
+        </Button>
+        <Button onClick={jest.fn()}>Disabled Button</Button>
+      </>
+    )
+
+    const loadingButton = getByTestId('btn-loading-icon')
+    const disabledButton = getByText('Disabled Button')
 
     act(() => {
-      button.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      loadingButton.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      disabledButton.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
 
-    expect(onClick).not.toHaveBeenCalled()
+    expect(loadingClick).not.toHaveBeenCalled()
+    expect(disabledClick).not.toHaveBeenCalled()
   })
 })

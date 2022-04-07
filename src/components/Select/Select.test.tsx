@@ -37,12 +37,14 @@ const base = ({
 )
 
 describe('Select Component', () => {
-  it('Can render all nested parts', () => {
-    const { getByTestId, getByRole, getAllByRole } = render(base({}))
-    expect(getAllByRole('button')[0]).toBeInTheDocument()
-    expect(getByRole('listbox')).toBeInTheDocument()
-    expect(getAllByRole('option')).toHaveLength(3)
-    expect(getByTestId('select-group')).toBeInTheDocument()
+  it('Can render correctly, closed and open', () => {
+    const { getByTestId } = render(base({}))
+
+    const select = getByTestId('select')
+    expect(select).toMatchSnapshot()
+
+    select.click()
+    expect(select).toMatchSnapshot()
   })
 
   it('Can open select options', () => {
@@ -65,8 +67,11 @@ describe('Select Component', () => {
   it('Groups options properly', () => {
     const { getByTestId } = render(base({}))
 
-    expect(getByTestId('select-group').firstChild).toHaveTextContent('Scandinavia')
     expect(getByTestId('select-group').children).toHaveLength(3)
+
+    expect(getByTestId('select-group').children[0]).toHaveTextContent('Scandinavia')
+    expect(getByTestId('select-group').children[1]).toHaveTextContent('Norway')
+    expect(getByTestId('select-group').children[2]).toHaveTextContent('Sweden')
   })
 
   it('Can select single', () => {
@@ -154,7 +159,6 @@ describe('Select Component', () => {
     const status = getByText('Must select one')
     const select = getByTestId('select')
 
-    expect(status).toBeInTheDocument()
     expect(status).toHaveClass('status')
     expect(select).toHaveClass('error')
   })
