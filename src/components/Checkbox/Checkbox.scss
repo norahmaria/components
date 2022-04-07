@@ -1,0 +1,130 @@
+@use '../../scss/mixins';
+@use '../../scss/keyframes';
+@use '../../scss/resets' as *;
+@use '../../scss/variables' as *;
+
+@include resets('.checkbox-nm');
+
+.checkbox-nm {
+  position: relative;
+}
+
+.checkbox-nm input {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+.checkbox-nm input + label::before,
+.checkbox-nm input + label {
+  cursor: pointer;
+}
+
+.checkbox-nm input + label::before {
+  content: '';
+  position: absolute;
+  height: 1.25rem;
+  width: 1.25rem;
+  left: 0;
+  top: 0;
+
+  border: 1px solid darken($neutral700, 10%);
+  box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
+  border-radius: $br * 1.5;
+
+  transition: border 0.25s $cubic, background 0.25s $cubic, box-shadow 0.25s $cubic;
+}
+
+.checkbox-nm input + label svg {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  left: 0.125rem;
+  top: 0.125rem;
+
+  border: 0;
+  padding: 0.2rem;
+
+  transition: opacity 0.25s $cubic;
+  opacity: 0;
+
+  path {
+    fill: $white;
+    stroke: $white;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+  }
+}
+
+.checkbox-nm label {
+  padding-left: 1.85rem;
+  line-height: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.checkbox-nm input:checked + label svg {
+  opacity: 1;
+}
+
+@each $name, $color in $colors {
+  .checkbox-nm.#{$name} {
+    @if $name == 'neutral' {
+      input:checked + label::before {
+        border: 1px solid scale-color($color, $lightness: 20%);
+        background: scale-color($color, $lightness: 50%);
+      }
+
+      input:focus-visible + label::before,
+      input:active + label::before,
+      input:hover + label::before {
+        border: 1px solid scale-color($color, $lightness: -50%);
+        box-shadow: 0 0 0.5px 2.5px rgba(scale-color($color, $lightness: -50%), 0.4);
+      }
+
+      input + label svg path {
+        fill: $black;
+        stroke: $black;
+      }
+    } @else {
+      input:checked + label::before {
+        background-color: $color;
+        border: 1px solid $color;
+      }
+
+      input:focus-visible + label::before,
+      input:active + label::before,
+      input:hover + label::before {
+        border: 1px solid $color;
+        box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
+      }
+    }
+  }
+}
+
+.checkbox-nm input:disabled {
+  & + label::before {
+    background: darken($white, 3%);
+    border: 1px solid #e8e8e8;
+    color: #898a8a;
+    cursor: not-allowed;
+  }
+
+  & + label svg {
+    path {
+      fill: #898a8a;
+      stroke: #898a8a;
+    }
+  }
+
+  &:focus-visible + label::before,
+  &:active + label::before,
+  &:hover + label::before {
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
+  }
+
+  & + label {
+    cursor: not-allowed;
+  }
+}

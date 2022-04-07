@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component Can render correctly 1`] = `
+<div
+  class="
+        select-nm medium 
+         
+        
+      "
+  data-testid="select"
+>
+  <button
+    aria-disabled="false"
+    aria-errormessage="error"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-invalid="false"
+    aria-required="false"
+    class="btn  "
+    type="button"
+  >
+    <div
+      class="label"
+    >
+      <div
+        class="placeholder"
+      >
+        Country
+      </div>
+    </div>
+    <svg
+      class="arrow-icon"
+    />
+  </button>
+  <ul
+    aria-label="Country"
+    aria-multiselectable="false"
+    class="options "
+    role="listbox"
+    tabindex="-1"
+  >
+    <li
+      aria-disabled="false"
+      aria-selected="false"
+      class="option"
+      role="option"
+      tabindex="-1"
+      value="us"
+    >
+      <div
+        class="label"
+      >
+        United States
+      </div>
+    </li>
+    <li
+      class="group"
+    >
+      <ul
+        data-testid="select-group"
+      >
+        <li
+          class="title"
+        >
+          Scandinavia
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="no"
+        >
+          <div
+            class="label"
+          >
+            Norway
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="se"
+        >
+          <div
+            class="label"
+          >
+            Sweden
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Select Component Can render correctly 2`] = `
+<div
+  class="
+        select-nm medium 
+         
+        
+      "
+  data-testid="select"
+>
+  <button
+    aria-disabled="false"
+    aria-errormessage="error"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-invalid="false"
+    aria-required="false"
+    class="btn  "
+    type="button"
+  >
+    <div
+      class="label"
+    >
+      <div
+        class="placeholder"
+      >
+        Country
+      </div>
+    </div>
+    <svg
+      class="arrow-icon"
+    />
+  </button>
+  <ul
+    aria-label="Country"
+    aria-multiselectable="false"
+    class="options "
+    role="listbox"
+    tabindex="-1"
+  >
+    <li
+      aria-disabled="false"
+      aria-selected="false"
+      class="option"
+      role="option"
+      tabindex="-1"
+      value="us"
+    >
+      <div
+        class="label"
+      >
+        United States
+      </div>
+    </li>
+    <li
+      class="group"
+    >
+      <ul
+        data-testid="select-group"
+      >
+        <li
+          class="title"
+        >
+          Scandinavia
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="no"
+        >
+          <div
+            class="label"
+          >
+            Norway
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="se"
+        >
+          <div
+            class="label"
+          >
+            Sweden
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Select Component Can render correctly, closed and open 1`] = `
+<div
+  class="
+        select-nm medium 
+         
+        
+      "
+  data-testid="select"
+>
+  <button
+    aria-disabled="false"
+    aria-errormessage="error"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-invalid="false"
+    aria-required="false"
+    class="btn  "
+    type="button"
+  >
+    <div
+      class="label"
+    >
+      <div
+        class="placeholder"
+      >
+        Country
+      </div>
+    </div>
+    <svg
+      class="arrow-icon"
+    />
+  </button>
+  <ul
+    aria-label="Country"
+    aria-multiselectable="false"
+    class="options "
+    role="listbox"
+    tabindex="-1"
+  >
+    <li
+      aria-disabled="false"
+      aria-selected="false"
+      class="option"
+      role="option"
+      tabindex="-1"
+      value="us"
+    >
+      <div
+        class="label"
+      >
+        United States
+      </div>
+    </li>
+    <li
+      class="group"
+    >
+      <ul
+        data-testid="select-group"
+      >
+        <li
+          class="title"
+        >
+          Scandinavia
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="no"
+        >
+          <div
+            class="label"
+          >
+            Norway
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="se"
+        >
+          <div
+            class="label"
+          >
+            Sweden
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Select Component Can render correctly, closed and open 2`] = `
+<div
+  class="
+        select-nm medium 
+         
+        
+      "
+  data-testid="select"
+>
+  <button
+    aria-disabled="false"
+    aria-errormessage="error"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-invalid="false"
+    aria-required="false"
+    class="btn  "
+    type="button"
+  >
+    <div
+      class="label"
+    >
+      <div
+        class="placeholder"
+      >
+        Country
+      </div>
+    </div>
+    <svg
+      class="arrow-icon"
+    />
+  </button>
+  <ul
+    aria-label="Country"
+    aria-multiselectable="false"
+    class="options "
+    role="listbox"
+    tabindex="-1"
+  >
+    <li
+      aria-disabled="false"
+      aria-selected="false"
+      class="option"
+      role="option"
+      tabindex="-1"
+      value="us"
+    >
+      <div
+        class="label"
+      >
+        United States
+      </div>
+    </li>
+    <li
+      class="group"
+    >
+      <ul
+        data-testid="select-group"
+      >
+        <li
+          class="title"
+        >
+          Scandinavia
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="no"
+        >
+          <div
+            class="label"
+          >
+            Norway
+          </div>
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="false"
+          class="option"
+          role="option"
+          tabindex="-1"
+          value="se"
+        >
+          <div
+            class="label"
+          >
+            Sweden
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
