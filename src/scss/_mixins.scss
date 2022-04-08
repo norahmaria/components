@@ -47,8 +47,11 @@
       background: scale-color($color, $lightness: 50%);
     }
 
-    &.click {
-      @include one-pulse(scale-color($color, $lightness: -50%), $withBorder: true);
+    &.clicked-true {
+      @include one-pulse(
+        scale-color($color, $lightness: -50%),
+        $withBorder: true
+      );
     }
   } @else {
     background: $color;
@@ -60,7 +63,7 @@
       background: rgb($color, 0.85);
     }
 
-    &.click {
+    &.clicked-true {
       @include one-pulse($color);
     }
   }
@@ -88,7 +91,7 @@
       background: scale-color($color, $lightness: 40%);
     }
 
-    &.click {
+    &.clicked-true {
       @include one-pulse(scale-color($color, $lightness: -50%));
     }
   } @else {
@@ -112,7 +115,7 @@
       background: scale-color($color, $lightness: 92.5%);
     }
 
-    &.click {
+    &.clicked-true {
       @include one-pulse($color);
     }
   }
@@ -140,8 +143,11 @@
       background: scale-color($color, $lightness: -2.5%);
     }
 
-    &.click {
-      @include one-pulse(scale-color($black, $lightness: 20%), $withBorder: true);
+    &.clicked-true {
+      @include one-pulse(
+        scale-color($black, $lightness: 20%),
+        $withBorder: true
+      );
     }
   } @else {
     background: scale-color($color, $saturation: 5%, $lightness: 90%);
@@ -164,7 +170,7 @@
       background: scale-color($color, $saturation: 5%, $lightness: 80%);
     }
 
-    &.click {
+    &.clicked-true {
       @include one-pulse($color, $withBorder: true);
     }
   }

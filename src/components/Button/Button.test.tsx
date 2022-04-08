@@ -25,10 +25,10 @@ describe('Button Component', () => {
     const button = getByRole('button')
 
     button.click()
-    expect(button).toHaveClass('click')
+    expect(button).toHaveClass('clicked-true')
 
     await waitFor(() => {
-      expect(button).not.toHaveClass('click')
+      expect(button).not.toHaveClass('clicked-true')
     })
   })
 

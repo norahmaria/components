@@ -5,9 +5,6 @@ import './Button.scss'
 // TODO: Look into adding a lil tooltip box explaining why a btn is disabled
 // TODO: Look into attached buttons: https://ant.design/components/button/#components-button-demo-multiple
 
-// FIX: Test passes even if disabled is not working
-// FIX: Disabled is not passed properly
-
 const Button = ({
   leftIcon,
   rightIcon,
@@ -43,20 +40,22 @@ const Button = ({
   }
 
   const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon
-  const right = typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
+  const right =
+    typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
 
   return (
     <button
       {...props}
       onClick={click}
-      className={`${getClasses()} ${clicked ? 'click' : ''} ${
-        isLoading ? 'btn-nm-loading' : ''
-      }`}
+      className={`${getClasses()} clicked-${clicked} loading-${isLoading}`}
       style={{ width: fullWidth ? '100%' : 'max-content' }}
     >
       {isLoading ? (
         <>
-          <div data-testid="btn-loading-icon" className="btn-nm-loading-icon"></div>{' '}
+          <div
+            data-testid="btn-loading-icon"
+            className="btn-nm-loading-icon"
+          ></div>{' '}
           Loading
         </>
       ) : (

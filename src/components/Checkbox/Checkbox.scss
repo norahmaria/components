@@ -24,24 +24,24 @@
 .checkbox-nm input + label::before {
   content: '';
   position: absolute;
-  height: 1.25rem;
-  width: 1.25rem;
   left: 0;
   top: 0;
 
   border: 1px solid darken($neutral700, 10%);
-  box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
-  border-radius: $br * 1.5;
+  border-radius: $br;
 
-  transition: border 0.25s $cubic, background 0.25s $cubic, box-shadow 0.25s $cubic;
+  box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
+
+  transition: border 0.25s $cubic, background 0.25s $cubic,
+    box-shadow 0.25s $cubic;
+}
+
+.checkbox-nm.round-true input + label::before {
+  border-radius: 100%;
 }
 
 .checkbox-nm input + label svg {
   position: absolute;
-  height: 1rem;
-  width: 1rem;
-  left: 0.125rem;
-  top: 0.125rem;
 
   border: 0;
   padding: 0.2rem;
@@ -57,14 +57,68 @@
   }
 }
 
-.checkbox-nm label {
-  padding-left: 1.85rem;
-  line-height: 1.25rem;
-  font-size: 0.95rem;
-}
-
 .checkbox-nm input:checked + label svg {
   opacity: 1;
+}
+
+.checkbox-nm.small {
+  input + label::before {
+    height: 1rem;
+    width: 1rem;
+    top: 0.15rem;
+  }
+
+  input + label svg {
+    height: 0.85rem;
+    width: 0.85rem;
+    left: 0.075rem;
+    top: 0.2rem;
+  }
+
+  input + label {
+    padding-left: 1.6rem;
+    font-size: 0.875rem;
+  }
+}
+
+.checkbox-nm.medium {
+  input + label::before {
+    height: 1.1rem;
+    width: 1.1rem;
+    top: 0.025rem;
+  }
+
+  input + label svg {
+    height: 0.9rem;
+    width: 0.9rem;
+    left: 0.1rem;
+    top: 0.125rem;
+  }
+
+  input + label {
+    padding-left: 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+.checkbox-nm.large {
+  input + label::before {
+    height: 1.25rem;
+    width: 1.25rem;
+    top: 0.025rem;
+  }
+
+  input + label svg {
+    height: 1rem;
+    width: 1rem;
+    left: 0.125rem;
+    top: 0.135rem;
+  }
+
+  input + label {
+    padding-left: 1.9rem;
+    font-size: 1.15rem;
+  }
 }
 
 @each $name, $color in $colors {
@@ -79,7 +133,11 @@
       input:active + label::before,
       input:hover + label::before {
         border: 1px solid scale-color($color, $lightness: -50%);
-        box-shadow: 0 0 0.5px 2.5px rgba(scale-color($color, $lightness: -50%), 0.4);
+        box-shadow: 0
+          0
+          0.5px
+          2.5px
+          rgba(scale-color($color, $lightness: -50%), 0.4);
       }
 
       input + label svg path {
@@ -104,8 +162,8 @@
 
 .checkbox-nm input:disabled {
   & + label::before {
-    background: darken($white, 3%);
-    border: 1px solid #e8e8e8;
+    background: darken($white, 5%);
+    border: 1px solid #d9d9d9;
     color: #898a8a;
     cursor: not-allowed;
   }
@@ -120,7 +178,7 @@
   &:focus-visible + label::before,
   &:active + label::before,
   &:hover + label::before {
-    border: 1px solid #e8e8e8;
+    border: 1px solid #d9d9d9;
     box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
   }
 

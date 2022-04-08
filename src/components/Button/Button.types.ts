@@ -11,6 +11,7 @@ interface ButtonProps
   leftIcon?: JSX.Element | string
   rightIcon?: JSX.Element | string
   isLoading?: boolean
+  children?: string
 }
 
 export default ButtonProps

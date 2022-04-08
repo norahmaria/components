@@ -11,16 +11,21 @@ import { ReactComponent as InboxIcon } from '../../assets/Inbox.svg'
 import SelectProps from './Select.types'
 import Children from './helpers/Children'
 
-// TODO:
-// Style actual multiselected shit
-// Additional label for accessibility
+// TODO: Set classes to follow open-true / open-false format
+// rather than include open class or not
 
-// Required
-// Searching
-// Add new items to select
-// Copy Paste
-// Clearing one by one
-// Navigate with key up and down
+// TODO: Re-consider group styling
+// TODO: Additional label for accesibility
+// TODO: Up/down arrows to navigate lists
+
+// ERROR: Re-check accessibility ARIA label rules
+// due to Storybook Warnings
+
+// Consider:
+// -- Searching
+// -- Add/remove items from select
+// -- Copy/pase
+// -- Clear one by one, not just all
 
 const Select = ({
   multiple = false,
@@ -46,7 +51,9 @@ const Select = ({
       const selectedIndex = modify.indexOf(value)
 
       if (multiple) {
-        selectedIndex > -1 ? modify.splice(selectedIndex, 1) : modify.push(value)
+        selectedIndex > -1
+          ? modify.splice(selectedIndex, 1)
+          : modify.push(value)
       } else {
         if (modify[0] === value) {
           modify = []
@@ -103,7 +110,11 @@ const Select = ({
                       )
                   })
                 } else if (selected.includes(value)) {
-                  return <div className={multiple ? 'tag' : 'selected'}>{children}</div>
+                  return (
+                    <div className={multiple ? 'tag' : 'selected'}>
+                      {children}
+                    </div>
+                  )
                 }
               }
             })

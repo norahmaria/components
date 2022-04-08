@@ -4,15 +4,11 @@ import './Checkbox.scss'
 
 import { ReactComponent as CheckMarkIcon } from '../../assets/Checkmark.svg'
 
-// style sizes
-// label PLACEMENT option (look at the types!!)
-// add unique ids for ids
+// TODO: Label placement
+// TODO: Unique IDs
 
-// look into indeterminate (mui)
-
-// [X] add color options
-// [X] onclick event
-// [X] add disabled option
+// Consider
+// -- Indeterminate
 
 const Checkbox = ({
   disabled,
@@ -20,6 +16,7 @@ const Checkbox = ({
   onCheckboxChange,
   size = 'medium',
   color = 'primary',
+  round = false,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(false)
   const checkbox = useRef<HTMLInputElement>(null)
@@ -34,9 +31,7 @@ const Checkbox = ({
     })
   }, [])
 
-  useEffect(() => {
-    onCheckboxChange(checked)
-  }, [checked])
+  useEffect(() => onCheckboxChange(checked), [checked])
 
   return (
     <div className={`checkbox-nm ${size} ${color}`}>

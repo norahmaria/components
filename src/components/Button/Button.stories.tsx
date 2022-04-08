@@ -1,13 +1,13 @@
 import { Story } from '@storybook/react'
 import React from 'react'
 
-import { Button } from '../../components'
+import { Button as ButtonComponent } from '../../components'
 import ButtonProps from './Button.types'
 import hideControls from '../../helpers/storybook/hideControls'
 
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
 
-const hiddenProperties = hideControls(['rightIcon', 'leftIcon', 'onClick'])
+const hiddenProperties = hideControls(['rightIcon', 'leftIcon'])
 
 export default {
   title: 'Button',
@@ -65,13 +65,38 @@ export default {
         type: { summary: 'React.ReactNode' },
       },
     },
+    disabled: {
+      description: 'Whether to disable the button or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    isLoading: {
+      description: 'Is button loading or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onClick: {
+      description:
+        'The function to call when the button is clicked, the parameter will give you the event',
+      table: {
+        type: {
+          summary:
+            '(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void',
+        },
+      },
+    },
     ...hiddenProperties,
   },
 }
 
-const ButtonStory: Story<ButtonProps> = args => <Button {...args} />
+const ButtonStory: Story<ButtonProps> = args => <ButtonComponent {...args} />
 
-const sharedArgs: ButtonProps = {
+export const Button: Story<ButtonProps> = ButtonStory.bind({})
+Button.args = {
   children: 'Hello World',
   rightIcon: null,
   leftIcon: <Arrow />,
@@ -82,36 +107,7 @@ const sharedArgs: ButtonProps = {
   onClick: clicked => {
     console.log(clicked)
   },
-}
-
-export const Default: Story<ButtonProps> = ButtonStory.bind({})
-Default.args = {
-  ...sharedArgs,
   variant: 'default',
-}
-
-export const Secondary: Story<ButtonProps> = ButtonStory.bind({})
-Secondary.args = {
-  ...sharedArgs,
-  variant: 'secondary',
-}
-
-export const Outlined: Story<ButtonProps> = ButtonStory.bind({})
-Outlined.args = {
-  ...sharedArgs,
-  variant: 'outlined',
-}
-
-export const Disabled: Story<ButtonProps> = ButtonStory.bind({})
-Disabled.args = {
-  ...sharedArgs,
-  variant: 'default',
-  disabled: true,
-}
-
-export const Loading: Story<ButtonProps> = ButtonStory.bind({})
-Loading.args = {
-  ...sharedArgs,
-  variant: 'default',
-  isLoading: true,
+  disabled: false,
+  isLoading: false,
 }

@@ -9,6 +9,7 @@ interface CheckboxProps {
   onCheckboxChange: (checked: boolean) => void
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
+  round?: boolean
 }
 
 export default CheckboxProps
