@@ -11,9 +11,6 @@ import { ReactComponent as InboxIcon } from '../../assets/Inbox.svg'
 import SelectProps from './Select.types'
 import Children from './helpers/Children'
 
-// TODO: Set classes to follow open-true / open-false format
-// rather than include open class or not
-
 // TODO: Re-consider group styling
 // TODO: Additional label for accesibility
 // TODO: Up/down arrows to navigate lists
@@ -71,17 +68,18 @@ const Select = ({
       data-testid="select"
       className={`
         select-nm ${size} 
+        disabled-${disabled}
         ${status && status.type ? status.type : ''} 
-        ${disabled ? 'disabled' : ''}
       `}
       ref={container}
       {...props}
     >
       <button
         type="button"
-        className={`btn ${isOpen ? 'open' : ''} ${
-          multiple && selected.length ? 'includes-tags' : ''
-        }`}
+        className={`
+          btn open-${isOpen} 
+          includes-tags-${!!(multiple && selected.length)}
+        `}
         aria-haspopup="listbox"
         aria-errormessage="error"
         aria-disabled={disabled}
@@ -144,7 +142,7 @@ const Select = ({
       </button>
 
       <ul
-        className={`options ${isOpen ? 'open' : ''}`}
+        className={`options open-${isOpen}`}
         role="listbox"
         aria-label={label}
         aria-multiselectable={multiple}
