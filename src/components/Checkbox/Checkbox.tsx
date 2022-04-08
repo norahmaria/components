@@ -4,19 +4,17 @@ import './Checkbox.scss'
 
 import { ReactComponent as CheckMarkIcon } from '../../assets/Checkmark.svg'
 
-// TODO: Label placement
-// TODO: Unique IDs
-
 // Consider
 // -- Indeterminate
 
 const Checkbox = ({
-  disabled,
+  id,
+  disabled = false,
   label,
+  labelPlacement = 'right',
   onCheckboxChange,
   size = 'medium',
   color = 'primary',
-  round = false,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(false)
   const checkbox = useRef<HTMLInputElement>(null)
@@ -31,21 +29,31 @@ const Checkbox = ({
     })
   }, [])
 
-  useEffect(() => onCheckboxChange(checked), [checked])
+  useEffect(() => {
+    if (!disabled) onCheckboxChange(checked)
+  }, [checked])
 
   return (
-    <div className={`checkbox-nm ${size} ${color}`}>
+    <div
+      className={`checkbox-nm ${size} ${color}`}
+      data-testid="checkbox-wrapper"
+    >
       <input
         ref={checkbox}
         disabled={disabled}
         onChange={onChange}
-        id="a11y-issue-1"
+        id={id}
         type="checkbox"
         checked={checked}
+        data-testid="checkbox-input"
       />
-      <label htmlFor="a11y-issue-1">
+      <label
+        htmlFor={id}
+        className={labelPlacement}
+        data-testid="checkbox-label"
+      >
         <CheckMarkIcon />
-        {typeof label === 'string' ? label : label.text}
+        {label}
       </label>
     </div>
   )

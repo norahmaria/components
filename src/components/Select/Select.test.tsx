@@ -53,15 +53,15 @@ describe('Select Component', () => {
     const [toggleButton] = getAllByRole('button')
     const options = getByRole('listbox')
 
-    expect(toggleButton).not.toHaveClass('open')
+    expect(toggleButton).not.toHaveClass('open-true')
     expect(toggleButton).not.toHaveAttribute('aria-expanded', 'true')
 
     toggleButton.click()
 
-    expect(toggleButton).toHaveClass('open')
+    expect(toggleButton).toHaveClass('open-true')
     expect(toggleButton).toHaveAttribute('aria-expanded', 'true')
 
-    expect(options).toHaveClass('open')
+    expect(options).toHaveClass('open-true')
   })
 
   it('Groups options properly', () => {
@@ -69,7 +69,9 @@ describe('Select Component', () => {
 
     expect(getByTestId('select-group').children).toHaveLength(3)
 
-    expect(getByTestId('select-group').children[0]).toHaveTextContent('Scandinavia')
+    expect(getByTestId('select-group').children[0]).toHaveTextContent(
+      'Scandinavia'
+    )
     expect(getByTestId('select-group').children[1]).toHaveTextContent('Norway')
     expect(getByTestId('select-group').children[2]).toHaveTextContent('Sweden')
   })

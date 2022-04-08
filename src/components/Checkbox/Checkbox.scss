@@ -9,23 +9,62 @@
   position: relative;
 }
 
-.checkbox-nm input {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
+.checkbox-nm label {
+  display: flex;
+  gap: 0.55em;
+  line-height: 1;
+
+  & + &::before {
+    cursor: pointer;
+  }
+
+  &.left,
+  &.right {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  &.left {
+    flex-direction: row-reverse;
+  }
+
+  &.top,
+  &.bottom {
+    display: grid;
+    justify-items: center;
+  }
+
+  &.top {
+    &::after {
+      content: none;
+    }
+  }
+
+  &.bottom {
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
 }
 
-.checkbox-nm input + label::before,
-.checkbox-nm input + label {
+.checkbox-nm,
+.checkbox-nm label {
+  width: max-content;
   cursor: pointer;
 }
 
-.checkbox-nm input + label::before {
+.checkbox-nm label::before,
+.checkbox-nm label::after {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
+  display: block;
 
   border: 1px solid darken($neutral700, 10%);
   border-radius: $br;
@@ -36,24 +75,23 @@
     box-shadow 0.25s $cubic;
 }
 
-.checkbox-nm.round-true input + label::before {
-  border-radius: 100%;
-}
+.checkbox-nm label {
+  svg {
+    position: absolute;
 
-.checkbox-nm input + label svg {
-  position: absolute;
+    border: 0;
+    padding: 0.2rem;
+    z-index: 5;
 
-  border: 0;
-  padding: 0.2rem;
+    transition: opacity 0.25s $cubic;
+    opacity: 0;
 
-  transition: opacity 0.25s $cubic;
-  opacity: 0;
-
-  path {
-    fill: $white;
-    stroke: $white;
-    stroke-width: 2px;
-    stroke-linejoin: round;
+    path {
+      fill: $white;
+      stroke: $white;
+      stroke-width: 2px;
+      stroke-linejoin: round;
+    }
   }
 }
 
@@ -62,61 +100,76 @@
 }
 
 .checkbox-nm.small {
-  input + label::before {
+  label::before,
+  label::after {
     height: 1rem;
     width: 1rem;
-    top: 0.15rem;
   }
 
-  input + label svg {
+  label svg {
     height: 0.85rem;
     width: 0.85rem;
     left: 0.075rem;
-    top: 0.2rem;
+    top: 0.1rem;
   }
 
-  input + label {
-    padding-left: 1.6rem;
+  label {
     font-size: 0.875rem;
   }
 }
 
 .checkbox-nm.medium {
-  input + label::before {
+  label::before,
+  label::after {
     height: 1.1rem;
     width: 1.1rem;
-    top: 0.025rem;
   }
 
-  input + label svg {
-    height: 0.9rem;
-    width: 0.9rem;
-    left: 0.1rem;
-    top: 0.125rem;
+  label {
+    svg {
+      height: 0.9rem;
+      width: 0.9rem;
+    }
+
+    &.right svg,
+    &.left svg,
+    &.top svg {
+      top: 0.115rem;
+    }
+
+    &.right svg {
+      left: 0.1rem;
+    }
+
+    &.left svg {
+      right: 0.1rem;
+    }
+
+    &.bottom svg {
+      bottom: 0.075rem;
+    }
   }
 
-  input + label {
-    padding-left: 1.75rem;
+  label {
     font-size: 1rem;
   }
 }
 
 .checkbox-nm.large {
-  input + label::before {
+  label::before,
+  label::after {
     height: 1.25rem;
     width: 1.25rem;
-    top: 0.025rem;
   }
 
-  input + label svg {
+  label svg {
     height: 1rem;
     width: 1rem;
     left: 0.125rem;
     top: 0.135rem;
   }
 
-  input + label {
-    padding-left: 1.9rem;
+  label {
     font-size: 1.15rem;
   }
 }
@@ -124,14 +177,18 @@
 @each $name, $color in $colors {
   .checkbox-nm.#{$name} {
     @if $name == 'neutral' {
-      input:checked + label::before {
+      input:checked + label::before,
+      input:checked + label::after {
         border: 1px solid scale-color($color, $lightness: 20%);
         background: scale-color($color, $lightness: 50%);
       }
 
       input:focus-visible + label::before,
       input:active + label::before,
-      input:hover + label::before {
+      input:hover + label::before,
+      input:focus-visible + label::after,
+      input:active + label::after,
+      input:hover + label::after {
         border: 1px solid scale-color($color, $lightness: -50%);
         box-shadow: 0
           0
@@ -140,19 +197,23 @@
           rgba(scale-color($color, $lightness: -50%), 0.4);
       }
 
-      input + label svg path {
+      label svg path {
         fill: $black;
         stroke: $black;
       }
     } @else {
-      input:checked + label::before {
+      input:checked + label::before,
+      input:checked + label::after {
         background-color: $color;
         border: 1px solid $color;
       }
 
       input:focus-visible + label::before,
       input:active + label::before,
-      input:hover + label::before {
+      input:hover + label::before,
+      input:focus-visible + label::after,
+      input:active + label::after,
+      input:hover + label::after {
         border: 1px solid $color;
         box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
       }
@@ -160,29 +221,36 @@
   }
 }
 
-.checkbox-nm input:disabled {
-  & + label::before {
-    background: darken($white, 5%);
-    border: 1px solid #d9d9d9;
-    color: #898a8a;
-    cursor: not-allowed;
-  }
+.checkbox-nm input {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
 
-  & + label svg {
-    path {
-      fill: #898a8a;
-      stroke: #898a8a;
+  &:disabled {
+    & + label::before {
+      background: darken($white, 5%);
+      border: 1px solid #d9d9d9;
+      color: #898a8a;
+      cursor: not-allowed;
     }
-  }
 
-  &:focus-visible + label::before,
-  &:active + label::before,
-  &:hover + label::before {
-    border: 1px solid #d9d9d9;
-    box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
-  }
+    & + label svg {
+      path {
+        fill: #898a8a;
+        stroke: #898a8a;
+      }
+    }
 
-  & + label {
-    cursor: not-allowed;
+    &:focus-visible + label::before,
+    &:active + label::before,
+    &:hover + label::before {
+      border: 1px solid #d9d9d9;
+      box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
+    }
+
+    & + label {
+      cursor: not-allowed;
+    }
   }
 }

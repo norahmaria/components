@@ -5,7 +5,7 @@ import { Checkbox as CheckboxComponent } from '../../components'
 import CheckboxProps from './Checkbox.types'
 
 export default {
-  title: 'Checkbox',
+  title: 'Inputs/Checkbox',
   argTypes: {
     size: {
       description: 'The size of the checkbox and label',
@@ -35,6 +35,17 @@ export default {
         type: { summary: 'string' },
       },
     },
+    labelPlacement: {
+      description: 'Where to place the checkbox label',
+      table: {
+        type: { summary: 'top | right | bottom | left' },
+        defaultValue: { summary: 'right' },
+      },
+      control: {
+        type: 'select',
+        options: ['top', 'right', 'bottom', 'left'],
+      },
+    },
     onCheckboxChange: {
       description:
         'The function to call when checkbox is changed, the parameter will give you the value of the checkbox',
@@ -42,22 +53,10 @@ export default {
         type: { summary: '(checked: boolean) => void' },
       },
     },
-    // variant: {
-    //   description: 'The variant of the button',
-    //   table: {
-    //     type: { summary: 'default | secondary | outlined' },
-    //     defaultValue: { summary: 'default' },
-    //   },
-    //   control: {
-    //     type: 'select',
-    //     options: ['default', 'secondary', 'outlined'],
-    //   },
-    // },
-    round: {
-      description: 'Use rounded corners on the checkbox or not',
+    id: {
+      description: `The unique id to use for the checkbox and for the label for attribute`,
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        type: { summary: 'string' },
       },
     },
     disabled: {
@@ -77,9 +76,10 @@ const CheckboxStory: Story<CheckboxProps> = args => (
 export const Checkbox: Story<CheckboxProps> = CheckboxStory.bind({})
 Checkbox.args = {
   label: 'Checkbox',
-  color: 'success',
-  size: 'small',
+  labelPlacement: 'right',
+  color: 'primary',
+  size: 'medium',
   disabled: false,
-  round: false,
+  id: 'checkbox',
   onCheckboxChange: checked => console.log(checked),
 }

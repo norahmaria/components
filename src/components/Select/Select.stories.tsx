@@ -31,7 +31,7 @@ import { ReactComponent as Sweden } from '../../assets/Flags/SE.svg'
 const hiddenProperties = hideControls(['style'])
 
 export default {
-  title: 'Select',
+  title: 'Inputs/Select',
   parameters: {
     a11y: {
       config: {

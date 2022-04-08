@@ -258,8 +258,8 @@
   margin-bottom: 0;
   transform: translateY(0.75rem);
 
-  transition: max-height 0.25s ease-in-out, border 0.25s $cubic, box-shadow 1.5s $cubic,
-    opacity 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out, border 0.25s $cubic,
+    box-shadow 1.5s $cubic, opacity 0.25s ease-in-out;
   box-shadow: 0 0 0.5px 0 transparent;
 
   background-color: $white;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox Component Can render 1`] = `
+<div
+  class="checkbox-nm medium primary"
+  data-testid="checkbox-wrapper"
+>
+  <input
+    data-testid="checkbox-input"
+    id="checkbox"
+    type="checkbox"
+  />
+  <label
+    class="right"
+    data-testid="checkbox-label"
+    for="checkbox"
+  >
+    <svg />
+    Checkbox
+  </label>
+</div>
+`;
