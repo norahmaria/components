@@ -39,18 +39,18 @@
   }
 
   &.top {
-    &::after {
-      content: none;
-    }
-  }
-
-  &.bottom {
     &::before {
       content: none;
     }
 
     &::after {
       content: '';
+    }
+  }
+
+  &.bottom {
+    &::after {
+      content: none;
     }
   }
 }
