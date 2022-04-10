@@ -1,0 +1,41 @@
+@use '../../scss/mixins';
+@use '../../scss/keyframes';
+@use '../../scss/resets' as *;
+@use '../../scss/variables' as *;
+
+@include resets('.radio-nm');
+
+.radio-nm {
+  display: grid;
+  gap: 1rem;
+  width: max-content;
+}
+
+.radio-nm {
+  .title {
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+  }
+
+  &.disabled-true {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &.horizontal-false {
+    &.vertical-label-true {
+      justify-items: center;
+    }
+  }
+
+  &.horizontal-true {
+    .title {
+      flex-basis: 100%;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
