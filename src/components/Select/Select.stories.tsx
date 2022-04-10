@@ -91,7 +91,7 @@ export default {
       },
     },
     children: {
-      description: `The component expects you to use Select.Option or Select.Group as it's children`,
+      description: `The component expects you to use Select.Option or Select.Group as it's children. Options accepts the props: value (string | number, required), leftIcon (svg | string), rightIcon (svg | string), and disabled (boolean). While a Group needs a title (string), and Options as children.`,
       table: {
         type: {
           summary: `custom`,
@@ -103,7 +103,7 @@ export default {
       table: {
         type: {
           summary: `{
-            type: 'warning' | 'error'
+            type: 'warning' | 'error',
             message: string
           } | null`,
         },

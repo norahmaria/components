@@ -1,5 +1,8 @@
 interface OptionProps
-  extends React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
+  extends React.DetailedHTMLProps<
+    React.LiHTMLAttributes<HTMLLIElement>,
+    HTMLLIElement
+  > {
   value: string | number
   selected?: boolean
   leftIcon?: JSX.Element | string

@@ -6,7 +6,6 @@ import OptionProps from './Option.types'
 
 const Option = ({
   value,
-  selected,
   leftIcon,
   rightIcon,
   disabled = false,
@@ -15,7 +14,8 @@ const Option = ({
   const ref = useRef<HTMLLIElement>(null)
 
   const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon
-  const right = typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
+  const right =
+    typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
 
   return (
     <li
@@ -31,7 +31,7 @@ const Option = ({
         {props.children}
         {rightIcon && right}
       </div>
-      {selected && <CheckMarkIcon className="check-icon" />}
+      {props.selected && <CheckMarkIcon className="check-icon" />}
     </li>
   )
 }

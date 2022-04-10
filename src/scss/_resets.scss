@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @mixin resets($selector) {
@@ -11,5 +13,7 @@
 
   #{$selector} {
     font-family: 'Inter', sans-serif;
+    color: $black;
+    font-weight: 350;
   }
 }

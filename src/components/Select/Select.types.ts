@@ -1,8 +1,8 @@
-import OptionProps from './components/Option.types'
-import GroupProps from './components/Option.types'
-
 interface SelectProps
-  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   multiple?: boolean
   required?: boolean
   disabled?: boolean
@@ -13,10 +13,6 @@ interface SelectProps
   } | null
   label: string
   onSelectionChange: (selected: (string | number)[]) => void
-  // children?:
-  //   | (React.ReactElement<OptionProps> | React.ReactElement<GroupProps>)[]
-  //   | React.ReactElement<OptionProps>
-  //   | React.ReactElement<GroupProps>
 }
 
 export default SelectProps
