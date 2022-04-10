@@ -133,7 +133,7 @@
 
     &.right svg,
     &.left svg,
-    &.top svg {
+    &.bottom svg {
       top: 0.115rem;
     }
 
@@ -145,7 +145,7 @@
       right: 0.1rem;
     }
 
-    &.bottom svg {
+    &.top svg {
       bottom: 0.075rem;
     }
   }
