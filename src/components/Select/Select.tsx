@@ -2,18 +2,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Select.scss'
 
 import useOutsideClick from '../../hooks/useOutsideClick'
-import { ReactComponent as ArrowIcon } from '../../assets/Arrow_Down.svg'
-import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
-import { ReactComponent as ErrorIcon } from '../../assets/Error.svg'
-import { ReactComponent as WarningIcon } from '../../assets/Warning.svg'
-import { ReactComponent as InboxIcon } from '../../assets/Inbox.svg'
+import useOnKeyDown from './hooks/useOnKeyDown'
+
+import Group from './Components/Group'
+import ExtendedOption from './helpers/ExtendedOption'
+import Button from './Components/Private/Button'
 
 import SelectProps from './Select.types'
-import Children from './helpers/Children'
 
-// TODO: Re-consider group styling
 // TODO: Additional label for accesibility
 // TODO: Up/down arrows to navigate lists
+// TODO: Add color options
 
 // ERROR: Re-check accessibility ARIA label rules
 // due to Storybook Warnings
@@ -32,25 +31,25 @@ const Select = ({
   onSelectionChange,
   status,
   size = 'medium',
+  color = 'primary',
   ...props
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState<(string | number)[]>([])
   const container = useRef<HTMLDivElement>(null)
 
-  const toggleOptions = () => setIsOpen(prev => !prev)
+  const onKeyDown = useOnKeyDown({ updateSelected, setSelected, setIsOpen, multiple })
+
   useOutsideClick(container, '.select', () => setIsOpen(false))
   useEffect(() => onSelectionChange(selected), [selected])
 
-  const updateSelected = (value: number | string) => {
+  function updateSelected(value: number | string) {
     setSelected(prev => {
       let modify = [...prev]
       const selectedIndex = modify.indexOf(value)
 
       if (multiple) {
-        selectedIndex > -1
-          ? modify.splice(selectedIndex, 1)
-          : modify.push(value)
+        selectedIndex > -1 ? modify.splice(selectedIndex, 1) : modify.push(value)
       } else {
         if (modify[0] === value) {
           modify = []
@@ -63,83 +62,50 @@ const Select = ({
     })
   }
 
+  const createProps = (value: string | number, disabled?: boolean) => {
+    return {
+      tabIndex: disabled ? -1 : isOpen ? (disabled ? -1 : 0) : -1,
+      selected: selected.includes(value),
+      onKeyDown: onKeyDown(value),
+      onClick: () => {
+        if (!disabled) {
+          updateSelected(value)
+          if (!multiple) setIsOpen(false)
+        }
+      },
+    }
+  }
+
+  const clear = () => {
+    setSelected([])
+    setTimeout(() => setIsOpen(required))
+  }
+
   return (
     <div
+      {...props}
       data-testid="select"
+      ref={container}
       className={`
-        select-nm ${size} 
+        select-nm ${size} ${color}
         disabled-${disabled}
         ${status && status.type ? status.type : ''} 
-      `}
-      ref={container}
-      {...props}
-    >
-      <button
-        type="button"
-        className={`
-          btn open-${isOpen} 
-          includes-tags-${!!(multiple && selected.length)}
-        `}
-        aria-haspopup="listbox"
-        aria-errormessage="error"
-        aria-disabled={disabled}
+      `}>
+      <div className="form-label">{label}</div>
+
+      <Button
+        isOpen={isOpen}
+        multiple={multiple}
+        selected={selected}
         disabled={disabled}
-        aria-invalid={!!status}
-        aria-expanded={isOpen}
-        aria-required={required}
-        onClick={toggleOptions}
-        onKeyDown={e => {
-          if (e.key === 'Backspace') setSelected([])
-        }}
-      >
-        <div className="label">
-          {selected.length ? (
-            React.Children.map(props.children, child => {
-              if (React.isValidElement(child)) {
-                const { children, value, title } = child.props
-
-                if (title) {
-                  return React.Children.map(children, nested => {
-                    if (selected.includes(nested.props.value))
-                      return (
-                        <div className={multiple ? 'tag' : 'selected'}>
-                          {nested.props.children}
-                        </div>
-                      )
-                  })
-                } else if (selected.includes(value)) {
-                  return (
-                    <div className={multiple ? 'tag' : 'selected'}>
-                      {children}
-                    </div>
-                  )
-                }
-              }
-            })
-          ) : (
-            <div className="placeholder">{label}</div>
-          )}
-        </div>
-
-        {status?.type === 'error' ? (
-          <ErrorIcon className="error-icon" />
-        ) : status?.type === 'warning' ? (
-          <WarningIcon className="warning-icon" />
-        ) : selected.length ? (
-          <CloseIcon
-            data-testid="close-icon"
-            role="button"
-            aria-label="Clear selected"
-            className="close-icon"
-            onClick={() => {
-              setSelected([])
-              setTimeout(() => setIsOpen(required))
-            }}
-          />
-        ) : (
-          <ArrowIcon className="arrow-icon" />
-        )}
-      </button>
+        required={required}
+        status={status}
+        label={label}
+        labelChildren={props.children}
+        onClick={() => setIsOpen(prev => !prev)}
+        onKeyDown={e => (e.key === 'Backspace' ? setSelected([]) : () => {})}
+        clear={clear}
+      />
 
       <ul
         className={`options open-${isOpen}`}
@@ -147,23 +113,30 @@ const Select = ({
         aria-label={label}
         aria-multiselectable={multiple}
         aria-activedescendant={selected[selected.length]?.toString()}
-        tabIndex={-1}
-      >
-        {React.Children.count(props.children) ? (
-          <Children
-            isOpen={isOpen}
-            children={props.children}
-            selected={selected}
-            updateSelected={updateSelected}
-            multiple={multiple}
-            setIsOpen={setIsOpen}
-            setSelected={setSelected}
-          />
-        ) : (
-          <li className="empty">
-            <InboxIcon className="inbox-icon" /> No options
-          </li>
-        )}
+        tabIndex={-1}>
+        {React.Children.map(props.children, child => {
+          if (React.isValidElement(child)) {
+            if (child.props.title) {
+              return (
+                <Group {...child.props}>
+                  {React.Children.map(child.props.children, nested => (
+                    <ExtendedOption
+                      {...nested.props}
+                      {...createProps(nested.props.value, nested.props.disabled)}
+                    />
+                  ))}
+                </Group>
+              )
+            } else {
+              return (
+                <ExtendedOption
+                  {...child.props}
+                  {...createProps(child.props.value, child.props.disabled)}
+                />
+              )
+            }
+          }
+        })}
       </ul>
 
       {status && (

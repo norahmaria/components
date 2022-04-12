@@ -7,4 +7,5 @@ export const parameters = {
     },
     expanded: true,
   },
+  layout: 'centered',
 }

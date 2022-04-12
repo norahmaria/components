@@ -1,14 +1,14 @@
 import React from 'react'
 
-interface CheckboxProps {
+interface RadioProps {
   name: string
   onRadioChange: (value: string | number | null) => any
+  disabled?: boolean
+  horizontal?: boolean
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
   children: React.ReactChild | React.ReactChild[]
-  disabled?: boolean
-  horizontal?: boolean
 }
 
-export default CheckboxProps
+export default RadioProps

@@ -1,19 +1,15 @@
 import { Story } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { Select as SelectComponent } from '../../components'
+import { Select as SelectComponent } from '..'
 import SelectProps from './Select.types'
 
-import hideControls from '../../helpers/storybook/hideControls'
-
-import { ReactComponent as Andorra } from '../../assets/Flags/AD.svg'
 import { ReactComponent as UnitedArabEmirates } from '../../assets/Flags/AE.svg'
 import { ReactComponent as Afghanistan } from '../../assets/Flags/AF.svg'
-import { ReactComponent as AntiguaAndBarbuda } from '../../assets/Flags/AG.svg'
 import { ReactComponent as Albania } from '../../assets/Flags/AL.svg'
 import { ReactComponent as Armenia } from '../../assets/Flags/AM.svg'
-import { ReactComponent as NetherlandsAntilles } from '../../assets/Flags/AN.svg'
-import { ReactComponent as Angola } from '../../assets/Flags/AO.svg'
 import { ReactComponent as Argentina } from '../../assets/Flags/AR.svg'
 import { ReactComponent as Austria } from '../../assets/Flags/AT.svg'
 import { ReactComponent as Australia } from '../../assets/Flags/AU.svg'
@@ -28,11 +24,16 @@ import { ReactComponent as Norway } from '../../assets/Flags/NO.svg'
 import { ReactComponent as UnitedStates } from '../../assets/Flags/US.svg'
 import { ReactComponent as Sweden } from '../../assets/Flags/SE.svg'
 
-const hiddenProperties = hideControls(['style'])
-
 export default {
   title: 'Inputs/Select',
+  component: SelectComponent,
+  subcomponents: {
+    'Select.Group': SelectComponent.Group,
+    'Select.Option': SelectComponent.Option,
+  },
+
   parameters: {
+    badges: [BADGE.NEEDS_REVISION, BADGE.EXPERIMENTAL],
     a11y: {
       config: {
         rules: [
@@ -45,81 +46,83 @@ export default {
     },
   },
   argTypes: {
-    multiple: {
-      description: 'Allow for multi select',
+    onSelectionChange: {
+      description:
+        'The function to call when selection changes, the parameter will give you the value of the selected item(s)',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    required: {
-      description: 'Set select to be required or not',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    disabled: {
-      description: 'Set select to be disabled or not',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    size: {
-      description: 'The size of the select',
-      table: {
-        type: { summary: 'small | medium | large' },
-        defaultValue: { summary: 'medium' },
-      },
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+        category: 'Actions',
       },
     },
     label: {
       description: 'The select label',
       table: {
-        type: { summary: 'string' },
-      },
-    },
-    onSelectionChange: {
-      description:
-        'The function to call when selection changes, the parameter will give you the value of the selected item(s)',
-      table: {
-        type: { summary: '(selected: (string | number)[]) => void' },
+        category: 'Display',
       },
     },
     children: {
-      description: `The component expects you to use Select.Option or Select.Group as it's children. Options accepts the props: value (string | number, required), leftIcon (svg | string), rightIcon (svg | string), and disabled (boolean). While a Group needs a title (string), and Options as children.`,
+      description:
+        "The component expects you to use **Select.Option or Select.Group** as it's children. Select.Group needs a `title`, while Select.Option needs a `value` and a string as its child, which will be the title.",
+      control: false,
       table: {
-        type: {
-          summary: `custom`,
-        },
+        category: 'Display',
       },
     },
     status: {
       description: 'Error or warning messages',
-      table: {
-        type: {
-          summary: `{
-            type: 'warning' | 'error',
-            message: string
-          } | null`,
-        },
-      },
       control: {
         type: 'object',
       },
+      table: {
+        category: 'Display',
+      },
     },
-    ...hiddenProperties,
+    multiple: {
+      description: 'Allow for multi select',
+    },
+    required: {
+      description:
+        'Set select to be required or not, this will re-open the select whenever it is cleared',
+    },
+    disabled: {
+      description: 'Set select to be disabled or not',
+      table: {
+        category: 'State',
+      },
+    },
+    size: {
+      description: 'The size of the select',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    color: {
+      description: 'The color scheme of the Select',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    style: {
+      table: {
+        disable: true,
+      },
+    },
   },
 }
 
 const SelectStory: Story<SelectProps> = args => (
-  <SelectComponent {...args} onSelectionChange={() => {}}>
+  <SelectComponent
+    {...args}
+    onSelectionChange={selected => {
+      action('onSelectionChange')(selected)
+    }}>
     <SelectComponent.Option leftIcon={<UnitedStates />} value="us">
       United States
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<Australia />} value="au">
+      Australia
+    </SelectComponent.Option>
+    <SelectComponent.Option leftIcon={<Barbados />} value="bb">
+      Barbados
     </SelectComponent.Option>
 
     <SelectComponent.Group title="Europe">
@@ -158,61 +161,30 @@ const SelectStory: Story<SelectProps> = args => (
       </SelectComponent.Option>
     </SelectComponent.Group>
 
-    <SelectComponent.Option leftIcon={<Andorra />} value="ad">
-      Andorra
-    </SelectComponent.Option>
-    <SelectComponent.Option leftIcon={<AntiguaAndBarbuda />} value="ag">
-      Antigua And Barbuda
-    </SelectComponent.Option>
-
-    <SelectComponent.Option leftIcon={<NetherlandsAntilles />} value="an">
-      Netherlands Antilles
-    </SelectComponent.Option>
-    <SelectComponent.Option leftIcon={<Angola />} value="ao">
-      Angola
-    </SelectComponent.Option>
     <SelectComponent.Option leftIcon={<Argentina />} value="ar">
       Argentina
     </SelectComponent.Option>
 
-    <SelectComponent.Option leftIcon={<Australia />} value="au">
-      Australia
-    </SelectComponent.Option>
     <SelectComponent.Option leftIcon={<Aruba />} value="aw">
       Aruba
     </SelectComponent.Option>
 
-    <SelectComponent.Option leftIcon={<Barbados />} value="bb">
-      Barbados
-    </SelectComponent.Option>
     <SelectComponent.Option value="be" leftIcon={<Belgium />}>
       Belgium
     </SelectComponent.Option>
   </SelectComponent>
 )
 
-// SelectStory.parameters = {
-//   a11y: {
-//     config: {
-//       rules: [
-//         {
-//           id: 'scrollable-region-focusable',
-//           enabled: false,
-//         },
-//       ],
-//     },
-//   },
-// }
-
 export const Select: Story<SelectProps> = SelectStory.bind({})
 Select.args = {
+  onSelectionChange: change => {},
   label: 'Country',
-  onSelectionChange: change => {
-    console.log(change)
-  },
+  children: null,
+  status: null,
   multiple: false,
-  size: 'medium',
   style: { width: '18rem' },
   required: false,
   disabled: false,
+  size: 'medium',
+  color: 'primary',
 }

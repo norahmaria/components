@@ -30,8 +30,8 @@
     &:focus-visible,
     &:active {
       outline: none;
-      background: lighten($black, 82.5%);
-      border: 1px solid lighten($black, 82.5%);
+      background: darken($white, 5%);
+      border: 1px solid lighten($black, 75.5%);
       padding-left: 1em;
     }
 
@@ -56,8 +56,6 @@
   }
 
   &[aria-selected='true'] {
-    background: scale-color($primary700, $saturation: 5%, $lightness: 90%);
-    border: 1px solid scale-color($primary700, $saturation: 5%, $lightness: 90%);
     font-weight: 500;
   }
 
@@ -67,5 +65,25 @@
 
   &:last-child {
     margin-bottom: 0.9rem;
+  }
+}
+
+@each $name, $color in $colors {
+  @if $name == 'neutral' {
+    .select-nm.#{$name} > .options > .option,
+    .select-nm.#{$name} > .options > .group .option {
+      &[aria-selected='true'] {
+        background: scale-color($color, $saturation: 5%, $lightness: 50%);
+        border: 1px solid scale-color($color, $saturation: 5%, $lightness: 50%);
+      }
+    }
+  } @else {
+    .select-nm.#{$name} > .options > .option,
+    .select-nm.#{$name} > .options > .group .option {
+      &[aria-selected='true'] {
+        background: scale-color($color, $saturation: 5%, $lightness: 90%);
+        border: 1px solid scale-color($color, $saturation: 5%, $lightness: 90%);
+      }
+    }
   }
 }

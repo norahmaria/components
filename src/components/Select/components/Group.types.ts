@@ -1,13 +1,8 @@
 import React from 'react'
-import OptionProps from './Option.types'
 
-interface GroupProps
-  extends React.DetailedHTMLProps<
-    React.LiHTMLAttributes<HTMLLIElement>,
-    HTMLLIElement
-  > {
+interface GroupProps {
   title: string
-  // children?: React.ReactElement<OptionProps>[] | React.ReactElement<OptionProps>[]
+  children: React.ReactChild | React.ReactChild[]
 }
 
 export default GroupProps

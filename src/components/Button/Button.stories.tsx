@@ -1,113 +1,117 @@
 import { Story } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
 import { Button as ButtonComponent } from '../../components'
 import ButtonProps from './Button.types'
-import hideControls from '../../helpers/storybook/hideControls'
 
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
 
-const hiddenProperties = hideControls(['rightIcon', 'leftIcon'])
-
 export default {
   title: 'Button',
+  component: ButtonComponent,
+  parameters: {
+    badges: [BADGE.STABLE],
+  },
   argTypes: {
-    size: {
-      description: 'The size of the button',
+    onClick: {
+      description:
+        'The function to call when the button is clicked, the parameter will give you the event',
       table: {
-        type: { summary: 'small | medium | large' },
-        defaultValue: { summary: 'medium' },
-      },
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-    },
-    color: {
-      description: 'The color scheme of the button',
-      table: {
-        type: { summary: 'primary | neutral | success | warning | error' },
-        defaultValue: { summary: 'primary' },
-      },
-      control: {
-        type: 'select',
-        options: ['primary', 'neutral', 'success', 'warning', 'error'],
-      },
-    },
-    variant: {
-      description: 'The variant of the button',
-      table: {
-        type: { summary: 'default | secondary | outlined' },
-        defaultValue: { summary: 'default' },
-      },
-      control: {
-        type: 'select',
-        options: ['default', 'secondary', 'outlined'],
-      },
-    },
-    round: {
-      description: 'Use more rounded corners on the button or not',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    fullWidth: {
-      description: 'Let the button take up the space it has around it',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        category: 'Actions',
       },
     },
     children: {
       description: 'The content inside the button',
       table: {
-        type: { summary: 'React.ReactNode' },
-      },
-    },
-    disabled: {
-      description: 'Whether to disable the button or not',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        category: 'Display',
       },
     },
     isLoading: {
       description: 'Is button loading or not',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        category: 'State',
+        default: false,
       },
     },
-    onClick: {
-      description:
-        'The function to call when the button is clicked, the parameter will give you the event',
+    round: {
+      description: 'Use more rounded corners on the button or not',
       table: {
-        type: {
-          summary:
-            '(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void',
-        },
+        category: 'Appearance',
       },
     },
-    ...hiddenProperties,
+    fullWidth: {
+      description: 'Let the button take up the space it has around it',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    disabled: {
+      description: 'Whether to disable the button or not',
+      table: {
+        category: 'State',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    variant: {
+      description: 'The variant of the button',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    leftIcon: {
+      description: 'Icon on the left',
+      control: false,
+      table: {
+        category: 'Display',
+      },
+    },
+    rightIcon: {
+      description: 'Icon on the left',
+      control: false,
+      table: {
+        category: 'Display',
+      },
+    },
+    size: {
+      description: 'The size of the button',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    color: {
+      description: 'The color scheme of the button',
+      table: {
+        category: 'Appearance',
+      },
+    },
   },
 }
 
-const ButtonStory: Story<ButtonProps> = args => <ButtonComponent {...args} />
+const ButtonStory: Story<ButtonProps> = args => (
+  <ButtonComponent
+    {...args}
+    onClick={e => {
+      action('onClick')(e)
+    }}
+  />
+)
 
 export const Button: Story<ButtonProps> = ButtonStory.bind({})
 Button.args = {
-  children: 'Hello World',
-  rightIcon: null,
-  leftIcon: <Arrow />,
-  size: 'medium',
-  fullWidth: false,
-  color: 'primary',
-  round: false,
   onClick: clicked => {
     console.log(clicked)
   },
-  variant: 'default',
-  disabled: false,
+  children: 'Hello World',
   isLoading: false,
+  round: false,
+  fullWidth: false,
+  disabled: false,
+  variant: 'default',
+  size: 'medium',
+  color: 'primary',
+  rightIcon: null,
+  leftIcon: <Arrow />,
 }

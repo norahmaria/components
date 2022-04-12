@@ -23,8 +23,7 @@ const base = ({
     multiple={multiple}
     disabled={disabled}
     label="Country"
-    onSelectionChange={onSelectionChange}
-  >
+    onSelectionChange={onSelectionChange}>
     <Select.Option disabled={disableFirstOption} value="us">
       United States
     </Select.Option>
@@ -69,9 +68,7 @@ describe('Select Component', () => {
 
     expect(getByTestId('select-group').children).toHaveLength(3)
 
-    expect(getByTestId('select-group').children[0]).toHaveTextContent(
-      'Scandinavia'
-    )
+    expect(getByTestId('select-group').children[0]).toHaveTextContent('Scandinavia')
     expect(getByTestId('select-group').children[1]).toHaveTextContent('Norway')
     expect(getByTestId('select-group').children[2]).toHaveTextContent('Sweden')
   })

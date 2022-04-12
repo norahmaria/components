@@ -3,12 +3,17 @@
 exports[`Select Component Can render correctly, closed and open 1`] = `
 <div
   class="
-        select-nm medium 
+        select-nm medium primary
         disabled-false
          
       "
   data-testid="select"
 >
+  <div
+    class="form-label"
+  >
+    Country
+  </div>
   <button
     aria-disabled="false"
     aria-errormessage="error"
@@ -17,9 +22,9 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
     aria-invalid="false"
     aria-required="false"
     class="
-          btn open-false 
-          includes-tags-false
-        "
+        btn open-false 
+        includes-tags-false
+      "
     type="button"
   >
     <div
@@ -68,7 +73,6 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
           Scandinavia
         </li>
         <li
-          aria-disabled="false"
           aria-selected="false"
           class="option"
           role="option"
@@ -82,7 +86,6 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
           </div>
         </li>
         <li
-          aria-disabled="false"
           aria-selected="false"
           class="option"
           role="option"
@@ -104,12 +107,17 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
 exports[`Select Component Can render correctly, closed and open 2`] = `
 <div
   class="
-        select-nm medium 
+        select-nm medium primary
         disabled-false
          
       "
   data-testid="select"
 >
+  <div
+    class="form-label"
+  >
+    Country
+  </div>
   <button
     aria-disabled="false"
     aria-errormessage="error"
@@ -118,9 +126,9 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
     aria-invalid="false"
     aria-required="false"
     class="
-          btn open-false 
-          includes-tags-false
-        "
+        btn open-false 
+        includes-tags-false
+      "
     type="button"
   >
     <div
@@ -169,7 +177,6 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
           Scandinavia
         </li>
         <li
-          aria-disabled="false"
           aria-selected="false"
           class="option"
           role="option"
@@ -183,7 +190,6 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
           </div>
         </li>
         <li
-          aria-disabled="false"
           aria-selected="false"
           class="option"
           role="option"

@@ -1,4 +1,6 @@
 import { Story } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
 import { Checkbox as CheckboxComponent } from '../../components'
@@ -6,80 +8,70 @@ import CheckboxProps from './Checkbox.types'
 
 export default {
   title: 'Inputs/Checkbox',
+  component: CheckboxComponent,
+  parameters: {
+    badges: [BADGE.STABLE],
+  },
   argTypes: {
-    size: {
-      description: 'The size of the checkbox and label',
+    onCheckboxChange: {
+      description:
+        'The function to call when checkbox is changed, the parameter will give you the value of the checkbox',
       table: {
-        type: { summary: 'small | medium | large' },
-        defaultValue: { summary: 'medium' },
-      },
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-    },
-    color: {
-      description: 'The color scheme of the checkbox',
-      table: {
-        type: { summary: 'primary | neutral | success | warning | error' },
-        defaultValue: { summary: 'primary' },
-      },
-      control: {
-        type: 'select',
-        options: ['primary', 'neutral', 'success', 'warning', 'error'],
+        category: 'Actions',
       },
     },
     label: {
       description: 'The checkbox label',
       table: {
-        type: { summary: 'string' },
+        category: 'Display',
       },
     },
     labelPlacement: {
       description: 'Where to place the checkbox label',
       table: {
-        type: { summary: 'top | right | bottom | left' },
-        defaultValue: { summary: 'right' },
-      },
-      control: {
-        type: 'select',
-        options: ['top', 'right', 'bottom', 'left'],
-      },
-    },
-    onCheckboxChange: {
-      description:
-        'The function to call when checkbox is changed, the parameter will give you the value of the checkbox',
-      table: {
-        type: { summary: '(checked: boolean) => void' },
+        category: 'Appearance',
       },
     },
     id: {
       description: `The unique id to use for the checkbox and for the label for attribute`,
-      table: {
-        type: { summary: 'string' },
-      },
     },
     disabled: {
       description: 'Sets the checkbox to be disabled or not',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        category: 'State',
+      },
+    },
+    size: {
+      description: 'The size of the checkbox and label',
+      table: {
+        category: 'Appearance',
+      },
+    },
+    color: {
+      description: 'The color scheme of the checkbox',
+      table: {
+        category: 'Appearance',
       },
     },
   },
 }
 
 const CheckboxStory: Story<CheckboxProps> = args => (
-  <CheckboxComponent {...args} />
+  <CheckboxComponent
+    {...args}
+    onCheckboxChange={checked => {
+      action('onCheckboxChange')(checked)
+    }}
+  />
 )
 
 export const Checkbox: Story<CheckboxProps> = CheckboxStory.bind({})
 Checkbox.args = {
+  onCheckboxChange: checked => console.log(checked),
   label: 'Checkbox',
   labelPlacement: 'right',
-  color: 'primary',
-  size: 'medium',
-  disabled: false,
   id: 'checkbox',
-  onCheckboxChange: checked => console.log(checked),
+  disabled: false,
+  size: 'medium',
+  color: 'primary',
 }

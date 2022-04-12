@@ -1,9 +1,5 @@
 @use '../../../scss/variables' as *;
 
-// .select-nm .group {
-//   margin-top: -0.75rem;
-// }
-
 .select-nm > .options > .group + .group,
 .select-nm > .options > .group ~ .group {
   ul {
@@ -13,12 +9,14 @@
   }
 }
 
-.select-nm > .options > .group:last-of-type:not(:last-child) {
+.select-nm > .options > .group:first-of-type {
   ul {
-    border-bottom: 1px solid rgba($black, 0.25);
-    padding-bottom: 0.75rem;
-    margin-bottom: 0.5rem;
+    padding-top: 1.25rem;
   }
+}
+
+.select-nm > .options .option + .group {
+  margin-top: 0.75rem;
 }
 
 .select-nm > .options > .group {
@@ -32,35 +30,15 @@
       gap: 0.3rem;
       align-items: center;
 
-      font-size: 0.975em;
-      padding: 0.4em 0.5em;
+      font-size: 0.875em;
+      padding: 0 0.5em 0.5em 0.5rem;
       overflow: hidden;
+
+      text-transform: uppercase;
+      font-weight: 600;
 
       color: inherit;
       color: rgba($black, 0.65);
-      justify-content: center;
-
-      &:before,
-      &:after {
-        background-color: rgba($black, 0.65);
-        content: '';
-        display: inline-block;
-        height: 1px;
-        border-radius: 100%;
-        position: relative;
-        vertical-align: middle;
-        width: 40%;
-      }
-
-      &:before {
-        right: 0.5em;
-        margin-left: -50%;
-      }
-
-      &:after {
-        left: 0.5em;
-        margin-right: -50%;
-      }
 
       svg {
         width: 0.8em;
@@ -79,27 +57,9 @@
       }
     }
 
-    &:first-child {
-      margin-top: 0.9rem;
-    }
-
-    &:last-child {
-      margin-bottom: 0.9rem;
-    }
-
     .option {
-      &:first-of-type {
-        margin-top: 0;
-      }
-
       &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-
-    .option:last-of-type {
-      &:last-of-type {
-        margin-bottom: 0rem;
+        padding-bottom: 0.25rem;
       }
     }
   }

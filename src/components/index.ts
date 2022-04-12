@@ -17,12 +17,12 @@ Radio.Button = RadioButton
 export { Radio }
 
 import SelectComponent from './Select/Select'
-import Option from './Select/components/Option'
-import Group from './Select/components/Group'
+import Option from './Select/Components/Option'
+import Group from './Select/Components/Group'
 
 import SelectProps from './Select/Select.types'
-import OptionProps from './Select/components/Option.types'
-import GroupProps from './Select/components/Group.types'
+import OptionProps from './Select/Components/Option.types'
+import GroupProps from './Select/Components/Group.types'
 
 type SelectWithChildren = React.FC<SelectProps> & {
   Option: React.FC<OptionProps>

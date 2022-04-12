@@ -12,6 +12,7 @@ interface ButtonProps
   rightIcon?: JSX.Element | string
   isLoading?: boolean
   children?: string
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
 }
 
 export default ButtonProps

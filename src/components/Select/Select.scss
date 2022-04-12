@@ -128,7 +128,6 @@
   &:hover,
   &:focus-visible,
   &:active {
-    border: 1px solid $primary700;
     outline: none;
 
     .close-icon {
@@ -136,33 +135,13 @@
       opacity: 1;
     }
   }
-
-  &:focus-visible {
-    box-shadow: 0 0 0.5px 2px rgb($primary700, 0.2);
-  }
-}
-
-@each $name, $color in $colors {
-  .select-nm.#{$name} > .btn {
-    border: 1px solid $color;
-
-    &.open-true {
-      box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
-      border: 1px solid $color;
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
-    }
-  }
-}
-
-.select-nm > .btn.open-true {
-  box-shadow: 0 0 0.5px 2px rgb($primary700, 0.2);
-  border: 1px solid $primary700;
 }
 
 .select-nm {
+  .form-label {
+    margin-bottom: 0.5rem;
+  }
+
   .label svg:not(.check-icon) {
     height: 0.9em;
     min-height: 0.9em;
@@ -232,18 +211,6 @@
     max-width: 0.8em;
     max-height: 0.8em;
   }
-
-  .check-icon {
-    path,
-    rect,
-    circle,
-    ellipse,
-    polyline,
-    line,
-    polygon {
-      fill: $primary700;
-    }
-  }
 }
 
 .select-nm > .options {
@@ -270,7 +237,7 @@
   opacity: 0;
 
   &.open-true {
-    max-height: 30vh;
+    max-height: 40vh;
     border: 1px solid rgb($neutral700, 0.5);
     opacity: 1;
 
@@ -282,6 +249,72 @@
   @media screen and (max-height: 35rem) {
     &.open-true {
       max-height: 60vh;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  @if $name == 'neutral' {
+    .select-nm.#{$name} {
+      .check-icon {
+        path,
+        rect,
+        circle,
+        ellipse,
+        polyline,
+        line,
+        polygon {
+          fill: $black;
+        }
+      }
+
+      .btn {
+        &:hover,
+        &:focus-visible,
+        &:active {
+          border: 1px solid scale-color($color, $lightness: -20%);
+        }
+
+        &:focus-visible {
+          box-shadow: 0 0 0.5px 2px scale-color($color, $lightness: 20%);
+        }
+
+        &.open-true {
+          box-shadow: 0 0 0.5px 2px scale-color($color, $lightness: 20%);
+          border: 1px solid scale-color($color, $lightness: -20%);
+        }
+      }
+    }
+  } @else {
+    .select-nm.#{$name} {
+      .check-icon {
+        path,
+        rect,
+        circle,
+        ellipse,
+        polyline,
+        line,
+        polygon {
+          fill: $color;
+        }
+      }
+
+      .btn {
+        &:hover,
+        &:focus-visible,
+        &:active {
+          border: 1px solid $color;
+        }
+
+        &:focus-visible {
+          box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
+        }
+
+        &.open-true {
+          box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
+          border: 1px solid $color;
+        }
+      }
     }
   }
 }

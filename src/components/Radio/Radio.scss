@@ -12,10 +12,8 @@
 }
 
 .radio-nm {
-  .title {
-    font-weight: 500;
-    text-align: left;
-    width: 100%;
+  .form-label {
+    margin-bottom: -0.25rem;
   }
 
   &.disabled-true {

@@ -1,14 +1,14 @@
 import React from 'react'
 import './Group.scss'
 
-import GroupProps from '../components/Group.types'
+import GroupProps from './Group.types'
 
-const Group = ({ title, ...props }: GroupProps) => {
+const Group = ({ title, children }: GroupProps) => {
   return (
-    <li className="group" {...props}>
+    <li className="group">
       <ul data-testid="select-group">
         <li className="title">{title}</li>
-        {props.children}
+        {children}
       </ul>
     </li>
   )

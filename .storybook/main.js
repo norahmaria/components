@@ -7,8 +7,9 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    // '@storybook/addon-interactions',
     '@storybook/addon-a11y',
+    '@storybook/addon-measure',
+    '@geometricpanda/storybook-addon-badges',
   ],
   webpackFinal: async config => {
     config.module.rules.push({

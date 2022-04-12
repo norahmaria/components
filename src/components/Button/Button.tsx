@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import ButtonProps from './Button.types'
 import './Button.scss'
 
-// TODO: Look into adding a lil tooltip box explaining why a btn is disabled
-// TODO: Look into attached buttons: https://ant.design/components/button/#components-button-demo-multiple
+// Consider:
+// -- Adding a lil tooltip box explaining why a btn is disabled
+// -- Adding attached buttons: https://ant.design/components/button/#components-button-demo-multiple
 
 const Button = ({
   leftIcon,
@@ -15,7 +16,7 @@ const Button = ({
   variant = 'default',
   className,
   onClick,
-  isLoading,
+  isLoading = false,
   ...props
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)

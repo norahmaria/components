@@ -1,12 +1,8 @@
-interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface ButtonProps {
   id: string
-  disabled?: boolean
   label: string
-  labelPlacement?: 'left' | 'right' | 'top' | 'buttom'
+  value: string
+  disabled?: boolean
 }
 
 export default ButtonProps
