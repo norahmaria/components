@@ -6,8 +6,11 @@ Stories:
   ☐ ~There is still some blue colors theme can't control~
 
 Components:
-  ☐ Fix Select keyboard navigation (up and down keys)
+  ☐ Add Select keyboard navigation (up and down keys)
   ☐ Add Text Input
+
+Issues: @critical
+  ☐ Select z-index
 
 Testing:
   ☐ Add Radio testing
