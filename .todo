@@ -2,6 +2,8 @@
 
 Stories:
   ☐ Replace the 'Show Code' under doc pages
+  ☐ Figure out how to add argTypes for subcomponents
+  ☐ ~There is still some blue colors theme can't control~
 
 Components:
   ☐ Fix Select keyboard navigation (up and down keys)

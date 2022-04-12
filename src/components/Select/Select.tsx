@@ -10,8 +10,6 @@ import Button from './Components/Private/Button'
 
 import SelectProps from './Select.types'
 
-// TODO: Up/down arrows to navigate lists
-
 // ERROR: Re-check accessibility ARIA label rules
 // due to Storybook Warnings
 
