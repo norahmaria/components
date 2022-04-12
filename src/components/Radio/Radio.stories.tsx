@@ -13,7 +13,7 @@ export default {
     'Radio.Button': RadioComponent.Button,
   },
   parameters: {
-    badges: [BADGE.NEEDS_REVISION],
+    badges: [BADGE.STABLE],
   },
   argTypes: {
     onRadioChange: {
