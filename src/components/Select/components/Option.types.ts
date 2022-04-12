@@ -1,6 +1,5 @@
 interface OptionProps {
   value: string | number
-  selected?: boolean
   leftIcon?: JSX.Element | string
   rightIcon?: JSX.Element | string
   disabled?: boolean

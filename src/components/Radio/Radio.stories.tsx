@@ -73,12 +73,8 @@ const RadioStory: Story<RadioProps> = args => (
     onRadioChange={value => {
       action('onRadioChange')(value)
     }}>
-    <RadioComponent.Button id="road" label="One AGAIN Button" value="road" />
-    <RadioComponent.Button
-      id="hello"
-      label="Second DUMB Button"
-      value="hello"
-    />
+    <RadioComponent.Button id="road" label="One Button" value="road" />
+    <RadioComponent.Button id="hello" label="Second Button" value="hello" />
   </RadioComponent>
 )
 

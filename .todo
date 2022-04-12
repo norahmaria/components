@@ -1,0 +1,11 @@
+// https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-todo-plus
+
+Stories:
+  ☐ Replace the 'Show Code' under doc pages
+
+Components:
+  ☐ Fix Select keyboard navigation (up and down keys)
+  ☐ Add Text Input
+
+Testing:
+  ☐ Add Radio testing
