@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { Checkbox as CheckboxComponent } from '../../components'
+import { Checkbox as CheckboxComponent } from '../'
 import CheckboxProps from './Checkbox.types'
 
 export default {

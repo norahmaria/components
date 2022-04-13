@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { Button as ButtonComponent } from '../../components'
+import { Button as ButtonComponent } from '../'
 import ButtonProps from './Button.types'
 
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
