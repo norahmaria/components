@@ -10,7 +10,7 @@ Components:
   ☐ Add Text Input
 
 Issues: @critical
-  ☐ Select z-index
+  ✔ Select z-index @done(22-04-13 08:35)
 
 Testing:
   ✔ Add Radio testing @done(22-04-13 08:32)
