@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio Component Can render 1`] = `
+<div
+  class="
+        radio-nm disabled-false 
+        horizontal-false 
+        vertical-label-false
+      "
+  data-testid="radio-wrapper"
+>
+  <div
+    class="form-label"
+  >
+    radio
+  </div>
+  <div
+    class="radio-button-nm primary medium"
+    data-testid="radio-button-wrapper"
+  >
+    <input
+      data-testid="radio-button-input-radio-one"
+      id="radio-one"
+      name="radio"
+      type="radio"
+      value="radio-one"
+    />
+    <label
+      class="right"
+      data-testid="radio-button-label-radio-one"
+      for="radio-one"
+    >
+      One Button
+    </label>
+  </div>
+  <div
+    class="radio-button-nm primary medium"
+    data-testid="radio-button-wrapper"
+  >
+    <input
+      data-testid="radio-button-input-radio-two"
+      id="radio-two"
+      name="radio"
+      type="radio"
+      value="radio-two"
+    />
+    <label
+      class="right"
+      data-testid="radio-button-label-radio-two"
+      for="radio-two"
+    >
+      Second Button
+    </label>
+  </div>
+</div>
+`;

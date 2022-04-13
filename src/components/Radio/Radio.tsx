@@ -16,7 +16,9 @@ const Radio = ({
 }: RadioProps) => {
   const [checked, setChecked] = useState<string | number>(null)
 
-  useEffect(() => onRadioChange(checked), [checked])
+  useEffect(() => {
+    if (!disabled) onRadioChange(checked)
+  }, [checked])
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.value)
