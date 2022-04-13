@@ -6,11 +6,11 @@
 
 .select-nm {
   color: $black;
+  z-index: 12;
   position: relative;
   min-width: 15rem;
   width: 100%;
 
-  z-index: 12;
   font-size: 0.875rem;
 
   li {
@@ -225,8 +225,8 @@
   margin-bottom: 0;
   transform: translateY(0.75rem);
 
-  transition: max-height 0.25s ease-in-out, border 0.25s $cubic,
-    box-shadow 1.5s $cubic, opacity 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out, border 0.25s $cubic, box-shadow 1.5s $cubic,
+    opacity 0.25s ease-in-out;
   box-shadow: 0 0 0.5px 0 transparent;
 
   background-color: $white;
@@ -243,8 +243,7 @@
     opacity: 1;
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px,
-      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   }
 
   @media screen and (max-height: 35rem) {
