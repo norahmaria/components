@@ -52,17 +52,21 @@
   &.round {
     border-radius: 1rem;
   }
-}
 
-.btn-nm.icon {
-  aspect-ratio: 1;
-
-  svg {
-    transform: scale(1.35);
+  &.loading-true {
+    pointer-events: none;
   }
 
-  &.round {
-    border-radius: 100%;
+  &.icon {
+    aspect-ratio: 1;
+
+    svg {
+      transform: scale(1.35);
+    }
+
+    &.round {
+      border-radius: 100%;
+    }
   }
 }
 
