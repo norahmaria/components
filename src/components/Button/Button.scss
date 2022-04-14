@@ -38,11 +38,6 @@ a {
     height: 0.9em;
   }
 
-  .btn-nm-loading-icon {
-    width: 0.7em;
-    height: 0.7em;
-  }
-
   svg path,
   svg rect,
   svg circle,
@@ -135,49 +130,4 @@ a {
       outline-offset: 2px;
     }
   }
-}
-
-@each $name, $color in $colors {
-  .btn-nm.#{$name} > .btn-nm-loading-icon {
-    @if $name == 'neutral' {
-      border: 2px solid $black;
-    } @else {
-      border: 2px solid $color;
-    }
-  }
-
-  .btn-nm.#{$name}.default {
-    .btn-nm-loading-icon {
-      @if $name == 'neutral' {
-        border: 2px solid $black;
-      } @else {
-        border: 2px solid $white;
-      }
-    }
-  }
-
-  .btn-nm.#{$name}:disabled {
-    .btn-nm-loading-icon {
-      border: 2px solid rgb($black, 0.4);
-    }
-  }
-
-  .btn-nm.#{$name},
-  .btn-nm.#{$name}.default {
-    .btn-nm-loading-icon {
-      border-left-color: transparent;
-      border-bottom-color: transparent;
-    }
-  }
-}
-
-.btn-nm-loading-icon {
-  border-radius: 100%;
-
-  transform-origin: center;
-  animation: loading 2s cubic-bezier(0.65, 0.26, 0.8, 0.39) infinite;
-}
-
-.btn-nm.loading-true {
-  pointer-events: none;
 }

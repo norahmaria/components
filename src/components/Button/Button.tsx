@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import ButtonProps from './Button.types'
+
+import LoadingSpinner from '../../private/LoadingSpinner'
+
 import './Button.scss'
 
 // Consider:
@@ -41,22 +44,19 @@ const Button = ({
   }
 
   const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon
-  const right =
-    typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
+  const right = typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
 
   return (
     <button
       {...props}
       onClick={click}
       className={`${getClasses()} clicked-${clicked} loading-${isLoading}`}
-      style={{ width: fullWidth ? '100%' : 'max-content' }}
-    >
+      style={{ width: fullWidth ? '100%' : 'max-content' }}>
       {isLoading ? (
         <>
-          <div
-            data-testid="btn-loading-icon"
-            className="btn-nm-loading-icon"
-          ></div>{' '}
+          <LoadingSpinner
+            color={variant === 'default' && color !== 'neutral' ? 'white' : color}
+          />
           Loading
         </>
       ) : (
