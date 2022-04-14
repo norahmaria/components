@@ -90,8 +90,8 @@
 
     box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
 
-    transition: border 0.25s $cubic, background 0.25s $cubic,
-      box-shadow 0.25s $cubic, outline-width 0.25s $cubic;
+    transition: border 0.25s $cubic, background 0.25s $cubic, box-shadow 0.25s $cubic,
+      outline-width 0.25s $cubic;
   }
 
   #{$selector} label {
@@ -244,11 +244,7 @@
         input:hover + label::after {
           border: 1px solid scale-color($color, $lightness: -50%);
 
-          box-shadow: 0
-            0
-            0.5px
-            2.5px
-            rgba(scale-color($color, $lightness: -50%), 0.4);
+          box-shadow: 0 0 0.5px 2.5px rgba(scale-color($color, $lightness: -50%), 0.4);
         }
 
         label svg path {

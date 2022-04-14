@@ -1,13 +1,8 @@
-@use '../../scss/keyframes';
 @use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
 @use '../../scss/buttons';
 
 @include resets('.btn-nm');
-
-a {
-  text-decoration: none;
-}
 
 .btn-nm {
   line-height: 1;
