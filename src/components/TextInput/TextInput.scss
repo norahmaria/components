@@ -1,0 +1,231 @@
+@use '../../scss/resets' as *;
+@use '../../scss/variables' as *;
+
+@include resets('.text-input-nm');
+
+// TODO: Turn into own stylesheet / component?
+.character-limit-nm {
+  font-size: 0.775rem;
+  color: rgba($black, 0.75);
+  display: flex;
+  gap: 0.15rem;
+}
+
+.text-input-nm {
+  display: grid;
+  gap: 0.5rem;
+
+  line-height: 1;
+  min-width: 15rem;
+
+  .character-limit-nm {
+    position: absolute;
+    bottom: -1.35rem;
+    right: 0;
+  }
+
+  input {
+    font: inherit;
+    line-height: 1;
+    padding: 0.65em 0.75em 0.65em 0.75em;
+
+    border-radius: $br;
+
+    width: 100%;
+
+    box-shadow: 0 0 0.5px 0 transparent;
+    transition: box-shadow 0.25s $cubic, border 0.25s ease;
+
+    border: 1px solid #e8e8e8;
+
+    &::placeholder {
+      color: #898a8a;
+    }
+
+    &:focus-visible,
+    &:hover,
+    &:active {
+      outline: none;
+    }
+  }
+
+  .status {
+    padding-top: 0.075em;
+    line-height: 1.4;
+  }
+
+  .loading-spinner-nm {
+    position: absolute;
+    right: 0.95rem;
+  }
+
+  &.icon-true {
+    input {
+      padding-right: 2rem;
+    }
+  }
+
+  &.round-true {
+    input {
+      border-radius: 2rem;
+      padding: 0.65em 0.95em 0.65em 0.95em;
+    }
+
+    .text-input-container-nm {
+      svg {
+        right: 0.95rem;
+      }
+    }
+
+    &.icon-true {
+      input {
+        padding-right: 2.75em;
+      }
+    }
+  }
+}
+
+.text-input-container-nm {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: absolute;
+    height: 0.9em;
+    width: 0.9em;
+    min-height: 0.9em;
+    max-height: 0.9em;
+    right: 0.75rem;
+  }
+
+  .error-icon,
+  .warning-icon {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: #898a8a;
+    }
+  }
+}
+
+.text-input-nm.size-small {
+  input {
+    font-size: 0.75rem;
+  }
+}
+
+.text-input-nm.size-medium {
+  input {
+    font-size: 0.875rem;
+  }
+}
+
+.text-input-nm.size-large {
+  input {
+    font-size: 0.975rem;
+  }
+}
+
+@each $name, $color in $colors {
+  .text-input-nm.color-#{$name} {
+    input {
+      &:focus-visible,
+      &:hover,
+      &:active {
+        border: 1px solid $color;
+      }
+
+      &:focus-visible,
+      &:active {
+        box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
+      }
+    }
+  }
+}
+
+.text-input-nm.error {
+  input {
+    border: 1px solid $error700;
+
+    &:focus-visible,
+    &:hover,
+    &:active {
+      border: 1px solid $error700;
+    }
+
+    &:focus-visible,
+    &:active {
+      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
+    }
+  }
+
+  .error-icon {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: $error700;
+    }
+  }
+}
+
+.text-input-nm.warning {
+  input {
+    border: 1px solid $warning700;
+
+    &:focus-visible,
+    &:hover,
+    &:active {
+      border: 1px solid $warning700;
+    }
+
+    &:focus-visible,
+    &:active {
+      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
+    }
+  }
+
+  .warning-icon {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: $warning700;
+    }
+  }
+}
+
+.text-input-nm {
+  input:disabled {
+    background: darken($white, 3%);
+    border: 1px solid #e8e8e8;
+    color: #898a8a;
+    pointer-events: none;
+
+    svg path,
+    svg rect,
+    svg circle,
+    svg ellipse,
+    svg polyline,
+    svg line,
+    svg polygon {
+      fill: #898a8a;
+    }
+
+    &:hover {
+      background: darken($white, 3%);
+      border: 1px solid #e8e8e8;
+    }
+  }
+}
