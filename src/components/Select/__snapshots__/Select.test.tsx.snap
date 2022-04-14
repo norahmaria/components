@@ -3,7 +3,9 @@
 exports[`Select Component Can render correctly, closed and open 1`] = `
 <div
   class="
-        select-nm medium primary
+        select-nm 
+        size-medium 
+        color-primary
         disabled-false
          
       "
@@ -107,7 +109,9 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
 exports[`Select Component Can render correctly, closed and open 2`] = `
 <div
   class="
-        select-nm medium primary
+        select-nm 
+        size-medium 
+        color-primary
         disabled-false
          
       "

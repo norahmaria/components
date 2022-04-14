@@ -182,7 +182,6 @@ Select.args = {
   children: null,
   status: null,
   multiple: false,
-  style: { width: '18rem' },
   required: false,
   disabled: false,
   size: 'medium',

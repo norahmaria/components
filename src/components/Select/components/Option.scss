@@ -70,16 +70,16 @@
 
 @each $name, $color in $colors {
   @if $name == 'neutral' {
-    .select-nm.#{$name} > .options > .option,
-    .select-nm.#{$name} > .options > .group .option {
+    .select-nm.color-#{$name} > .options > .option,
+    .select-nm.color-#{$name} > .options > .group .option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 50%);
         border: 1px solid scale-color($color, $saturation: 5%, $lightness: 50%);
       }
     }
   } @else {
-    .select-nm.#{$name} > .options > .option,
-    .select-nm.#{$name} > .options > .group .option {
+    .select-nm.color-#{$name} > .options > .option,
+    .select-nm.color-#{$name} > .options > .group .option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 90%);
         border: 1px solid scale-color($color, $saturation: 5%, $lightness: 90%);

@@ -83,7 +83,9 @@ const Select = ({
       data-testid="select"
       ref={container}
       className={`
-        select-nm ${size} ${color}
+        select-nm 
+        size-${size} 
+        color-${color}
         disabled-${disabled}
         ${status && status.type ? status.type : ''} 
       `}>

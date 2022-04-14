@@ -38,18 +38,18 @@
   }
 }
 
-.select-nm.small,
-.select-nm.small > .btn {
+.select-nm.size-small,
+.select-nm.size-small > .btn {
   font-size: 0.75rem;
 }
 
-.select-nm.medium,
-.select-nm.medium > .btn {
+.select-nm.size-medium,
+.select-nm.size-medium > .btn {
   font-size: 0.875rem;
 }
 
-.select-nm.large,
-.select-nm.large > .btn {
+.select-nm.size-large,
+.select-nm.size-large > .btn {
   font-size: 0.975rem;
 }
 
@@ -255,7 +255,7 @@
 
 @each $name, $color in $colors {
   @if $name == 'neutral' {
-    .select-nm.#{$name} {
+    .select-nm.color-#{$name} {
       .check-icon {
         path,
         rect,
@@ -286,7 +286,7 @@
       }
     }
   } @else {
-    .select-nm.#{$name} {
+    .select-nm.color-#{$name} {
       .check-icon {
         path,
         rect,
@@ -314,6 +314,43 @@
           box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
           border: 1px solid $color;
         }
+      }
+    }
+  }
+}
+
+.select-nm.error {
+  .btn {
+    border: 1px solid $error700;
+    // box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
+
+    .error-icon {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        fill: $error700;
+      }
+    }
+  }
+}
+
+.select-nm.warning {
+  .btn {
+    border: 1px solid $warning700;
+
+    .warning-icon {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        fill: $warning700;
       }
     }
   }
