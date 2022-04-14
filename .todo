@@ -7,10 +7,25 @@ Stories:
 
 Components:
   ☐ Add Select keyboard navigation (up and down keys)
-  ☐ Add Text Input
+
+  Text Input:
+    ☐ Add clear button
+    ☐ Design / space for character count
+    ☐ Add view password option
+    ☐ Add textarea
+    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc)
+
+Structure:
+  ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.
+  ☐ Consider turning character count into re-usable component
+  ☐ Consider mixins for basic border with box shadow hover/focus etc.
+
+Design:
+  ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
 
 Issues: @critical
   ✔ Select z-index @done(22-04-13 08:35)
 
 Testing:
+  ☐ Add Text Input testing
   ✔ Add Radio testing @done(22-04-13 08:32)
