@@ -179,6 +179,7 @@ export const Select: Story<SelectProps> = SelectStory.bind({})
 Select.args = {
   onSelectionChange: change => {},
   label: 'Country',
+  placeholder: 'Select',
   children: null,
   status: null,
   multiple: false,

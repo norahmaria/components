@@ -14,6 +14,7 @@ const Button = ({
   selected,
   labelChildren,
   label,
+  placeholder,
   disabled,
   required,
   status,
@@ -45,6 +46,7 @@ const Button = ({
         children={labelChildren}
         selected={selected}
         multiple={multiple}
+        placeholder={placeholder}
         label={label}
       />
 

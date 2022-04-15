@@ -1,7 +1,7 @@
 import React from 'react'
 import LabelProps from './Label.types'
 
-const Label = ({ label, children, multiple, selected }: LabelProps) => {
+const Label = ({ label, placeholder, children, multiple, selected }: LabelProps) => {
   return (
     <div className="label">
       {selected.length ? (
@@ -24,7 +24,7 @@ const Label = ({ label, children, multiple, selected }: LabelProps) => {
           }
         })
       ) : (
-        <div className="placeholder">{label}</div>
+        <div className="placeholder">{placeholder}</div>
       )}
     </div>
   )

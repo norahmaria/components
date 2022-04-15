@@ -4,6 +4,7 @@ interface ButtonProps {
   selected: (string | number)[]
   labelChildren: React.ReactNode
   label: string
+  placeholder: string
   disabled: boolean
   required: boolean
   status: {

@@ -24,6 +24,7 @@ const Select = ({
   required = false,
   disabled = false,
   label,
+  placeholder,
   onSelectionChange,
   status,
   size = 'medium',
@@ -99,6 +100,7 @@ const Select = ({
         required={required}
         status={status}
         label={label}
+        placeholder={placeholder}
         labelChildren={props.children}
         onClick={() => setIsOpen(prev => !prev)}
         onKeyDown={e => (e.key === 'Backspace' ? setSelected([]) : () => {})}

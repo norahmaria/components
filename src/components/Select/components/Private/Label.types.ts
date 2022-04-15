@@ -5,6 +5,7 @@ interface LabelProps {
   multiple: boolean
   selected: (string | number)[]
   label: string
+  placeholder: string
 }
 
 export default LabelProps
