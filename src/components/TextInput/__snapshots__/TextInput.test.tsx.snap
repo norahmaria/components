@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput Component Can render 1`] = `
+<div
+  class="
+        text-input-nm 
+         
+        icon-false
+        round-false
+        color-primary
+        size-medium
+      "
+  data-testid="text-input-wrapper"
+>
+  <label
+    class="form-label"
+    for="id"
+  >
+    Label
+  </label>
+  <div
+    class="text-input-container-nm"
+  >
+    <input
+      id="id"
+      placeholder="Placeholder.."
+      type="text"
+      value=""
+    />
+    <div
+      class="character-limit-nm"
+    >
+      <p
+        class="character-count-nm"
+      >
+        0
+      </p>
+       /
+       
+      <p
+        class="character-limit-count-nm"
+      >
+        5
+      </p>
+    </div>
+  </div>
+</div>
+`;

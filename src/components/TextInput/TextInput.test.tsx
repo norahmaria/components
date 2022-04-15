@@ -5,7 +5,14 @@ import { TextInput } from '../../components/index'
 
 describe('TextInput Component', () => {
   it('Can render', () => {
-    const { getByTestId } = render(<TextInput />)
+    const { getByTestId } = render(
+      <TextInput
+        label="Label"
+        id="id"
+        placeholder="Placeholder.."
+        onTextInputChange={() => {}}
+      />
+    )
 
     expect(getByTestId('text-input-wrapper')).toMatchSnapshot()
   })
