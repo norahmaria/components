@@ -35,10 +35,11 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
       <div
         class="placeholder"
       >
-        Country
+        Placeholder
       </div>
     </div>
     <svg
+      aria-label="Open / Close"
       class="arrow-icon"
     />
   </button>
@@ -141,10 +142,11 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
       <div
         class="placeholder"
       >
-        Country
+        Placeholder
       </div>
     </div>
     <svg
+      aria-label="Open / Close"
       class="arrow-icon"
     />
   </button>

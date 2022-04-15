@@ -22,6 +22,7 @@ const base = ({
     status={status}
     multiple={multiple}
     disabled={disabled}
+    placeholder="Placeholder"
     label="Country"
     onSelectionChange={onSelectionChange}>
     <Select.Option disabled={disableFirstOption} value="us">
@@ -139,6 +140,10 @@ describe('Select Component', () => {
 
     expect(toggleButton).toHaveTextContent('United States')
 
+    act(() => {
+      toggleButton.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+    })
+
     const clearIcon = getByTestId('close-icon')
     expect(clearIcon).toBeInTheDocument()
 
@@ -146,7 +151,7 @@ describe('Select Component', () => {
       clearIcon.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
 
-    expect(toggleButton).toHaveTextContent('Country')
+    expect(toggleButton).toHaveTextContent('Placeholder')
     expect(toggleButton).not.toHaveTextContent('United States')
   })
 
@@ -173,6 +178,10 @@ describe('Select Component', () => {
     const [firstOption, secondOption] = getAllByRole('option')
     firstOption.click()
     secondOption.click()
+
+    act(() => {
+      toggleButton.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+    })
 
     const clearIcon = getByTestId('close-icon')
 
