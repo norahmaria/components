@@ -5,10 +5,13 @@
 
 // TODO: Turn into own stylesheet / component?
 .character-limit-nm {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  width: 100%;
+
   font-size: 0.775rem;
   color: rgba($black, 0.75);
-  display: flex;
-  gap: 0.15rem;
 }
 
 .text-input-nm {
@@ -19,7 +22,6 @@
   min-width: 15rem;
 
   .character-limit-nm {
-    position: absolute;
     bottom: -1.35rem;
     right: 0;
   }
@@ -96,11 +98,14 @@
     width: 0.9em;
     min-height: 0.9em;
     max-height: 0.9em;
+    min-width: 0.9em;
+    min-height: 0.9em;
     right: 0.75rem;
   }
 
   .error-icon,
-  .warning-icon {
+  .warning-icon,
+  .close-icon {
     path,
     rect,
     circle,
@@ -109,6 +114,31 @@
     line,
     polygon {
       fill: #898a8a;
+    }
+  }
+
+  .close-icon {
+    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+
+    height: 0.7em;
+    width: 0.7em;
+    min-height: 0.7em;
+    max-height: 0.7em;
+    min-width: 0.7em;
+    min-height: 0.7em;
+
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    .close-icon {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }

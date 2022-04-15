@@ -254,7 +254,7 @@
 
 @each $name, $color in $colors {
   @if $name == 'neutral' {
-    .select-nm.color-#{$name} {
+    .select-nm.color-#{$name}:not(.warning):not(.error) {
       .check-icon {
         path,
         rect,
@@ -285,7 +285,7 @@
       }
     }
   } @else {
-    .select-nm.color-#{$name} {
+    .select-nm.color-#{$name}:not(.warning):not(.error) {
       .check-icon {
         path,
         rect,
@@ -323,6 +323,22 @@
     border: 1px solid $error700;
     // box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
 
+    &:focus-visible,
+    &:hover,
+    &:active {
+      border: 1px solid $error700;
+    }
+
+    &:focus-visible,
+    &:active {
+      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
+    }
+
+    &.open-true {
+      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
+      border: 1px solid $error700;
+    }
+
     .error-icon {
       path,
       rect,
@@ -340,6 +356,22 @@
 .select-nm.warning {
   .btn {
     border: 1px solid $warning700;
+
+    &:focus-visible,
+    &:hover,
+    &:active {
+      border: 1px solid $warning700;
+    }
+
+    &:focus-visible,
+    &:active {
+      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
+    }
+
+    &.open-true {
+      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
+      border: 1px solid $warning700;
+    }
 
     .warning-icon {
       path,

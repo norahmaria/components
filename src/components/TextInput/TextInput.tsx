@@ -3,6 +3,7 @@ import TextInputProps from './TextInput.types'
 
 import { ReactComponent as ErrorIcon } from '../../assets/Error.svg'
 import { ReactComponent as WarningIcon } from '../../assets/Warning.svg'
+import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
 
 import './TextInput.scss'
 import LoadingSpinner from '../../private/LoadingSpinner'
@@ -22,6 +23,7 @@ const TextInput = ({
   id,
 }: TextInputProps) => {
   const [value, setValue] = useState('')
+  const [hover, setHover] = useState(false)
 
   const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setValue(() => {
@@ -29,6 +31,8 @@ const TextInput = ({
       return characterLimit ? target.value.substring(0, characterLimit) : target.value
     })
   }
+
+  const clear = () => setValue('')
 
   useEffect(() => onTextInputChange(value), [value])
 
@@ -47,8 +51,12 @@ const TextInput = ({
         {label}
       </label>
 
-      <div className="text-input-container-nm">
+      <div
+        className="text-input-container-nm"
+        onMouseOver={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}>
         <input
+          autoComplete="off"
           disabled={disabled}
           type="text"
           value={value}
@@ -56,24 +64,31 @@ const TextInput = ({
           id={id}
           placeholder={placeholder}
         />
-
-        {characterLimit && (
-          <div className="character-limit-nm">
-            <p className="character-count-nm">{value.length}</p> /{' '}
-            <p className="character-limit-count-nm">{characterLimit}</p>
-          </div>
-        )}
-
         {isLoading ? (
           <LoadingSpinner color={color} />
+        ) : value.length && hover ? (
+          <CloseIcon
+            data-testid="close-icon"
+            role="button"
+            aria-label="Clear selected"
+            className="close-icon"
+            onClick={clear}
+          />
         ) : status?.type === 'error' ? (
-          <ErrorIcon className="error-icon" />
+          <ErrorIcon aria-label={status.message} className="error-icon" />
         ) : status?.type === 'warning' ? (
-          <WarningIcon className="warning-icon" />
+          <WarningIcon aria-label={status.message} className="warning-icon" />
         ) : !!icon ? (
           icon
         ) : null}
       </div>
+
+      {characterLimit && (
+        <div className="character-limit-nm">
+          <p className="character-count-nm">{value.length}</p> /{' '}
+          <p className="character-limit-count-nm">{characterLimit}</p>
+        </div>
+      )}
 
       {status && (
         <div id="error" className="status">

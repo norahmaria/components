@@ -9,11 +9,11 @@ Components:
   ☐ Add Select keyboard navigation (up and down keys)
 
   Text Input:
-    ☐ Add clear button
-    ☐ Design / space for character count
     ☐ Add view password option
     ☐ Add textarea
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc)
+    ✔ Add clear button @done(22-04-15 09:03)
+    ✔ Design / space for character count @done(22-04-15 09:03)
 
 Structure:
   ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.

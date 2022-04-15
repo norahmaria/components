@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ButtonProps from './Button.types'
 
 import { ReactComponent as ArrowIcon } from '../../../../assets/Arrow_Down.svg'
@@ -21,9 +21,13 @@ const Button = ({
   clear,
   onKeyDown,
 }: ButtonProps) => {
+  const [hover, setHover] = useState(false)
+
   return (
     <button
       type="button"
+      onMouseOver={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       className={`
         btn open-${isOpen} 
         includes-tags-${!!(multiple && selected.length)}
@@ -44,11 +48,7 @@ const Button = ({
         label={label}
       />
 
-      {status?.type === 'error' ? (
-        <ErrorIcon className="error-icon" />
-      ) : status?.type === 'warning' ? (
-        <WarningIcon className="warning-icon" />
-      ) : selected.length ? (
+      {selected.length && hover ? (
         <CloseIcon
           data-testid="close-icon"
           role="button"
@@ -56,8 +56,12 @@ const Button = ({
           className="close-icon"
           onClick={clear}
         />
+      ) : status?.type === 'error' ? (
+        <ErrorIcon className="error-icon" aria-label={status.message} />
+      ) : status?.type === 'warning' ? (
+        <WarningIcon className="warning-icon" aria-label={status.message} />
       ) : (
-        <ArrowIcon className="arrow-icon" />
+        <ArrowIcon className="arrow-icon" aria-label="Open / Close" />
       )}
     </button>
   )
