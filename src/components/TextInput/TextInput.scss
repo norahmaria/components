@@ -27,18 +27,16 @@
   }
 
   input {
-    font: inherit;
-    line-height: 1;
+    width: 100%;
     padding: 0.65em 0.75em 0.65em 0.75em;
 
     border-radius: $br;
-
-    width: 100%;
-
+    border: 1px solid #e8e8e8;
     box-shadow: 0 0 0.5px 0 transparent;
     transition: box-shadow 0.25s $cubic, border 0.25s ease;
 
-    border: 1px solid #e8e8e8;
+    font: inherit;
+    line-height: 1;
 
     &::placeholder {
       color: #898a8a;
@@ -52,6 +50,7 @@
   }
 
   .status {
+    font-size: 0.875rem;
     padding-top: 0.075em;
     line-height: 1.4;
   }

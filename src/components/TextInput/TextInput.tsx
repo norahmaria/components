@@ -17,7 +17,7 @@ const TextInput = ({
   round = false,
   disabled = false,
   isLoading = false,
-  characterLimit = 5,
+  characterLimit,
   status,
   icon,
   id,
