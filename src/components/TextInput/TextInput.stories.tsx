@@ -36,6 +36,12 @@ export default {
     id: {
       description: `The unique id to use for the input and for the label for attribute`,
     },
+    characterLimit: {
+      description: 'Set a character limit for the input',
+      table: {
+        category: 'State',
+      },
+    },
     status: {
       description: 'Error or warning messages',
       control: {
@@ -87,9 +93,7 @@ export default {
 }
 
 const TextInputStory: Story<TextInputProps> = args => (
-  <div style={{ width: '18rem' }}>
-    <TextInputComponent {...args} />
-  </div>
+  <TextInputComponent {...args} />
 )
 
 export const TextInput: Story<TextInputProps> = TextInputStory.bind({})
@@ -99,11 +103,7 @@ TextInput.args = {
   },
   label: 'Text Input',
   placeholder: 'Placeholder..',
-  status: {
-    type: 'warning',
-    message:
-      'Your username can not exceed 50 characters, and can not include special symbols.',
-  },
+  status: null,
   icon: <Norway />,
   id: 'text-input',
   disabled: false,
@@ -111,4 +111,7 @@ TextInput.args = {
   size: 'medium',
   color: 'primary',
   isLoading: false,
+  characterLimit: null,
+  password: false,
+  textarea: false,
 }
