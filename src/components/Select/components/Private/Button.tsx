@@ -30,7 +30,7 @@ const Button = ({
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className={`
-        btn open-${isOpen} 
+        btn-nm open-${isOpen} 
         includes-tags-${!!(multiple && selected.length)}
       `}
       aria-haspopup="listbox"
@@ -54,15 +54,15 @@ const Button = ({
           data-testid="close-icon"
           role="button"
           aria-label="Clear selected"
-          className="close-icon"
+          className="close-icon-nm"
           onClick={clear}
         />
       ) : status?.type === 'error' ? (
-        <ErrorIcon className="error-icon" aria-label={status.message} />
+        <ErrorIcon className="error-icon-nm" aria-label={status.message} />
       ) : status?.type === 'warning' ? (
-        <WarningIcon className="warning-icon" aria-label={status.message} />
+        <WarningIcon className="warning-icon-nm" aria-label={status.message} />
       ) : (
-        <ArrowIcon className="arrow-icon" aria-label="Open / Close" />
+        <ArrowIcon className="arrow-icon-nm" aria-label="Open / Close" />
       )}
     </button>
   )

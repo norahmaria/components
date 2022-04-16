@@ -29,7 +29,7 @@ const Radio = ({
         horizontal-${horizontal} 
         vertical-label-${labelPlacement === 'bottom' || labelPlacement === 'top'}
       `}>
-      <div className="form-label">{name}</div>
+      <div className="form-label-nm">{name}</div>
 
       {React.Children.map(children, child =>
         React.isValidElement(child) ? (

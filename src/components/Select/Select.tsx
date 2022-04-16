@@ -96,7 +96,7 @@ const Select = ({
         disabled-${disabled}
         ${status && status.type ? status.type : ''} 
       `}>
-      <div className="form-label">{label}</div>
+      <div className="form-label-nm">{label}</div>
 
       <Button
         isOpen={isOpen}
@@ -114,7 +114,7 @@ const Select = ({
       />
 
       <ul
-        className={`options open-${isOpen}`}
+        className={`options-nm open-${isOpen}`}
         role="listbox"
         aria-label={label}
         aria-multiselectable={multiple}
@@ -146,7 +146,7 @@ const Select = ({
       </ul>
 
       {status && (
-        <div id="error" className="status">
+        <div id="error" className="status-nm">
           {status.message}
         </div>
       )}

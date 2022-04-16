@@ -3,7 +3,6 @@
 
 @include resets('.text-input-nm');
 
-// TODO: Turn into own stylesheet / component?
 .character-limit-nm {
   display: flex;
   justify-content: flex-end;
@@ -49,7 +48,7 @@
     }
   }
 
-  .status {
+  .status-nm {
     font-size: 0.875rem;
     padding-top: 0.075em;
     line-height: 1.4;
@@ -102,9 +101,9 @@
     right: 0.75rem;
   }
 
-  .error-icon,
-  .warning-icon,
-  .close-icon {
+  .error-icon-nm,
+  .warning-icon-nm,
+  .close-icon-nm {
     path,
     rect,
     circle,
@@ -116,7 +115,7 @@
     }
   }
 
-  .close-icon {
+  .close-icon-nm {
     transition: opacity 0.25s $cubic, transform 0.25s $cubic;
     transform-origin: center;
     transform: scale(0);
@@ -135,7 +134,7 @@
   &:hover,
   &:focus-visible,
   &:active {
-    .close-icon {
+    .close-icon-nm {
       transform: scale(1);
       opacity: 1;
     }
@@ -193,7 +192,7 @@
     }
   }
 
-  .error-icon {
+  .error-icon-nm {
     path,
     rect,
     circle,
@@ -222,7 +221,7 @@
     }
   }
 
-  .warning-icon {
+  .warning-icon-nm {
     path,
     rect,
     circle,

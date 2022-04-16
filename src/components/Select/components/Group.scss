@@ -1,7 +1,7 @@
 @use '../../../scss/variables' as *;
 
-.select-nm > .options > .group + .group,
-.select-nm > .options > .group ~ .group {
+.select-nm > .options-nm > .group-nm + .group-nm,
+.select-nm > .options-nm > .group-nm ~ .group-nm {
   ul {
     border-bottom: none;
     margin-bottom: 0;
@@ -9,23 +9,23 @@
   }
 }
 
-.select-nm > .options > .group:first-of-type {
+.select-nm > .options-nm > .group-nm:first-of-type {
   ul {
     padding-top: 1.25rem;
   }
 }
 
-.select-nm > .options .option + .group {
+.select-nm > .options-nn .option-nm + .group-nm {
   margin-top: 0.75rem;
 }
 
-.select-nm > .options > .group {
+.select-nm > .options-nm > .group-nm {
   ul {
     display: grid;
     gap: 0.35rem;
     width: 100%;
 
-    .title {
+    .title-nm {
       display: flex;
       gap: 0.3rem;
       align-items: center;
@@ -57,7 +57,7 @@
       }
     }
 
-    .option {
+    .option-nm {
       &:last-of-type {
         padding-bottom: 0.25rem;
       }

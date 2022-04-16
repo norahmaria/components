@@ -20,19 +20,19 @@ const ExtendedOption = ({
     <li
       role="option"
       aria-disabled={props.disabled}
-      className="option"
+      className="option-nm"
       value={props.value}
       aria-selected={selected}
       onKeyDown={onKeyDown}
       onClick={onClick}
       tabIndex={tabIndex}>
-      <div className="label">
+      <div className="label-nm">
         {props.leftIcon && left}
         {props.children}
         {props.rightIcon && right}
       </div>
 
-      {selected && <CheckMarkIcon className="check-icon" />}
+      {selected && <CheckMarkIcon className="check-icon-nm" />}
     </li>
   )
 }

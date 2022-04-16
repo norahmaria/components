@@ -46,13 +46,13 @@ const TextInput = ({
       data-testid="text-input-wrapper"
       className={`
         text-input-nm 
-        ${status && status.type ? status.type : ''} 
         icon-${!!icon || !!status}
         round-${round}
         color-${color}
         size-${size}
+        ${status && status.type ? status.type : ''} 
       `}>
-      <label className="form-label" htmlFor={id}>
+      <label className="form-label-nm" htmlFor={id}>
         {label}
       </label>
 
@@ -77,13 +77,13 @@ const TextInput = ({
             data-testid="close-icon"
             role="button"
             aria-label="Clear selected"
-            className="close-icon"
+            className="close-icon-nm"
             onClick={clear}
           />
         ) : status?.type === 'error' ? (
-          <ErrorIcon aria-label={status.message} className="error-icon" />
+          <ErrorIcon aria-label={status.message} className="error-icon-nm" />
         ) : status?.type === 'warning' ? (
-          <WarningIcon aria-label={status.message} className="warning-icon" />
+          <WarningIcon aria-label={status.message} className="warning-icon-nm" />
         ) : !!icon ? (
           icon
         ) : null}
@@ -97,7 +97,7 @@ const TextInput = ({
       )}
 
       {status && (
-        <div id="error" className="status">
+        <div id="error" className="status-nm">
           {status.message}
         </div>
       )}
