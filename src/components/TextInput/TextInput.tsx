@@ -61,13 +61,14 @@ const TextInput = ({
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
         <input
+          data-testid="text-input"
           autoComplete="off"
           disabled={disabled}
           type="text"
           value={value}
+          placeholder={placeholder}
           onChange={onChange}
           id={id}
-          placeholder={placeholder}
         />
         {isLoading ? (
           <LoadingSpinner color={color} />
