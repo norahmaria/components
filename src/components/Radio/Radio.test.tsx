@@ -66,8 +66,7 @@ describe('Radio Component', () => {
     const labelTwo = getByText('Second Button')
     labelTwo.click()
 
-    // useEffect runs on mount, so we want it to have been called twice
-    expect(onRadioChange).toHaveBeenCalledTimes(2)
+    expect(onRadioChange).toHaveBeenCalledTimes(1)
   })
 
   it('Can toggle checked / unchecked', () => {

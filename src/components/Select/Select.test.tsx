@@ -51,7 +51,7 @@ describe('Select Component', () => {
     const { getByRole, getAllByRole } = render(base({}))
 
     const [toggleButton] = getAllByRole('button')
-    const options = getByRole('listbox')
+    const [options] = getAllByRole('listbox')
 
     expect(toggleButton).not.toHaveClass('open-true')
     expect(toggleButton).not.toHaveAttribute('aria-expanded', 'true')
@@ -163,7 +163,7 @@ describe('Select Component', () => {
     const status = getByText('Must select one')
     const select = getByTestId('select')
 
-    expect(status).toHaveClass('status')
+    expect(status).toHaveClass('status-nm')
     expect(select).toHaveClass('error')
   })
 
@@ -189,6 +189,6 @@ describe('Select Component', () => {
       clearIcon.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
 
-    expect(onSelectionChange).toBeCalledTimes(4)
+    expect(onSelectionChange).toBeCalledTimes(3)
   })
 })

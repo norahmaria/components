@@ -12,7 +12,7 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
   data-testid="select"
 >
   <div
-    class="form-label"
+    class="form-label-nm"
   >
     Country
   </div>
@@ -22,81 +22,82 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-invalid="false"
-    aria-required="false"
     class="
-        btn open-false 
+        btn-nm open-false 
         includes-tags-false
       "
     type="button"
   >
     <div
-      class="label"
+      class="label-nm"
     >
       <div
-        class="placeholder"
+        class="placeholder-nm"
       >
         Placeholder
       </div>
     </div>
     <svg
       aria-label="Open / Close"
-      class="arrow-icon"
+      class="arrow-icon-nm"
     />
   </button>
   <ul
     aria-label="Country"
     aria-multiselectable="false"
-    class="options open-false"
+    class="options-nm open-false"
     role="listbox"
     tabindex="-1"
   >
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="option"
+      class="option-nm"
       role="option"
       tabindex="-1"
       value="us"
     >
       <div
-        class="label"
+        class="label-nm"
       >
         United States
       </div>
     </li>
     <li
-      class="group"
+      class="group-nm"
     >
       <ul
+        aria-label="Scandinavia"
         data-testid="select-group"
+        role="listbox"
       >
         <li
-          class="title"
+          class="title-nm"
         >
           Scandinavia
         </li>
         <li
           aria-selected="false"
-          class="option"
+          class="option-nm"
           role="option"
           tabindex="-1"
           value="no"
         >
           <div
-            class="label"
+            class="label-nm"
           >
             Norway
           </div>
         </li>
         <li
           aria-selected="false"
-          class="option"
+          class="option-nm"
           role="option"
           tabindex="-1"
           value="se"
         >
           <div
-            class="label"
+            class="label-nm"
           >
             Sweden
           </div>
@@ -119,7 +120,7 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
   data-testid="select"
 >
   <div
-    class="form-label"
+    class="form-label-nm"
   >
     Country
   </div>
@@ -129,81 +130,82 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-invalid="false"
-    aria-required="false"
     class="
-        btn open-false 
+        btn-nm open-false 
         includes-tags-false
       "
     type="button"
   >
     <div
-      class="label"
+      class="label-nm"
     >
       <div
-        class="placeholder"
+        class="placeholder-nm"
       >
         Placeholder
       </div>
     </div>
     <svg
       aria-label="Open / Close"
-      class="arrow-icon"
+      class="arrow-icon-nm"
     />
   </button>
   <ul
     aria-label="Country"
     aria-multiselectable="false"
-    class="options open-false"
+    class="options-nm open-false"
     role="listbox"
     tabindex="-1"
   >
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="option"
+      class="option-nm"
       role="option"
       tabindex="-1"
       value="us"
     >
       <div
-        class="label"
+        class="label-nm"
       >
         United States
       </div>
     </li>
     <li
-      class="group"
+      class="group-nm"
     >
       <ul
+        aria-label="Scandinavia"
         data-testid="select-group"
+        role="listbox"
       >
         <li
-          class="title"
+          class="title-nm"
         >
           Scandinavia
         </li>
         <li
           aria-selected="false"
-          class="option"
+          class="option-nm"
           role="option"
           tabindex="-1"
           value="no"
         >
           <div
-            class="label"
+            class="label-nm"
           >
             Norway
           </div>
         </li>
         <li
           aria-selected="false"
-          class="option"
+          class="option-nm"
           role="option"
           tabindex="-1"
           value="se"
         >
           <div
-            class="label"
+            class="label-nm"
           >
             Sweden
           </div>

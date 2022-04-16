@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 
 import { TextInput } from '../../components/index'
 
-describe.only('TextInput Component', () => {
+describe('TextInput Component', () => {
   it('Can render', () => {
     const { getByTestId } = render(
       <TextInput
@@ -31,6 +31,7 @@ describe.only('TextInput Component', () => {
     )
 
     const wrapper = getByTestId('text-input-wrapper')
+
     expect(wrapper).toHaveClass('size-small')
     expect(wrapper).toHaveClass('color-success')
     expect(wrapper).toHaveClass('round-true')

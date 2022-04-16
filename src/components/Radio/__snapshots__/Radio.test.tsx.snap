@@ -10,7 +10,7 @@ exports[`Radio Component Can render 1`] = `
   data-testid="radio-wrapper"
 >
   <div
-    class="form-label"
+    class="form-label-nm"
   >
     radio
   </div>
