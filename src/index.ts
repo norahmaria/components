@@ -1,1 +1,1 @@
-export { Select, Button, Checkbox, Radio } from './components'
+export { Select, Button, Checkbox, Radio, TextInput } from './components'

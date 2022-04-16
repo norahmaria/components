@@ -1,7 +1,7 @@
 {
   "name": "norahmaria-components",
   "author": "Norah Maria",
-  "version": "0.0.39",
+  "version": "0.0.41",
   "license": "GNU",
   "description": "A lil component library for React",
   "main": "build/index.js",
