@@ -12,10 +12,12 @@ const Switch = ({
   const [checked, setChecked] = useState(false)
 
   const onClick = () => {
-    setChecked(prev => {
-      onSwitchChange(!prev)
-      return !prev
-    })
+    if (!disabled) {
+      setChecked(prev => {
+        onSwitchChange(!prev)
+        return !prev
+      })
+    }
   }
 
   return (

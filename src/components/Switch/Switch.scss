@@ -91,10 +91,6 @@
 
   &:disabled {
     cursor: not-allowed;
-
-    & + label {
-      cursor: not-allowed;
-    }
   }
 }
 
@@ -157,5 +153,18 @@
     //     box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
     //   }
     // }
+  }
+}
+
+.switch-nm.disabled-true {
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  color: rgba($black, 0.4);
+
+  &.checked-true {
+    .switch-nm-toggle {
+      background-color: scale-color($black, $lightness: 70%);
+      border: 1px solid scale-color($black, $lightness: 70%);
+    }
   }
 }
