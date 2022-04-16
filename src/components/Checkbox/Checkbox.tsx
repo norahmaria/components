@@ -30,15 +30,8 @@ const Checkbox = ({
     })
   }, [])
 
-  useEffect(() => {
-    if (!disabled) onCheckboxChange(checked)
-  }, [checked])
-
   return (
-    <div
-      className={`checkbox-nm ${size} ${color}`}
-      data-testid="checkbox-wrapper"
-    >
+    <div className={`checkbox-nm ${size} ${color}`} data-testid="checkbox-wrapper">
       <input
         ref={checkbox}
         disabled={disabled}
@@ -48,11 +41,7 @@ const Checkbox = ({
         checked={checked}
         data-testid="checkbox-input"
       />
-      <label
-        htmlFor={id}
-        className={labelPlacement}
-        data-testid="checkbox-label"
-      >
+      <label htmlFor={id} className={labelPlacement} data-testid="checkbox-label">
         <CheckMarkIcon />
         {label}
       </label>
