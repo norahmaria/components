@@ -1,0 +1,161 @@
+@use '../../scss/resets' as *;
+@use '../../scss/variables' as *;
+
+@include resets('.switch-nm');
+
+.switch-nm {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:active,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.switch-nm.size-small {
+  font-size: 0.875rem;
+  gap: 0.7rem;
+
+  .switch-nm-toggle {
+    height: 1rem;
+    width: 2.15rem;
+  }
+
+  .dot {
+    margin-top: -0.2rem;
+    height: 1.25rem;
+  }
+
+  &.checked-false .dot {
+    margin-left: -0.2rem;
+  }
+
+  &.checked-true .dot {
+    margin-left: 1rem;
+  }
+}
+
+.switch-nm.size-medium {
+  gap: 1rem;
+  font-size: 1rem;
+
+  .switch-nm-toggle {
+    height: 1.25rem;
+    width: 2.35rem;
+  }
+
+  .dot {
+    margin-top: -0.175rem;
+    height: 1.4rem;
+  }
+
+  &.checked-false .dot {
+    margin-left: -0.2rem;
+  }
+
+  &.checked-true .dot {
+    margin-left: 1.2rem;
+  }
+}
+
+.switch-nm.size-large {
+  gap: 1.25rem;
+  font-size: 1.15rem;
+
+  .switch-nm-toggle {
+    height: 1.5rem;
+    width: 2.5rem;
+  }
+
+  .dot {
+    margin-top: -0.175rem;
+    height: 1.65rem;
+  }
+
+  &.checked-false .dot {
+    margin-left: -0.4rem;
+  }
+
+  &.checked-true .dot {
+    margin-left: 1.3rem;
+  }
+}
+
+.switch-nm input {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+
+    & + label {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.switch-nm-toggle {
+  position: relative;
+  border-radius: $br * 4;
+  box-shadow: 0 0 0.15px 2px scale-color($white, $lightness: 20%);
+
+  background-color: scale-color($neutral700, $lightness: 30%);
+  border: 1px solid scale-color($neutral700, $lightness: 30%);
+  transition: background-color 0.35s $cubic, box-shadow 0.35s $cubic, border 0.35s $cubic;
+}
+
+.switch-nm {
+  .dot {
+    position: absolute;
+    border-radius: 100%;
+    background-color: $white;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
+    aspect-ratio: 1;
+
+    transition: margin-left 0.35s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
+  }
+}
+
+@each $name, $color in $colors {
+  .switch-nm.color-#{$name}.checked-true {
+    .switch-nm-toggle {
+      @if $name == 'neutral' {
+        background-color: scale-color($black, $lightness: 30%);
+        border: 1px solid scale-color($black, $lightness: 30%);
+      } @else {
+        background-color: $color;
+        border: 1px solid $color;
+      }
+    }
+
+    .dot {
+      box-shadow: 0 1px 4px 0 rgba(darken($color, 50%), 0.3),
+        inset 0 0 1px 0 rgba(darken($color, 50%), 0.05);
+    }
+  }
+
+  .switch-nm.color-#{$name} {
+    &:hover,
+    &:focus-visible,
+    &:active {
+      // .dot {
+      //   transform: scale(1.5);
+      //   transform-origin: center;
+      // }
+      // .switch-nm-toggle {
+      //   border: 1px solid $color;
+      // }
+    }
+
+    // &:focus-visible,
+    // &:active {
+    //   .switch-nm-toggle {
+    //     box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
+    //   }
+    // }
+  }
+}
