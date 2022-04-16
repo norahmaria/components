@@ -34,11 +34,17 @@ const Select = ({
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState<(string | number)[]>([])
   const container = useRef<HTMLDivElement>(null)
+  const didMountRef = useRef(false)
 
   const onKeyDown = useOnKeyDown({ updateSelected, setSelected, setIsOpen, multiple })
 
   useOutsideClick(container, '.select', () => setIsOpen(false))
-  useEffect(() => onSelectionChange(selected), [selected])
+
+  useEffect(() => {
+    if (didMountRef.current) onSelectionChange(selected)
+
+    didMountRef.current = true
+  }, [selected])
 
   function updateSelected(value: number | string) {
     setSelected(prev => {

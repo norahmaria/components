@@ -27,14 +27,19 @@ const TextInput = ({
 
   const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setValue(() => {
-      if (target.value.length > characterLimit) return value
-      return characterLimit ? target.value.substring(0, characterLimit) : target.value
+      const update =
+        characterLimit && target.value.length > characterLimit
+          ? value
+          : characterLimit
+          ? target.value.substring(0, characterLimit)
+          : target.value
+
+      onTextInputChange(update)
+      return update
     })
   }
 
   const clear = () => setValue('')
-
-  useEffect(() => onTextInputChange(value), [value])
 
   return (
     <div

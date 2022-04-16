@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import RadioProps from './Radio.types'
 import './Radio.scss'
 
@@ -16,12 +16,9 @@ const Radio = ({
 }: RadioProps) => {
   const [checked, setChecked] = useState<string | number>(null)
 
-  useEffect(() => {
-    if (!disabled) onRadioChange(checked)
-  }, [checked])
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.value)
+  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(target.value)
+    if (!disabled) onRadioChange(target.value)
   }
 
   return (

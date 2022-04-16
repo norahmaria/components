@@ -19,8 +19,9 @@ const Checkbox = ({
   const [checked, setChecked] = useState(false)
   const checkbox = useRef<HTMLInputElement>(null)
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked)
+  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(target.checked)
+    if (!disabled) onCheckboxChange(target.checked)
   }
 
   useEffect(() => {
