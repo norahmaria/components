@@ -7,21 +7,28 @@ Stories:
 
 Components:
   ☐ Add Select keyboard navigation (up and down keys)
+  ☐ Add a span size option for text input and select component
+  ☐ Add dynamic ids for radio buttons based on name @idea
+  ☐ Add hover effect for Switch component
 
   Text Input:
-    ☐ Add view password option
-    ☐ Add textarea
-    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc)
+    ✔ Add textarea @done(22-04-16 20:10)
     ✔ Add clear button @done(22-04-15 09:03)
     ✔ Design / space for character count @done(22-04-15 09:03)
+    ☐ Add view password option @longterm
+    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @longterm
 
 Structure:
   ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.
-  ☐ Consider turning character count into re-usable component
   ☐ Consider mixins for basic border with box shadow hover/focus etc.
-
-Design:
-  ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
+  
+  Design:
+    ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
+    
+  Tools:
+    useForm hook:
+      ☐ Add base functionality
+      ☐ Make id/name consistent in components for easy usage
 
 Issues: @critical
   ✔ Select z-index @done(22-04-13 08:35)
