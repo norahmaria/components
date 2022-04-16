@@ -39,7 +39,6 @@ const Button = ({
       disabled={disabled}
       aria-invalid={!!status}
       aria-expanded={isOpen}
-      aria-required={required}
       onClick={onClick}
       onKeyDown={onKeyDown}>
       <Label
