@@ -22,5 +22,15 @@ interface TextInputProps {
   password?: boolean
   textarea?: boolean
 }
+interface TextInputAriaProps extends TextInputProps {
+  password: true
+  textarea?: false
+}
+interface TextInputPropsNonAria extends TextInputProps {
+  password?: false
+  textarea?: boolean
+}
 
-export default TextInputProps
+type Props = TextInputProps & (TextInputAriaProps | TextInputPropsNonAria)
+
+export default Props

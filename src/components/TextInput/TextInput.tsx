@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import TextInputProps from './TextInput.types'
 
 import { ReactComponent as ErrorIcon } from '../../assets/Error.svg'
@@ -7,6 +7,7 @@ import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
 
 import './TextInput.scss'
 import LoadingSpinner from '../../private/LoadingSpinner'
+import growTextArea from '../../utils/growTextArea'
 
 const TextInput = ({
   label,
@@ -17,6 +18,8 @@ const TextInput = ({
   round = false,
   disabled = false,
   isLoading = false,
+  password = false,
+  textarea = false,
   characterLimit,
   status,
   icon,
@@ -25,7 +28,9 @@ const TextInput = ({
   const [value, setValue] = useState('')
   const [hover, setHover] = useState(false)
 
-  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = ({
+    target,
+  }: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(() => {
       const update =
         characterLimit && target.value.length > characterLimit
@@ -57,19 +62,32 @@ const TextInput = ({
       </label>
 
       <div
-        className="text-input-container-nm"
+        className={`text-input-container-nm textarea-${textarea}`}
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
-        <input
-          data-testid="text-input"
-          autoComplete="off"
-          disabled={disabled}
-          type="text"
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-          id={id}
-        />
+        {textarea ? (
+          <textarea
+            data-testid="text-input"
+            autoComplete="off"
+            disabled={disabled}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            onKeyDown={growTextArea}
+            id={id}
+          />
+        ) : (
+          <input
+            data-testid="text-input"
+            autoComplete="off"
+            disabled={disabled}
+            type={password ? 'password' : 'text'}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            id={id}
+          />
+        )}
         {isLoading ? (
           <LoadingSpinner color={color} />
         ) : value.length && hover ? (

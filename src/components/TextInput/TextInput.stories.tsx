@@ -51,6 +51,18 @@ export default {
         category: 'Display',
       },
     },
+    password: {
+      description: `If it's a password input or not`,
+      table: {
+        category: 'Appearance',
+      },
+    },
+    textarea: {
+      description: `If it's a textarea or a normal text input`,
+      table: {
+        category: 'Display',
+      },
+    },
     disabled: {
       description: 'Set input to be disabled or not',
       table: {
