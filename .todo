@@ -6,16 +6,17 @@ Stories:
   ☐ ~There is still some blue colors theme can't control~
 
 Components:
-  ☐ Add Select keyboard navigation (up and down keys)
+  ☐ Add Select keyboard navigation (up and down keys) @critical
   ☐ Add a span size option for text input and select component
   ☐ Add dynamic ids for radio buttons based on name @idea
-  ☐ Add hover effect for Switch component
+  ☐ Add hover effect for Switch component @high
 
   Text Input:
     ✔ Add textarea @done(22-04-16 20:10)
     ✔ Add clear button @done(22-04-15 09:03)
     ✔ Design / space for character count @done(22-04-15 09:03)
     ☐ Add view password option @longterm
+    ☐ Figure out why testing for characterLimit set to 4 is unsolvable @low
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @longterm
 
 Structure:
