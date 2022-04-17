@@ -9,7 +9,7 @@ import ButtonProps from './Button.types'
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
 
 export default {
-  title: 'Button',
+  title: 'Inputs/Button',
   component: ButtonComponent,
   parameters: {
     badges: [BADGE.STABLE],
