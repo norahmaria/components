@@ -26,6 +26,7 @@ Components:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Add more spacing on top of first groups
     ☐ Select disabled not working properly @critical
+    ☐ Option disabled _and_ selected not looking good
 
   Text Input:
     ✔ Add textarea @done(22-04-16 20:10)
