@@ -4,15 +4,28 @@ Stories:
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
   ☐ ~There is still some blue colors theme can't control~
+  ☐ Add overview of the classNames in the components
 
 Components:
+  ☐ Allow to add classNames, and inline styles
+  ☐ Allow default values for inputs
   ☐ Add a span size option for text input and select component
+  ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
+  ☐ Add event as additional args for onChange functions
   ☐ Add dynamic ids for radio buttons based on name @idea
   ☐ Add hover effect for Switch component @high
+  ☐ Button type (submit etc)
+  ☐ Make sure switch components sticks to its container (margin-top is minus so its eh)
   
+  ☐ Consistency between Select and TextInput (color, height, text) @high
+
+  Radio:
+    ☐ Mouse consistency (hover isn't always showing correct mouse)
+
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Add more spacing on top of first groups
+    ☐ Select disabled not working properly @critical
 
   Text Input:
     ✔ Add textarea @done(22-04-16 20:10)
@@ -35,6 +48,7 @@ Structure:
       ☐ Make id/name consistent in components for easy usage
 
 Issues: @critical
+  ☐ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked)
   ✔ Select z-index @done(22-04-13 08:35)
 
 Testing:
