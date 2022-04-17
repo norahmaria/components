@@ -1,16 +1,16 @@
 // https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
-Stories:
+@category Stories:
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
   ☐ Add overview of the classNames in the components
 
 
-Issues: @critical
+@category Issues: @critical
   ☐ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked)
 
 
-Components:
+@category Components:
   ☐ Allow to add classNames, and inline styles
   ☐ Allow default values for inputs @high
   ☐ Add a span size option for text input and select component
@@ -39,24 +39,24 @@ Components:
     ☐ Type of button
 
 
-Structure:
+@category Structure:
   ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.
   ☐ Consider mixins for basic border with box shadow hover/focus etc.
   ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
 
 
-Tools:
+@category Tools:
   useForm hook:
     ☐ Add base functionality
     ☐ Make id/name consistent in components for easy usage
 
 
-Design:
+@category Design:
   ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
   ☐ Consistency between Select and TextInput (color, height, text) @high
 
   
-Testing:
+@category Testing:
   ☐ Add Text Input testing
   
 
