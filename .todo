@@ -1,26 +1,28 @@
-// https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-todo-plus
+// https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
 Stories:
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
-  ☐ ~There is still some blue colors theme can't control~
   ☐ Add overview of the classNames in the components
+
+
+Issues: @critical
+  ☐ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked)
+
 
 Components:
   ☐ Allow to add classNames, and inline styles
-  ☐ Allow default values for inputs
+  ☐ Allow default values for inputs @high
   ☐ Add a span size option for text input and select component
-  ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
   ☐ Add event as additional args for onChange functions
-  ☐ Add dynamic ids for radio buttons based on name @idea
-  ☐ Add hover effect for Switch component @high
-  ☐ Button type (submit etc)
-  ☐ Make sure switch components sticks to its container (margin-top is minus so its eh)
   
-  ☐ Consistency between Select and TextInput (color, height, text) @high
+  Switch: 
+    ☐ Add hover effect @moderate
+    ☐ Make sure it sticks to its container (margin-top is minus so its eh)
 
   Radio:
     ☐ Mouse consistency (hover isn't always showing correct mouse)
+    ☐ Add dynamic ids for buttons based on name
 
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
@@ -29,29 +31,39 @@ Components:
     ☐ Option disabled _and_ selected not looking good
 
   Text Input:
-    ✔ Add textarea @done(22-04-16 20:10)
-    ✔ Add clear button @done(22-04-15 09:03)
-    ✔ Design / space for character count @done(22-04-15 09:03)
-    ☐ Add view password option @longterm
+    ☐ Add view password option @future
     ☐ Figure out why testing for characterLimit set to 4 is unsolvable @low
-    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @longterm
+    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
+
+  Button: 
+    ☐ Type of button
+
 
 Structure:
   ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.
   ☐ Consider mixins for basic border with box shadow hover/focus etc.
+  ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
+
+
+Tools:
+  useForm hook:
+    ☐ Add base functionality
+    ☐ Make id/name consistent in components for easy usage
+
+
+Design:
+  ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
+  ☐ Consistency between Select and TextInput (color, height, text) @high
+
   
-  Design:
-    ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
-    
-  Tools:
-    useForm hook:
-      ☐ Add base functionality
-      ☐ Make id/name consistent in components for easy usage
-
-Issues: @critical
-  ☐ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked)
-  ✔ Select z-index @done(22-04-13 08:35)
-
 Testing:
   ☐ Add Text Input testing
+  
+
+Archive:
   ✔ Add Radio testing @done(22-04-13 08:32)
+  ✔ Select z-index @done(22-04-13 08:35)
+  ✔ Design / space for character count @done(22-04-15 09:03)
+  ✔ Add textarea @done(22-04-16 20:10)
+  ✔ Add clear button @done(22-04-15 09:03)
+  ✘ There is still some blue colors theme can't control @cancelled(22-04-17 20:18)
