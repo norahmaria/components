@@ -15,6 +15,7 @@
     ☐ Slider
     ☐ Upload Button
 
+  ☐ Select / text inputs have a set height, adjust this for sizes and textarea
   ☐ Mouse consistency (hover isn't always showing correct mouse)
   ☐ Allow to add classNames, and inline styles
   ☐ Consider if you should extend existing props (accessibility in mind)
@@ -39,7 +40,8 @@
 
   Text Input:
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
-
+    ☐ Textarea version not styled properly
+    
   Button: 
     ☐ Type of button
     ☐ More size or at least weight to the font (does not stand out in a form lol)
