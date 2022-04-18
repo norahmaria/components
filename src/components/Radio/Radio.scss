@@ -2,16 +2,9 @@
   display: grid;
   gap: 1rem;
   width: max-content;
-}
 
-.radio-nm {
   .form-label-nm {
     margin-bottom: 0;
-  }
-
-  &.disabled-true {
-    pointer-events: none;
-    cursor: not-allowed;
   }
 
   &.horizontal-false {
