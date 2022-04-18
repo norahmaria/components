@@ -11,40 +11,43 @@
 
 
 @category Components:
+  NEXT COMPONENT:
+    ☐ Slider
+    ☐ Upload Button
+
+  ☐ Mouse consistency (hover isn't always showing correct mouse)
   ☐ Allow to add classNames, and inline styles
+  ☐ Consider if you should extend existing props (accessibility in mind)
   ☐ Allow default values for inputs @high
-  ☐ Add a span size option for text input and select component
   ☐ Add event as additional args for onChange functions
+  ☐ Icon for text / select is yellow / red when it has status even when disabled
   
   Switch: 
     ☐ Add hover effect @moderate
-    ☐ Make sure it sticks to its container (margin-top is minus so its eh)
-
+    ☐ Add tabIndex and focus state
+    
   Radio:
-    ☐ Mouse consistency (hover isn't always showing correct mouse)
     ☐ Add dynamic ids for buttons based on name
     ☐ Disabled radio buttons look checked
-
+      
   Select:
+    ☐ Font weight for disabled is too thick (Mozilla Firefox)
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Add more spacing on top of first groups
     ☐ Select disabled not working properly @critical
     ☐ Option disabled _and_ selected not looking good
 
   Text Input:
-    ☐ Add view password option @future
-    ☐ Figure out why testing for characterLimit set to 4 is unsolvable @low
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
 
   Button: 
     ☐ Type of button
+    ☐ More size or at least weight to the font (does not stand out in a form lol)
 
 
 @category Structure:
-  ☐ Add a global SCSS file user should import to avoid repetitive code for resets etc.
-  ☐ Consider mixins for basic border with box shadow hover/focus etc.
   ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
-
+  
 
 @category Tools:
   useForm hook:
@@ -54,14 +57,16 @@
 
 @category Design:
   ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
-  ☐ Consistency between Select and TextInput (color, height, text) @high
-
+  
   
 @category Testing:
-  ☐ Add Text Input testing
+  ☐ Add Switch testing
   
-
+  
 Archive:
+  ✔ Add Text Input testing @done(22-04-18 23:28)
+  ✔ Consistency between Select and TextInput (color, height, text) @high @done(22-04-18 23:27)
+  ✔ Add a global SCSS file user ~should import to avoid repetitive code for resets etc~. @done(22-04-18 23:26)
   ✔ Add Radio testing @done(22-04-13 08:32)
   ✔ Select z-index @done(22-04-13 08:35)
   ✔ Design / space for character count @done(22-04-15 09:03)
