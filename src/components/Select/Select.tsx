@@ -86,19 +86,18 @@ const Select = ({
 
   return (
     <div
-      {...props}
       data-testid="select"
       ref={container}
       className={`
         select-nm 
         size-${size} 
-        color-${color}
-        disabled-${disabled}
+        color-${color} 
         ${status && status.type ? status.type : ''} 
       `}>
-      <div className="form-label-nm">{label}</div>
+      <label className="form-label-nm">{label}</label>
 
       <Button
+        color={color}
         isOpen={isOpen}
         multiple={multiple}
         selected={selected}
@@ -120,29 +119,33 @@ const Select = ({
         aria-multiselectable={multiple}
         aria-activedescendant={selected[selected.length]?.toString()}
         tabIndex={-1}>
-        {React.Children.map(props.children, child => {
-          if (React.isValidElement(child)) {
-            if (child.props.title) {
-              return (
-                <Group {...child.props}>
-                  {React.Children.map(child.props.children, nested => (
-                    <ExtendedOption
-                      {...nested.props}
-                      {...createProps(nested.props.value, nested.props.disabled)}
-                    />
-                  ))}
-                </Group>
-              )
-            } else {
-              return (
-                <ExtendedOption
-                  {...child.props}
-                  {...createProps(child.props.value, child.props.disabled)}
-                />
-              )
+        {React.Children.count(props.children) ? (
+          React.Children.map(props.children, child => {
+            if (React.isValidElement(child)) {
+              if (child.props.title) {
+                return (
+                  <Group {...child.props}>
+                    {React.Children.map(child.props.children, nested => (
+                      <ExtendedOption
+                        {...nested.props}
+                        {...createProps(nested.props.value, nested.props.disabled)}
+                      />
+                    ))}
+                  </Group>
+                )
+              } else {
+                return (
+                  <ExtendedOption
+                    {...child.props}
+                    {...createProps(child.props.value, child.props.disabled)}
+                  />
+                )
+              }
             }
-          }
-        })}
+          })
+        ) : (
+          <div>No selects </div>
+        )}
       </ul>
 
       {status && (

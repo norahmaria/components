@@ -1,9 +1,4 @@
-@use '../../../scss/mixins';
-@use '../../../scss/resets' as *;
 @use '../../../scss/variables' as *;
-
-@include resets('.radio-button-nm');
-@include mixins.checkbox('.radio-button-nm');
 
 .radio-button-nm label::before,
 .radio-button-nm label::after {
@@ -11,19 +6,19 @@
 }
 
 @each $name, $color in $colors {
-  .radio-button-nm.#{$name} input + label::before,
-  .radio-button-nm.#{$name} input + label::after {
+  .radio-button-nm.color-#{$name} input + label::before,
+  .radio-button-nm.color-#{$name} input + label::after {
     outline: 3px solid $white;
     outline-offset: -4px;
   }
 
-  .radio-button-nm.#{$name} input:checked + label::before,
-  .radio-button-nm.#{$name} input:checked + label::after {
+  .radio-button-nm.color-#{$name} input:checked + label::before,
+  .radio-button-nm.color-#{$name} input:checked + label::after {
     border: 3px solid scale-color($color, $lightness: -25%);
   }
 
-  .radio-button-nm.#{$name} input:checked:disabled + label::before,
-  .radio-button-nm.#{$name} input:checked:disabled + label::after {
+  .radio-button-nm.color-#{$name} input:checked:disabled + label::before,
+  .radio-button-nm.color-#{$name} input:checked:disabled + label::after {
     background-color: $color;
     opacity: 0.65;
   }

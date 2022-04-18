@@ -1,12 +1,19 @@
-@use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
-
-@include resets('.switch-nm');
 
 .switch-nm {
   cursor: pointer;
   display: flex;
   align-items: center;
+
+  .dot {
+    position: absolute;
+    border-radius: 100%;
+    background-color: $white;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
+    aspect-ratio: 1;
+
+    transition: margin-left 0.35s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
+  }
 
   &:active,
   &:focus-visible {
@@ -19,13 +26,13 @@
   gap: 0.7rem;
 
   .switch-nm-toggle {
-    height: 1rem;
-    width: 2.15rem;
+    height: 0.8rem;
+    width: 1.75rem;
   }
 
   .dot {
-    margin-top: -0.2rem;
-    height: 1.25rem;
+    margin-top: -0.25rem;
+    height: 1.1rem;
   }
 
   &.checked-false .dot {
@@ -33,7 +40,7 @@
   }
 
   &.checked-true .dot {
-    margin-left: 1rem;
+    margin-left: 0.7rem;
   }
 }
 
@@ -42,13 +49,13 @@
   font-size: 1rem;
 
   .switch-nm-toggle {
-    height: 1.25rem;
-    width: 2.35rem;
+    height: 1rem;
+    width: 2rem;
   }
 
   .dot {
-    margin-top: -0.175rem;
-    height: 1.4rem;
+    margin-top: -0.2rem;
+    height: 1.2rem;
   }
 
   &.checked-false .dot {
@@ -56,22 +63,22 @@
   }
 
   &.checked-true .dot {
-    margin-left: 1.2rem;
+    margin-left: 0.9rem;
   }
 }
 
 .switch-nm.size-large {
-  gap: 1.25rem;
+  gap: 1.2rem;
   font-size: 1.15rem;
 
   .switch-nm-toggle {
-    height: 1.5rem;
-    width: 2.5rem;
+    height: 1.15rem;
+    width: 2.15rem;
   }
 
   .dot {
     margin-top: -0.175rem;
-    height: 1.65rem;
+    height: 1.35rem;
   }
 
   &.checked-false .dot {
@@ -79,18 +86,7 @@
   }
 
   &.checked-true .dot {
-    margin-left: 1.3rem;
-  }
-}
-
-.switch-nm input {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-
-  &:disabled {
-    cursor: not-allowed;
+    margin-left: 1rem;
   }
 }
 
@@ -102,18 +98,6 @@
   background-color: scale-color($neutral700, $lightness: 30%);
   border: 1px solid scale-color($neutral700, $lightness: 30%);
   transition: background-color 0.35s $cubic, box-shadow 0.35s $cubic, border 0.35s $cubic;
-}
-
-.switch-nm {
-  .dot {
-    position: absolute;
-    border-radius: 100%;
-    background-color: $white;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
-    aspect-ratio: 1;
-
-    transition: margin-left 0.35s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
-  }
 }
 
 @each $name, $color in $colors {

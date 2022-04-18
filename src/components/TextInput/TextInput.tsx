@@ -62,7 +62,7 @@ const TextInput = ({
       </label>
 
       <div
-        className={`text-input-container-nm textarea-${textarea}`}
+        className={`text-input-container-nm textarea-${textarea} disabled-${disabled}`}
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
         {textarea ? (
@@ -75,12 +75,18 @@ const TextInput = ({
             onChange={onChange}
             onKeyDown={growTextArea}
             id={id}
+            className={`input-base-nm color-${color} ${
+              status && status.type ? status.type : ''
+            } `}
           />
         ) : (
           <input
             data-testid="text-input"
             autoComplete="off"
             disabled={disabled}
+            className={`input-base-nm color-${color} ${
+              status && status.type ? status.type : ''
+            } `}
             type={password ? 'password' : 'text'}
             value={value}
             placeholder={placeholder}

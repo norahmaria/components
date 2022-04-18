@@ -1,26 +1,9 @@
 @use '../../scss/variables' as *;
-@use '../../scss/resets' as *;
-
-@include resets('.select-nm');
 
 .select-nm {
-  color: $black;
   z-index: 12;
   position: relative;
-  min-width: 15rem;
   width: 100%;
-
-  font-size: 0.875rem;
-
-  li {
-    list-style: none;
-  }
-
-  .status-nm {
-    padding-top: 0.7em;
-    line-height: 1.4;
-    font-size: 0.875rem;
-  }
 
   .empty-nm {
     color: rgba($black, 0.5);
@@ -29,71 +12,32 @@
     align-items: center;
     gap: 0.4rem;
     padding: 2em 0.5em;
+  }
 
-    svg {
-      height: 0.8em;
-      min-height: 0.8em;
-      max-height: 0.8em;
-    }
+  .arrow-icon-nm {
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .line-arrow-icon-nm {
+    transform: rotate(180deg);
+  }
+
+  .close-icon-nm {
+    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
   }
 }
 
-.select-nm.size-small,
-.select-nm.size-small > .btn-nm {
-  font-size: 0.75rem;
-}
-
-.select-nm.size-medium,
-.select-nm.size-medium > .btn-nm {
-  font-size: 0.875rem;
-}
-
-.select-nm.size-large,
-.select-nm.size-large > .btn-nm {
-  font-size: 0.975rem;
-}
-
-.select-nm.disabled-true {
-  cursor: not-allowed;
-
-  & > .btn {
-    background: darken($white, 3%);
-    border: 1px solid #e8e8e8;
-    color: #898a8a;
-    pointer-events: none;
-
-    svg path,
-    svg rect,
-    svg circle,
-    svg ellipse,
-    svg polyline,
-    svg line,
-    svg polygon {
-      fill: #898a8a;
-    }
-  }
-}
-
-.select-nm > .btn-nm {
-  color: $black;
-  border-radius: $br;
-  border: 1px solid $neutral700;
-  background: $white;
-  padding: 0.65em 0.75em 0.65em 0.75em;
-  line-height: 1;
-
-  font-size: 0.875rem;
-
-  cursor: pointer;
-
-  width: 100%;
+.select-btn-nm {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 
-  transition: box-shadow 0.25s $cubic, border 0.25s ease;
-  box-shadow: 0 0 0.5px 0 transparent;
+  transition: box-shadow 0.25s $cubic, border 0.25s $cubic;
 
   &.includes-tags-true {
     padding: 0.33em 0.75em 0.33em 0.33em;
@@ -103,6 +47,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
+
+    img {
+      height: 1em;
+      min-height: 1em;
+      max-height: 1em;
+    }
 
     .tag-nm {
       background: darken($white, 3%);
@@ -118,18 +68,6 @@
     .selected-nm {
       font-weight: 330;
     }
-
-    .placeholder-nm {
-      font-weight: 300;
-      color: rgb($black, 0.65);
-    }
-  }
-
-  .close-icon-nm {
-    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
-    transform-origin: center;
-    transform: scale(0);
-    opacity: 0;
   }
 
   &:hover,
@@ -141,82 +79,6 @@
       transform: scale(1);
       opacity: 1;
     }
-  }
-}
-
-.select-nm {
-  .form-label-nm {
-    margin-bottom: 0.5rem;
-  }
-
-  .label-nm svg:not(.check-icon) {
-    height: 0.9em;
-    min-height: 0.9em;
-    max-height: 0.9em;
-  }
-
-  .label-nm img {
-    height: 1em;
-    min-height: 1em;
-    max-height: 1em;
-  }
-
-  .check-icon-nm {
-    width: 0.9em;
-    height: 0.9em;
-    min-width: 0.9em;
-    min-height: 0.9em;
-    max-width: 0.9em;
-    max-height: 0.9em;
-  }
-
-  .close-icon-nm,
-  .arrow-icon-nm,
-  .error-icon-nm,
-  .warning-icon-nm {
-    width: 0.8em;
-    height: 0.8em;
-    min-width: 0.8em;
-    min-height: 0.8em;
-    max-width: 0.8em;
-    max-height: 0.8em;
-  }
-
-  .error-icon-nm,
-  .warning-icon-nm {
-    transform: scale(1.2);
-  }
-
-  .close-icon-nm,
-  .arrow-icon-nm,
-  .error-icon-nm,
-  .warning-icon-nm,
-  .inbox-icon-nm,
-  .line-arrow-icon-nm {
-    path,
-    rect,
-    circle,
-    ellipse,
-    polyline,
-    line,
-    polygon {
-      fill: rgb($black, 0.55);
-    }
-  }
-
-  .arrow-icon-nm {
-    transform-origin: center;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .line-arrow-icon-nm {
-    transform: rotate(180deg);
-    width: 0.8em;
-    height: 0.8em;
-    min-width: 0.8em;
-    min-height: 0.8em;
-    max-width: 0.8em;
-    max-height: 0.8em;
   }
 }
 
@@ -260,135 +122,22 @@
 }
 
 @each $name, $color in $colors {
-  @if $name == 'neutral' {
-    .select-nm.color-#{$name}:not(.warning):not(.error) {
-      .check-icon {
-        path,
-        rect,
-        circle,
-        ellipse,
-        polyline,
-        line,
-        polygon {
+  .select-nm.color-#{$name}:not(.warning):not(.error) {
+    .check-icon-nm {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        @if $name == 'neutral' {
           fill: $black;
-        }
-      }
-
-      .btn-nm {
-        &:hover,
-        &:focus-visible,
-        &:active {
-          border: 1px solid scale-color($color, $lightness: -20%);
-        }
-
-        &:focus-visible {
-          box-shadow: 0 0 0.5px 2px scale-color($color, $lightness: 20%);
-        }
-
-        &.open-true {
-          box-shadow: 0 0 0.5px 2px scale-color($color, $lightness: 20%);
-          border: 1px solid scale-color($color, $lightness: -20%);
-        }
-      }
-    }
-  } @else {
-    .select-nm.color-#{$name}:not(.warning):not(.error) {
-      .check-icon {
-        path,
-        rect,
-        circle,
-        ellipse,
-        polyline,
-        line,
-        polygon {
+          stroke: $black;
+        } @else {
           fill: $color;
+          stroke: $color;
         }
-      }
-
-      .btn-nm {
-        &:hover,
-        &:focus-visible,
-        &:active {
-          border: 1px solid $color;
-        }
-
-        &:focus-visible {
-          box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
-        }
-
-        &.open-true {
-          box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
-          border: 1px solid $color;
-        }
-      }
-    }
-  }
-}
-
-.select-nm.error {
-  .btn-nm {
-    border: 1px solid $error700;
-    // box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
-
-    &:focus-visible,
-    &:hover,
-    &:active {
-      border: 1px solid $error700;
-    }
-
-    &:focus-visible,
-    &:active {
-      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
-    }
-
-    &.open-true {
-      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
-      border: 1px solid $error700;
-    }
-
-    .error-icon-nm {
-      path,
-      rect,
-      circle,
-      ellipse,
-      polyline,
-      line,
-      polygon {
-        fill: $error700;
-      }
-    }
-  }
-}
-
-.select-nm.warning {
-  .btn-nm {
-    border: 1px solid $warning700;
-
-    &:focus-visible,
-    &:hover,
-    &:active {
-      border: 1px solid $warning700;
-    }
-
-    &:focus-visible,
-    &:active {
-      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
-    }
-
-    &.open-true {
-      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
-      border: 1px solid $warning700;
-    }
-
-    .warning-icon-nm {
-      path,
-      rect,
-      circle,
-      ellipse,
-      polyline,
-      line,
-      polygon {
-        fill: $warning700;
       }
     }
   }

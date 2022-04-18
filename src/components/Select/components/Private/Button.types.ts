@@ -14,6 +14,7 @@ interface ButtonProps {
   onClick: () => void
   clear: () => void
   onKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => any
+  color: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 }
 
 export default ButtonProps

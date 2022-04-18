@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { Radio as RadioComponent } from '../index'
+import { Radio as RadioComponent } from '../'
 import RadioProps from './Radio.types'
 
 export default {

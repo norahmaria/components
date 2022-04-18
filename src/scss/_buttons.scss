@@ -26,10 +26,7 @@
     }
 
     &.clicked-true {
-      @include mixins.one-pulse(
-        scale-color($color, $lightness: -50%),
-        $withBorder: true
-      );
+      @include mixins.one-pulse(scale-color($color, $lightness: -50%), $withBorder: true);
     }
   } @else {
     background: $color;
@@ -122,10 +119,7 @@
     }
 
     &.clicked-true {
-      @include mixins.one-pulse(
-        scale-color($black, $lightness: 20%),
-        $withBorder: true
-      );
+      @include mixins.one-pulse(scale-color($black, $lightness: 20%), $withBorder: true);
     }
   } @else {
     background: scale-color($color, $saturation: 5%, $lightness: 90%);

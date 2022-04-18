@@ -21,6 +21,7 @@ const Button = ({
   onClick,
   clear,
   onKeyDown,
+  color,
 }: ButtonProps) => {
   const [hover, setHover] = useState(false)
 
@@ -30,15 +31,19 @@ const Button = ({
       onMouseOver={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className={`
-        btn-nm open-${isOpen} 
+        select-btn-nm
+        input-base-nm
+        open-${isOpen} 
         includes-tags-${!!(multiple && selected.length)}
+        color-${color}
+        ${status && status.type ? status.type : ''} 
       `}
       aria-haspopup="listbox"
       aria-errormessage="error"
       aria-disabled={disabled}
-      disabled={disabled}
       aria-invalid={!!status}
       aria-expanded={isOpen}
+      disabled={disabled}
       onClick={onClick}
       onKeyDown={onKeyDown}>
       <Label

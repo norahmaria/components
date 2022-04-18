@@ -1,7 +1,4 @@
-@use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
-
-@include resets('.text-input-nm');
 
 .character-limit-nm {
   display: flex;
@@ -14,12 +11,6 @@
 }
 
 .text-input-nm {
-  display: grid;
-  gap: 0.5rem;
-
-  line-height: 1;
-  min-width: 15rem;
-
   .character-limit-nm {
     bottom: -1.35rem;
     right: 0;
@@ -32,32 +23,13 @@
 
   input,
   textarea {
-    width: 100%;
-    padding: 0.65em 0.75em 0.65em 0.75em;
-
-    border-radius: $br;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0 0 0.5px 0 transparent;
     transition: box-shadow 0.25s $cubic, border 0.25s ease;
-
-    font: inherit;
-    line-height: 1;
-
-    &::placeholder {
-      color: #898a8a;
-    }
 
     &:focus-visible,
     &:hover,
     &:active {
       outline: none;
     }
-  }
-
-  .status-nm {
-    font-size: 0.875rem;
-    padding-top: 0.075em;
-    line-height: 1.4;
   }
 
   .loading-spinner-nm {
@@ -101,12 +73,6 @@
 
   svg {
     position: absolute;
-    height: 0.9em;
-    width: 0.9em;
-    min-height: 0.9em;
-    max-height: 0.9em;
-    min-width: 0.9em;
-    min-height: 0.9em;
     right: 0.75rem;
   }
 
@@ -122,33 +88,11 @@
     }
   }
 
-  .error-icon-nm,
-  .warning-icon-nm,
-  .close-icon-nm {
-    path,
-    rect,
-    circle,
-    ellipse,
-    polyline,
-    line,
-    polygon {
-      fill: #898a8a;
-    }
-  }
-
   .close-icon-nm {
     transition: opacity 0.25s $cubic, transform 0.25s $cubic;
     transform-origin: center;
     transform: scale(0);
     opacity: 0;
-
-    height: 0.7em;
-    width: 0.7em;
-    min-height: 0.7em;
-    max-height: 0.7em;
-    min-width: 0.7em;
-    min-height: 0.7em;
-
     cursor: pointer;
   }
 
@@ -158,130 +102,6 @@
     .close-icon-nm {
       transform: scale(1);
       opacity: 1;
-    }
-  }
-}
-
-.text-input-nm.size-small {
-  input,
-  textarea {
-    font-size: 0.75rem;
-  }
-}
-
-.text-input-nm.size-medium {
-  input,
-  textarea {
-    font-size: 0.875rem;
-  }
-}
-
-.text-input-nm.size-large {
-  input,
-  textarea {
-    font-size: 0.975rem;
-  }
-}
-
-@each $name, $color in $colors {
-  .text-input-nm.color-#{$name} {
-    input,
-    textarea {
-      &:focus-visible,
-      &:hover,
-      &:active {
-        border: 1px solid $color;
-      }
-
-      &:focus-visible,
-      &:active {
-        box-shadow: 0 0 0.5px 2px rgb($color, 0.2);
-      }
-    }
-  }
-}
-
-.text-input-nm.error {
-  input,
-  textarea {
-    border: 1px solid $error700;
-
-    &:focus-visible,
-    &:hover,
-    &:active {
-      border: 1px solid $error700;
-    }
-
-    &:focus-visible,
-    &:active {
-      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
-    }
-  }
-
-  .error-icon-nm {
-    path,
-    rect,
-    circle,
-    ellipse,
-    polyline,
-    line,
-    polygon {
-      fill: $error700;
-    }
-  }
-}
-
-.text-input-nm.warning {
-  input,
-  textarea {
-    border: 1px solid $warning700;
-
-    &:focus-visible,
-    &:hover,
-    &:active {
-      border: 1px solid $warning700;
-    }
-
-    &:focus-visible,
-    &:active {
-      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
-    }
-  }
-
-  .warning-icon-nm {
-    path,
-    rect,
-    circle,
-    ellipse,
-    polyline,
-    line,
-    polygon {
-      fill: $warning700;
-    }
-  }
-}
-
-.text-input-nm {
-  input:disabled,
-  textarea:disabled {
-    background: darken($white, 3%);
-    border: 1px solid #e8e8e8;
-    color: #898a8a;
-    pointer-events: none;
-
-    svg path,
-    svg rect,
-    svg circle,
-    svg ellipse,
-    svg polyline,
-    svg line,
-    svg polygon {
-      fill: #898a8a;
-    }
-
-    &:hover {
-      background: darken($white, 3%);
-      border: 1px solid #e8e8e8;
     }
   }
 }

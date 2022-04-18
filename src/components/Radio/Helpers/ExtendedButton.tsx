@@ -15,7 +15,7 @@ const Child = ({
   return (
     <div
       data-testid="radio-button-wrapper"
-      className={`radio-button-nm ${color} ${size}`}>
+      className={`radio-button-nm color-${color} size-${size}`}>
       <input
         data-testid={`radio-button-input-${props.id}`}
         id={props.id}

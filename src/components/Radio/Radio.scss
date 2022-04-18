@@ -1,21 +1,10 @@
-@use '../../scss/resets' as *;
-
-@include resets('.radio-nm');
-
 .radio-nm {
   display: grid;
   gap: 1rem;
   width: max-content;
-}
 
-.radio-nm {
   .form-label-nm {
-    margin-bottom: -0.25rem;
-  }
-
-  &.disabled-true {
-    pointer-events: none;
-    cursor: not-allowed;
+    margin-bottom: 0;
   }
 
   &.horizontal-false {

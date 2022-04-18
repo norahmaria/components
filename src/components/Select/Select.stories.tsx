@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { Select as SelectComponent } from '..'
+import { Select as SelectComponent } from '../'
 import SelectProps from './Select.types'
 
 import { ReactComponent as UnitedArabEmirates } from '../../assets/Flags/AE.svg'
