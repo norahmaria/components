@@ -4,7 +4,7 @@ import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
 import { ReactComponent as Norway } from '../../assets/Norway.svg'
-import { Switch as SwitchComponent } from '../index'
+import { Switch as SwitchComponent } from '../'
 import SwitchProps from './Switch.types'
 
 export default {

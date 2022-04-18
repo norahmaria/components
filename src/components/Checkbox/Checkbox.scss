@@ -1,6 +1,4 @@
 @use '../../scss/mixins';
-@use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
 
-@include resets('.checkbox-nm');
 @include mixins.checkbox('.checkbox-nm');

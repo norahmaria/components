@@ -1,8 +1,6 @@
 @use '../../../scss/mixins';
-@use '../../../scss/resets' as *;
 @use '../../../scss/variables' as *;
 
-@include resets('.radio-button-nm');
 @include mixins.checkbox('.radio-button-nm');
 
 .radio-button-nm label::before,

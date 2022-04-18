@@ -1,8 +1,5 @@
-@use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
 @use '../../scss/buttons';
-
-@include resets('.btn-nm');
 
 .btn-nm {
   line-height: 1;
@@ -22,11 +19,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-
-  svg {
-    width: 0.8em;
-    height: 0.8em;
-  }
 
   img {
     width: 0.9em;
@@ -59,10 +51,6 @@
 
   &.icon {
     aspect-ratio: 1;
-
-    svg {
-      transform: scale(1.35);
-    }
 
     &.round {
       border-radius: 100%;

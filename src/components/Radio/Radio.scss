@@ -1,7 +1,3 @@
-@use '../../scss/resets' as *;
-
-@include resets('.radio-nm');
-
 .radio-nm {
   display: grid;
   gap: 1rem;

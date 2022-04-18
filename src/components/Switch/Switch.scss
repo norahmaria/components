@@ -1,7 +1,4 @@
-@use '../../scss/resets' as *;
 @use '../../scss/variables' as *;
-
-@include resets('.switch-nm');
 
 .switch-nm {
   cursor: pointer;

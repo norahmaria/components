@@ -96,9 +96,10 @@ const Select = ({
         disabled-${disabled}
         ${status && status.type ? status.type : ''} 
       `}>
-      <div className="form-label-nm">{label}</div>
+      <label className="form-label-nm">{label}</label>
 
       <Button
+        color={color}
         isOpen={isOpen}
         multiple={multiple}
         selected={selected}
