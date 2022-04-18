@@ -9,7 +9,7 @@ interface ButtonProps {
   isLoading?: boolean
   children?: string
   onButtonClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
-  disabled: boolean
+  disabled?: boolean
 }
 
 export default ButtonProps
