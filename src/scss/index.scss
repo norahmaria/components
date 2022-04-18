@@ -1,0 +1,593 @@
+@use './variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+// # ━━━ RESETS ━━━ #
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $black;
+
+  line-height: 1;
+
+  label,
+  button,
+  input:not([type='text']),
+  .select-btn-nm {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  input:disabled,
+  .disabled-true,
+  [aria-disabled='true'] {
+    pointer-events: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// # ━━━ INPUTS ━━━ #
+
+.form-label-nm {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: left;
+  margin-bottom: 0.5rem;
+
+  width: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.input-base-nm {
+  min-width: 15rem;
+  width: 100%;
+
+  border: 1px solid $neutral700;
+  border-radius: $br;
+
+  background: $white;
+  padding: 0.65em 0.75em;
+
+  font-size: 0.875rem;
+  line-height: 1;
+  color: $black;
+
+  box-shadow: 0 0 0.5px 0 transparent;
+  height: 34px;
+
+  &::placeholder,
+  .placeholder-nm {
+    color: rgba($black, 0.5);
+  }
+
+  @each $name, $color in $colors {
+    &.color-#{$name} {
+      &:hover,
+      &:focus-visible,
+      &:active,
+      &.open-true {
+        border-color: $color;
+      }
+
+      &:focus-visible,
+      &:active,
+      &.open-true {
+        box-shadow: 0 0 0.5px 2px rgba($color, 0.3);
+      }
+    }
+  }
+
+  &.warning {
+    border: 1px solid $warning700;
+
+    &:focus-visible,
+    &:hover,
+    &:active,
+    &.open-true {
+      border: 1px solid $warning700;
+    }
+
+    &:focus-visible,
+    &:active,
+    &.open-true {
+      box-shadow: 0 0 0.5px 2px rgb($warning700, 0.2);
+    }
+
+    .warning-icon-nm {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        fill: $warning700;
+      }
+    }
+  }
+
+  &.error {
+    border: 1px solid $error700;
+
+    &:focus-visible,
+    &:hover,
+    &:active,
+    &.open-true {
+      border: 1px solid $error700;
+    }
+
+    &:focus-visible,
+    &:active,
+    &.open-true {
+      box-shadow: 0 0 0.5px 2px rgb($error700, 0.2);
+    }
+
+    .error-icon-nm {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        fill: $error700;
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled-true,
+  [aria-disabled='true'] {
+    background: darken($white, 3%);
+    border: 1px solid #e8e8e8;
+    color: #898a8a;
+
+    &:hover {
+      border: 1px solid #e8e8e8;
+    }
+  }
+}
+
+.status-nm {
+  padding-top: 0.7em;
+  line-height: 1.4;
+  font-size: 0.875rem;
+}
+
+// # ━━━ SIZES ━━━ #
+
+.size-small,
+.size-small * {
+  font-size: 0.75rem;
+}
+
+.size-medium,
+.size-medium * {
+  font-size: 0.875rem;
+}
+
+.size-large,
+.size-large * {
+  font-size: 0.975rem;
+}
+
+// # ━━━ Checkbox Base ━━━ #
+.checkbox-nm,
+.radio-button-nm {
+  position: relative;
+}
+
+.checkbox-nm label,
+.radio-button-nm label {
+  display: flex;
+  gap: 0.55em;
+  line-height: 1;
+
+  & + &::before {
+    cursor: pointer;
+  }
+
+  &.left,
+  &.right {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  &.left {
+    flex-direction: row-reverse;
+  }
+
+  &.top,
+  &.bottom {
+    display: grid;
+    justify-items: center;
+  }
+
+  &.top {
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: '';
+    }
+  }
+
+  &.bottom {
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.checkbox-nm,
+.checkbox-nm label,
+.radio-button-nm,
+.radio-button-nm label {
+  width: max-content;
+  cursor: pointer;
+}
+
+.checkbox-nm label::before,
+.checkbox-nm label::after,
+.radio-button-nm label::before,
+.radio-button-nm label::after {
+  content: '';
+  display: block;
+
+  border: 1px solid darken($neutral700, 10%);
+  border-radius: $br;
+
+  box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
+
+  transition: border 0.25s $cubic, background 0.25s $cubic, box-shadow 0.25s $cubic,
+    outline-width 0.25s $cubic;
+}
+
+.checkbox-nm label,
+.radio-button-nm label {
+  svg {
+    position: absolute;
+
+    border: 0;
+    padding: 0.2rem;
+    z-index: 5;
+
+    transition: opacity 0.25s $cubic;
+    opacity: 0;
+
+    path {
+      fill: $white;
+      stroke: $white;
+      stroke-width: 2px;
+      stroke-linejoin: round;
+    }
+  }
+}
+
+.checkbox-nm input:checked + label svg,
+.radio-button-nm input:checked + label svg {
+  opacity: 1;
+}
+
+.checkbox-nm.size-small,
+.radio-button-nm.size-small {
+  label::before,
+  label::after {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+
+    svg {
+      height: 0.85rem;
+      width: 0.85rem;
+    }
+
+    &.right,
+    &.left {
+      top: 0.075rem;
+    }
+
+    &.right svg {
+      left: 0.075rem;
+    }
+
+    &.left svg {
+      right: 0.075rem;
+    }
+
+    &.top svg {
+      bottom: 0.075rem;
+    }
+
+    &.bottom svg {
+      top: 0.075rem;
+    }
+  }
+}
+
+.checkbox-nm.size-medium,
+.radio-button-nm.size-medium {
+  label::before,
+  label::after {
+    height: 1.1rem;
+    width: 1.1rem;
+  }
+
+  label {
+    font-size: 1rem;
+
+    svg {
+      height: 0.9rem;
+      width: 0.9rem;
+    }
+
+    &.right svg,
+    &.left svg,
+    &.bottom svg {
+      top: 0.115rem;
+    }
+
+    &.right svg {
+      left: 0.1rem;
+    }
+
+    &.left svg {
+      right: 0.1rem;
+    }
+
+    &.top svg {
+      bottom: 0.075rem;
+    }
+  }
+}
+
+.checkbox-nm.size-large,
+.radio-button-nm.size-large {
+  label::before,
+  label::after {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  label {
+    font-size: 1.15rem;
+
+    svg {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    &.right svg,
+    &.left svg,
+    &.bottom svg {
+      top: 0.115rem;
+    }
+
+    &.right svg {
+      left: 0.125rem;
+      top: 0.135rem;
+    }
+
+    &.left svg {
+      right: 0.1rem;
+    }
+
+    &.top svg {
+      bottom: 0.115rem;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .checkbox-nm.color-#{$name},
+  .radio-button-nm.color-#{$name} {
+    @if $name == 'neutral' {
+      input:checked + label::before,
+      input:checked + label::after {
+        border: 1px solid scale-color($color, $lightness: 5%);
+        background: scale-color($color, $lightness: 15%);
+      }
+
+      input:focus-visible + label::before,
+      input:active + label::before,
+      input:hover + label::before,
+      input:focus-visible + label::after,
+      input:active + label::after,
+      input:hover + label::after {
+        border: 1px solid scale-color($color, $lightness: -50%);
+        box-shadow: 0 0 0.5px 2.5px rgba(scale-color($color, $lightness: -50%), 0.4);
+      }
+
+      label svg path {
+        fill: $black;
+        stroke: $black;
+      }
+    } @else {
+      input:checked + label::before,
+      input:checked + label::after {
+        background-color: $color;
+        border: 1px solid $color;
+      }
+
+      input:focus-visible + label::before,
+      input:active + label::before,
+      input:hover + label::before,
+      input:focus-visible + label::after,
+      input:active + label::after,
+      input:hover + label::after {
+        border: 1px solid $color;
+        box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
+      }
+    }
+
+    input:disabled {
+      & + label::before,
+      & + label::after {
+        background: darken($white, 5%);
+        border: 1px solid #d9d9d9;
+        color: #898a8a;
+        cursor: not-allowed;
+      }
+
+      & + label {
+        color: #aeaeae;
+      }
+
+      & + label svg {
+        path {
+          fill: #898a8a;
+          stroke: #898a8a;
+        }
+      }
+
+      &:focus-visible + label::before,
+      &:active + label::before,
+      &:hover + label::before,
+      &:focus-visible + label::after,
+      &:active + label::after,
+      &:hover + label::after {
+        border: 1px solid #d9d9d9;
+        box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
+      }
+    }
+  }
+}
+
+.checkbox-nm input,
+.radio-button-nm input,
+.switch-nm input {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+
+    & + label {
+      cursor: not-allowed;
+    }
+  }
+}
+
+// # ━━━ SVGS ━━━ #
+
+[class*='-nm'] {
+  svg {
+    height: 0.65rem;
+    width: 0.65rem;
+    // min-height: 0.65rem;
+    // max-height: 0.65rem;
+    // min-width: 0.65rem;
+    // min-height: 0.65rem;
+  }
+}
+
+[class$='icon-nm'] {
+  path,
+  rect,
+  circle,
+  ellipse,
+  polyline,
+  line,
+  polygon {
+    fill: #898a8a;
+  }
+
+  height: 0.65rem;
+  width: 0.65rem;
+  // min-height: 0.65rem;
+  // max-height: 0.65rem;
+  // min-width: 0.65rem;
+  // min-height: 0.65rem;
+}
+
+.error-icon-nm,
+.warning-icon-nm {
+  transform: scale(1.2);
+}
+
+// TODO: Increase thickness of checkmark svg
+.check-icon-nm {
+  stroke-width: 1.5px;
+}
+
+.warning-icon-nm {
+  path,
+  rect,
+  circle,
+  ellipse,
+  polyline,
+  line,
+  polygon {
+    fill: $warning700;
+  }
+}
+
+.error-icon-nm {
+  path,
+  rect,
+  circle,
+  ellipse,
+  polyline,
+  line,
+  polygon {
+    fill: $error700;
+  }
+}
