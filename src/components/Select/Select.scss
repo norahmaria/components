@@ -13,6 +13,22 @@
     gap: 0.4rem;
     padding: 2em 0.5em;
   }
+
+  .arrow-icon-nm {
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .line-arrow-icon-nm {
+    transform: rotate(180deg);
+  }
+
+  .close-icon-nm {
+    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .select-btn-nm {
@@ -32,6 +48,12 @@
     flex-wrap: wrap;
     gap: 0.45rem;
 
+    img {
+      height: 1em;
+      min-height: 1em;
+      max-height: 1em;
+    }
+
     .tag-nm {
       background: darken($white, 3%);
       border: 1px solid #e8e8e8;
@@ -48,13 +70,6 @@
     }
   }
 
-  .close-icon-nm {
-    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
-    transform-origin: center;
-    transform: scale(0);
-    opacity: 0;
-  }
-
   &:hover,
   &:focus-visible,
   &:active {
@@ -64,23 +79,6 @@
       transform: scale(1);
       opacity: 1;
     }
-  }
-}
-
-.select-nm {
-  .label-nm img {
-    height: 1em;
-    min-height: 1em;
-    max-height: 1em;
-  }
-
-  .arrow-icon-nm {
-    transform-origin: center;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .line-arrow-icon-nm {
-    transform: rotate(180deg);
   }
 }
 
@@ -125,7 +123,7 @@
 
 @each $name, $color in $colors {
   .select-nm.color-#{$name}:not(.warning):not(.error) {
-    .check-icon {
+    .check-icon-nm {
       path,
       rect,
       circle,
@@ -135,8 +133,10 @@
       polygon {
         @if $name == 'neutral' {
           fill: $black;
+          stroke: $black;
         } @else {
           fill: $color;
+          stroke: $color;
         }
       }
     }

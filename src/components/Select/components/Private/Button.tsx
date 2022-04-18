@@ -35,15 +35,15 @@ const Button = ({
         input-base-nm
         open-${isOpen} 
         includes-tags-${!!(multiple && selected.length)}
-        ${status && status.type ? status.type : ''} 
         color-${color}
+        ${status && status.type ? status.type : ''} 
       `}
       aria-haspopup="listbox"
       aria-errormessage="error"
       aria-disabled={disabled}
-      disabled={disabled}
       aria-invalid={!!status}
       aria-expanded={isOpen}
+      disabled={disabled}
       onClick={onClick}
       onKeyDown={onKeyDown}>
       <Label
