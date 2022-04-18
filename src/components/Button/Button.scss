@@ -58,29 +58,17 @@
   }
 }
 
-.btn-nm.small {
-  font-size: 0.75rem;
-}
-
-.btn-nm.medium {
-  font-size: 0.875rem;
-}
-
-.btn-nm.large {
-  font-size: 0.975rem;
-}
-
 @each $name, $color in $colors {
-  .btn-nm.#{$name} {
-    &.default {
+  .btn-nm.color-#{$name} {
+    &.variant-default {
       @include buttons.default-button($color, $name);
     }
 
-    &.outlined {
+    &.variant-outlined {
       @include buttons.outlined-button($color, $name);
     }
 
-    &.secondary {
+    &.variant-secondary {
       @include buttons.secondary-button($color, $name);
     }
 

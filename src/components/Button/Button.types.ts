@@ -1,8 +1,4 @@
-interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+interface ButtonProps {
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
@@ -12,7 +8,8 @@ interface ButtonProps
   rightIcon?: JSX.Element | string
   isLoading?: boolean
   children?: string
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
+  onButtonClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
+  disabled: boolean
 }
 
 export default ButtonProps

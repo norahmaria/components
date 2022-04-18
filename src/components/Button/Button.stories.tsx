@@ -15,7 +15,7 @@ export default {
     badges: [BADGE.STABLE],
   },
   argTypes: {
-    onClick: {
+    onButtonClick: {
       description:
         'The function to call when the button is clicked, the parameter will give you the event',
       table: {
@@ -93,15 +93,15 @@ export default {
 const ButtonStory: Story<ButtonProps> = args => (
   <ButtonComponent
     {...args}
-    onClick={e => {
-      action('onClick')(e)
+    onButtonClick={e => {
+      action('onButtonClick')(e)
     }}
   />
 )
 
 export const Button: Story<ButtonProps> = ButtonStory.bind({})
 Button.args = {
-  onClick: clicked => {
+  onButtonClick: clicked => {
     console.log(clicked)
   },
   children: 'Hello World',

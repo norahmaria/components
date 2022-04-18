@@ -17,8 +17,8 @@ const Button = ({
   fullWidth = false,
   color = 'primary',
   variant = 'default',
-  className,
-  onClick,
+  onButtonClick,
+  disabled,
   isLoading = false,
   ...props
 }: ButtonProps) => {
@@ -30,17 +30,7 @@ const Button = ({
     setClicked(true)
     setTimeout(() => setClicked(false), 500)
 
-    if (onClick) onClick(e)
-  }
-
-  const getClasses = () => {
-    const classes = ['btn-nm', size, color, variant]
-
-    if (!props.children && (leftIcon || rightIcon)) classes.push('icon')
-    if (className) classes.push(className)
-    if (round) classes.push('round')
-
-    return classes.join(' ')
+    if (onButtonClick) onButtonClick(e)
   }
 
   const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon
@@ -48,10 +38,18 @@ const Button = ({
 
   return (
     <button
-      {...props}
       onClick={click}
-      className={`${getClasses()} clicked-${clicked} loading-${isLoading}`}
-      style={{ width: fullWidth ? '100%' : 'max-content' }}>
+      style={{ width: fullWidth ? '100%' : 'max-content' }}
+      disabled={disabled}
+      className={`
+        btn-nm
+        size-${size}
+        color-${color}
+        variant-${variant}
+        clicked-${clicked}
+        ${!props.children && (leftIcon || rightIcon) ? 'icon' : ''}
+        ${round ? 'round' : ''}
+      `}>
       {isLoading ? (
         <>
           <LoadingSpinner
