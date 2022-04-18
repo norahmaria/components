@@ -23,6 +23,7 @@
   Radio:
     ☐ Mouse consistency (hover isn't always showing correct mouse)
     ☐ Add dynamic ids for buttons based on name
+    ☐ Disabled radio buttons look checked
 
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
