@@ -13,35 +13,16 @@ Issues: @critical
   ☐ Upload Button
 
 Components:
-  ☐ Add consitent click effect
+  ☐ Add consistent click effect
   ☐ Mouse consistency (hover isn't always showing correct mouse)
   ☐ Allow to add classNames, and inline styles
-  ☐ Consider if you should extend existing props (accessibility in mind)
+  ✘ Consider if you should extend existing props (accessibility in mind) @cancelled(22-04-19 20:43)
   ☐ Allow default values for inputs @high
   ☐ Add event as additional args for onChange functions
-  ☐ Icon for text / select is yellow / red when it has status even when disabled
-  
-  Switch: 
-    ✔ Add hover effect @moderate @done(22-04-19 19:08)
-    ✔ Add tabIndex and focus state @done(22-04-19 19:08)
-    
-  Radio:
-    ✔ Add dynamic ids for buttons based on name @done(22-04-19 19:14)
-    ✔ Disabled radio buttons look checked @done(22-04-19 19:56)
       
   Select:
-    ✔ Add more spacing on top of first groups @done(22-04-19 20:03)
-    ✘ Select disabled not working properly @critical @cancelled(22-04-19 20:06)
-    ✔ Option disabled _and_ selected not looking good @done(22-04-19 20:10)
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
-
-  Text Input:
-    ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
-    
-  Button: 
-    ✔ Type of button @done(22-04-19 20:12)
-    ☐ More size or at least weight to the font (does not stand out in a form lol)
 
 Structure:
   ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
@@ -51,13 +32,13 @@ Tools:
     ☐ Add base functionality
     ☐ Make id/name consistent in components for easy usage
 
-Design:
-  ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
-  
 Testing:
   ☐ Add Switch testing
   
 Archive:
+  ✔ Icon for text / select is yellow / red when it has status even when disabled @done(22-04-19 20:41)
+  ✔ Type of button @done(22-04-19 20:12)
+  ✔ More size or at least weight to the font (does not stand out in a form lol) @done(22-04-19 20:24)
   ✔ Select / text inputs have a set height, adjust this for sizes and textarea @done(22-04-19 09:02)
   ✔ Textarea version not styled properly @done(22-04-19 09:02)
   ✔ Add Text Input testing @done(22-04-18 23:28)
@@ -69,4 +50,10 @@ Archive:
   ✔ Design / space for character count @done(22-04-15 09:03)
   ✔ Add textarea @done(22-04-16 20:10)
   ✔ Add clear button @done(22-04-15 09:03)
-  
+  ✔ Add more spacing on top of first groups @done(22-04-19 20:03)
+  ✘ Select disabled not working properly @critical @cancelled(22-04-19 20:06)
+  ✔ Option disabled _and_ selected not looking good @done(22-04-19 20:10)
+  ✔ Add dynamic ids for buttons based on name @done(22-04-19 19:14)
+  ✔ Disabled radio buttons look checked @done(22-04-19 19:56)
+  ✔ Add hover effect @moderate @done(22-04-19 19:08)
+  ✔ Add tabIndex and focus state @done(22-04-19 19:08)

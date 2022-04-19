@@ -206,6 +206,36 @@ ol {
     &:hover {
       border: 1px solid #e8e8e8;
     }
+
+    .warning-icon-nm,
+    .error-icon-nm {
+      path,
+      rect,
+      circle,
+      ellipse,
+      polyline,
+      line,
+      polygon {
+        fill: #898a8a;
+      }
+    }
+  }
+}
+
+:disabled,
+.disabled-true,
+[aria-disabledd='true'] {
+  .warning-icon-nm,
+  .error-icon-nm {
+    path,
+    rect,
+    circle,
+    ellipse,
+    polyline,
+    line,
+    polygon {
+      fill: #898a8a;
+    }
   }
 }
 

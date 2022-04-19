@@ -62,7 +62,12 @@ const TextInput = ({
       </label>
 
       <div
-        className={`text-input-container-nm textarea-${textarea} disabled-${disabled}`}
+        className={`
+          text-input-container-nm 
+          textarea-${textarea} 
+          disabled-${disabled} 
+          ${status && status.type ? status.type : ''}
+        `}
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}>
         {textarea ? (
