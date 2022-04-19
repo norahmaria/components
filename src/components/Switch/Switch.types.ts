@@ -1,5 +1,6 @@
 interface SwitchProps {
   label: string
+  id: string
 
   disabled?: boolean
   size?: 'small' | 'medium' | 'large'
@@ -7,9 +8,7 @@ interface SwitchProps {
 
   onSwitchChange: (
     value: boolean,
-    e:
-      | React.MouseEvent<HTMLLabelElement, MouseEvent>
-      | React.KeyboardEvent<HTMLLabelElement>
+    e: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>
   ) => any
   defaultValue?: boolean
 }

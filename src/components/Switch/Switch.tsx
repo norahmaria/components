@@ -9,13 +9,12 @@ const Switch = ({
   disabled,
   defaultValue,
   onSwitchChange,
+  id,
 }: SwitchProps) => {
   const [checked, setChecked] = useState(defaultValue || false)
 
   const setCheckedFn = (
-    e:
-      | React.MouseEvent<HTMLLabelElement, MouseEvent>
-      | React.KeyboardEvent<HTMLLabelElement>
+    e: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>
   ) => {
     if (!disabled) {
       setChecked(prev => {
@@ -25,27 +24,27 @@ const Switch = ({
     }
   }
 
-  const onClick = (e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => {
-    setCheckedFn(e)
-  }
-
   const onKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
     if (e.key === 'Enter') setCheckedFn(e)
   }
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckedFn(e)
+  }
+
   return (
     <label
-      onClick={e => onClick}
       tabIndex={1}
       onKeyDown={onKeyDown}
       className={`switch-nm color-${color} size-${size} checked-${checked} disabled-${disabled}`}
-      htmlFor="switch-nm">
+      htmlFor={id}>
       <input
         tabIndex={-1}
         disabled={disabled}
         type="checkbox"
-        name="toggle"
-        id="toggle"
+        name={id}
+        id={id}
+        onChange={onChange}
         checked={checked}
       />
       <div className="switch-nm-toggle">
