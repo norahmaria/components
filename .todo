@@ -1,21 +1,19 @@
 // https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
-@category Stories:
+Stories:
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
   ☐ Add overview of the classNames in the components
 
-
-@category Issues: @critical
+Issues: @critical
   ☐ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked)
 
+@NEXT Components:
+  ☐ Slider
+  ☐ Upload Button
 
-@category Components:
-  NEXT COMPONENT:
-    ☐ Slider
-    ☐ Upload Button
-
-  ☐ Select / text inputs have a set height, adjust this for sizes and textarea
+Components:
+  ☐ Add consitent click effect
   ☐ Mouse consistency (hover isn't always showing correct mouse)
   ☐ Allow to add classNames, and inline styles
   ☐ Consider if you should extend existing props (accessibility in mind)
@@ -24,8 +22,8 @@
   ☐ Icon for text / select is yellow / red when it has status even when disabled
   
   Switch: 
-    ☐ Add hover effect @moderate
-    ☐ Add tabIndex and focus state
+    ✔ Add hover effect @moderate @done(22-04-19 19:08)
+    ✔ Add tabIndex and focus state @done(22-04-19 19:08)
     
   Radio:
     ☐ Add dynamic ids for buttons based on name
@@ -40,38 +38,35 @@
 
   Text Input:
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
-    ☐ Textarea version not styled properly
     
   Button: 
     ☐ Type of button
     ☐ More size or at least weight to the font (does not stand out in a form lol)
 
-
-@category Structure:
+Structure:
   ☐ Consistent onChange naming convention, *if* that does not override my onChange fns
-  
 
-@category Tools:
+Tools:
   useForm hook:
     ☐ Add base functionality
     ☐ Make id/name consistent in components for easy usage
 
-
-@category Design:
+Design:
   ☐ Re-think disabled / neutral schemes, they look a bit _too_ similar
   
-  
-@category Testing:
+Testing:
   ☐ Add Switch testing
   
-  
 Archive:
+  ✔ Select / text inputs have a set height, adjust this for sizes and textarea @done(22-04-19 09:02)
+  ✔ Textarea version not styled properly @done(22-04-19 09:02)
   ✔ Add Text Input testing @done(22-04-18 23:28)
   ✔ Consistency between Select and TextInput (color, height, text) @high @done(22-04-18 23:27)
   ✔ Add a global SCSS file user ~should import to avoid repetitive code for resets etc~. @done(22-04-18 23:26)
   ✔ Add Radio testing @done(22-04-13 08:32)
   ✔ Select z-index @done(22-04-13 08:35)
+  ✘ There is still some blue colors theme can't control @cancelled(22-04-17 20:18)
   ✔ Design / space for character count @done(22-04-15 09:03)
   ✔ Add textarea @done(22-04-16 20:10)
   ✔ Add clear button @done(22-04-15 09:03)
-  ✘ There is still some blue colors theme can't control @cancelled(22-04-17 20:18)
+  

@@ -7,12 +7,14 @@
 
   .dot {
     position: absolute;
+    border: 1px solid $white;
     border-radius: 100%;
     background-color: $white;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
     aspect-ratio: 1;
 
-    transition: margin-left 0.35s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
+    transition: border 0.25s $cubic, margin-left 0.35s $cubic, box-shadow 0.35s $cubic,
+      transform 0.35s $cubic;
   }
 
   &:active,
@@ -23,7 +25,7 @@
 
 .switch-nm.size-small {
   font-size: 0.875rem;
-  gap: 0.7rem;
+  gap: 0.6rem;
 
   .switch-nm-toggle {
     height: 0.8rem;
@@ -122,21 +124,15 @@
     &:hover,
     &:focus-visible,
     &:active {
-      // .dot {
-      //   transform: scale(1.5);
-      //   transform-origin: center;
-      // }
-      // .switch-nm-toggle {
-      //   border: 1px solid $color;
-      // }
+      .dot {
+        // transform: scale(1.3);
+        // transform-origin: center;
+        box-shadow: 0 1px 4px 0 rgba(darken($color, 50%), 0.3),
+          inset 0 0 1px 0 rgba(darken($color, 50%), 0.05),
+          0 0 0.5px 2.5px rgba($color, 0.4);
+        border: 1px solid $color;
+      }
     }
-
-    // &:focus-visible,
-    // &:active {
-    //   .switch-nm-toggle {
-    //     box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
-    //   }
-    // }
   }
 }
 

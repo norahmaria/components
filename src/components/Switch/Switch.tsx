@@ -20,10 +20,15 @@ const Switch = ({
     }
   }
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key === 'Enter') onClick()
+  }
+
   return (
     <label
       onClick={onClick}
       tabIndex={1}
+      onKeyDown={onKeyDown}
       className={`switch-nm color-${color} size-${size} checked-${checked} disabled-${disabled}`}
       htmlFor="switch-nm">
       <input
