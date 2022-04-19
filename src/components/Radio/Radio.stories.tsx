@@ -88,4 +88,5 @@ Radio.args = {
   disabled: false,
   size: 'medium',
   color: 'primary',
+  defaultValue: 'road',
 }

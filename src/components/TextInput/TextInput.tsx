@@ -21,11 +21,12 @@ const TextInput = ({
   password = false,
   textarea = false,
   characterLimit,
+  defaultValue,
   status,
   icon,
   id,
 }: TextInputProps) => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(defaultValue || '')
   const [hover, setHover] = useState(false)
 
   const onChange = ({

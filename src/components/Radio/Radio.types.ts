@@ -9,6 +9,7 @@ interface RadioProps {
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
   children: React.ReactChild | React.ReactChild[]
+  defaultValue?: string | number
 }
 
 export default RadioProps

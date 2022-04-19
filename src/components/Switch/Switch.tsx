@@ -7,9 +7,10 @@ const Switch = ({
   size = 'medium',
   label,
   disabled,
+  defaultValue,
   onSwitchChange,
 }: SwitchProps) => {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(defaultValue || false)
 
   const onClick = () => {
     if (!disabled) {

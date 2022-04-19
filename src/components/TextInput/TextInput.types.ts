@@ -21,6 +21,7 @@ interface TextInputProps {
 
   password?: boolean
   textarea?: boolean
+  defaultValue?: string
 }
 interface TextInputAriaProps extends TextInputProps {
   password: true

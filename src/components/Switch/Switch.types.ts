@@ -6,6 +6,7 @@ interface SwitchProps {
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
   onSwitchChange: (value: boolean) => any
+  defaultValue?: boolean
 }
 
 export default SwitchProps

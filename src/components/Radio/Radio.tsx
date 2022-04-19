@@ -12,9 +12,10 @@ const Radio = ({
   labelPlacement = 'right',
   disabled = false,
   horizontal = false,
+  defaultValue,
   children,
 }: RadioProps) => {
-  const [checked, setChecked] = useState<string | number>(null)
+  const [checked, setChecked] = useState<string | number>(defaultValue || null)
 
   const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(target.value)
@@ -38,6 +39,7 @@ const Radio = ({
             id={`${name}-${idx}`}
             checked={child.props.value === checked}
             onChange={onChange}
+            defaultChecked={child.props.value === defaultValue}
             name={name}
             size={size}
             color={color}

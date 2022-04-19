@@ -1,5 +1,6 @@
-interface SelectProps
-  extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+import React from 'react'
+
+interface SelectProps {
   multiple?: boolean
   required?: boolean
   disabled?: boolean
@@ -15,6 +16,8 @@ interface SelectProps
   label: string
   placeholder: string
   onSelectionChange: (selected: (string | number)[]) => any
+  defaultValue?: (string | number)[]
+  children?: React.ReactChild | React.ReactChild[] | React.ReactChildren
 }
 
 export default SelectProps

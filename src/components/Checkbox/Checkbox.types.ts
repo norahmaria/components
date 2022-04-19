@@ -6,6 +6,7 @@ interface CheckboxProps {
   onCheckboxChange: (checked: boolean) => any
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
+  defaultValue?: boolean
 }
 
 export default CheckboxProps

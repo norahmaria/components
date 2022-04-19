@@ -27,12 +27,13 @@ const Select = ({
   placeholder,
   onSelectionChange,
   status,
+  defaultValue,
   size = 'medium',
   color = 'primary',
   ...props
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState<(string | number)[]>([])
+  const [selected, setSelected] = useState<(string | number)[]>(defaultValue || [])
   const container = useRef<HTMLDivElement>(null)
   const didMountRef = useRef(false)
 
