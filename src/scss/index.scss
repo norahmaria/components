@@ -320,7 +320,10 @@ ol {
 .radio-button-nm,
 .radio-button-nm label {
   width: max-content;
-  cursor: pointer;
+
+  &:not(.disabled-true) {
+    cursor: pointer;
+  }
 }
 
 .checkbox-nm label::before,
@@ -528,7 +531,8 @@ ol {
       background: darken($white, 5%);
       border: 1px solid #d9d9d9;
       color: #898a8a;
-      cursor: not-allowed;
+      pointer-events: none;
+      cursor: default;
     }
 
     & + label {
@@ -585,10 +589,12 @@ ol {
   top: 0;
 
   &:disabled {
-    cursor: not-allowed;
+    cursor: default;
+    pointer-events: none;
 
     & + label {
-      cursor: not-allowed;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }

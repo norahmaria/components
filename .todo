@@ -14,8 +14,7 @@ Issues: @critical
 
 Components:
   ✔ Allow default values for inputs @high @done(22-04-19 20:57)
-  ☐ Add consistent click effect
-  ☐ Mouse consistency (hover isn't always showing correct mouse)
+  ✔ Mouse consistency (hover isn't always showing correct mouse) @done(22-04-19 21:55)
   ☐ Allow to add classNames, and inline styles
   ✘ Consider if you should extend existing props (accessibility in mind) @cancelled(22-04-19 20:43)
   ✔ Add event as additional args for onChange functions @done(22-04-19 21:36)

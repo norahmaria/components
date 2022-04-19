@@ -26,7 +26,8 @@ const Radio = ({
     <div
       data-testid="radio-wrapper"
       className={`
-        radio-nm disabled-${disabled} 
+        radio-nm 
+        disabled-${disabled} 
         horizontal-${horizontal} 
         vertical-label-${labelPlacement === 'bottom' || labelPlacement === 'top'}
       `}>

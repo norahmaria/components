@@ -38,7 +38,12 @@ const Checkbox = ({
 
   return (
     <div
-      className={`checkbox-nm size-${size} color-${color}`}
+      className={`
+        checkbox-nm 
+        size-${size} 
+        color-${color} 
+        disabled-${disabled}
+      `}
       data-testid="checkbox-wrapper">
       <input
         ref={checkbox}
