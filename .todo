@@ -27,7 +27,7 @@ Components:
     
   Radio:
     ✔ Add dynamic ids for buttons based on name @done(22-04-19 19:14)
-    ☐ Disabled radio buttons look checked
+    ✔ Disabled radio buttons look checked @done(22-04-19 19:56)
       
   Select:
     ☐ Font weight for disabled is too thick (Mozilla Firefox)

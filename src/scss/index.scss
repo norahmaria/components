@@ -488,37 +488,61 @@ ol {
         box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
       }
     }
+  }
+}
 
-    input:disabled {
-      & + label::before,
-      & + label::after {
-        background: darken($white, 5%);
-        border: 1px solid #d9d9d9;
-        color: #898a8a;
-        cursor: not-allowed;
-      }
+%checkbox-radio-colors {
+  input:disabled {
+    & + label::before,
+    & + label::after {
+      background: darken($white, 5%);
+      border: 1px solid #d9d9d9;
+      color: #898a8a;
+      cursor: not-allowed;
+    }
 
-      & + label {
-        color: #aeaeae;
-      }
+    & + label {
+      color: #aeaeae;
+    }
 
-      & + label svg {
-        path {
-          fill: #898a8a;
-          stroke: #898a8a;
-        }
-      }
-
-      &:focus-visible + label::before,
-      &:active + label::before,
-      &:hover + label::before,
-      &:focus-visible + label::after,
-      &:active + label::after,
-      &:hover + label::after {
-        border: 1px solid #d9d9d9;
-        box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
+    & + label svg {
+      path {
+        fill: #898a8a;
+        stroke: #898a8a;
       }
     }
+
+    &:focus-visible + label::before,
+    &:active + label::before,
+    &:hover + label::before,
+    &:focus-visible + label::after,
+    &:active + label::after,
+    &:hover + label::after {
+      border: 1px solid #d9d9d9;
+      box-shadow: 0 0 0.5px 0 rgb($white, 0.6);
+    }
+  }
+}
+
+%radio-colors {
+  input:disabled:not(:checked) {
+    & + label::before,
+    & + label::after {
+      background-color: $white;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .checkbox-nm.color-#{$name},
+  .radio-button-nm.color-#{$name} {
+    @extend %checkbox-radio-colors;
+  }
+}
+
+@each $name, $color in $colors {
+  .radio-button-nm.color-#{$name} {
+    @extend %radio-colors;
   }
 }
 
