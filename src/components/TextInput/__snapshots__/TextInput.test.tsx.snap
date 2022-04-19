@@ -9,6 +9,7 @@ exports[`TextInput Component Can render 1`] = `
         color-primary
         size-medium
          
+        undefined
       "
   data-testid="text-input-wrapper"
 >
@@ -19,10 +20,21 @@ exports[`TextInput Component Can render 1`] = `
     Label
   </label>
   <div
-    class="text-input-container-nm textarea-false"
+    class="
+          text-input-container-nm 
+          textarea-false 
+          disabled-false 
+          
+        "
   >
     <input
       autocomplete="off"
+      class="
+              input-base-nm 
+              color-primary 
+              size-medium
+              
+            "
       data-testid="text-input"
       id="id"
       placeholder="Placeholder.."

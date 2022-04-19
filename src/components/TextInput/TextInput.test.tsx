@@ -132,6 +132,6 @@ describe('TextInput Component', () => {
       })
     }
 
-    expect(onTextInputChange).toHaveBeenLastCalledWith('Hel')
+    expect(onTextInputChange).toHaveBeenLastCalledWith('Hel', expect.objectContaining({}))
   })
 })

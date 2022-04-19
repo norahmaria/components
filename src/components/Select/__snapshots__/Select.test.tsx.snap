@@ -5,17 +5,17 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
   class="
         select-nm 
         size-medium 
-        color-primary
-        disabled-false
+        color-primary 
          
+        undefined
       "
   data-testid="select"
 >
-  <div
+  <label
     class="form-label-nm"
   >
     Country
-  </div>
+  </label>
   <button
     aria-disabled="false"
     aria-errormessage="error"
@@ -23,8 +23,13 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
     aria-haspopup="listbox"
     aria-invalid="false"
     class="
-        btn-nm open-false 
+        select-btn-nm
+        input-base-nm
+        open-false 
+        size-medium 
+        color-primary
         includes-tags-false
+         
       "
     type="button"
   >
@@ -113,17 +118,17 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
   class="
         select-nm 
         size-medium 
-        color-primary
-        disabled-false
+        color-primary 
          
+        undefined
       "
   data-testid="select"
 >
-  <div
+  <label
     class="form-label-nm"
   >
     Country
-  </div>
+  </label>
   <button
     aria-disabled="false"
     aria-errormessage="error"
@@ -131,8 +136,13 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
     aria-haspopup="listbox"
     aria-invalid="false"
     class="
-        btn-nm open-false 
+        select-btn-nm
+        input-base-nm
+        open-false 
+        size-medium 
+        color-primary
         includes-tags-false
+         
       "
     type="button"
   >

@@ -2,7 +2,17 @@
 
 exports[`Button Component Can render 1`] = `
 <button
-  class="btn-nm medium primary default clicked-false loading-false"
+  class="
+        btn-nm
+        size-medium
+        color-primary
+        variant-default
+        clicked-false
+        
+        
+        undefined
+      "
+  type="button"
 >
   Hello World
 </button>
@@ -11,12 +21,32 @@ exports[`Button Component Can render 1`] = `
 exports[`Button Component Can render non default variants 1`] = `
 Array [
   <button
-    class="btn-nm medium primary outlined clicked-false loading-false"
+    class="
+        btn-nm
+        size-medium
+        color-primary
+        variant-outlined
+        clicked-false
+        
+        
+        undefined
+      "
+    type="button"
   >
     Hello World
   </button>,
   <button
-    class="btn-nm medium primary secondary clicked-false loading-false"
+    class="
+        btn-nm
+        size-medium
+        color-primary
+        variant-secondary
+        clicked-false
+        
+        
+        undefined
+      "
+    type="button"
   >
     Hello World
   </button>,

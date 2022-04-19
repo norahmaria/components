@@ -2,7 +2,13 @@
 
 exports[`Checkbox Component Can render 1`] = `
 <div
-  class="checkbox-nm medium primary"
+  class="
+        checkbox-nm 
+        size-medium 
+        color-primary 
+        disabled-false
+        undefined
+      "
   data-testid="checkbox-wrapper"
 >
   <input

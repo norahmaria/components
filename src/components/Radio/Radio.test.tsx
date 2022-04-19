@@ -7,8 +7,8 @@ describe('Radio Component', () => {
   it('Can render', () => {
     const { getByTestId } = render(
       <Radio name="radio" onRadioChange={() => {}}>
-        <Radio.Button id="radio-one" value="radio-one" label="One Button" />
-        <Radio.Button id="radio-two" value="radio-two" label="Second Button" />
+        <Radio.Button value="radio-one" label="One Button" />
+        <Radio.Button value="radio-two" label="Second Button" />
       </Radio>
     )
 
@@ -20,8 +20,8 @@ describe('Radio Component', () => {
 
     const { getByText } = render(
       <Radio name="radio" onRadioChange={onRadioChange}>
-        <Radio.Button id="radio-one" value="radio-one" label="One Button" />
-        <Radio.Button id="radio-two" value="radio-two" label="Second Button" />
+        <Radio.Button value="radio-one" label="One Button" />
+        <Radio.Button value="radio-two" label="Second Button" />
       </Radio>
     )
 
@@ -39,8 +39,8 @@ describe('Radio Component', () => {
 
     const { getByText } = render(
       <Radio name="radio" onRadioChange={onRadioChange} disabled>
-        <Radio.Button id="radio-one" value="radio-one" label="One Button" />
-        <Radio.Button id="radio-two" value="radio-two" label="Second Button" />
+        <Radio.Button value="radio-one" label="One Button" />
+        <Radio.Button value="radio-two" label="Second Button" />
       </Radio>
     )
 
@@ -55,8 +55,8 @@ describe('Radio Component', () => {
 
     const { getByText } = render(
       <Radio name="radio" onRadioChange={onRadioChange}>
-        <Radio.Button id="radio-one" value="radio-one" label="One Button" disabled />
-        <Radio.Button id="radio-two" value="radio-two" label="Second Button" />
+        <Radio.Button value="radio-one" label="One Button" disabled />
+        <Radio.Button value="radio-two" label="Second Button" />
       </Radio>
     )
 
@@ -72,15 +72,15 @@ describe('Radio Component', () => {
   it('Can toggle checked / unchecked', () => {
     const { getByText, getByTestId } = render(
       <Radio name="radio" onRadioChange={() => {}}>
-        <Radio.Button id="radio-one" value="radio-one" label="One Button" />
-        <Radio.Button id="radio-two" value="radio-two" label="Second Button" />
+        <Radio.Button value="radio-one" label="One Button" />
+        <Radio.Button value="radio-two" label="Second Button" />
       </Radio>
     )
 
     const label = getByText('Second Button')
     label.click()
 
-    const input = getByTestId('radio-button-input-radio-two')
+    const input = getByTestId('radio-button-input-radio-1')
     expect(input).toBeChecked()
   })
 })
