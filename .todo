@@ -26,7 +26,7 @@ Components:
     ✔ Add tabIndex and focus state @done(22-04-19 19:08)
     
   Radio:
-    ☐ Add dynamic ids for buttons based on name
+    ✔ Add dynamic ids for buttons based on name @done(22-04-19 19:14)
     ☐ Disabled radio buttons look checked
       
   Select:

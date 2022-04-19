@@ -4,6 +4,7 @@ import ExtendedButtonProps from './ExtendedButton.types'
 
 const Child = ({
   onChange,
+  id,
   name,
   size = 'medium',
   color = 'primary',
@@ -17,8 +18,8 @@ const Child = ({
       data-testid="radio-button-wrapper"
       className={`radio-button-nm color-${color} size-${size}`}>
       <input
-        data-testid={`radio-button-input-${props.id}`}
-        id={props.id}
+        data-testid={`radio-button-input-${id}`}
+        id={id}
         value={props.value}
         disabled={disabled}
         type="radio"
@@ -27,8 +28,8 @@ const Child = ({
       />
 
       <label
-        data-testid={`radio-button-label-${props.id}`}
-        htmlFor={props.id}
+        data-testid={`radio-button-label-${id}`}
+        htmlFor={id}
         className={labelPlacement}>
         {props.label}
       </label>

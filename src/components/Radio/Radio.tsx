@@ -31,10 +31,11 @@ const Radio = ({
       `}>
       <div className="form-label-nm">{name}</div>
 
-      {React.Children.map(children, child =>
+      {React.Children.map(children, (child, idx) =>
         React.isValidElement(child) ? (
           <ExtendedButton
             {...child.props}
+            id={`${name}-${idx}`}
             checked={child.props.value === checked}
             onChange={onChange}
             name={name}

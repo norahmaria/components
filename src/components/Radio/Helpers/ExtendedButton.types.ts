@@ -6,6 +6,7 @@ interface ExtendedButtonProps extends ButtonProps {
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
+  id: string
 }
 
 export default ExtendedButtonProps
