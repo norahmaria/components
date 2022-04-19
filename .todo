@@ -1,8 +1,10 @@
-// https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
+━ https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
 Stories:
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
+    ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
+    ━ https://next--storybookjs.netlify.app/official-storybook/?path=/docs/addons-docs-buttongroup--basic
   ☐ Add overview of the classNames in the components
 
 Issues: @critical
@@ -12,6 +14,7 @@ Issues: @critical
   ☐ Upload Button
 
 Components:
+  ☐ Labels for text based inputs have a hover cursor even when disabled
 
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
