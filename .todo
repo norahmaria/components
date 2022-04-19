@@ -1,6 +1,7 @@
 ━ https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
 Stories:
+  ☐ Add intro page explaining events, basic styling / classname conventions
   ☐ Replace the 'Show Code' under doc pages
   ☐ Figure out how to add argTypes for subcomponents
     ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
