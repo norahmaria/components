@@ -29,18 +29,18 @@ const TextInput = ({
   const [value, setValue] = useState(defaultValue || '')
   const [hover, setHover] = useState(false)
 
-  const onChange = ({
-    target,
-  }: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setValue(() => {
       const update =
-        characterLimit && target.value.length > characterLimit
+        characterLimit && e.target.value.length > characterLimit
           ? value
           : characterLimit
-          ? target.value.substring(0, characterLimit)
-          : target.value
+          ? e.target.value.substring(0, characterLimit)
+          : e.target.value
 
-      onTextInputChange(update)
+      onTextInputChange(update, e)
       return update
     })
   }

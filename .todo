@@ -18,7 +18,7 @@ Components:
   ☐ Mouse consistency (hover isn't always showing correct mouse)
   ☐ Allow to add classNames, and inline styles
   ✘ Consider if you should extend existing props (accessibility in mind) @cancelled(22-04-19 20:43)
-  ☐ Add event as additional args for onChange functions
+  ✔ Add event as additional args for onChange functions @done(22-04-19 21:36)
       
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical

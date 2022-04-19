@@ -8,7 +8,10 @@ interface TextInputProps {
   round?: boolean
   icon?: JSX.Element | string
 
-  onTextInputChange: (value: string) => any
+  onTextInputChange: (
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ) => any
 
   status?: {
     type: 'warning' | 'error'

@@ -5,7 +5,12 @@ interface SwitchProps {
   size?: 'small' | 'medium' | 'large'
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
-  onSwitchChange: (value: boolean) => any
+  onSwitchChange: (
+    value: boolean,
+    e:
+      | React.MouseEvent<HTMLLabelElement, MouseEvent>
+      | React.KeyboardEvent<HTMLLabelElement>
+  ) => any
   defaultValue?: boolean
 }
 

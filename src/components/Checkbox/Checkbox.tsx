@@ -20,14 +20,19 @@ const Checkbox = ({
   const [checked, setChecked] = useState(defaultValue || false)
   const checkbox = useRef<HTMLInputElement>(null)
 
-  const onChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(target.checked)
-    if (!disabled) onCheckboxChange(target.checked)
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked)
+    if (!disabled) onCheckboxChange(e.target.checked, e)
   }
 
   useEffect(() => {
     checkbox.current.addEventListener('keydown', e => {
-      if (e.key === 'Enter') setChecked(prev => !prev)
+      if (e.key === 'Enter') {
+        setChecked(prev => {
+          if (!disabled) onCheckboxChange(!prev, e)
+          return !prev
+        })
+      }
     })
   }, [])
 

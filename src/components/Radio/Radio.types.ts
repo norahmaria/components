@@ -2,7 +2,10 @@ import React from 'react'
 
 interface RadioProps {
   name: string
-  onRadioChange: (value: string | number | null) => any
+  onRadioChange: (
+    value: string | number | null,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => any
   disabled?: boolean
   horizontal?: boolean
   size?: 'small' | 'medium' | 'large'
