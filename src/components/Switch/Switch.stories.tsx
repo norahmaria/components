@@ -3,7 +3,6 @@ import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
-import { ReactComponent as Norway } from '../../assets/Norway.svg'
 import { Switch as SwitchComponent } from '../'
 import SwitchProps from './Switch.types'
 
@@ -16,29 +15,24 @@ export default {
   argTypes: {
     onSwitchChange: {
       description:
-        'The function to call when the switch changes, the parameter will give you the value',
+        'The function to call when the switch changes, the first argument will give you the value, while the second will give you either a change event or a keyboard event.',
       table: {
         category: 'Actions',
       },
+    },
+    label: {
+      description: 'The switch label',
+      table: {
+        category: 'Display',
+      },
+    },
+    id: {
+      description: `The unique id to use for the switch and for the label for attribute`,
     },
     disabled: {
       description: 'Set input to be disabled or not',
       table: {
         category: 'State',
-      },
-    },
-    icon: {
-      description: 'Icon for the input',
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    isLoading: {
-      description: 'Is the input loading or not',
-      table: {
-        category: 'State',
-        default: false,
       },
     },
     size: {
@@ -53,6 +47,25 @@ export default {
         category: 'Appearance',
       },
     },
+    defaultValue: {
+      description: 'The default value',
+      table: {
+        category: 'State',
+      },
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
   },
 }
 
@@ -64,10 +77,10 @@ Switch.args = {
     action('onSwitchChange')(e)
   },
   label: 'Switch',
-  // icon: <Norway />,
   disabled: false,
-  // round: false,
   size: 'medium',
   color: 'primary',
-  // isLoading: false,
+  className: '',
+  defaultValue: false,
+  id: 'switch',
 }

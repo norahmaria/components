@@ -18,7 +18,7 @@ export default {
   argTypes: {
     onRadioChange: {
       description:
-        'The function to call when the Radio value is changed, the parameter will give you the value of the selected Radio button',
+        'The function to call when the Radio value is changed, the first argument will give you the value of the selected Radio button, while the second one will give you the event.',
       table: {
         category: 'Actions',
       },
@@ -64,6 +64,25 @@ export default {
         category: 'Appearance',
       },
     },
+    defaultValue: {
+      description: 'The default selected value',
+      table: {
+        category: 'State',
+      },
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
   },
 }
 
@@ -89,4 +108,5 @@ Radio.args = {
   size: 'medium',
   color: 'primary',
   defaultValue: 'road',
+  className: '',
 }

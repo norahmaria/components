@@ -15,7 +15,7 @@ export default {
   argTypes: {
     onCheckboxChange: {
       description:
-        'The function to call when checkbox is changed, the parameter will give you the value of the checkbox',
+        'The function to call when checkbox is changed, the first argument will give you the value of the checkbox, while the second argument will give you the event, either the onChange for the input, or the keydown event (for checking with enter).',
       table: {
         category: 'Actions',
       },
@@ -26,14 +26,14 @@ export default {
         category: 'Display',
       },
     },
+    id: {
+      description: `The unique id to use for the checkbox and for the label for attribute`,
+    },
     labelPlacement: {
       description: 'Where to place the checkbox label',
       table: {
         category: 'Appearance',
       },
-    },
-    id: {
-      description: `The unique id to use for the checkbox and for the label for attribute`,
     },
     disabled: {
       description: 'Sets the checkbox to be disabled or not',
@@ -51,6 +51,25 @@ export default {
       description: 'The color scheme of the checkbox',
       table: {
         category: 'Appearance',
+      },
+    },
+    defaultValue: {
+      description: 'The default value of the checkbox',
+      table: {
+        category: 'State',
+      },
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
       },
     },
   },
@@ -74,4 +93,6 @@ Checkbox.args = {
   disabled: false,
   size: 'medium',
   color: 'primary',
+  defaultValue: false,
+  className: '',
 }

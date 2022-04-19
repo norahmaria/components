@@ -11,7 +11,7 @@ export default {
   title: 'Inputs/Text Input',
   component: TextInputComponent,
   parameters: {
-    badges: [BADGE.NEEDS_REVISION],
+    badges: [BADGE.STABLE],
   },
   argTypes: {
     onTextInputChange: {
@@ -101,6 +101,25 @@ export default {
         category: 'Appearance',
       },
     },
+    defaultValue: {
+      description: 'The default value',
+      table: {
+        category: 'State',
+      },
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
   },
 }
 
@@ -126,4 +145,5 @@ TextInput.args = {
   characterLimit: null,
   password: false,
   textarea: false,
+  defaultValue: '',
 }

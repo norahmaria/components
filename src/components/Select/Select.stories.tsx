@@ -101,9 +101,24 @@ export default {
         category: 'Appearance',
       },
     },
-    style: {
+    defaultValue: {
+      description: 'The default selected value',
       table: {
-        disable: true,
+        category: 'State',
+      },
+      control: false,
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
       },
     },
   },
@@ -187,4 +202,5 @@ Select.args = {
   disabled: false,
   size: 'medium',
   color: 'primary',
+  className: '',
 }

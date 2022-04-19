@@ -17,7 +17,7 @@ export default {
   argTypes: {
     onButtonClick: {
       description:
-        'The function to call when the button is clicked, the parameter will give you the event',
+        'The function to call when the button is clicked, the argument will give you the event.',
       table: {
         category: 'Actions',
       },
@@ -87,6 +87,25 @@ export default {
         category: 'Appearance',
       },
     },
+    style: {
+      description: 'Add inline styling',
+      control: false,
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    className: {
+      description: 'Add custom className',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
+    type: {
+      description: 'The type of the button',
+      table: {
+        category: 'Extra Native Props',
+      },
+    },
   },
 }
 
@@ -114,4 +133,6 @@ Button.args = {
   color: 'primary',
   rightIcon: null,
   leftIcon: <Arrow />,
+  type: 'button',
+  className: '',
 }

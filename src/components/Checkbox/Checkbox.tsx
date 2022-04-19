@@ -13,13 +13,13 @@ const Checkbox = ({
   label,
   labelPlacement = 'right',
   onCheckboxChange,
-  defaultValue,
+  defaultValue = false,
   size = 'medium',
   color = 'primary',
   className,
   style,
 }: CheckboxProps) => {
-  const [checked, setChecked] = useState(defaultValue || false)
+  const [checked, setChecked] = useState(defaultValue)
   const checkbox = useRef<HTMLInputElement>(null)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

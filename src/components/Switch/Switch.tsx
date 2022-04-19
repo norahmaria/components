@@ -6,14 +6,14 @@ const Switch = ({
   color = 'primary',
   size = 'medium',
   label,
-  disabled,
-  defaultValue,
+  disabled = false,
+  defaultValue = false,
   onSwitchChange,
   id,
   style,
   className,
 }: SwitchProps) => {
-  const [checked, setChecked] = useState(defaultValue || false)
+  const [checked, setChecked] = useState(defaultValue)
 
   const setCheckedFn = (
     e: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>
