@@ -16,6 +16,8 @@ const Checkbox = ({
   defaultValue,
   size = 'medium',
   color = 'primary',
+  className,
+  style,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(defaultValue || false)
   const checkbox = useRef<HTMLInputElement>(null)
@@ -38,11 +40,13 @@ const Checkbox = ({
 
   return (
     <div
+      style={style}
       className={`
         checkbox-nm 
         size-${size} 
         color-${color} 
         disabled-${disabled}
+        ${className}
       `}
       data-testid="checkbox-wrapper">
       <input

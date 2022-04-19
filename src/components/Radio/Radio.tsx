@@ -14,6 +14,8 @@ const Radio = ({
   horizontal = false,
   defaultValue,
   children,
+  className,
+  style,
 }: RadioProps) => {
   const [checked, setChecked] = useState<string | number>(defaultValue || null)
 
@@ -25,11 +27,13 @@ const Radio = ({
   return (
     <div
       data-testid="radio-wrapper"
+      style={style}
       className={`
         radio-nm 
         disabled-${disabled} 
         horizontal-${horizontal} 
         vertical-label-${labelPlacement === 'bottom' || labelPlacement === 'top'}
+        ${className}
       `}>
       <div className="form-label-nm">{name}</div>
 

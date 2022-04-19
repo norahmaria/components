@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 interface SwitchProps {
   label: string
   id: string
@@ -11,6 +13,9 @@ interface SwitchProps {
     e: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>
   ) => any
   defaultValue?: boolean
+
+  className?: string
+  style?: CSSProperties
 }
 
 export default SwitchProps

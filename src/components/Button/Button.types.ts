@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 interface ButtonProps {
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
@@ -7,10 +9,13 @@ interface ButtonProps {
   leftIcon?: JSX.Element | string
   rightIcon?: JSX.Element | string
   isLoading?: boolean
-  children?: string
   onButtonClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
   disabled?: boolean
   type?: 'button' | 'reset' | 'submit'
+  children?: string
+
+  className?: string
+  style?: CSSProperties
 }
 
 export default ButtonProps

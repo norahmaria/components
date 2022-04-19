@@ -25,6 +25,8 @@ const TextInput = ({
   status,
   icon,
   id,
+  className,
+  style,
 }: TextInputProps) => {
   const [value, setValue] = useState(defaultValue || '')
   const [hover, setHover] = useState(false)
@@ -50,6 +52,7 @@ const TextInput = ({
   return (
     <div
       data-testid="text-input-wrapper"
+      style={style}
       className={`
         text-input-nm 
         icon-${!!icon || !!status}
@@ -57,6 +60,7 @@ const TextInput = ({
         color-${color}
         size-${size}
         ${status && status.type ? status.type : ''} 
+        ${className}
       `}>
       <label className="form-label-nm" htmlFor={id}>
         {label}

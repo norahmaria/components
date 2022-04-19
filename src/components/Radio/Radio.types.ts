@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 interface RadioProps {
   name: string
@@ -13,6 +13,9 @@ interface RadioProps {
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
   children: React.ReactChild | React.ReactChild[]
   defaultValue?: string | number
+
+  className?: string
+  style?: CSSProperties
 }
 
 export default RadioProps

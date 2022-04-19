@@ -17,6 +17,8 @@ const Button = ({
   isLoading = false,
   onButtonClick,
   disabled,
+  style,
+  className,
   ...props
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
@@ -35,9 +37,9 @@ const Button = ({
 
   return (
     <button
+      style={{ ...style, width: fullWidth ? '100%' : 'max-content' }}
       type={type}
       onClick={click}
-      style={{ width: fullWidth ? '100%' : 'max-content' }}
       disabled={disabled}
       className={`
         btn-nm
@@ -47,6 +49,7 @@ const Button = ({
         clicked-${clicked}
         ${!props.children && (leftIcon || rightIcon) ? 'icon' : ''}
         ${round ? 'round' : ''}
+        ${className}
       `}>
       {isLoading ? (
         <>

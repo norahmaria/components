@@ -30,6 +30,8 @@ const Select = ({
   defaultValue,
   size = 'medium',
   color = 'primary',
+  className,
+  style,
   ...props
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -89,11 +91,13 @@ const Select = ({
     <div
       data-testid="select"
       ref={container}
+      style={style}
       className={`
         select-nm 
         size-${size} 
         color-${color} 
         ${status && status.type ? status.type : ''} 
+        ${className}
       `}>
       <label className="form-label-nm">{label}</label>
 

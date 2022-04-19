@@ -10,6 +10,8 @@ const Switch = ({
   defaultValue,
   onSwitchChange,
   id,
+  style,
+  className,
 }: SwitchProps) => {
   const [checked, setChecked] = useState(defaultValue || false)
 
@@ -34,9 +36,17 @@ const Switch = ({
 
   return (
     <label
+      style={style}
       tabIndex={1}
       onKeyDown={onKeyDown}
-      className={`switch-nm color-${color} size-${size} checked-${checked} disabled-${disabled}`}
+      className={`
+        switch-nm 
+        color-${color} 
+        size-${size} 
+        checked-${checked} 
+        disabled-${disabled}
+        ${className}
+      `}
       htmlFor={id}>
       <input
         tabIndex={-1}

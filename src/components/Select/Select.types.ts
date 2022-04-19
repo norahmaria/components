@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 interface SelectProps {
   multiple?: boolean
@@ -18,6 +18,9 @@ interface SelectProps {
   onSelectionChange: (selected: (string | number)[]) => any
   defaultValue?: (string | number)[]
   children?: React.ReactChild | React.ReactChild[] | React.ReactChildren
+
+  className?: string
+  style?: CSSProperties
 }
 
 export default SelectProps

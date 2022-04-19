@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 interface TextInputProps {
   label: string
   placeholder: string
@@ -25,6 +27,9 @@ interface TextInputProps {
   password?: boolean
   textarea?: boolean
   defaultValue?: string
+
+  className?: string
+  style?: CSSProperties
 }
 interface TextInputAriaProps extends TextInputProps {
   password: true
