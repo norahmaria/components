@@ -94,18 +94,31 @@ ol {
   border-radius: $br;
 
   background: $white;
-  padding: 0.65em 0.75em;
+  padding: 0.8em 0.75em 0.65em 0.75em;
 
+  font: inherit;
   font-size: 0.875rem;
-  line-height: 1;
+  line-height: 0.8;
   color: $black;
 
   box-shadow: 0 0 0.5px 0 transparent;
-  height: 34px;
 
   &::placeholder,
   .placeholder-nm {
     color: rgba($black, 0.5);
+    font: inherit;
+  }
+
+  &.size-small {
+    height: 30px;
+  }
+
+  &.size-medium {
+    height: 32px;
+  }
+
+  &.size-large {
+    height: 34px;
   }
 
   @each $name, $color in $colors {

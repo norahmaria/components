@@ -6,7 +6,6 @@ interface ButtonProps {
   label: string
   placeholder: string
   disabled: boolean
-  required: boolean
   status: {
     type: 'error' | 'warning'
     message: string
@@ -15,6 +14,7 @@ interface ButtonProps {
   clear: () => void
   onKeyDown: (e: React.KeyboardEvent<HTMLButtonElement>) => any
   color: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
+  size: 'small' | 'medium' | 'large'
 }
 
 export default ButtonProps

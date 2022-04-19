@@ -16,9 +16,9 @@ const Button = ({
   label,
   placeholder,
   disabled,
-  required,
   status,
   onClick,
+  size,
   clear,
   onKeyDown,
   color,
@@ -34,8 +34,9 @@ const Button = ({
         select-btn-nm
         input-base-nm
         open-${isOpen} 
-        includes-tags-${!!(multiple && selected.length)}
+        size-${size} 
         color-${color}
+        includes-tags-${!!(multiple && selected.length)}
         ${status && status.type ? status.type : ''} 
       `}
       aria-haspopup="listbox"

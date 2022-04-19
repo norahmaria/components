@@ -105,3 +105,18 @@
     }
   }
 }
+
+textarea.input-base-nm,
+textarea.input-base-nm.size-small,
+textarea.input-base-nm.size-medium,
+textarea.input-base-nm.size-large {
+  height: auto;
+  padding: 0.65em 0.75em;
+  align-items: flex-start;
+}
+
+.text-input-nm.size-large {
+  svg {
+    top: 0.8rem;
+  }
+}

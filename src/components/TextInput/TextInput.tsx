@@ -75,18 +75,24 @@ const TextInput = ({
             onChange={onChange}
             onKeyDown={growTextArea}
             id={id}
-            className={`input-base-nm color-${color} ${
-              status && status.type ? status.type : ''
-            } `}
+            className={`
+              input-base-nm 
+              color-${color} 
+              size-${size}
+              ${status && status.type ? status.type : ''}
+            `}
           />
         ) : (
           <input
             data-testid="text-input"
             autoComplete="off"
             disabled={disabled}
-            className={`input-base-nm color-${color} ${
-              status && status.type ? status.type : ''
-            } `}
+            className={`
+              input-base-nm 
+              color-${color} 
+              size-${size}
+              ${status && status.type ? status.type : ''}
+            `}
             type={password ? 'password' : 'text'}
             value={value}
             placeholder={placeholder}
