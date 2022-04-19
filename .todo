@@ -31,8 +31,8 @@ Components:
       
   Select:
     ✔ Add more spacing on top of first groups @done(22-04-19 20:03)
-    ☐ Select disabled not working properly @critical
-    ☐ Option disabled _and_ selected not looking good
+    ✘ Select disabled not working properly @critical @cancelled(22-04-19 20:06)
+    ✔ Option disabled _and_ selected not looking good @done(22-04-19 20:10)
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
 

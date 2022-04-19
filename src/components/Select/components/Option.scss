@@ -30,6 +30,7 @@
 
   &,
   &[aria-selected='true'] {
+    font-weight: 500;
     &:hover,
     &:focus-visible,
     &:active {
@@ -45,22 +46,10 @@
   }
 
   &[aria-disabled='true'] {
-    background: darken($white, 3%);
-    color: #898a8a;
-    cursor: not-allowed;
-
-    &:hover {
-      padding: 0.4em 0.5em;
-    }
-
     svg {
       opacity: 0.45;
       filter: grayscale(100%);
     }
-  }
-
-  &[aria-selected='true'] {
-    font-weight: 500;
   }
 
   &:first-child {
@@ -89,5 +78,24 @@
         border: 1px solid scale-color($color, $saturation: 5%, $lightness: 90%);
       }
     }
+  }
+}
+
+%select-colors {
+  &[aria-disabled='true'] {
+    background: darken($white, 3%);
+    color: #898a8a;
+    cursor: not-allowed;
+
+    &:hover {
+      padding: 0.4em 0.5em;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .select-nm.color-#{$name} > .options-nm > .option-nm,
+  .select-nm.color-#{$name} > .options-nm > .group-nm .option-nm {
+    @extend %select-colors;
   }
 }
