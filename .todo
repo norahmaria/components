@@ -40,7 +40,7 @@ Components:
     ☐ Consider not using native input directly (pros / cons, maybe a hidden one as with checkboxes etc) @future
     
   Button: 
-    ☐ Type of button
+    ✔ Type of button @done(22-04-19 20:12)
     ☐ More size or at least weight to the font (does not stand out in a form lol)
 
 Structure:

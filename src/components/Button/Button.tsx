@@ -5,10 +5,6 @@ import LoadingSpinner from '../../private/LoadingSpinner'
 
 import './Button.scss'
 
-// Consider:
-// -- Adding a lil tooltip box explaining why a btn is disabled
-// -- Adding attached buttons: https://ant.design/components/button/#components-button-demo-multiple
-
 const Button = ({
   leftIcon,
   rightIcon,
@@ -17,9 +13,10 @@ const Button = ({
   fullWidth = false,
   color = 'primary',
   variant = 'default',
+  type = 'button',
+  isLoading = false,
   onButtonClick,
   disabled,
-  isLoading = false,
   ...props
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
@@ -38,6 +35,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       onClick={click}
       style={{ width: fullWidth ? '100%' : 'max-content' }}
       disabled={disabled}

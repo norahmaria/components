@@ -10,6 +10,7 @@ interface ButtonProps {
   children?: string
   onButtonClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
   disabled?: boolean
+  type?: 'button' | 'reset' | 'submit'
 }
 
 export default ButtonProps
