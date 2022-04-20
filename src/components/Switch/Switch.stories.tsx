@@ -10,7 +10,7 @@ export default {
   title: 'Inputs/Switch',
   component: SwitchComponent,
   parameters: {
-    badges: [BADGE.NEEDS_REVISION],
+    badges: [BADGE.STABLE],
   },
   argTypes: {
     onSwitchChange: {
