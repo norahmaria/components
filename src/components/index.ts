@@ -4,6 +4,7 @@ export { default as Button } from './Button/Button'
 export { default as Checkbox } from './Checkbox/Checkbox'
 export { default as TextInput } from './TextInput/TextInput'
 export { default as Switch } from './Switch/Switch'
+export { default as Slider } from './Slider/Slider'
 
 import RadioComponent from './Radio/Radio'
 import RadioProps from './Radio/Radio.types'
