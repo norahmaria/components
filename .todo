@@ -16,9 +16,10 @@ Issues: @critical
 
 Components:
   Slider: 
-    ☐ Add css variables from sass variables for colors
-    ☐ Add disabled state
-    ☐ Add sizes
+    ☐ Add number input beside slider (optional)
+    ☐ Add option for suffix or prefix for the tooltip
+    ☐ Add opportunity icon before and after
+    ☐ Add testing
     
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
@@ -61,3 +62,6 @@ Archive:
   ✔ Add event as additional args for onChange functions @done(22-04-19 21:36)
   ✔ You provided a 'checked' prop to a form field without an 'onChange' handler, this will render read-only (radio buttons, default checked) @done(22-04-19 22:05)
   ✔ Labels for text based inputs have a hover cursor even when disabled @done(22-04-20 18:08)
+  ✔ Add css variables from sass variables for colors @done(22-04-20 23:20)
+  ✔ Add disabled state @done(22-04-20 23:20)
+  ✔ Add sizes @done(22-04-20 23:20)
