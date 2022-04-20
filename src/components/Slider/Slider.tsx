@@ -4,16 +4,17 @@ import SliderProps from './Slider.types'
 import './Slider.scss'
 
 const Slider = ({
-  defaultValue,
+  defaultValue = 20,
   max = 100,
   min = 0,
   id,
   color = 'primary',
 }: SliderProps) => {
   const [percentage, setPercentage] = useState(0)
-  const [dotLeftPosition, setDotLeftPosition] = useState(0)
-  const [value, setValue] = useState(defaultValue || 20)
-  const ref = useRef<HTMLDivElement>(null)
+  const [value, setValue] = useState(defaultValue)
+  const [hover, setHover] = useState(false)
+
+  const input = useRef<HTMLInputElement>(null)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseFloat(e.target.value))
@@ -21,29 +22,40 @@ const Slider = ({
 
   useEffect(() => {
     setPercentage(getPercentage(value, max, min))
-
-    setDotLeftPosition(() => {
-      const range = ref.current?.clientWidth
-      return (value / range) * 100
-    })
   }, [value])
 
+  const forceInputActive = () => {
+    input.current?.focus()
+  }
+
   return (
-    <div className="slider" ref={ref}>
+    <div className="slider">
       <label htmlFor={id} className="form-label-nm">
         Slider
       </label>
-      <input id={id} min={min} max={max} onChange={onChange} type="range" />
+      <input
+        onMouseOver={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        ref={input}
+        id={id}
+        min={min}
+        max={max}
+        onChange={onChange}
+        type="range"
+      />
       <div
         className="range"
         style={{
           backgroundImage: `linear-gradient(90deg, var(--${color}700) ${percentage}%, #E7E9EB ${percentage}%)`,
         }}>
         <span
+          onClick={forceInputActive}
           className="dot"
           style={{
-            marginLeft: `${percentage > 92 ? 92 : percentage}%`,
-          }}></span>
+            marginLeft: `${percentage}%`,
+          }}>
+          {hover && <div className="tooltip">{value}</div>}
+        </span>
       </div>
     </div>
   )
