@@ -1,5 +1,4 @@
 import { Story } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
@@ -17,4 +16,10 @@ export default {
 const SliderStory: Story<SliderProps> = args => <SliderComponent {...args} />
 
 export const Slider: Story<SliderProps> = SliderStory.bind({})
-Slider.args = {}
+Slider.args = {
+  min: 0,
+  max: 100,
+  defaultValue: 20,
+  id: 'slider',
+  label: 'Slider',
+}

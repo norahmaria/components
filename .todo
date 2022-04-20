@@ -17,6 +17,8 @@ Issues: @critical
 Components:
   Slider: 
     ☐ Add css variables from sass variables for colors
+    ☐ Add disabled state
+    ☐ Add sizes
     
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
