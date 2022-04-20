@@ -10,19 +10,22 @@ const Slider = ({
   id,
   label,
   color = 'primary',
+  size = 'medium',
   className,
   style,
+  disabled = false,
   onSliderChange,
+  step = 1,
 }: SliderProps) => {
   const [percentage, setPercentage] = useState(0)
   const [value, setValue] = useState(defaultValue)
-  const [hover, setHover] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(false)
 
-  const gradientColor = color === 'neutral' ? '#606078' : `var(--${color}700)`
+  const gradientColor = color === 'neutral' || disabled ? '#606078' : `var(--${color}700)`
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseFloat(e.target.value))
-    onSliderChange(parseFloat(e.target.value), e)
+    if (!disabled) onSliderChange(parseFloat(e.target.value), e)
   }
 
   useEffect(() => {
@@ -30,21 +33,32 @@ const Slider = ({
   }, [value])
 
   return (
-    <div className={`slider ${className}`}>
-      <label htmlFor={id} className="form-label-nm">
+    <div
+      className={`
+      slider 
+      size-${size}
+      disabled-${disabled}
+      ${className}
+    `}>
+      <label htmlFor={id} className={`form-label-nm disabled-${disabled}`}>
         {label}
       </label>
       <input
-        onMouseOver={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        disabled={disabled}
+        onMouseOver={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        onFocus={() => setShowTooltip(true)}
+        onBlur={() => setShowTooltip(false)}
         id={id}
+        step={step}
         min={min}
         max={max}
+        value={value}
         onChange={onChange}
         type="range"
       />
       <div
-        className="range"
+        className={`range color-${color}`}
         style={{
           ...style,
           backgroundImage: `linear-gradient(90deg, ${gradientColor} ${percentage}%, #E7E9EB ${percentage}%)`,
@@ -54,7 +68,7 @@ const Slider = ({
           style={{
             marginLeft: `${percentage}%`,
           }}>
-          {hover && <div className="tooltip">{value}</div>}
+          {showTooltip && <div className="tooltip">{value}</div>}
         </span>
       </div>
     </div>

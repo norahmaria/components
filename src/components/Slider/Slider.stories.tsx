@@ -11,6 +11,53 @@ export default {
   parameters: {
     badges: [BADGE.NEEDS_REVISION],
   },
+  argTypes: {
+    label: {
+      table: {
+        category: 'Display',
+      },
+    },
+    onSliderChange: {
+      table: {
+        category: 'Actions',
+      },
+    },
+    defaultValue: {
+      table: { category: 'State' },
+      control: false,
+    },
+    className: {
+      table: { category: 'Extra Native Props' },
+    },
+    style: {
+      control: false,
+      table: { category: 'Extra Native Props' },
+    },
+    min: {
+      table: { category: 'Extra Native Props' },
+    },
+    max: {
+      table: { category: 'Extra Native Props' },
+    },
+    step: {
+      table: { category: 'Extra Native Props' },
+    },
+    disabled: {
+      table: {
+        category: 'State',
+      },
+    },
+    size: {
+      table: {
+        category: 'Appearance',
+      },
+    },
+    color: {
+      table: {
+        category: 'Appearance',
+      },
+    },
+  },
 }
 
 const SliderStory: Story<SliderProps> = args => <SliderComponent {...args} />
@@ -22,4 +69,10 @@ Slider.args = {
   defaultValue: 20,
   id: 'slider',
   label: 'Slider',
+  style: { width: '15rem' },
+  className: '',
+  disabled: false,
+  size: 'medium',
+  color: 'primary',
+  step: 1,
 }

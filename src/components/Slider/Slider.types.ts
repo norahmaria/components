@@ -11,6 +11,8 @@ interface SliderProps {
   min?: number
   /** Max value */
   max?: number
+  /** How many steps should be taken at once */
+  step?: number
 
   /** The function to call when the value is changed, the first argument will give you the value, while the second will give the event. */
   onSliderChange: (value: number, e: React.ChangeEvent<HTMLInputElement>) => any
