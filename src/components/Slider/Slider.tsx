@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SliderProps from './Slider.types'
 
 import './Slider.scss'
@@ -8,35 +8,35 @@ const Slider = ({
   max = 100,
   min = 0,
   id,
+  label,
   color = 'primary',
+  className,
+  style,
+  onSliderChange,
 }: SliderProps) => {
   const [percentage, setPercentage] = useState(0)
   const [value, setValue] = useState(defaultValue)
   const [hover, setHover] = useState(false)
 
-  const input = useRef<HTMLInputElement>(null)
+  const gradientColor = color === 'neutral' ? '#606078' : `var(--${color}700)`
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseFloat(e.target.value))
+    onSliderChange(parseFloat(e.target.value), e)
   }
 
   useEffect(() => {
     setPercentage(getPercentage(value, max, min))
   }, [value])
 
-  const forceInputActive = () => {
-    input.current?.focus()
-  }
-
   return (
-    <div className="slider">
+    <div className={`slider ${className}`}>
       <label htmlFor={id} className="form-label-nm">
-        Slider
+        {label}
       </label>
       <input
         onMouseOver={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        ref={input}
         id={id}
         min={min}
         max={max}
@@ -46,10 +46,10 @@ const Slider = ({
       <div
         className="range"
         style={{
-          backgroundImage: `linear-gradient(90deg, var(--${color}700) ${percentage}%, #E7E9EB ${percentage}%)`,
+          ...style,
+          backgroundImage: `linear-gradient(90deg, ${gradientColor} ${percentage}%, #E7E9EB ${percentage}%)`,
         }}>
         <span
-          onClick={forceInputActive}
           className="dot"
           style={{
             marginLeft: `${percentage}%`,
