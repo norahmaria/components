@@ -17,7 +17,11 @@ exports[`Radio Component Can render 1`] = `
     radio
   </div>
   <div
-    class="radio-button-nm color-primary size-medium"
+    class="
+        radio-button-nm 
+        color-primary 
+        size-medium
+      "
     data-testid="radio-button-wrapper"
   >
     <input
@@ -36,7 +40,11 @@ exports[`Radio Component Can render 1`] = `
     </label>
   </div>
   <div
-    class="radio-button-nm color-primary size-medium"
+    class="
+        radio-button-nm 
+        color-primary 
+        size-medium
+      "
     data-testid="radio-button-wrapper"
   >
     <input

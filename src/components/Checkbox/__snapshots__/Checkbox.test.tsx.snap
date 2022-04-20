@@ -6,7 +6,6 @@ exports[`Checkbox Component Can render 1`] = `
         checkbox-nm 
         size-medium 
         color-primary 
-        disabled-false
         undefined
       "
   data-testid="checkbox-wrapper"

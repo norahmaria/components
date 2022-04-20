@@ -14,7 +14,7 @@ exports[`TextInput Component Can render 1`] = `
   data-testid="text-input-wrapper"
 >
   <label
-    class="form-label-nm"
+    class="form-label-nm disabled-false"
     for="id"
   >
     Label

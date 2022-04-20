@@ -40,15 +40,14 @@ const Checkbox = ({
 
   return (
     <div
+      data-testid="checkbox-wrapper"
       style={style}
       className={`
         checkbox-nm 
         size-${size} 
         color-${color} 
-        disabled-${disabled}
         ${className}
-      `}
-      data-testid="checkbox-wrapper">
+      `}>
       <input
         ref={checkbox}
         disabled={disabled}

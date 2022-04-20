@@ -62,7 +62,7 @@ const TextInput = ({
         ${status && status.type ? status.type : ''} 
         ${className}
       `}>
-      <label className="form-label-nm" htmlFor={id}>
+      <label className={`form-label-nm disabled-${disabled}`} htmlFor={id}>
         {label}
       </label>
 

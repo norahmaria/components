@@ -99,7 +99,7 @@ const Select = ({
         ${status && status.type ? status.type : ''} 
         ${className}
       `}>
-      <label className="form-label-nm">{label}</label>
+      <label className={`form-label-nm disabled-${disabled}`}>{label}</label>
 
       <Button
         color={color}
