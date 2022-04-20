@@ -47,28 +47,22 @@ export default {
   },
   argTypes: {
     onSelectionChange: {
-      description:
-        'The function to call when selection changes, the parameter will give you the value of the selected item(s)',
       table: {
         category: 'Actions',
       },
     },
     label: {
-      description: 'The select label',
       table: {
         category: 'Display',
       },
     },
     children: {
-      description:
-        "The component expects you to use **Select.Option or Select.Group** as it's children. Select.Group needs a `title`, while Select.Option needs a `value` and a string as its child, which will be the title.",
       control: false,
       table: {
         category: 'Display',
       },
     },
     status: {
-      description: 'Error or warning messages',
       control: {
         type: 'object',
       },
@@ -76,46 +70,33 @@ export default {
         category: 'Display',
       },
     },
-    multiple: {
-      description: 'Allow for multi select',
-    },
-    required: {
-      description:
-        'Set select to be required or not, this will re-open the select whenever it is cleared',
-    },
     disabled: {
-      description: 'Set select to be disabled or not',
       table: {
         category: 'State',
       },
     },
     size: {
-      description: 'The size of the select',
       table: {
         category: 'Appearance',
       },
     },
     color: {
-      description: 'The color scheme of the Select',
       table: {
         category: 'Appearance',
       },
     },
     defaultValue: {
-      description: 'The default selected value',
       table: {
         category: 'State',
       },
       control: false,
     },
     className: {
-      description: 'Add custom className',
       table: {
         category: 'Extra Native Props',
       },
     },
     style: {
-      description: 'Add inline styling',
       control: false,
       table: {
         category: 'Extra Native Props',

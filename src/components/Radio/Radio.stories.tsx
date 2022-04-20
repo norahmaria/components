@@ -17,67 +17,52 @@ export default {
   },
   argTypes: {
     onRadioChange: {
-      description:
-        'The function to call when the Radio value is changed, the first argument will give you the value of the selected Radio button, while the second one will give you the event.',
       table: {
         category: 'Actions',
       },
     },
-    name: {
-      description: `A unique id used to group the Radio buttons together`,
-    },
     labelPlacement: {
-      description: 'Where to place the Radio buttons labels',
       table: {
         category: 'Appearance',
       },
     },
     children: {
-      description:
-        "The component expects you to use **Radio.Button** as it's children. They all need an `id`, `label` and `value`, and can be `disabled` individually.",
       control: false,
       table: {
         category: 'Display',
       },
     },
     horizontal: {
-      description: 'Sets the Radio buttons on an horizontal line if true',
       table: {
         category: 'Appearance',
       },
     },
     disabled: {
-      description: 'Sets the Radio button group to be disabled or not',
       table: {
         category: 'State',
       },
     },
     size: {
-      description: 'The size of the Radio buttons',
       table: {
         category: 'Appearance',
       },
     },
     color: {
-      description: 'The color scheme of the Radio buttons',
       table: {
         category: 'Appearance',
       },
     },
     defaultValue: {
-      description: 'The default selected value',
       table: {
         category: 'State',
       },
     },
     className: {
-      description: 'Add custom className',
       table: {
         category: 'Extra Native Props',
       },
     },
     style: {
-      description: 'Add inline styling',
       control: false,
       table: {
         category: 'Extra Native Props',

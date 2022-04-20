@@ -16,39 +16,32 @@ export default {
   },
   argTypes: {
     onButtonClick: {
-      description:
-        'The function to call when the button is clicked, the argument will give you the event.',
       table: {
         category: 'Actions',
       },
     },
     children: {
-      description: 'The content inside the button',
       table: {
         category: 'Display',
       },
     },
     isLoading: {
-      description: 'Is button loading or not',
       table: {
         category: 'State',
         default: false,
       },
     },
     round: {
-      description: 'Use more rounded corners on the button or not',
       table: {
         category: 'Appearance',
       },
     },
     fullWidth: {
-      description: 'Let the button take up the space it has around it',
       table: {
         category: 'Appearance',
       },
     },
     disabled: {
-      description: 'Whether to disable the button or not',
       table: {
         category: 'State',
         type: { summary: 'boolean' },
@@ -56,52 +49,44 @@ export default {
       },
     },
     variant: {
-      description: 'The variant of the button',
       table: {
         category: 'Appearance',
       },
     },
     leftIcon: {
-      description: 'Icon on the left',
       control: false,
       table: {
         category: 'Display',
       },
     },
     rightIcon: {
-      description: 'Icon on the left',
       control: false,
       table: {
         category: 'Display',
       },
     },
     size: {
-      description: 'The size of the button',
       table: {
         category: 'Appearance',
       },
     },
     color: {
-      description: 'The color scheme of the button',
       table: {
         category: 'Appearance',
       },
     },
     style: {
-      description: 'Add inline styling',
       control: false,
       table: {
         category: 'Extra Native Props',
       },
     },
     className: {
-      description: 'Add custom className',
       table: {
         category: 'Extra Native Props',
       },
     },
     type: {
-      description: 'The type of the button',
       table: {
         category: 'Extra Native Props',
       },

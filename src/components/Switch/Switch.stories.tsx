@@ -14,53 +14,41 @@ export default {
   },
   argTypes: {
     onSwitchChange: {
-      description:
-        'The function to call when the switch changes, the first argument will give you the value, while the second will give you either a change event or a keyboard event.',
       table: {
         category: 'Actions',
       },
     },
     label: {
-      description: 'The switch label',
       table: {
         category: 'Display',
       },
     },
-    id: {
-      description: `The unique id to use for the switch and for the label for attribute`,
-    },
     disabled: {
-      description: 'Set input to be disabled or not',
       table: {
         category: 'State',
       },
     },
     size: {
-      description: 'The size of the select',
       table: {
         category: 'Appearance',
       },
     },
     color: {
-      description: 'The color scheme of the Select',
       table: {
         category: 'Appearance',
       },
     },
     defaultValue: {
-      description: 'The default value',
       table: {
         category: 'State',
       },
     },
     className: {
-      description: 'Add custom className',
       table: {
         category: 'Extra Native Props',
       },
     },
     style: {
-      description: 'Add inline styling',
       control: false,
       table: {
         category: 'Extra Native Props',

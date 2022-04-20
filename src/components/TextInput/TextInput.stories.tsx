@@ -15,35 +15,26 @@ export default {
   },
   argTypes: {
     onTextInputChange: {
-      description:
-        'The function to call when text input changes, the parameter will give you the value of the input',
       table: {
         category: 'Actions',
       },
     },
     label: {
-      description: 'The select label',
       table: {
         category: 'Display',
       },
     },
     placeholder: {
-      description: 'The placeholder text',
       table: {
         category: 'Display',
       },
     },
-    id: {
-      description: `The unique id to use for the input and for the label for attribute`,
-    },
     characterLimit: {
-      description: 'Set a character limit for the input',
       table: {
         category: 'State',
       },
     },
     status: {
-      description: 'Error or warning messages',
       control: {
         type: 'object',
       },
@@ -52,69 +43,58 @@ export default {
       },
     },
     password: {
-      description: `If it's a password input or not`,
       table: {
         category: 'Appearance',
       },
     },
     textarea: {
-      description: `If it's a textarea or a normal text input`,
       table: {
         category: 'Display',
       },
     },
     disabled: {
-      description: 'Set input to be disabled or not',
       table: {
         category: 'State',
       },
     },
     icon: {
-      description: 'Icon for the input',
       control: false,
       table: {
         category: 'Display',
       },
     },
     isLoading: {
-      description: 'Is the input loading or not',
       table: {
         category: 'State',
         default: false,
       },
     },
     round: {
-      description: 'Use more rounded corners on the button or not',
       table: {
         category: 'Appearance',
       },
     },
     size: {
-      description: 'The size of the select',
       table: {
         category: 'Appearance',
       },
     },
     color: {
-      description: 'The color scheme of the Select',
       table: {
         category: 'Appearance',
       },
     },
     defaultValue: {
-      description: 'The default value',
       table: {
         category: 'State',
       },
     },
     className: {
-      description: 'Add custom className',
       table: {
         category: 'Extra Native Props',
       },
     },
     style: {
-      description: 'Add inline styling',
       control: false,
       table: {
         category: 'Extra Native Props',

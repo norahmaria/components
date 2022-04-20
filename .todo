@@ -3,7 +3,7 @@
 Stories:
   ☐ Add intro page explaining events, basic styling / classname conventions
   ☐ Replace the 'Show Code' under doc pages
-  ☐ Figure out how to add argTypes for subcomponents
+  ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17)
     ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
     ━ https://next--storybookjs.netlify.app/official-storybook/?path=/docs/addons-docs-buttongroup--basic
   ☐ Add overview of the classNames in the components
