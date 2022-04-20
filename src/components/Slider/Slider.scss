@@ -1,0 +1,54 @@
+@use '../../scss/variables' as *;
+
+.slider input {
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  opacity: 0;
+
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
+    appearance: none;
+    height: 1.3rem !important;
+    width: 1.3rem !important;
+    background-color: green;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+}
+
+.slider {
+  width: 10rem;
+  max-width: 10rem;
+  position: relative;
+
+  .range {
+    position: relative;
+    border-radius: $br * 4;
+    box-shadow: 0 0 0.15px 2px scale-color($white, $lightness: 20%);
+    height: 0.8rem;
+    width: 100%;
+
+    background-color: scale-color($neutral700, $lightness: 30%);
+    border: 1px solid scale-color($neutral700, $lightness: 30%);
+    transition: background-color 0.35s $cubic, box-shadow 0.35s $cubic,
+      border 0.35s $cubic;
+  }
+
+  .dot {
+    position: absolute;
+    border: 1px solid $white;
+    border-radius: 100%;
+    background-color: $white;
+    height: 1.2rem;
+    aspect-ratio: 1;
+
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
+
+    margin-top: -0.25rem;
+    left: -0.25rem;
+    transition: border 0.25s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
+  }
+}

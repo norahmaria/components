@@ -15,6 +15,9 @@ Issues: @critical
   ☐ Upload Button
 
 Components:
+  Slider: 
+    ☐ Add css variables from sass variables for colors
+    
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
