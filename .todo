@@ -25,9 +25,9 @@ Tools:
     ☐ Make id/name consistent in components for easy usage
 
 Testing:
-  ☐ Add Switch testing
   
 Archive:
+  ✔ Add Switch testing @done(22-04-20 18:12)
   ✔ Icon for text / select is yellow / red when it has status even when disabled @done(22-04-19 20:41)
   ✔ Type of button @done(22-04-19 20:12)
   ✔ More size or at least weight to the font (does not stand out in a form lol) @done(22-04-19 20:24)

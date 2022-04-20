@@ -36,6 +36,7 @@ const Switch = ({
 
   return (
     <label
+      data-testid="switch-wrapper"
       style={style}
       tabIndex={1}
       onKeyDown={onKeyDown}
@@ -49,6 +50,7 @@ const Switch = ({
       `}
       htmlFor={id}>
       <input
+        data-testid="switch-input"
         tabIndex={-1}
         disabled={disabled}
         type="checkbox"

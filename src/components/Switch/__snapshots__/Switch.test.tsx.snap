@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch Component Can render 1`] = `
+<label
+  class="
+        switch-nm 
+        color-primary 
+        size-medium 
+        checked-false 
+        disabled-false
+        undefined
+      "
+  data-testid="switch-wrapper"
+  for="Switch"
+  tabindex="1"
+>
+  <input
+    data-testid="switch-input"
+    id="Switch"
+    name="Switch"
+    tabindex="-1"
+    type="checkbox"
+  />
+  <div
+    class="switch-nm-toggle"
+  >
+    <div
+      class="dot"
+    />
+  </div>
+  Switch
+</label>
+`;
