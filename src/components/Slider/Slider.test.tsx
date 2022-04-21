@@ -1,20 +1,8 @@
 import React from 'react'
-import { act, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import { Slider } from '../index'
-
-const setValue = (input: HTMLElement, value: string) => {
-  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-    window.HTMLInputElement.prototype,
-    'value'
-  ).set
-
-  nativeInputValueSetter.call(input, value)
-
-  act(() => {
-    input.dispatchEvent(new Event('input', { bubbles: true }))
-  })
-}
+import setValue from '../../utils/tests/setValue'
 
 describe('Slider Component', () => {
   it('Can render', () => {

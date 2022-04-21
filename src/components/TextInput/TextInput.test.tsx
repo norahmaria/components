@@ -2,6 +2,7 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 
 import { TextInput } from '../../components/index'
+import setValue from '../../utils/tests/setValue'
 
 describe('TextInput Component', () => {
   it('Can render', () => {
@@ -55,19 +56,7 @@ describe('TextInput Component', () => {
     const input = getByTestId('text-input')
     const value = ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
 
-    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      'value'
-    ).set
-
-    for (let i = 0; i <= value.length; i++) {
-      nativeInputValueSetter.call(input, value[i])
-
-      act(() => {
-        input.dispatchEvent(new Event('input', { bubbles: true }))
-      })
-    }
-
+    setValue(input, value)
     expect(onTextInputChange).toHaveBeenCalledTimes(11)
   })
 
@@ -87,16 +76,7 @@ describe('TextInput Component', () => {
     )
 
     const input = getByTestId('text-input')
-    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      'value'
-    ).set
-
-    nativeInputValueSetter.call(input, 'Hello World')
-
-    act(() => {
-      input.dispatchEvent(new Event('input', { bubbles: true }))
-    })
+    setValue(input, 'Hello World')
 
     expect(input).toHaveValue('Hello World')
   })
@@ -115,21 +95,14 @@ describe('TextInput Component', () => {
 
     const input = getByTestId('text-input')
 
+    setValue(input, ['H', 'e', 'l', 'l', 'o'])
+
     const string = ['H', 'e', 'l', 'l', 'o']
     const value: string[] = []
 
-    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      'value'
-    ).set
-
-    for (let i = 0; i < string.length; i++) {
+    for (let i = 0; i < 3; i++) {
       value.push(string[i])
-      nativeInputValueSetter.call(input, value.join(''))
-
-      act(() => {
-        input.dispatchEvent(new Event('input', { bubbles: true }))
-      })
+      setValue(input, value.join(''))
     }
 
     expect(onTextInputChange).toHaveBeenLastCalledWith('Hel', expect.objectContaining({}))

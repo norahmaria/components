@@ -19,7 +19,7 @@ Components:
     ☐ Add number input beside slider (optional)
     ☐ Add option for suffix or prefix for the tooltip
     ☐ Add opportunity icon before and after
-    ☐ Add testing
+    ✔ Add testing @done(22-04-21 07:46)
     
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
