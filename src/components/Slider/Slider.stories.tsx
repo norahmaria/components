@@ -17,6 +17,16 @@ export default {
         category: 'Display',
       },
     },
+    suffix: {
+      table: {
+        category: 'Display',
+      },
+    },
+    prefix: {
+      table: {
+        category: 'Display',
+      },
+    },
     onSliderChange: {
       table: {
         category: 'Actions',
@@ -75,4 +85,6 @@ Slider.args = {
   size: 'medium',
   color: 'primary',
   step: 1,
+  suffix: '',
+  prefix: '',
 }

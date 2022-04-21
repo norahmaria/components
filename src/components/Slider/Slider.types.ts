@@ -19,10 +19,15 @@ interface SliderProps {
 
   /** The size of the select */
   size?: 'small' | 'medium' | 'large'
-  /** Set slider to be disabled*/
+  /** Set slider to be disabled */
   disabled?: boolean
   /** The color scheme of the Slider */
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
+
+  /** Add text after the value in tooltip */
+  suffix?: string
+  /** Add text before the value in tooltip */
+  prefix?: string
 
   /** Add custom className */
   className?: string

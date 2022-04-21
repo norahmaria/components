@@ -16,6 +16,8 @@ const Slider = ({
   disabled = false,
   onSliderChange,
   step = 1,
+  prefix,
+  suffix,
 }: SliderProps) => {
   const [percentage, setPercentage] = useState(0)
   const [value, setValue] = useState(defaultValue)
@@ -71,7 +73,13 @@ const Slider = ({
           style={{
             marginLeft: `${percentage}%`,
           }}>
-          {showTooltip && <div className="tooltip">{value}</div>}
+          {showTooltip && (
+            <div className="tooltip">
+              {prefix && prefix}
+              {value}
+              {suffix && suffix}
+            </div>
+          )}
         </span>
       </div>
     </div>
