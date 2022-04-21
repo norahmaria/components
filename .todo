@@ -20,6 +20,7 @@ Components:
     ✔ Add option for suffix or prefix for the tooltip @done(22-04-21 08:04)
     ☐ Add opportunity icon before and after
     ✔ Add testing @done(22-04-21 07:46)
+    ✔ Add vertical version @done(22-04-21 08:35)
     
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical

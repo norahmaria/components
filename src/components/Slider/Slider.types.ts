@@ -24,6 +24,9 @@ interface SliderProps {
   /** The color scheme of the Slider */
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
+  /** Make the slider vertical */
+  vertical?: boolean
+
   /** Add text after the value in tooltip */
   suffix?: string
   /** Add text before the value in tooltip */

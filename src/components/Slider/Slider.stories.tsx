@@ -57,6 +57,11 @@ export default {
         category: 'State',
       },
     },
+    vertical: {
+      table: {
+        category: 'Appearance',
+      },
+    },
     size: {
       table: {
         category: 'Appearance',
@@ -70,7 +75,11 @@ export default {
   },
 }
 
-const SliderStory: Story<SliderProps> = args => <SliderComponent {...args} />
+const SliderStory: Story<SliderProps> = args => (
+  <div style={{ width: '15rem' }}>
+    <SliderComponent {...args} />
+  </div>
+)
 
 export const Slider: Story<SliderProps> = SliderStory.bind({})
 Slider.args = {
@@ -79,7 +88,6 @@ Slider.args = {
   defaultValue: 20,
   id: 'slider',
   label: 'Slider',
-  style: { width: '15rem' },
   className: '',
   disabled: false,
   size: 'medium',
@@ -87,4 +95,5 @@ Slider.args = {
   step: 1,
   suffix: '',
   prefix: '',
+  vertical: false,
 }

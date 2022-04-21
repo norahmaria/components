@@ -9,6 +9,7 @@ const Slider = ({
   min = 0,
   id,
   label,
+  vertical = false,
   color = 'primary',
   size = 'medium',
   className,
@@ -41,6 +42,7 @@ const Slider = ({
       slider 
       size-${size}
       disabled-${disabled}
+      vertical-${vertical}
       ${className}
     `}>
       <label htmlFor={id} className={`form-label-nm disabled-${disabled}`}>
@@ -66,13 +68,17 @@ const Slider = ({
         className={`range color-${color}`}
         style={{
           ...style,
-          backgroundImage: `linear-gradient(90deg, ${gradientColor} ${percentage}%, #E7E9EB ${percentage}%)`,
+          backgroundImage: `linear-gradient(${
+            vertical ? '0deg' : '90deg'
+          }, ${gradientColor} ${percentage}%, #E7E9EB ${percentage}%)`,
         }}>
         <span
           className="dot"
-          style={{
-            marginLeft: `${percentage}%`,
-          }}>
+          style={
+            vertical
+              ? { bottom: `${percentage > 90 ? percentage - 10 : percentage}%` }
+              : { marginLeft: `${percentage}%` }
+          }>
           {showTooltip && (
             <div className="tooltip">
               {prefix && prefix}
