@@ -34,6 +34,7 @@ const Slider = ({
 
   return (
     <div
+      data-testid="slider-wrapper"
       className={`
       slider 
       size-${size}
@@ -44,6 +45,7 @@ const Slider = ({
         {label}
       </label>
       <input
+        data-testid="slider-input"
         disabled={disabled}
         onMouseOver={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
@@ -58,6 +60,7 @@ const Slider = ({
         type="range"
       />
       <div
+        data-testid="slider-placebo"
         className={`range color-${color}`}
         style={{
           ...style,

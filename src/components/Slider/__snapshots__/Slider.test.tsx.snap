@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider Component Can render 1`] = `
+<div
+  class="
+      slider 
+      size-medium
+      disabled-false
+      undefined
+    "
+  data-testid="slider-wrapper"
+>
+  <label
+    class="form-label-nm disabled-false"
+    for="Slider"
+  >
+    Slider
+  </label>
+  <input
+    data-testid="slider-input"
+    id="Slider"
+    max="100"
+    min="0"
+    step="1"
+    type="range"
+    value="20"
+  />
+  <div
+    class="range color-primary"
+    data-testid="slider-placebo"
+  >
+    <span
+      class="dot"
+      style="margin-left: 20%;"
+    />
+  </div>
+</div>
+`;
