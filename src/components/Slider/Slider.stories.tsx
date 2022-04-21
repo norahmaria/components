@@ -87,7 +87,7 @@ Slider.args = {
   max: 100,
   defaultValue: 20,
   id: 'slider',
-  label: 'Slider',
+  label: 'Slider Longer Label Test',
   className: '',
   disabled: false,
   size: 'medium',

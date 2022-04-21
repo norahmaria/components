@@ -155,7 +155,6 @@
 .slider.vertical-true {
   display: grid;
   place-content: center;
-  text-align: center;
 
   label {
     margin-bottom: 0.9rem;
@@ -174,6 +173,8 @@
 
   .range {
     height: 8rem;
+    align-self: center;
+    justify-self: center;
   }
 
   .dot {
@@ -183,21 +184,31 @@
   &.size-small {
     .range {
       width: 0.6rem;
-      margin-left: 1rem;
+    }
+
+    .dot {
+      margin-left: 0.3rem;
     }
   }
 
   &.size-medium {
     .range {
       width: 0.8rem;
-      margin-left: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .dot {
+      margin-left: 0.4rem;
     }
   }
 
   &.size-large {
     .range {
       width: 1rem;
-      margin-left: 0.8rem;
+    }
+
+    .dot {
+      margin-left: 0.5rem;
     }
   }
 }

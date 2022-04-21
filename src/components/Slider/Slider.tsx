@@ -70,7 +70,9 @@ const Slider = ({
           ...style,
           backgroundImage: `linear-gradient(${
             vertical ? '0deg' : '90deg'
-          }, ${gradientColor} ${percentage}%, #E7E9EB ${percentage}%)`,
+          }, ${gradientColor} ${
+            vertical ? percentage + 3 : percentage
+          }%, #E7E9EB ${percentage}%)`,
         }}>
         <span
           className="dot"
