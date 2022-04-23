@@ -3,25 +3,16 @@
 Stories:
   ☐ Add intro page explaining events, basic styling / classname conventions
   ☐ Replace the 'Show Code' under doc pages
-  ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17)
-    ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
-    ━ https://next--storybookjs.netlify.app/official-storybook/?path=/docs/addons-docs-buttongroup--basic
   ☐ Add overview of the classNames in the components
 
-Issues: @critical
-
 @NEXT Components:
-  ☐ Slider
   ☐ Upload Button
 
 Components:
   Slider: 
     ☐ Add number input beside slider (optional)
-    ✔ Add option for suffix or prefix for the tooltip @done(22-04-21 08:04)
     ☐ Add opportunity icon before and after
-    ✔ Add testing @done(22-04-21 07:46)
-    ✔ Add vertical version @done(22-04-21 08:35)
-    
+  
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
@@ -31,9 +22,11 @@ Tools:
     ☐ Add base functionality
     ☐ Make id/name consistent in components for easy usage
 
-Testing:
-  
 Archive:
+  ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17) @project(Stories)
+    ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
+    ━ https://next--storybookjs.netlify.app/official-storybook/?path=/docs/addons-docs-buttongroup--basic
+  ✔ Slider @done(22-04-23 09:42) @project(@NEXT Components)
   ✔ Add Switch testing @done(22-04-20 18:12)
   ✔ Icon for text / select is yellow / red when it has status even when disabled @done(22-04-19 20:41)
   ✔ Type of button @done(22-04-19 20:12)
@@ -66,3 +59,6 @@ Archive:
   ✔ Add css variables from sass variables for colors @done(22-04-20 23:20)
   ✔ Add disabled state @done(22-04-20 23:20)
   ✔ Add sizes @done(22-04-20 23:20)
+  ✔ Add testing @done(22-04-21 07:46)
+  ✔ Add vertical version @done(22-04-21 08:35)
+  ✔ Add option for suffix or prefix for the tooltip @done(22-04-21 08:04)
