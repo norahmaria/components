@@ -29,6 +29,7 @@ import Group from './Select/Components/Group'
 import SelectProps from './Select/Select.types'
 import OptionProps from './Select/Components/Option.types'
 import GroupProps from './Select/Components/Group.types'
+import React from 'react'
 
 type SelectWithChildren = React.FC<SelectProps> & {
   Option: React.FC<OptionProps>

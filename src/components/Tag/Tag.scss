@@ -1,0 +1,41 @@
+@use '../../scss/variables' as *;
+
+.tag-nm {
+  padding: 0.4em 0.6em;
+  border-radius: $br;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+
+  .close-icon-nm {
+    cursor: pointer;
+    width: 0.6em;
+    height: 0.6em;
+  }
+}
+
+@each $name, $color in $colors {
+  .tag-nm.color-#{$name} {
+    @if $name == 'neutral' {
+      background: scale-color($color, $saturation: 5%, $lightness: 70%);
+      color: scale-color($color, $lightness: -50%, $saturation: -20%);
+      border-color: rgba(scale-color($color, $lightness: -50%, $saturation: -20%), 0.25);
+
+      svg path {
+        fill: scale-color($color, $lightness: -50%, $saturation: -20%);
+      }
+    } @else {
+      background: scale-color($color, $saturation: 5%, $lightness: 90%);
+      color: scale-color($color, $lightness: -7%, $saturation: -20%);
+      border-color: rgba(scale-color($color, $lightness: -7%, $saturation: -20%), 0.25);
+
+      svg path {
+        fill: scale-color($color, $lightness: -7%, $saturation: -20%);
+      }
+    }
+  }
+}
