@@ -1,7 +1,6 @@
 @use '../../../scss/variables' as *;
 
-.select-nm > .options-nm > .option-nm,
-.select-nm > .options-nm > .group-nm .option-nm {
+.options-nm__option {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +16,7 @@
     border 0.25s ease-in-out, padding 0.25s ease-in-out;
   cursor: pointer;
 
-  .label-nm {
+  &-label {
     width: 100%;
     display: flex;
     align-items: center;
@@ -63,16 +62,14 @@
 
 @each $name, $color in $colors {
   @if $name == 'neutral' {
-    .select-nm.color-#{$name} > .options-nm > .option-nm,
-    .select-nm.color-#{$name} > .options-nm > .group-nm .option-nm {
+    .select-nm.color-#{$name} .options-nm__option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 50%);
         border: 1px solid scale-color($color, $saturation: 5%, $lightness: 50%);
       }
     }
   } @else {
-    .select-nm.color-#{$name} > .options-nm > .option-nm,
-    .select-nm.color-#{$name} > .options-nm > .group-nm .option-nm {
+    .select-nm.color-#{$name} .options-nm__option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 90%);
         border: 1px solid scale-color($color, $saturation: 5%, $lightness: 90%);
@@ -94,8 +91,7 @@
 }
 
 @each $name, $color in $colors {
-  .select-nm.color-#{$name} > .options-nm > .option-nm,
-  .select-nm.color-#{$name} > .options-nm > .group-nm .option-nm {
+  .select-nm.color-#{$name} .options-nm__option {
     @extend %select-colors;
   }
 }

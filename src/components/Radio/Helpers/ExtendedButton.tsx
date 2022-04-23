@@ -18,7 +18,7 @@ const Child = ({
     <div
       data-testid="radio-button-wrapper"
       className={`
-        radio-button-nm 
+        radio-nm__button
         color-${color} 
         size-${size}
       `}>

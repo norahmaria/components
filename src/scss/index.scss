@@ -244,6 +244,54 @@ ol {
   font-size: 0.875rem;
 }
 
+// # ━━━ TOOLTIP ━━━ #
+.tooltip-nm {
+  position: absolute;
+  border-radius: $br;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.3rem;
+  color: $white;
+  background: $black;
+
+  font-size: 80%;
+
+  z-index: 20;
+  white-space: nowrap;
+  top: calc(2.5rem * -1);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  &::before {
+    content: ' ';
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 6px;
+    margin-left: calc(6px * -1);
+    top: 100%;
+    border-top-color: $black;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+}
+
+.tooltip-nm.right {
+  left: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+
+  &::before {
+    left: calc(6px * -1);
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    border-right-color: $black;
+    border-top-color: transparent;
+  }
+}
+
 // # ━━━ SIZES ━━━ #
 
 .size-small,
@@ -263,12 +311,12 @@ ol {
 
 // # ━━━ Checkbox Base ━━━ #
 .checkbox-nm,
-.radio-button-nm {
+.radio-nm__button {
   position: relative;
 }
 
 .checkbox-nm label,
-.radio-button-nm label {
+.radio-nm__button label {
   display: flex;
   gap: 0.55em;
   line-height: 1;
@@ -316,8 +364,8 @@ ol {
 
 .checkbox-nm,
 .checkbox-nm label,
-.radio-button-nm,
-.radio-button-nm label {
+.radio-nm__button,
+.radio-nm__button label {
   width: max-content;
 
   &:not(.disabled-true) {
@@ -327,8 +375,8 @@ ol {
 
 .checkbox-nm label::before,
 .checkbox-nm label::after,
-.radio-button-nm label::before,
-.radio-button-nm label::after {
+.radio-nm__button label::before,
+.radio-nm__button label::after {
   content: '';
   display: block;
 
@@ -342,7 +390,7 @@ ol {
 }
 
 .checkbox-nm label,
-.radio-button-nm label {
+.radio-nm__button label {
   svg {
     position: absolute;
 
@@ -363,12 +411,12 @@ ol {
 }
 
 .checkbox-nm input:checked + label svg,
-.radio-button-nm input:checked + label svg {
+.radio-nm__button input:checked + label svg {
   opacity: 1;
 }
 
 .checkbox-nm.size-small,
-.radio-button-nm.size-small {
+.radio-nm__button.size-small {
   label::before,
   label::after {
     height: 1rem;
@@ -407,7 +455,7 @@ ol {
 }
 
 .checkbox-nm.size-medium,
-.radio-button-nm.size-medium {
+.radio-nm__button.size-medium {
   label::before,
   label::after {
     height: 1.1rem;
@@ -443,7 +491,7 @@ ol {
 }
 
 .checkbox-nm.size-large,
-.radio-button-nm.size-large {
+.radio-nm__button.size-large {
   label::before,
   label::after {
     height: 1.25rem;
@@ -481,7 +529,7 @@ ol {
 
 @each $name, $color in $colors {
   .checkbox-nm.color-#{$name},
-  .radio-button-nm.color-#{$name} {
+  .radio-nm__button.color-#{$name} {
     @if $name == 'neutral' {
       input:checked + label::before,
       input:checked + label::after {
@@ -568,19 +616,19 @@ ol {
 
 @each $name, $color in $colors {
   .checkbox-nm.color-#{$name},
-  .radio-button-nm.color-#{$name} {
+  .radio-nm__button.color-#{$name} {
     @extend %checkbox-radio-colors;
   }
 }
 
 @each $name, $color in $colors {
-  .radio-button-nm.color-#{$name} {
+  .radio-nm__button.color-#{$name} {
     @extend %radio-colors;
   }
 }
 
 .checkbox-nm input,
-.radio-button-nm input,
+.radio-nm__button input,
 .switch-nm input {
   left: 0;
   opacity: 0;

@@ -51,7 +51,7 @@
       padding: 0.65em 0.95em 0.65em 0.95em;
     }
 
-    .text-input-container-nm {
+    .text-input-nm__container {
       svg {
         right: 0.95rem;
       }
@@ -70,7 +70,7 @@
   }
 }
 
-.text-input-container-nm {
+.text-input-nm__container {
   position: relative;
   display: flex;
   align-items: center;

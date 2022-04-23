@@ -5,9 +5,9 @@ import GroupProps from './Group.types'
 
 const Group = ({ title, children }: GroupProps) => {
   return (
-    <li className="group-nm">
+    <li className="select-nm__group">
       <ul data-testid="select-group" role="listbox" aria-label={title}>
-        <li className="title-nm">{title}</li>
+        <li className="select-nm__title">{title}</li>
         {children}
       </ul>
     </li>

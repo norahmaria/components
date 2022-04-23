@@ -68,7 +68,7 @@ const TextInput = ({
 
       <div
         className={`
-          text-input-container-nm 
+          text-input-nm__container
           textarea-${textarea} 
           disabled-${disabled} 
           ${status && status.type ? status.type : ''}

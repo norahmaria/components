@@ -59,7 +59,7 @@ const Switch = ({
         onChange={onChange}
         checked={checked}
       />
-      <div className="switch-nm-toggle">
+      <div className="switch-nm__toggle">
         <div className="dot"></div>
       </div>
       {label}

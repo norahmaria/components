@@ -1,24 +1,24 @@
 @use '../../../scss/variables' as *;
 
-.radio-button-nm label::before,
-.radio-button-nm label::after {
+.radio-nm__button label::before,
+.radio-nm__button label::after {
   border-radius: 100%;
 }
 
 @each $name, $color in $colors {
-  .radio-button-nm.color-#{$name} input + label::before,
-  .radio-button-nm.color-#{$name} input + label::after {
+  .radio-nm__button.color-#{$name} input + label::before,
+  .radio-nm__button.color-#{$name} input + label::after {
     outline: 3px solid $white;
     outline-offset: -4px;
   }
 
-  .radio-button-nm.color-#{$name} input:checked + label::before,
-  .radio-button-nm.color-#{$name} input:checked + label::after {
+  .radio-nm__button.color-#{$name} input:checked + label::before,
+  .radio-nm__button.color-#{$name} input:checked + label::after {
     border: 3px solid scale-color($color, $lightness: -25%);
   }
 
-  .radio-button-nm.color-#{$name} input:checked:disabled + label::before,
-  .radio-button-nm.color-#{$name} input:checked:disabled + label::after {
+  .radio-nm__button.color-#{$name} input:checked:disabled + label::before,
+  .radio-nm__button.color-#{$name} input:checked:disabled + label::after {
     background-color: $color;
     opacity: 0.65;
   }

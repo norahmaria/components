@@ -39,12 +39,12 @@ const Slider = ({
     <div
       data-testid="slider-wrapper"
       className={`
-      slider 
-      size-${size}
-      disabled-${disabled}
-      vertical-${vertical}
-      ${className}
-    `}>
+        slider-nm 
+        size-${size}
+        disabled-${disabled}
+        vertical-${vertical}
+        ${className}
+      `}>
       <label htmlFor={id} className={`form-label-nm disabled-${disabled}`}>
         {label}
       </label>
@@ -65,7 +65,7 @@ const Slider = ({
       />
       <div
         data-testid="slider-placebo"
-        className={`range color-${color}`}
+        className={`slider-nm__range color-${color}`}
         style={{
           ...style,
           backgroundImage: `linear-gradient(${
@@ -75,14 +75,14 @@ const Slider = ({
           }%, #E7E9EB ${percentage}%)`,
         }}>
         <span
-          className="dot"
+          className="slider-nm__dot"
           style={
             vertical
               ? { bottom: `${percentage > 90 ? percentage - 10 : percentage}%` }
               : { marginLeft: `${percentage}%` }
           }>
           {showTooltip && (
-            <div className="tooltip">
+            <div className={`tooltip-nm ${vertical ? 'right' : ''}`}>
               {prefix && prefix}
               {value}
               {suffix && suffix}
@@ -99,7 +99,6 @@ const getPercentage = (number: number, max: number, min: number) => {
   const positiveValue = number - min
 
   return (positiveValue / range) * 100
-  console.table([{ range, number, positiveValue }])
 }
 
 export default Slider

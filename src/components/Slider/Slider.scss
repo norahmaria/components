@@ -1,6 +1,6 @@
 @use '../../scss/variables' as *;
 
-.slider input {
+.slider-nm input {
   z-index: 10;
   width: 100%;
   position: absolute;
@@ -18,8 +18,8 @@
   }
 
   @each $name, $color in $colors {
-    &:focus-visible + .range.color-#{$name} {
-      .dot {
+    &:focus-visible + .slider-nm__range.color-#{$name} {
+      .slider-nm__dot {
         border: 1px solid $color;
         box-shadow: 0 0 0.5px 2.5px rgba($color, 0.4);
       }
@@ -27,7 +27,7 @@
   }
 }
 
-.slider.size-small {
+.slider-nm.size-small {
   font: inherit;
 
   input {
@@ -40,16 +40,16 @@
     }
   }
 
-  .range {
+  .slider-nm__range {
     height: 0.6rem;
   }
 
-  .dot {
+  .slider-nm__dot {
     height: 1rem;
   }
 }
 
-.slider.size-medium {
+.slider-nm.size-medium {
   input {
     transform: scale(1.1);
 
@@ -60,16 +60,16 @@
     }
   }
 
-  .range {
+  .slider-nm__range {
     height: 0.8rem;
   }
 
-  .dot {
+  .slider-nm__dot {
     height: 1.2rem;
   }
 }
 
-.slider.size-large {
+.slider-nm.size-large {
   input {
     transform: scaleX(1.1) scaleY(1.5);
 
@@ -80,19 +80,19 @@
     }
   }
 
-  .range {
+  .slider-nm__range {
     height: 1rem;
   }
 
-  .dot {
+  .slider-nm__dot {
     height: 1.4rem;
   }
 }
 
-.slider {
+.slider-nm {
   position: relative;
 
-  .range {
+  &__range {
     position: relative;
     border-radius: $br * 4;
     box-shadow: 0 0 0.15px 2px transparent;
@@ -103,7 +103,7 @@
       border 0.35s $cubic;
   }
 
-  .dot {
+  &__dot {
     margin-top: -0.25rem;
     position: absolute;
     border: 1px solid $white;
@@ -115,44 +115,10 @@
 
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
     transition: border 0.25s $cubic, box-shadow 0.35s $cubic, transform 0.35s $cubic;
-
-    .tooltip {
-      position: absolute;
-      border-radius: $br;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 0.4rem 0.3rem;
-      color: $white;
-      background: $black;
-
-      font-size: 80%;
-
-      z-index: 20;
-      white-space: nowrap;
-      top: calc(2.5rem * -1);
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-
-      &::before {
-        content: ' ';
-        left: 50%;
-        border: solid transparent;
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-width: 6px;
-        margin-left: calc(6px * -1);
-        top: 100%;
-        border-top-color: $black;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-          rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-      }
-    }
   }
 }
 
-.slider.vertical-true {
+.slider-nm.vertical-true {
   display: grid;
   place-content: center;
 
@@ -171,63 +137,49 @@
     bottom: 1.5rem;
   }
 
-  .range {
+  .slider-nm__range {
     height: 8rem;
     align-self: center;
     justify-self: center;
   }
 
-  .dot {
+  .slider-nm__dot {
     margin-top: 0.25rem;
   }
 
   &.size-small {
-    .range {
+    .slider-nm__range {
       width: 0.6rem;
     }
 
-    .dot {
+    .slider-nm__dot {
       margin-left: 0.3rem;
     }
   }
 
   &.size-medium {
-    .range {
+    .slider-nm__range {
       width: 0.8rem;
       margin-left: 0.25rem;
     }
 
-    .dot {
+    .slider-nm__dot {
       margin-left: 0.4rem;
     }
   }
 
   &.size-large {
-    .range {
+    .slider-nm__range {
       width: 1rem;
     }
 
-    .dot {
+    .slider-nm__dot {
       margin-left: 0.5rem;
     }
   }
 }
 
-.slider.vertical-true .tooltip {
-  left: calc(100% + 0.75rem);
-  top: 50%;
-  transform: translateX(0) translateY(-50%);
-
-  &::before {
-    left: calc(6px * -1);
-    top: 50%;
-    transform: translateX(0) translateY(-50%);
-    border-right-color: $black;
-    border-top-color: transparent;
-  }
-}
-
-.slider.disabled-true {
+.slider-nm.disabled-true {
   filter: grayscale(100%);
   color: rgba($black, 0.4);
 }
