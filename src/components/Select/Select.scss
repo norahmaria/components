@@ -54,7 +54,7 @@
       max-height: 1em;
     }
 
-    .tag-nm {
+    &__tag {
       background: darken($white, 3%);
       border: 1px solid #e8e8e8;
       color: #777878;
@@ -65,7 +65,7 @@
       font-weight: 350;
     }
 
-    .selected-nm {
+    &__selected {
       font-weight: 330;
     }
   }

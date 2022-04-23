@@ -13,13 +13,17 @@ const Label = ({ label, placeholder, children, multiple, selected }: LabelProps)
               return React.Children.map(children, nested => {
                 if (selected.includes(nested.props.value))
                   return (
-                    <div className={multiple ? 'tag-nm' : 'selected-nm'}>
+                    <div className={multiple ? 'label-nm__tag' : 'label-nm__selected'}>
                       {nested.props.children}
                     </div>
                   )
               })
             } else if (selected.includes(value)) {
-              return <div className={multiple ? 'tag-nm' : 'selected-nm'}>{children}</div>
+              return (
+                <div className={multiple ? 'label-nm__tag' : 'label-nm__selected'}>
+                  {children}
+                </div>
+              )
             }
           }
         })
