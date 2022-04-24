@@ -85,8 +85,7 @@ const TagsStory: Story<TagProps> = args => {
       }}>
       {tags.map((tag, idx) => (
         <TagComponent color={tag.color || 'primary'} {...args}>
-          {/* {tag.character} */}
-          {args.children}
+          {tag.character}
         </TagComponent>
       ))}
     </div>
@@ -101,4 +100,5 @@ Tags.args = {
   onClick: e => action('onClick')(e),
   onDelete: e => action('onDelete')(e),
   round: false,
+  disabled: false,
 }

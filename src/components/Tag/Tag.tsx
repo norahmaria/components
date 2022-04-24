@@ -13,6 +13,7 @@ const Tag = ({
   onDelete,
   onClick,
   round = false,
+  disabled = false,
 }: TagProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const [clicked, setClicked] = useState(false)
@@ -37,19 +38,20 @@ const Tag = ({
     setClicked(true)
     setTimeout(() => setClicked(false), 500)
 
-    if (onClick) onClick(e)
+    if (onClick && !disabled) onClick(e)
   }
 
   const del = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
     e.stopPropagation()
-    onDelete(e)
+    if (!disabled) onDelete(e)
   }
 
   return (
     <div
       ref={ref}
       onClick={onClick ? click : null}
-      tabIndex={!!onClick ? 0 : -1}
+      tabIndex={disabled ? -1 : !!onClick ? 0 : -1}
+      aria-disabled={disabled}
       className={`
         tag-nm 
         color-${color} 
@@ -57,6 +59,7 @@ const Tag = ({
         clickable-${!!onClick}
         clicked-${clicked}
         round-${round}
+        disabled-${disabled}
         ${className}
       `}
       style={{
