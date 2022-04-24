@@ -75,6 +75,9 @@ export default {
         category: 'Extra Native Props',
       },
     },
+    children: {
+      control: false,
+    },
   },
 }
 
