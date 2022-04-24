@@ -20,6 +20,22 @@ export default {
     // },
   },
   argTypes: {
+    onDelete: {
+      table: {
+        category: 'Actions',
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Actions',
+      },
+    },
+    color: {
+      control: false,
+      table: {
+        category: 'Appearance',
+      },
+    },
     size: {
       table: {
         category: 'Appearance',
@@ -63,15 +79,9 @@ const TagsStory: Story<TagProps> = args => {
         gap: '0.5rem',
       }}>
       {tags.map((tag, idx) => (
-        <TagComponent
-          color={tag.color || 'primary'}
-          onDelete={() => {
-            action('onDelete')(tag)
-            setTags(tags => tags.filter(it => it.actor !== tag.actor))
-          }}
-          {...args}>
-          {tag.character}
-          {/* {args.children} */}
+        <TagComponent color={tag.color || 'primary'} {...args}>
+          {/* {tag.character} */}
+          {args.children}
         </TagComponent>
       ))}
     </div>
@@ -83,4 +93,6 @@ Tags.args = {
   size: 'medium',
   className: '',
   children: 'Tag',
+  onClick: e => action('onClick')(e),
+  onDelete: null,
 }

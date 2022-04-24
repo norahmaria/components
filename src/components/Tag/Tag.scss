@@ -1,4 +1,5 @@
 @use '../../scss/variables' as *;
+@use '../../scss/mixins';
 
 .tag-nm {
   padding: 0.4em 0.6em;
@@ -10,11 +11,18 @@
   gap: 0.5rem;
   border-width: 1px;
   border-style: solid;
+  box-shadow: 0 0 0.5px 0px transparent;
+
+  transition: box-shadow 0.25s $cubic, border 0.25s $cubic, background 0.25s $cubic;
 
   .close-icon-nm {
     cursor: pointer;
     width: 0.6em;
     height: 0.6em;
+  }
+
+  &.clickable-true {
+    cursor: pointer;
   }
 }
 
@@ -28,14 +36,41 @@
       svg path {
         fill: scale-color($color, $lightness: -50%, $saturation: -20%);
       }
+    } @else if $name == 'warning' {
+      background: scale-color($color, $saturation: 5%, $lightness: 90%);
+      color: scale-color($color, $lightness: -40%, $saturation: 20%);
+      border-color: rgba(scale-color($color, $lightness: -40%, $saturation: 20%), 0.25);
+
+      svg path {
+        fill: scale-color($color, $lightness: -40%, $saturation: 20%);
+      }
     } @else {
       background: scale-color($color, $saturation: 5%, $lightness: 90%);
-      color: scale-color($color, $lightness: -7%, $saturation: -20%);
-      border-color: rgba(scale-color($color, $lightness: -7%, $saturation: -20%), 0.25);
+      color: scale-color($color, $lightness: -9%, $saturation: -20%);
+      border-color: rgba(scale-color($color, $lightness: -9%, $saturation: -20%), 0.25);
 
       svg path {
         fill: scale-color($color, $lightness: -7%, $saturation: -20%);
       }
+    }
+
+    &.clickable-true:hover,
+    &.clickable-true:active,
+    &.clickable-true:focus-visible {
+      background: scale-color($color, $saturation: 5%, $lightness: 80%);
+    }
+
+    &.clickable-true:active,
+    &.clickable-true:focus-visible {
+      outline: none;
+    }
+
+    &.clicked-true {
+      @include mixins.one-pulse(
+        $color,
+        $withBorder: true,
+        $toBorder: rgba(scale-color($color, $lightness: -9%, $saturation: -20%), 0.25)
+      );
     }
   }
 }

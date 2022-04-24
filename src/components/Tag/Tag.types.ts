@@ -9,7 +9,7 @@ export type CustomColor = {
 interface TagProps {
   /** The size of the tag */
   size?: 'small' | 'medium' | 'large'
-  /** The color scheme of the tag */
+  /** The color scheme of the tag, either a preset or a custom color which is an object that needs `borderColor`, `color` and `background. */
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error' | CustomColor
   /** Add custom className */
   className?: string
@@ -17,8 +17,10 @@ interface TagProps {
   style?: CSSProperties
   /** The text on the tag */
   children: string
-  /** Function to run when user presss the delete icon (only visible if a function is set) */
-  onDelete?: () => any
+  /** Function to run when user clicks the delete icon (only visible if a function is set) */
+  onDelete?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => any
+  /** Function to run when user clicks the tag (only visible if a function is set) */
+  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => any
 }
 
 export default TagProps

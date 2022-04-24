@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-@mixin one-pulse($color, $withBorder: false) {
+@mixin one-pulse($color, $withBorder: false, $toBorder: transparent) {
   $animation-name: unique-id() !global;
   animation: $animation-name 0.5s $cubic;
 
@@ -17,7 +17,7 @@
       box-shadow: 0 0 0.5px 4.5px transparent;
 
       @if ($withBorder) {
-        border: 1px solid transparent;
+        border: 1px solid $toBorder;
       }
     }
   }

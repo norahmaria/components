@@ -11,8 +11,10 @@ const Tag = ({
   style,
   children,
   onDelete,
+  onClick,
 }: TagProps) => {
   const ref = useRef<HTMLDivElement>(null)
+  const [clicked, setClicked] = useState(false)
   const [colorState, setColorState] = useState<CustomColor>(
     typeof color === 'object' ? color : null
   )
@@ -28,13 +30,31 @@ const Tag = ({
     }
   }, [color])
 
+  const click = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation()
+
+    setClicked(true)
+    setTimeout(() => setClicked(false), 500)
+
+    if (onClick) onClick(e)
+  }
+
+  const del = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    onDelete(e)
+  }
+
   return (
     <div
       ref={ref}
+      onClick={onClick ? click : null}
+      tabIndex={!!onClick ? 0 : -1}
       className={`
         tag-nm 
         color-${color} 
         size-${size} 
+        clickable-${!!onClick}
+        clicked-${clicked}
         ${className}
       `}
       style={{
@@ -42,7 +62,7 @@ const Tag = ({
         ...style,
       }}>
       {children}
-      {onDelete && <DeleteIcon className="close-icon-nm" onClick={onDelete} />}
+      {onDelete && <DeleteIcon className="close-icon-nm" onClick={del} />}
     </div>
   )
 }
