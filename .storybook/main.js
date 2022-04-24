@@ -10,6 +10,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-measure',
     '@geometricpanda/storybook-addon-badges',
+    '@whitespace/storybook-addon-html',
   ],
   webpackFinal: async config => {
     config.module.rules.push({
