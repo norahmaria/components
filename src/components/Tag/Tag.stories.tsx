@@ -77,6 +77,15 @@ export default {
     },
     children: {
       control: false,
+      table: {
+        category: 'Display',
+      },
+    },
+    icon: {
+      control: false,
+      table: {
+        category: 'Display',
+      },
     },
   },
 }

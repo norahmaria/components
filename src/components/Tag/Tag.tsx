@@ -14,6 +14,7 @@ const Tag = ({
   onClick,
   round = false,
   disabled = false,
+  icon,
 }: TagProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const [clicked, setClicked] = useState(false)
@@ -66,7 +67,11 @@ const Tag = ({
         ...colorState,
         ...style,
       }}>
+      {icon &&
+        (typeof icon === 'string' ? <img className="img-icon-nm" src={icon} /> : icon)}
+
       {children}
+
       {onDelete && <DeleteIcon className="close-icon-nm" onClick={del} />}
     </div>
   )

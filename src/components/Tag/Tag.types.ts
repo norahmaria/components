@@ -28,6 +28,8 @@ interface TagProps {
 
   /** The text on the tag */
   children: string
+  /** Include an icon */
+  icon?: JSX.Element | string
 }
 
 export default TagProps
