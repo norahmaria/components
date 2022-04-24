@@ -6,18 +6,36 @@ import React, { useState } from 'react'
 import { Tag as TagComponent } from '..'
 import TagProps from './Tag.types'
 
+const code = `<div
+  style={{
+    width: '18rem',
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '0.5rem',
+  }}>
+  {tags.map(tag => (
+    <Tag 
+      color={tag.customColor || 'primary'} 
+      onClick={e => action('onClick')(e)} 
+      onDelete={e => action('onDelete')(e)} 
+    >
+      {tag.character}
+    </Tag>
+  ))}
+</div>
+`
+
 export default {
   title: 'Data Display/Tags',
   component: TagComponent,
   parameters: {
     badges: [BADGE.NEEDS_REVISION],
-    // docs: {
-    //   source: {
-    //     code: 'const Tags () => hello world',
-    //     language: 'jsx',
-    //     dark: false,
-    //   },
-    // },
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onDelete: {

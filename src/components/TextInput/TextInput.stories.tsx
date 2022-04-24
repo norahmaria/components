@@ -7,11 +7,25 @@ import { ReactComponent as Norway } from '../../assets/Norway.svg'
 import { TextInput as TextInputComponent } from '../'
 import TextInputProps from './TextInput.types'
 
+const code = `<TextInput 
+  id="text-input"
+  label="Text Input"
+  placeholder="Placeholder.."
+  onTextInputChange={(val, e) => action('onTextInputChange)(val, e)}
+  icon={<Norway />}
+/>`
+
 export default {
   title: 'Inputs/Text Input',
   component: TextInputComponent,
   parameters: {
     badges: [BADGE.STABLE],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onTextInputChange: {

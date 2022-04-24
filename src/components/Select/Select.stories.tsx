@@ -24,6 +24,35 @@ import { ReactComponent as Norway } from '../../assets/Flags/NO.svg'
 import { ReactComponent as UnitedStates } from '../../assets/Flags/US.svg'
 import { ReactComponent as Sweden } from '../../assets/Flags/SE.svg'
 
+const code = `<Select
+  label="Country"
+  placeholder="Select"
+  onSelectionChange={selected => {
+    action('onSelectionChange')(selected)
+  }}>
+  {commonOptions.map(option => (
+    <Select.Option leftIcon={<option.Icon />} value={option.id}>
+      {option.title}
+    </Select.Option>
+  ))}
+
+  {optionGroups.map(group => (
+    <Select.Group title={group.title}>
+      {group.options.map(option => (
+        <Select.Option leftIcon={<option.Icon />} value={option.id}>
+          {option.title}
+        </Select.Option>
+      ))}
+    </Select.Group>
+  ))}
+
+  {unsortedOptions.map(option => (
+    <Select.Option leftIcon={<option.Icon />} value={option.id}>
+      {option.title}
+    </Select.Option>
+  ))}
+</Select>`
+
 export default {
   title: 'Inputs/Select',
   component: SelectComponent,
@@ -31,7 +60,6 @@ export default {
     'Select.Group': SelectComponent.Group,
     'Select.Option': SelectComponent.Option,
   },
-
   parameters: {
     badges: [BADGE.NEEDS_REVISION, BADGE.EXPERIMENTAL],
     a11y: {
@@ -42,6 +70,12 @@ export default {
             enabled: false,
           },
         ],
+      },
+    },
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
       },
     },
   },

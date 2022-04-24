@@ -5,11 +5,23 @@ import React from 'react'
 import { Slider as SliderComponent } from '../'
 import SliderProps from './Slider.types'
 
+const code = `<Slider 
+  label="Slider" 
+  id="slider" 
+  onSliderChange={(val, e) => action('onSliderChange)(val, e)}
+/>`
+
 export default {
   title: 'Inputs/Slider',
   component: SliderComponent,
   parameters: {
     badges: [BADGE.NEEDS_REVISION],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     label: {

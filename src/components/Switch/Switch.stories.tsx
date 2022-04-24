@@ -6,11 +6,23 @@ import React from 'react'
 import { Switch as SwitchComponent } from '../'
 import SwitchProps from './Switch.types'
 
+const code = `<Switch 
+  label="Switch"
+  id="switch" 
+  onSwitchChange={(val, e) => action('onSwitchChange')(val, e)}
+/>`
+
 export default {
   title: 'Inputs/Switch',
   component: SwitchComponent,
   parameters: {
     badges: [BADGE.STABLE],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onSwitchChange: {

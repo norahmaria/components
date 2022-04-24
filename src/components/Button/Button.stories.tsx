@@ -8,11 +8,19 @@ import ButtonProps from './Button.types'
 
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
 
+const code = `<Button leftIcon={<Arrow />}>Hello World</Button>`
+
 export default {
   title: 'Inputs/Button',
   component: ButtonComponent,
   parameters: {
     badges: [BADGE.STABLE],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onButtonClick: {

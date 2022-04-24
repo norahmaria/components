@@ -6,11 +6,23 @@ import React from 'react'
 import { Checkbox as CheckboxComponent } from '../'
 import CheckboxProps from './Checkbox.types'
 
+const code = `<Checkbox 
+  id="checkbox-one" 
+  label="Checkbox" 
+  onCheckboxChange={() => action('onCheckboxChange')} 
+/>`
+
 export default {
   title: 'Inputs/Checkbox',
   component: CheckboxComponent,
   parameters: {
     badges: [BADGE.STABLE],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onCheckboxChange: {

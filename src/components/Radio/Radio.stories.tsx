@@ -6,6 +6,14 @@ import React from 'react'
 import { Radio as RadioComponent } from '../'
 import RadioProps from './Radio.types'
 
+const code = `<Radio
+  name="options"
+  onRadioChange={value => action('onRadioChange')(value)}>
+  {options.map(option => (
+    <Radio.Button label={option.title} value={option.id}/>
+  ))}
+</Radio>`
+
 export default {
   title: 'Inputs/Radio',
   component: RadioComponent,
@@ -14,6 +22,12 @@ export default {
   },
   parameters: {
     badges: [BADGE.STABLE],
+    docs: {
+      source: {
+        code,
+        language: 'jsx',
+      },
+    },
   },
   argTypes: {
     onRadioChange: {
@@ -77,8 +91,8 @@ const RadioStory: Story<RadioProps> = args => (
     onRadioChange={value => {
       action('onRadioChange')(value)
     }}>
-    <RadioComponent.Button label="One Button" value="road" />
-    <RadioComponent.Button label="Second Button" value="hello" />
+    <RadioComponent.Button label="One Button" value="hello" />
+    <RadioComponent.Button label="Second Button" value="world" />
   </RadioComponent>
 )
 
