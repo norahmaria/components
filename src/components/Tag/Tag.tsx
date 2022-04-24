@@ -12,6 +12,7 @@ const Tag = ({
   children,
   onDelete,
   onClick,
+  round = false,
 }: TagProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const [clicked, setClicked] = useState(false)
@@ -55,6 +56,7 @@ const Tag = ({
         size-${size} 
         clickable-${!!onClick}
         clicked-${clicked}
+        round-${round}
         ${className}
       `}
       style={{

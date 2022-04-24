@@ -24,6 +24,10 @@
   &.clickable-true {
     cursor: pointer;
   }
+
+  &.round-true {
+    border-radius: 1rem;
+  }
 }
 
 @each $name, $color in $colors {

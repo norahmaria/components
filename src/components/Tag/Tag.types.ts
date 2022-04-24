@@ -9,6 +9,8 @@ export type CustomColor = {
 interface TagProps {
   /** The size of the tag */
   size?: 'small' | 'medium' | 'large'
+  /** Use rounded corners on the tag */
+  round?: boolean
   /** The color scheme of the tag, either a preset or a custom color which is an object that needs `borderColor`, `color` and `background. */
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error' | CustomColor
   /** Add custom className */

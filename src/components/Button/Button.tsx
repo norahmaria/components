@@ -47,8 +47,8 @@ const Button = ({
         color-${color}
         variant-${variant}
         clicked-${clicked}
+        round-${round}
         ${!props.children && (leftIcon || rightIcon) ? 'icon' : ''}
-        ${round ? 'round' : ''}
         ${className}
       `}>
       {isLoading ? (

@@ -41,6 +41,11 @@ export default {
         category: 'Appearance',
       },
     },
+    round: {
+      table: {
+        category: 'Appearance',
+      },
+    },
     className: {
       table: {
         category: 'Extra Native Props',
@@ -94,5 +99,6 @@ Tags.args = {
   className: '',
   children: 'Tag',
   onClick: e => action('onClick')(e),
-  onDelete: null,
+  onDelete: e => action('onDelete')(e),
+  round: false,
 }
