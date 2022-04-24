@@ -6,7 +6,11 @@ import { Checkbox } from '../../components/index'
 describe('Checkbox Component', () => {
   it('Can render', () => {
     const { getByTestId } = render(
-      <Checkbox label="Checkbox" id="checkbox" onCheckboxChange={() => {}} />
+      <Checkbox
+        label="Checkbox"
+        id="checkbox"
+        onCheckboxChange={() => {}}
+      />
     )
 
     expect(getByTestId('checkbox-wrapper')).toMatchSnapshot()
@@ -49,7 +53,11 @@ describe('Checkbox Component', () => {
 
   it('Can toggle checked / unchecked', () => {
     const { getByTestId } = render(
-      <Checkbox label="Checkbox" id="checkbox" onCheckboxChange={() => {}} />
+      <Checkbox
+        label="Checkbox"
+        id="checkbox"
+        onCheckboxChange={() => {}}
+      />
     )
 
     const label = getByTestId('checkbox-label')

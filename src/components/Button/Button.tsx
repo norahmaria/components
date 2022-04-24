@@ -32,9 +32,6 @@ const Button = ({
     if (onButtonClick) onButtonClick(e)
   }
 
-  const left = typeof leftIcon === 'string' ? <img src={leftIcon} /> : leftIcon
-  const right = typeof rightIcon === 'string' ? <img src={rightIcon} /> : rightIcon
-
   return (
     <button
       style={{ ...style, width: fullWidth ? '100%' : 'max-content' }}
@@ -54,15 +51,31 @@ const Button = ({
       {isLoading ? (
         <>
           <LoadingSpinner
-            color={variant === 'default' && color !== 'neutral' ? 'white' : color}
+            color={
+              variant === 'default' && color !== 'neutral'
+                ? 'white'
+                : color
+            }
           />
           Loading
         </>
       ) : (
         <>
-          {leftIcon && left}
+          {leftIcon &&
+            (typeof leftIcon === 'string' ? (
+              <img src={leftIcon} alt="" />
+            ) : (
+              leftIcon
+            ))}
+
           {props.children}
-          {rightIcon && right}
+
+          {rightIcon &&
+            (typeof rightIcon === 'string' ? (
+              <img src={rightIcon} alt="" />
+            ) : (
+              rightIcon
+            ))}
         </>
       )}
     </button>

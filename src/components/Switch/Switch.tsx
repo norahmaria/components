@@ -16,7 +16,9 @@ const Switch = ({
   const [checked, setChecked] = useState(defaultValue)
 
   const setCheckedFn = (
-    e: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>
+    e:
+      | React.KeyboardEvent<HTMLLabelElement>
+      | React.ChangeEvent<HTMLInputElement>
   ) => {
     if (!disabled) {
       setChecked(prev => {

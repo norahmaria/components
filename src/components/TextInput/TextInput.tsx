@@ -32,7 +32,9 @@ const TextInput = ({
   const [hover, setHover] = useState(false)
 
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setValue(() => {
       const update =
@@ -121,9 +123,15 @@ const TextInput = ({
             onClick={clear}
           />
         ) : status?.type === 'error' ? (
-          <ErrorIcon aria-label={status.message} className="error-icon-nm" />
+          <ErrorIcon
+            aria-label={status.message}
+            className="error-icon-nm"
+          />
         ) : status?.type === 'warning' ? (
-          <WarningIcon aria-label={status.message} className="warning-icon-nm" />
+          <WarningIcon
+            aria-label={status.message}
+            className="warning-icon-nm"
+          />
         ) : !!icon ? (
           icon
         ) : null}

@@ -27,19 +27,26 @@ const Select = ({
   placeholder,
   onSelectionChange,
   status,
-  defaultValue,
+  defaultValue = [],
   size = 'medium',
   color = 'primary',
   className,
   style,
   ...props
 }: SelectProps) => {
+  const [selected, setSelected] =
+    useState<(string | number)[]>(defaultValue)
+
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState<(string | number)[]>(defaultValue || [])
   const container = useRef<HTMLDivElement>(null)
   const didMountRef = useRef(false)
 
-  const onKeyDown = useOnKeyDown({ updateSelected, setSelected, setIsOpen, multiple })
+  const onKeyDown = useOnKeyDown({
+    updateSelected,
+    setSelected,
+    setIsOpen,
+    multiple,
+  })
 
   useOutsideClick(container, '.select', () => setIsOpen(false))
 
@@ -55,7 +62,9 @@ const Select = ({
       const selectedIndex = modify.indexOf(value)
 
       if (multiple) {
-        selectedIndex > -1 ? modify.splice(selectedIndex, 1) : modify.push(value)
+        selectedIndex > -1
+          ? modify.splice(selectedIndex, 1)
+          : modify.push(value)
       } else {
         if (modify[0] === value) {
           modify = []
@@ -99,7 +108,9 @@ const Select = ({
         ${status && status.type ? status.type : ''} 
         ${className}
       `}>
-      <label className={`form-label-nm disabled-${disabled}`}>{label}</label>
+      <label className={`form-label-nm disabled-${disabled}`}>
+        {label}
+      </label>
 
       <Button
         color={color}
@@ -113,7 +124,9 @@ const Select = ({
         placeholder={placeholder}
         labelChildren={props.children}
         onClick={() => setIsOpen(prev => !prev)}
-        onKeyDown={e => (e.key === 'Backspace' ? setSelected([]) : () => {})}
+        onKeyDown={e =>
+          e.key === 'Backspace' ? setSelected([]) : () => {}
+        }
         clear={clear}
       />
 
@@ -133,7 +146,10 @@ const Select = ({
                     {React.Children.map(child.props.children, nested => (
                       <ExtendedOption
                         {...nested.props}
-                        {...createProps(nested.props.value, nested.props.disabled)}
+                        {...createProps(
+                          nested.props.value,
+                          nested.props.disabled
+                        )}
                       />
                     ))}
                   </Group>
@@ -142,7 +158,10 @@ const Select = ({
                 return (
                   <ExtendedOption
                     {...child.props}
-                    {...createProps(child.props.value, child.props.disabled)}
+                    {...createProps(
+                      child.props.value,
+                      child.props.disabled
+                    )}
                   />
                 )
               }

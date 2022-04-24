@@ -5,7 +5,10 @@ import { Button } from '../../components/index'
 
 describe('Button Component', () => {
   it('Can render', () => {
-    const { getByRole } = render(<Button onClick={() => {}}>Hello World</Button>)
+    const { getByRole } = render(
+      <Button onClick={() => {}}>Hello World</Button>
+    )
+
     expect(getByRole('button')).toMatchSnapshot()
   })
 
@@ -25,7 +28,9 @@ describe('Button Component', () => {
   })
 
   it('Can toggle click class', async () => {
-    const { getByRole } = render(<Button onClick={() => {}}>Hello World</Button>)
+    const { getByRole } = render(
+      <Button onClick={() => {}}>Hello World</Button>
+    )
     const button = getByRole('button')
 
     button.click()
@@ -42,8 +47,8 @@ describe('Button Component', () => {
         Hello World
       </Button>
     )
-    const loadingIcon = getByTestId('btn-loading-icon')
 
+    const loadingIcon = getByTestId('btn-loading-icon')
     expect(loadingIcon).toBeInTheDocument()
   })
 
@@ -64,8 +69,12 @@ describe('Button Component', () => {
     const disabledButton = getByText('Disabled Button')
 
     act(() => {
-      loadingButton.dispatchEvent(new MouseEvent('click', { bubbles: true }))
-      disabledButton.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+      loadingButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      )
+      disabledButton.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      )
     })
 
     expect(loadingClick).not.toHaveBeenCalled()

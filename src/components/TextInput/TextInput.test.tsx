@@ -105,6 +105,9 @@ describe('TextInput Component', () => {
       setValue(input, value.join(''))
     }
 
-    expect(onTextInputChange).toHaveBeenLastCalledWith('Hel', expect.objectContaining({}))
+    expect(onTextInputChange).toHaveBeenLastCalledWith(
+      'Hel',
+      expect.objectContaining({})
+    )
   })
 })

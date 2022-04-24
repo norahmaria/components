@@ -10,11 +10,12 @@
     border: 1px solid $white;
     border-radius: 100%;
     background-color: $white;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3), inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3),
+      inset 0 0 1px 0 rgba(0, 0, 0, 0.05);
     aspect-ratio: 1;
 
-    transition: border 0.25s $cubic, margin-left 0.35s $cubic, box-shadow 0.35s $cubic,
-      transform 0.35s $cubic;
+    transition: border 0.25s $cubic, margin-left 0.35s $cubic,
+      box-shadow 0.35s $cubic, transform 0.35s $cubic;
   }
 
   &:active,
@@ -99,7 +100,8 @@
 
   background-color: scale-color($neutral700, $lightness: 30%);
   border: 1px solid scale-color($neutral700, $lightness: 30%);
-  transition: background-color 0.35s $cubic, box-shadow 0.35s $cubic, border 0.35s $cubic;
+  transition: background-color 0.35s $cubic, box-shadow 0.35s $cubic,
+    border 0.35s $cubic;
 }
 
 @each $name, $color in $colors {

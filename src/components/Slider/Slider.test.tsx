@@ -31,7 +31,12 @@ describe('Slider Component', () => {
     const onSliderChange = jest.fn()
 
     const { getByTestId } = render(
-      <Slider label="Slider" id="Slider" disabled onSliderChange={onSliderChange} />
+      <Slider
+        label="Slider"
+        id="Slider"
+        disabled
+        onSliderChange={onSliderChange}
+      />
     )
 
     const input = getByTestId('slider-input')

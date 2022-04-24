@@ -24,7 +24,8 @@ const Slider = ({
   const [value, setValue] = useState(defaultValue)
   const [showTooltip, setShowTooltip] = useState(false)
 
-  const gradientColor = color === 'neutral' || disabled ? '#606078' : `var(--${color}700)`
+  const gradientColor =
+    color === 'neutral' || disabled ? '#606078' : `var(--${color}700)`
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseFloat(e.target.value))
@@ -78,7 +79,11 @@ const Slider = ({
           className="slider-nm__dot"
           style={
             vertical
-              ? { bottom: `${percentage > 90 ? percentage - 10 : percentage}%` }
+              ? {
+                  bottom: `${
+                    percentage > 90 ? percentage - 10 : percentage
+                  }%`,
+                }
               : { marginLeft: `${percentage}%` }
           }>
           {showTooltip && (

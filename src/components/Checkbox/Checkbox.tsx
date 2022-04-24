@@ -57,7 +57,10 @@ const Checkbox = ({
         checked={checked}
         data-testid="checkbox-input"
       />
-      <label htmlFor={id} className={labelPlacement} data-testid="checkbox-label">
+      <label
+        htmlFor={id}
+        className={labelPlacement}
+        data-testid="checkbox-label">
         <CheckMarkIcon />
         {label}
       </label>

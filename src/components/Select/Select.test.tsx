@@ -66,12 +66,13 @@ describe('Select Component', () => {
 
   it('Groups options properly', () => {
     const { getByTestId } = render(base({}))
+    const id = 'select-group'
 
-    expect(getByTestId('select-group').children).toHaveLength(3)
+    expect(getByTestId(id).children).toHaveLength(3)
 
-    expect(getByTestId('select-group').children[0]).toHaveTextContent('Scandinavia')
-    expect(getByTestId('select-group').children[1]).toHaveTextContent('Norway')
-    expect(getByTestId('select-group').children[2]).toHaveTextContent('Sweden')
+    expect(getByTestId(id).children[0]).toHaveTextContent('Scandinavia')
+    expect(getByTestId(id).children[1]).toHaveTextContent('Norway')
+    expect(getByTestId(id).children[2]).toHaveTextContent('Sweden')
   })
 
   it('Can select single', () => {
@@ -141,7 +142,9 @@ describe('Select Component', () => {
     expect(toggleButton).toHaveTextContent('United States')
 
     act(() => {
-      toggleButton.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+      toggleButton.dispatchEvent(
+        new MouseEvent('mouseover', { bubbles: true })
+      )
     })
 
     const clearIcon = getByTestId('close-icon')
@@ -170,7 +173,9 @@ describe('Select Component', () => {
   it('Runs onSelectionChange when selection changes', () => {
     const onSelectionChange = jest.fn()
 
-    const { getAllByRole, getByTestId } = render(base({ onSelectionChange }))
+    const { getAllByRole, getByTestId } = render(
+      base({ onSelectionChange })
+    )
 
     const [toggleButton] = getAllByRole('button')
     toggleButton.click()
@@ -180,7 +185,9 @@ describe('Select Component', () => {
     secondOption.click()
 
     act(() => {
-      toggleButton.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }))
+      toggleButton.dispatchEvent(
+        new MouseEvent('mouseover', { bubbles: true })
+      )
     })
 
     const clearIcon = getByTestId('close-icon')

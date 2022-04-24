@@ -13,7 +13,8 @@
   border-style: solid;
   box-shadow: 0 0 0.5px 0px transparent;
 
-  transition: box-shadow 0.25s $cubic, border 0.25s $cubic, background 0.25s $cubic;
+  transition: box-shadow 0.25s $cubic, border 0.25s $cubic,
+    background 0.25s $cubic;
 
   svg:not(.close-icon-nm),
   .icon-img-nm {
@@ -40,7 +41,10 @@
     @if $name == 'neutral' {
       background: scale-color($color, $saturation: 5%, $lightness: 70%);
       color: scale-color($color, $lightness: -50%, $saturation: -20%);
-      border-color: rgba(scale-color($color, $lightness: -50%, $saturation: -20%), 0.25);
+      border-color: rgba(
+        scale-color($color, $lightness: -50%, $saturation: -20%),
+        0.25
+      );
 
       .close-icon-nm path {
         fill: scale-color($color, $lightness: -50%, $saturation: -20%);
@@ -48,7 +52,10 @@
     } @else if $name == 'warning' {
       background: scale-color($color, $saturation: 5%, $lightness: 90%);
       color: scale-color($color, $lightness: -40%, $saturation: 20%);
-      border-color: rgba(scale-color($color, $lightness: -40%, $saturation: 20%), 0.25);
+      border-color: rgba(
+        scale-color($color, $lightness: -40%, $saturation: 20%),
+        0.25
+      );
 
       .close-icon-nm path {
         fill: scale-color($color, $lightness: -40%, $saturation: 20%);
@@ -56,7 +63,10 @@
     } @else {
       background: scale-color($color, $saturation: 5%, $lightness: 90%);
       color: scale-color($color, $lightness: -9%, $saturation: -20%);
-      border-color: rgba(scale-color($color, $lightness: -9%, $saturation: -20%), 0.25);
+      border-color: rgba(
+        scale-color($color, $lightness: -9%, $saturation: -20%),
+        0.25
+      );
 
       .close-icon-nm path {
         fill: scale-color($color, $lightness: -7%, $saturation: -20%);
@@ -78,7 +88,11 @@
       @include mixins.one-pulse(
         $color,
         $withBorder: true,
-        $toBorder: rgba(scale-color($color, $lightness: -9%, $saturation: -20%), 0.25)
+        $toBorder:
+          rgba(
+            scale-color($color, $lightness: -9%, $saturation: -20%),
+            0.25
+          )
       );
     }
   }

@@ -10,7 +10,9 @@ interface TextInputProps {
   /** The function to call when text input changes, the parameter will give you the value of the input */
   onTextInputChange: (
     value: string,
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => any
 
   /** The size of the input */

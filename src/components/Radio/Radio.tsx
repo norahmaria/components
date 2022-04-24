@@ -17,7 +17,9 @@ const Radio = ({
   className,
   style,
 }: RadioProps) => {
-  const [checked, setChecked] = useState<string | number>(defaultValue || null)
+  const [checked, setChecked] = useState<string | number>(
+    defaultValue || null
+  )
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.value)
@@ -32,7 +34,7 @@ const Radio = ({
         radio-nm 
         disabled-${disabled} 
         horizontal-${horizontal} 
-        vertical-label-${labelPlacement === 'bottom' || labelPlacement === 'top'}
+        vertical-${labelPlacement === 'bottom' || labelPlacement === 'top'}
         ${className}
       `}>
       <div className="form-label-nm">{name}</div>

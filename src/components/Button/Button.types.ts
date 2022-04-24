@@ -2,7 +2,9 @@ import { CSSProperties } from 'react'
 
 interface ButtonProps {
   /** The function to call when the button is clicked, the argument will give you the event. */
-  onButtonClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
+  onButtonClick: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => any
 
   /** The size of the button */
   size?: 'small' | 'medium' | 'large'

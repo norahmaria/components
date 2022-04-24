@@ -68,7 +68,11 @@ const Tag = ({
         ...style,
       }}>
       {icon &&
-        (typeof icon === 'string' ? <img className="img-icon-nm" src={icon} /> : icon)}
+        (typeof icon === 'string' ? (
+          <img className="img-icon-nm" src={icon} />
+        ) : (
+          icon
+        ))}
 
       {children}
 
