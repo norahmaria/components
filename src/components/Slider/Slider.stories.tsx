@@ -15,7 +15,7 @@ export default {
   title: 'Inputs/Slider',
   component: SliderComponent,
   parameters: {
-    badges: [BADGE.NEEDS_REVISION],
+    badges: [BADGE.STABLE],
     docs: {
       source: {
         code,
