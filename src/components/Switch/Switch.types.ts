@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react'
+import Props from '../../types/Props'
 
-interface SwitchProps {
+interface SwitchProps extends Props {
   /** The switch label */
   label: string
   /** The unique id to use for the switch and for the label for attribute */
@@ -15,17 +15,9 @@ interface SwitchProps {
 
   /** Set input to be disabled or not */
   disabled?: boolean
-  /** The size of the select */
-  size?: 'small' | 'medium' | 'large'
-  /** The color scheme of the Select */
-  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
   /** The default value */
   defaultValue?: boolean
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 }
 
 export default SwitchProps

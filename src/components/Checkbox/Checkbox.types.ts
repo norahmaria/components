@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react'
+import Props from '../../types/Props'
 
-interface CheckboxProps {
+interface CheckboxProps extends Props {
   /** The unique id to use for the checkbox and for the label for attribute */
   id: string
   /** The checkbox label */
@@ -16,17 +16,9 @@ interface CheckboxProps {
 
   /** Where to place the checkbox label */
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
-  /** The size of the checkbox and label */
-  size?: 'small' | 'medium' | 'large'
-  /** The color scheme of the checkbox */
-  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
   /** 'The default value of the checkbox */
   defaultValue?: boolean
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 }
 
 export default CheckboxProps

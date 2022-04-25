@@ -1,6 +1,6 @@
-import { CSSProperties } from 'react'
+import Props from '../../types/Props'
 
-interface TextInputProps {
+interface TextInputProps extends Props {
   /** The text input label */
   label: string
   /** The placeholder text */
@@ -15,10 +15,6 @@ interface TextInputProps {
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => any
 
-  /** The size of the input */
-  size?: 'small' | 'medium' | 'large'
-  /** The color scheme of the input */
-  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
   /** Use rounded corners on the input or not */
   round?: boolean
   /** Icon for the input */
@@ -44,10 +40,6 @@ interface TextInputProps {
 
   /** The default value */
   defaultValue?: string
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 }
 interface TextInputAriaProps extends TextInputProps {
   password: true
@@ -58,6 +50,7 @@ interface TextInputPropsNonAria extends TextInputProps {
   textarea?: boolean
 }
 
-type Props = TextInputProps & (TextInputAriaProps | TextInputPropsNonAria)
+type CombinedProps = TextInputProps &
+  (TextInputAriaProps | TextInputPropsNonAria)
 
-export default Props
+export default CombinedProps

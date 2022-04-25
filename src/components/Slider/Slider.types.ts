@@ -1,6 +1,7 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
+import Props from '../../types/Props'
 
-interface SliderProps {
+interface SliderProps extends Props {
   /** Unique id for the slider */
   id: string
   /** The label for the slider */
@@ -20,12 +21,8 @@ interface SliderProps {
     e: React.ChangeEvent<HTMLInputElement>
   ) => any
 
-  /** The size of the select */
-  size?: 'small' | 'medium' | 'large'
   /** Set slider to be disabled */
   disabled?: boolean
-  /** The color scheme of the Slider */
-  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
 
   /** Make the slider vertical */
   vertical?: boolean
@@ -34,11 +31,6 @@ interface SliderProps {
   suffix?: string
   /** Add text before the value in tooltip */
   prefix?: string
-
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 }
 
 export default SliderProps

@@ -1,6 +1,7 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
+import Props from '../../types/Props'
 
-interface SelectProps {
+interface SelectProps extends Props {
   /** The select label */
   label: string
   /** The placeholder text */
@@ -15,11 +16,6 @@ interface SelectProps {
   /** Set select to be disabled or not */
   disabled?: boolean
 
-  /** The size of the select */
-  size?: 'small' | 'medium' | 'large'
-  /** The color scheme of the Select */
-  color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
-
   /** Error or warning messages */
   status?: {
     type: 'warning' | 'error'
@@ -30,10 +26,6 @@ interface SelectProps {
   defaultValue?: (string | number)[]
   /** The component expects you to use **Select.Option or Select.Group** as it's children. Select.Group needs a `title`, while Select.Option needs a `value` and a string as its child, which will be the title. */
   children?: React.ReactChild | React.ReactChild[] | React.ReactChildren
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 }
 
 export default SelectProps

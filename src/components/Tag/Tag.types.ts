@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react'
+import Props from '../../types/Props'
 
 export type CustomColor = {
   background: string
@@ -6,7 +6,7 @@ export type CustomColor = {
   color: string
 }
 
-interface TagProps {
+interface TagProps extends Omit<Props, 'color'> {
   /** Function to run when user clicks the delete icon (only visible if a function is set) */
   onDelete?: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => any
   /** Function to run when user clicks the tag (only visible if a function is set) */
@@ -17,7 +17,7 @@ interface TagProps {
   /** Use rounded corners on the tag */
   disabled?: boolean
 
-  /** The color scheme of the tag, either a preset or a custom color which is an object that needs `borderColor`, `color` and `background. */
+  /** The color scheme of the tag, either a preset or a custom color which is an object that needs `borderColor`, `color` and `background`. No click effect. */
   color?:
     | 'primary'
     | 'neutral'
@@ -25,12 +25,6 @@ interface TagProps {
     | 'warning'
     | 'error'
     | CustomColor
-  /** The size of the tag */
-  size?: 'small' | 'medium' | 'large'
-  /** Add custom className */
-  className?: string
-  /** Add inline styling */
-  style?: CSSProperties
 
   /** The text on the tag */
   children: string
