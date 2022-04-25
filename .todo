@@ -9,6 +9,11 @@ Stories:
   ☐ Upload Button
 
 Components:
+  Tag:
+    ☐ Add functionality to add tags
+    ☐ Add hover / click for customColor
+    ☐ Add testing
+
   Slider: 
     ☐ Add number input beside slider (optional)
     ☐ Add opportunity icon before and after
@@ -21,6 +26,14 @@ Tools:
   useForm hook:
     ☐ Add base functionality
     ☐ Make id/name consistent in components for easy usage
+
+Structure:
+  ☐ Find new spot for Private components and re-factor Extended* components
+  ☐ Make growTextArea an available hook
+  ☐ Make util for adding storybook table options easier
+  ☐ Move buttons css to the button file rather than as mixins
+  ☐ Reconsider where to put base checkbox css
+  ☐ Prettify code that prettier made ugly lol
 
 Archive:
   ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17) @project(Stories)
