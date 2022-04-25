@@ -26,7 +26,7 @@ const code = `<div
 `
 
 export default {
-  title: 'Data Display/Tags',
+  title: 'Data Display/Tag',
   component: TagComponent,
   parameters: {
     badges: [BADGE.NEEDS_REVISION],
@@ -90,7 +90,7 @@ export default {
   },
 }
 
-const TagsStory: Story<TagProps> = args => {
+const TagStory: Story<TagProps> = args => {
   const cast: any[] = [
     { actor: 'Rachel Brosnahan', character: 'Miriam Maisel', color: 'primary' },
     { actor: 'Alex Borstein', character: 'Susie Myerson', color: 'success' },
@@ -122,8 +122,8 @@ const TagsStory: Story<TagProps> = args => {
   )
 }
 
-export const Tags: Story<TagProps> = TagsStory.bind({})
-Tags.args = {
+export const Tag: Story<TagProps> = TagStory.bind({})
+Tag.args = {
   size: 'medium',
   className: '',
   children: 'Tag',
