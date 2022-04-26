@@ -8,7 +8,7 @@ import TagProps from './Tag.types'
 
 const code = `<div
   style={{
-    width: '18rem',
+    width: '20rem',
     display: 'flex',
     flexWrap: 'wrap',
     gap: '0.5rem',
@@ -108,7 +108,7 @@ const TagStory: Story<TagProps> = args => {
   return (
     <div
       style={{
-        width: '18rem',
+        width: '20rem',
         display: 'flex',
         flexWrap: 'wrap',
         gap: '0.5rem',
