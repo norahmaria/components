@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Component Can render 1`] = `
+<div
+  aria-disabled="false"
+  class="
+        tag-nm 
+        color-primary 
+        size-medium 
+        clickable-false
+        clicked-false
+        round-false
+        disabled-false
+        undefined
+      "
+  data-testid="tag"
+  tabindex="-1"
+>
+  Hello World
+</div>
+`;

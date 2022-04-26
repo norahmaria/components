@@ -49,6 +49,7 @@ const Tag = ({
 
   return (
     <div
+      data-testid="tag"
       ref={ref}
       onClick={onClick ? click : null}
       tabIndex={disabled ? -1 : !!onClick ? 0 : -1}
@@ -76,7 +77,13 @@ const Tag = ({
 
       {children}
 
-      {onDelete && <DeleteIcon className="close-icon-nm" onClick={del} />}
+      {onDelete && (
+        <DeleteIcon
+          data-testid="close-icon"
+          className="close-icon-nm"
+          onClick={del}
+        />
+      )}
     </div>
   )
 }
