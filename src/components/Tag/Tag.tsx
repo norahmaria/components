@@ -47,6 +47,21 @@ const Tag = ({
     if (!disabled) onDelete(e)
   }
 
+  const onHover = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (typeof color === 'object') {
+      ref.current.style.background = `linear-gradient(
+        rgba(0, 0, 0, 0.075),
+        rgba(0, 0, 0, 0.075)
+      ), ${color.background}`
+    }
+  }
+
+  const onHoverEnd = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (typeof color === 'object') {
+      ref.current.style.background = color.background
+    }
+  }
+
   return (
     <div
       data-testid="tag"
@@ -64,6 +79,8 @@ const Tag = ({
         disabled-${disabled}
         ${className}
       `}
+      onMouseOver={onHover}
+      onMouseOut={onHoverEnd}
       style={{
         ...colorState,
         ...style,

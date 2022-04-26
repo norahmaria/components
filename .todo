@@ -11,7 +11,6 @@ Stories:
 Components:
   Tag:
     ☐ Add functionality to add tags
-    ☐ Add hover / click for customColor
 
   Slider: 
     ☐ Add number input beside slider (optional)
@@ -35,6 +34,7 @@ Structure:
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Add hover / click for customColor @done(22-04-26 08:17) @project(Components.Tag)
   ✔ Add testing @done(22-04-26 08:00) @project(Components.Tag)
   ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17) @project(Stories)
     ━ https://github.com/storybookjs/storybook/blob/18ef57b4073cb4ffd68e4623e322f2a9549c1792/examples/official-storybook/components/DocgenButton.js
