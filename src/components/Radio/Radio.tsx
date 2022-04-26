@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import RadioProps from './Radio.types'
 import './Radio.scss'
 
-import ExtendedButton from './Helpers/ExtendedButton'
+import ExtendedButton from './Components/Private/ExtendedButton'
 
 const Radio = ({
   name,

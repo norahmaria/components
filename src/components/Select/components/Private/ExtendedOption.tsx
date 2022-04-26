@@ -1,7 +1,7 @@
 import React from 'react'
 import ExtendedOptionProps from './ExtendedOption.types'
 
-import { ReactComponent as CheckMarkIcon } from '../../../assets/Checkmark.svg'
+import { ReactComponent as CheckMarkIcon } from '../../../../assets/Checkmark.svg'
 
 const ExtendedOption = ({
   onKeyDown,
@@ -11,10 +11,18 @@ const ExtendedOption = ({
   ...props
 }: ExtendedOptionProps) => {
   const left =
-    typeof props.leftIcon === 'string' ? <img src={props.leftIcon} /> : props.leftIcon
+    typeof props.leftIcon === 'string' ? (
+      <img src={props.leftIcon} />
+    ) : (
+      props.leftIcon
+    )
 
   const right =
-    typeof props.rightIcon === 'string' ? <img src={props.rightIcon} /> : props.rightIcon
+    typeof props.rightIcon === 'string' ? (
+      <img src={props.rightIcon} />
+    ) : (
+      props.rightIcon
+    )
 
   return (
     <li

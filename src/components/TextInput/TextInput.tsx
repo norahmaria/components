@@ -6,7 +6,7 @@ import { ReactComponent as WarningIcon } from '../../assets/Warning.svg'
 import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
 
 import './TextInput.scss'
-import LoadingSpinner from '../../private/LoadingSpinner'
+import LoadingSpinner from '../../shared/LoadingSpinner'
 import growTextArea from '../../utils/growTextArea'
 
 const TextInput = ({

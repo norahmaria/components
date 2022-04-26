@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ButtonProps from './Button.types'
 
-import LoadingSpinner from '../../private/LoadingSpinner'
+import LoadingSpinner from '../../shared/LoadingSpinner'
 
 import './Button.scss'
 

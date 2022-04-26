@@ -5,7 +5,7 @@ import useOutsideClick from '../../hooks/useOutsideClick'
 import useOnKeyDown from './hooks/useOnKeyDown'
 
 import Group from './Components/Group'
-import ExtendedOption from './helpers/ExtendedOption'
+import ExtendedOption from './Components/Private/ExtendedOption'
 import Button from './Components/Private/Button'
 
 import SelectProps from './Select.types'

@@ -1,4 +1,4 @@
-import OptionProps from '../Components/Option.types'
+import OptionProps from '../Option.types'
 
 interface ExtendedOptionProps extends OptionProps {
   onKeyDown: any

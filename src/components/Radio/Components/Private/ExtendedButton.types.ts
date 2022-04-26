@@ -1,4 +1,4 @@
-import ButtonProps from '../Components/Button.types'
+import ButtonProps from '../Button.types'
 
 interface ExtendedButtonProps extends ButtonProps {
   labelPlacement?: 'top' | 'bottom' | 'right' | 'left'
