@@ -34,14 +34,14 @@ Tools:
     ☐ Make id/name consistent in components for easy usage
 
 Structure:
-  ☐ Find new spot for Private components and re-factor Extended* components
   ☐ Make growTextArea an available hook
-  ☐ Make util for adding storybook table options easier
   ☐ Move buttons css to the button file rather than as mixins
-  ☐ Reconsider where to put base checkbox css
-  ☐ Prettify code that prettier made ugly lol
+  ☐ Prettify code that prettier made ugly lol @started(22-04-26 23:30)
 
 Archive:
+  ✔ Find new spot for Private components and re-factor Extended* components @done(22-04-26 22:10) @project(Structure)
+  ✔ Make util for adding storybook table options easier @done(22-04-26 23:30) @project(Structure)
+  ✘ Reconsider where to put base checkbox css @cancelled(22-04-26 22:10) @project(Structure)
   ✔ Add hover / click for customColor @done(22-04-26 08:17) @project(Components.Tag)
   ✔ Add testing @done(22-04-26 08:00) @project(Components.Tag)
   ✔ Figure out how to add argTypes for subcomponents @done(22-04-20 09:17) @project(Stories)
