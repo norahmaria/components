@@ -19,6 +19,14 @@ Components:
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
+    ☐ Re-check accessibility ARIA label rules
+    ☐ @consider search bar
+    ☐ @consider add/remove items from select
+    ☐ @consider copy/paste functionality
+    ☐ @consider clear one by one on multiple, not just _all_
+
+  Checkbox:
+    ☐ @consider indeterminate
 
 Tools:
   useForm hook:

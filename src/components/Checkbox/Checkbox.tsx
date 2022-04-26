@@ -4,9 +4,6 @@ import './Checkbox.scss'
 
 import { ReactComponent as CheckMarkIcon } from '../../assets/Checkmark.svg'
 
-// Consider
-// -- Indeterminate
-
 const Checkbox = ({
   id,
   disabled = false,

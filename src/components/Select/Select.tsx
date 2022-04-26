@@ -10,15 +10,6 @@ import Button from './Components/Private/Button'
 
 import SelectProps from './Select.types'
 
-// ERROR: Re-check accessibility ARIA label rules
-// due to Storybook Warnings
-
-// Consider:
-// -- Searching
-// -- Add/remove items from select
-// -- Copy/pase
-// -- Clear one by one, not just all
-
 const Select = ({
   multiple = false,
   required = false,
