@@ -25,7 +25,8 @@
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.stories.tsx' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.stories.tsx' --write",
+    "new": "cd src/components && mkdir $npm_config_name && cd $npm_config_name && touch $npm_config_name.scss && touch $npm_config_name.stories.tsx && touch $npm_config_name.test.tsx && touch $npm_config_name.tsx && touch $npm_config_name.types.ts"
   },
   "devDependencies": {
     "@geometricpanda/storybook-addon-badges": "^0.2.1",
