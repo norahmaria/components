@@ -57,19 +57,19 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="option-nm"
+      class="options-nm__option"
       role="option"
       tabindex="-1"
       value="us"
     >
       <div
-        class="label-nm"
+        class="options-nm__option-label"
       >
         United States
       </div>
     </li>
     <li
-      class="group-nm"
+      class="select-nm__group"
     >
       <ul
         aria-label="Scandinavia"
@@ -77,20 +77,20 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
         role="listbox"
       >
         <li
-          class="title-nm"
+          class="select-nm__title"
         >
           Scandinavia
         </li>
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="option-nm"
+          class="options-nm__option"
           role="option"
           tabindex="-1"
           value="no"
         >
           <div
-            class="label-nm"
+            class="options-nm__option-label"
           >
             Norway
           </div>
@@ -98,13 +98,13 @@ exports[`Select Component Can render correctly, closed and open 1`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="option-nm"
+          class="options-nm__option"
           role="option"
           tabindex="-1"
           value="se"
         >
           <div
-            class="label-nm"
+            class="options-nm__option-label"
           >
             Sweden
           </div>
@@ -172,19 +172,19 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
     <li
       aria-disabled="false"
       aria-selected="false"
-      class="option-nm"
+      class="options-nm__option"
       role="option"
       tabindex="-1"
       value="us"
     >
       <div
-        class="label-nm"
+        class="options-nm__option-label"
       >
         United States
       </div>
     </li>
     <li
-      class="group-nm"
+      class="select-nm__group"
     >
       <ul
         aria-label="Scandinavia"
@@ -192,20 +192,20 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
         role="listbox"
       >
         <li
-          class="title-nm"
+          class="select-nm__title"
         >
           Scandinavia
         </li>
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="option-nm"
+          class="options-nm__option"
           role="option"
           tabindex="-1"
           value="no"
         >
           <div
-            class="label-nm"
+            class="options-nm__option-label"
           >
             Norway
           </div>
@@ -213,13 +213,13 @@ exports[`Select Component Can render correctly, closed and open 2`] = `
         <li
           aria-disabled="false"
           aria-selected="false"
-          class="option-nm"
+          class="options-nm__option"
           role="option"
           tabindex="-1"
           value="se"
         >
           <div
-            class="label-nm"
+            class="options-nm__option-label"
           >
             Sweden
           </div>

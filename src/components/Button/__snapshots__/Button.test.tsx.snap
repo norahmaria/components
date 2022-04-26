@@ -8,7 +8,7 @@ exports[`Button Component Can render 1`] = `
         color-primary
         variant-default
         clicked-false
-        
+        round-false
         
         undefined
       "
@@ -27,7 +27,7 @@ Array [
         color-primary
         variant-outlined
         clicked-false
-        
+        round-false
         
         undefined
       "
@@ -42,7 +42,7 @@ Array [
         color-primary
         variant-secondary
         clicked-false
-        
+        round-false
         
         undefined
       "

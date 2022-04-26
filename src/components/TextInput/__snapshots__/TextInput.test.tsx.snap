@@ -21,7 +21,7 @@ exports[`TextInput Component Can render 1`] = `
   </label>
   <div
     class="
-          text-input-container-nm 
+          text-input-nm__container
           textarea-false 
           disabled-false 
           

@@ -22,7 +22,7 @@ exports[`Switch Component Can render 1`] = `
     type="checkbox"
   />
   <div
-    class="switch-nm-toggle"
+    class="switch-nm__toggle"
   >
     <div
       class="dot"

@@ -3,11 +3,12 @@
 exports[`Slider Component Can render 1`] = `
 <div
   class="
-      slider 
-      size-medium
-      disabled-false
-      undefined
-    "
+        slider-nm 
+        size-medium
+        disabled-false
+        vertical-false
+        undefined
+      "
   data-testid="slider-wrapper"
 >
   <label
@@ -26,11 +27,11 @@ exports[`Slider Component Can render 1`] = `
     value="20"
   />
   <div
-    class="range color-primary"
+    class="slider-nm__range color-primary"
     data-testid="slider-placebo"
   >
     <span
-      class="dot"
+      class="slider-nm__dot"
       style="margin-left: 20%;"
     />
   </div>

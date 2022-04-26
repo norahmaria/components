@@ -6,7 +6,7 @@ exports[`Radio Component Can render 1`] = `
         radio-nm 
         disabled-false 
         horizontal-false 
-        vertical-label-false
+        vertical-false
         undefined
       "
   data-testid="radio-wrapper"
@@ -18,7 +18,7 @@ exports[`Radio Component Can render 1`] = `
   </div>
   <div
     class="
-        radio-button-nm 
+        radio-nm__button
         color-primary 
         size-medium
       "
@@ -41,7 +41,7 @@ exports[`Radio Component Can render 1`] = `
   </div>
   <div
     class="
-        radio-button-nm 
+        radio-nm__button
         color-primary 
         size-medium
       "
