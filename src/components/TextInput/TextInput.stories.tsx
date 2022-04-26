@@ -7,6 +7,9 @@ import { ReactComponent as Norway } from '../../assets/Norway.svg'
 import { TextInput as TextInputComponent } from '../'
 import TextInputProps from './TextInput.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<TextInput 
   id="text-input"
   label="Text Input"
@@ -27,94 +30,20 @@ export default {
       },
     },
   },
-  argTypes: {
-    onTextInputChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    label: {
-      table: {
-        category: 'Display',
-      },
-    },
-    placeholder: {
-      table: {
-        category: 'Display',
-      },
-    },
-    characterLimit: {
-      table: {
-        category: 'State',
-      },
-    },
-    status: {
-      control: {
-        type: 'object',
-      },
-      table: {
-        category: 'Display',
-      },
-    },
-    password: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    textarea: {
-      table: {
-        category: 'Display',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    icon: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    isLoading: {
-      table: {
-        category: 'State',
-        default: false,
-      },
-    },
-    round: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    defaultValue: {
-      table: {
-        category: 'State',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onTextInputChange: [Categories.Actions],
+    label: [Categories.Display],
+    placeholder: [Categories.Display],
+    characterLimit: [Categories.State],
+    status: [Categories.Display],
+    password: [Categories.Appearance],
+    textarea: [Categories.Display],
+    disabled: [Categories.State],
+    icon: [Categories.Display, true],
+    isLoading: [Categories.State],
+    round: [Categories.Appearance],
+    defaultValue: [Categories.State],
+  }),
 }
 
 const TextInputStory: Story<TextInputProps> = args => (
@@ -140,4 +69,5 @@ TextInput.args = {
   password: false,
   textarea: false,
   defaultValue: '',
+  className: '',
 }

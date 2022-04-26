@@ -6,6 +6,9 @@ import React from 'react'
 import { Radio as RadioComponent } from '../'
 import RadioProps from './Radio.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<Radio
   name="options"
   onRadioChange={value => action('onRadioChange')(value)}>
@@ -29,60 +32,14 @@ export default {
       },
     },
   },
-  argTypes: {
-    onRadioChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    labelPlacement: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    children: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    horizontal: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    defaultValue: {
-      table: {
-        category: 'State',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onRadioChange: [Categories.Actions],
+    labelPlacement: [Categories.Appearance],
+    children: [Categories.Display, true],
+    horizontal: [Categories.Appearance],
+    disabled: [Categories.State],
+    defaultValue: [Categories.State],
+  }),
 }
 
 const RadioStory: Story<RadioProps> = args => (

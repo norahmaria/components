@@ -5,6 +5,9 @@ import React from 'react'
 import { Slider as SliderComponent } from '../'
 import SliderProps from './Slider.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<Slider 
   label="Slider" 
   id="slider" 
@@ -23,68 +26,18 @@ export default {
       },
     },
   },
-  argTypes: {
-    label: {
-      table: {
-        category: 'Display',
-      },
-    },
-    suffix: {
-      table: {
-        category: 'Display',
-      },
-    },
-    prefix: {
-      table: {
-        category: 'Display',
-      },
-    },
-    onSliderChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    defaultValue: {
-      table: { category: 'State' },
-      control: false,
-    },
-    className: {
-      table: { category: 'Extra Native Props' },
-    },
-    style: {
-      control: false,
-      table: { category: 'Extra Native Props' },
-    },
-    min: {
-      table: { category: 'Extra Native Props' },
-    },
-    max: {
-      table: { category: 'Extra Native Props' },
-    },
-    step: {
-      table: { category: 'Extra Native Props' },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    vertical: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    label: [Categories.Display],
+    suffix: [Categories.Display],
+    prefix: [Categories.Display],
+    onSliderChange: [Categories.Actions],
+    defaultValue: [Categories.State, true],
+    min: [Categories.Native],
+    max: [Categories.Native],
+    step: [Categories.Native],
+    disabled: [Categories.State],
+    vertical: [Categories.Appearance],
+  }),
 }
 
 const SliderStory: Story<SliderProps> = args => (

@@ -6,6 +6,9 @@ import React, { useState } from 'react'
 import { Tag as TagComponent } from '..'
 import TagProps from './Tag.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<div
   style={{
     width: '20rem',
@@ -37,57 +40,14 @@ export default {
       },
     },
   },
-  argTypes: {
-    onDelete: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    onClick: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    color: {
-      control: false,
-      table: {
-        category: 'Appearance',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    round: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    children: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    icon: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onDelete: [Categories.Actions],
+    onClick: [Categories.Actions],
+    color: [Categories.Appearance, true],
+    round: [Categories.Appearance],
+    children: [Categories.Display, true],
+    icon: [Categories.Display, true],
+  }),
 }
 
 const TagStory: Story<TagProps> = args => {

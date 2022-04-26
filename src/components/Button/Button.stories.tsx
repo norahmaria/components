@@ -6,6 +6,9 @@ import React from 'react'
 import { Button as ButtonComponent } from '../'
 import ButtonProps from './Button.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 import { ReactComponent as Arrow } from '../../assets/Arrow_Down.svg'
 
 const code = `<Button leftIcon={<Arrow />}>Hello World</Button>`
@@ -22,84 +25,18 @@ export default {
       },
     },
   },
-  argTypes: {
-    onButtonClick: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    children: {
-      table: {
-        category: 'Display',
-      },
-    },
-    isLoading: {
-      table: {
-        category: 'State',
-        default: false,
-      },
-    },
-    round: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    fullWidth: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    variant: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    leftIcon: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    rightIcon: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    type: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onButtonClick: [Categories.Actions],
+    children: [Categories.Display],
+    isLoading: [Categories.State],
+    round: [Categories.Appearance],
+    fullWidth: [Categories.Appearance],
+    disabled: [Categories.State],
+    variant: [Categories.Appearance],
+    leftIcon: [Categories.Display, true],
+    rightIcon: [Categories.Display, true],
+    type: [Categories.Native],
+  }),
 }
 
 const ButtonStory: Story<ButtonProps> = args => (
@@ -113,9 +50,7 @@ const ButtonStory: Story<ButtonProps> = args => (
 
 export const Button: Story<ButtonProps> = ButtonStory.bind({})
 Button.args = {
-  onButtonClick: clicked => {
-    console.log(clicked)
-  },
+  onButtonClick: clicked => {},
   children: 'Hello World',
   isLoading: false,
   round: false,

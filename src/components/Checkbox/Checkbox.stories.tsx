@@ -6,6 +6,9 @@ import React from 'react'
 import { Checkbox as CheckboxComponent } from '../'
 import CheckboxProps from './Checkbox.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<Checkbox 
   id="checkbox-one" 
   label="Checkbox" 
@@ -24,54 +27,13 @@ export default {
       },
     },
   },
-  argTypes: {
-    onCheckboxChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    label: {
-      table: {
-        category: 'Display',
-      },
-    },
-    labelPlacement: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    defaultValue: {
-      table: {
-        category: 'State',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onCheckboxChange: [Categories.Actions],
+    label: [Categories.Display],
+    labelPlacement: [Categories.Appearance],
+    disabled: [Categories.State],
+    defaultValue: [Categories.State],
+  }),
 }
 
 const CheckboxStory: Story<CheckboxProps> = args => (

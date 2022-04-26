@@ -6,6 +6,9 @@ import React from 'react'
 import { Select as SelectComponent } from '../'
 import SelectProps from './Select.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 import { ReactComponent as UnitedArabEmirates } from '../../assets/Flags/AE.svg'
 import { ReactComponent as Afghanistan } from '../../assets/Flags/AF.svg'
 import { ReactComponent as Albania } from '../../assets/Flags/AL.svg'
@@ -79,64 +82,14 @@ export default {
       },
     },
   },
-  argTypes: {
-    onSelectionChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    label: {
-      table: {
-        category: 'Display',
-      },
-    },
-    children: {
-      control: false,
-      table: {
-        category: 'Display',
-      },
-    },
-    status: {
-      control: {
-        type: 'object',
-      },
-      table: {
-        category: 'Display',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    defaultValue: {
-      table: {
-        category: 'State',
-      },
-      control: false,
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onSelectionChange: [Categories.Actions],
+    label: [Categories.Display],
+    children: [Categories.Display, true],
+    status: [Categories.Display],
+    disabled: [Categories.State],
+    defaultValue: [Categories.State, true],
+  }),
 }
 
 const SelectStory: Story<SelectProps> = args => (

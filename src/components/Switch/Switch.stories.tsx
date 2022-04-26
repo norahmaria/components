@@ -6,6 +6,9 @@ import React from 'react'
 import { Switch as SwitchComponent } from '../'
 import SwitchProps from './Switch.types'
 
+import createArgTypesCategoryAndControls from '../../utils/storybook/getArgTypes'
+import Categories from '../../utils/storybook/categories'
+
 const code = `<Switch 
   label="Switch"
   id="switch" 
@@ -24,49 +27,12 @@ export default {
       },
     },
   },
-  argTypes: {
-    onSwitchChange: {
-      table: {
-        category: 'Actions',
-      },
-    },
-    label: {
-      table: {
-        category: 'Display',
-      },
-    },
-    disabled: {
-      table: {
-        category: 'State',
-      },
-    },
-    size: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    color: {
-      table: {
-        category: 'Appearance',
-      },
-    },
-    defaultValue: {
-      table: {
-        category: 'State',
-      },
-    },
-    className: {
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-    style: {
-      control: false,
-      table: {
-        category: 'Extra Native Props',
-      },
-    },
-  },
+  argTypes: createArgTypesCategoryAndControls({
+    onSwitchChange: [Categories.Actions],
+    label: [Categories.Display],
+    disabled: [Categories.State],
+    defaultValue: [Categories.State],
+  }),
 }
 
 const SwitchStory: Story<SwitchProps> = args => <SwitchComponent {...args} />

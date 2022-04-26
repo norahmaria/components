@@ -16,7 +16,7 @@ const Button = ({
   type = 'button',
   isLoading = false,
   onButtonClick,
-  disabled,
+  disabled = false,
   style,
   className,
   ...props
