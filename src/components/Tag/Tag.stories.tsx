@@ -16,21 +16,31 @@ const code = `<div
     flexWrap: 'wrap',
     gap: '0.5rem',
   }}>
-  {tags.map(tag => (
+  {tags.map((tag, idx) => (
     <Tag 
       color={tag.customColor || 'primary'} 
       onClick={e => action('onClick')(e)} 
       onDelete={e => action('onDelete')(e)} 
+      key={idx}
     >
       {tag.character}
     </Tag>
   ))}
+  
+  <Tag.Add
+    id="tag-add"
+    onAdd={(val, e) => action('onAdd')(val, e)}
+    placeholder="New"
+  />
 </div>
 `
 
 export default {
   title: 'Data Display/Tag',
   component: TagComponent,
+  subcomponents: {
+    'Tag.Add': TagComponent.Add,
+  },
   parameters: {
     badges: [BADGE.NEEDS_REVISION],
     docs: {
@@ -74,10 +84,17 @@ const TagStory: Story<TagProps> = args => {
         gap: '0.5rem',
       }}>
       {tags.map((tag, idx) => (
-        <TagComponent color={tag.color || 'primary'} {...args}>
+        <TagComponent color={tag.color || 'primary'} key={idx} {...args}>
           {tag.character}
         </TagComponent>
       ))}
+      <TagComponent.Add
+        size={args.size}
+        id="tag-add"
+        onAdd={(val, e) => action('onAdd')(val, e)}
+        placeholder="New"
+        // characterLimit={80}
+      />
     </div>
   )
 }

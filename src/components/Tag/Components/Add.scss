@@ -1,0 +1,137 @@
+@use '../../../scss/variables' as *;
+
+.character-limit-nm {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  width: 100%;
+
+  font-size: 0.775rem;
+  color: rgba($black, 0.75);
+}
+
+.add-input-nm {
+  .character-limit-nm {
+    margin-top: 0.35rem;
+    right: 0;
+  }
+
+  input {
+    border-style: dashed;
+    transition: box-shadow 0.25s $cubic, border 0.25s ease;
+    // min-width: 4.5rem;
+    min-width: auto;
+    line-height: 1;
+
+    padding: 0.4em 0.6em;
+    padding-left: 1.65rem;
+
+    &:focus-visible,
+    &:hover,
+    &:active {
+      outline: none;
+    }
+
+    &.size-small,
+    &.size-medium,
+    &.size-large {
+      height: auto;
+    }
+  }
+
+  .loading-spinner-nm {
+    position: absolute;
+    right: 0.95rem;
+  }
+
+  &.round-true {
+    input {
+      border-radius: 2rem;
+      padding: 0.65em 0.95em 0.65em 0.95em;
+      padding-left: 2.5em;
+    }
+
+    .add-input-nm__container {
+      svg {
+        left: 0.95rem;
+      }
+    }
+  }
+}
+
+.add-input-nm__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: absolute;
+    left: 0.5rem;
+  }
+
+  .plus-icon-nm {
+    transition: opacity 0.25s $cubic, transform 0.25s $cubic;
+    transform-origin: center;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.add-input-nm.size-large {
+  svg {
+    top: 0.8rem;
+  }
+}
+
+@each $name, $color in $colors {
+  .add-input-nm.color-#{$name} {
+    .plus-icon-nm path {
+      @if $name == 'neutral' {
+        fill: scale-color($color, $lightness: -50%, $saturation: -20%);
+      } @else if $name == 'warning' {
+        fill: scale-color($color, $lightness: -40%, $saturation: 20%);
+      } @else {
+        fill: scale-color($color, $lightness: -7%, $saturation: -20%);
+      }
+    }
+  }
+
+  .add-input-nm,
+  input.color-#{$name} {
+    @if $name == 'neutral' {
+      // background: scale-color($color, $saturation: 5%, $lightness: 70%);
+      color: scale-color($color, $lightness: -50%, $saturation: -20%);
+      border-color: rgba(
+        scale-color($color, $lightness: -50%, $saturation: -20%),
+        0.25
+      );
+
+      &::placeholder {
+        color: scale-color($color, $lightness: -50%, $saturation: -20%);
+      }
+    } @else if $name == 'warning' {
+      // background: scale-color($color, $saturation: 5%, $lightness: 90%);
+      color: scale-color($color, $lightness: -40%, $saturation: 20%);
+      border-color: rgba(
+        scale-color($color, $lightness: -40%, $saturation: 20%),
+        0.25
+      );
+
+      &::placeholder {
+        color: scale-color($color, $lightness: -40%, $saturation: 20%);
+      }
+    } @else {
+      // background: scale-color($color, $saturation: 5%, $lightness: 90%);
+      color: scale-color($color, $lightness: -9%, $saturation: -20%);
+      border-color: rgba(
+        scale-color($color, $lightness: -9%, $saturation: -20%),
+        0.25
+      );
+
+      &::placeholder {
+        color: scale-color($color, $lightness: -9%, $saturation: -20%);
+      }
+    }
+  }
+}

@@ -120,6 +120,10 @@ ol {
     height: 34px;
   }
 
+  &:focus-visible {
+    outline: none;
+  }
+
   @each $name, $color in $colors {
     &.color-#{$name} {
       &:hover,
@@ -259,7 +263,8 @@ ol {
   z-index: 20;
   white-space: nowrap;
   top: calc(2.5rem * -1);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
   &::before {
     content: ' ';
@@ -385,8 +390,8 @@ ol {
 
   box-shadow: 0 0 0.5px 0 rgb($neutral700, 0.6);
 
-  transition: border 0.25s $cubic, background 0.25s $cubic, box-shadow 0.25s $cubic,
-    outline-width 0.25s $cubic;
+  transition: border 0.25s $cubic, background 0.25s $cubic,
+    box-shadow 0.25s $cubic, outline-width 0.25s $cubic;
 }
 
 .checkbox-nm label,
@@ -544,7 +549,11 @@ ol {
       input:active + label::after,
       input:hover + label::after {
         border: 1px solid scale-color($color, $lightness: -50%);
-        box-shadow: 0 0 0.5px 2.5px rgba(scale-color($color, $lightness: -50%), 0.4);
+        box-shadow: 0
+          0
+          0.5px
+          2.5px
+          rgba(scale-color($color, $lightness: -50%), 0.4);
       }
 
       label svg path {

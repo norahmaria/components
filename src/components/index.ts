@@ -5,7 +5,21 @@ export { default as Checkbox } from './Checkbox/Checkbox'
 export { default as TextInput } from './TextInput/TextInput'
 export { default as Switch } from './Switch/Switch'
 export { default as Slider } from './Slider/Slider'
-export { default as Tag } from './Tag/Tag'
+
+import TagComponent from './Tag/Tag'
+import TagProps from './Tag/Tag.types'
+
+import TagAdd from './Tag/Components/Add'
+import TagAddProps from './Tag/Components/Add.types'
+
+type TagWithChildren = React.FC<TagProps> & {
+  Add: React.FC<TagAddProps>
+}
+
+const Tag: TagWithChildren = TagComponent as TagWithChildren
+Tag.Add = TagAdd
+
+export { Tag }
 
 import RadioComponent from './Radio/Radio'
 import RadioProps from './Radio/Radio.types'

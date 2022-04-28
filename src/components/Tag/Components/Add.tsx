@@ -1,0 +1,93 @@
+import React, { useState } from 'react'
+import AddProps from './Add.types'
+
+import { ReactComponent as AddIcon } from '../../../assets/Add.svg'
+
+import './Add.scss'
+import LoadingSpinner from '../../../shared/LoadingSpinner'
+
+const Add = ({
+  placeholder,
+  onAdd,
+  color = 'primary',
+  size = 'medium',
+  round = false,
+  disabled = false,
+  isLoading = false,
+  characterLimit,
+  defaultValue,
+  id,
+  className,
+  style,
+}: AddProps) => {
+  const [value, setValue] = useState(defaultValue || '')
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(() => {
+      const update =
+        characterLimit && e.target.value.length > characterLimit
+          ? value
+          : characterLimit
+          ? e.target.value.substring(0, characterLimit)
+          : e.target.value
+
+      return update
+    })
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') onAdd(value, e)
+  }
+
+  return (
+    <div
+      data-testid="add-input-wrapper"
+      className={`
+        add-input-nm 
+        round-${round}
+        color-${color}
+        size-${size}
+        ${className}
+      `}>
+      <div
+        className={`
+          add-input-nm__container
+          disabled-${disabled} 
+        `}>
+        {<AddIcon className="plus-icon-nm" />}
+        <input
+          data-testid="add-input"
+          autoComplete="off"
+          disabled={disabled}
+          className={`
+              input-base-nm 
+              color-${color} 
+              size-${size}
+            `}
+          value={value}
+          onKeyDown={onKeyDown}
+          placeholder={placeholder}
+          onChange={onChange}
+          style={{
+            ...style,
+            width: `calc(${
+              value.length ? value.length : placeholder.length
+            }ch + 2.5rem)`,
+          }}
+          id={id}
+        />
+
+        {isLoading && <LoadingSpinner color={color} />}
+      </div>
+
+      {characterLimit && (
+        <div className="character-limit-nm">
+          <p className="character-count-nm">{value.length}</p> /{' '}
+          <p className="character-limit-count-nm">{characterLimit}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Add
