@@ -10,11 +10,21 @@ Stories:
 
 Components:
   Tag:
-    ☐ Add functionality to add tags
+    ☐ Rounded corners not correct
+    ✔ Add functionality to add tags @done(22-04-29 07:49)
+      ☐ Figure out design / placement of character limit
+      ☐ Remove default value
+      ☐ move isLoading to the left
+      ☐ Width when rounded is too small, and width in general messy
+      ☐ Add sizes
 
   Slider: 
     ☐ Add number input beside slider (optional)
     ☐ Add opportunity icon before and after
+    ☐ A bit slow, and you have to drag way over the edges to get to them
+
+  Text Input:
+    ☐ Placeholder and text color should be black, not the color prop
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
