@@ -2,6 +2,8 @@ import React from 'react'
 import Props from '../../types/Props'
 
 interface RadioProps extends Props {
+  /** The label for the radio group */
+  label: string
   /** A unique id used to group the Radio buttons together */
   name: string
   /** The function to call when the Radio value is changed, the first argument will give you the value of the selected Radio button, while the second one will give you the event */

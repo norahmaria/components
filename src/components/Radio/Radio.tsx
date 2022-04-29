@@ -6,6 +6,7 @@ import ExtendedButton from './Components/Private/ExtendedButton'
 
 const Radio = ({
   name,
+  label,
   onRadioChange,
   size = 'medium',
   color = 'primary',
@@ -37,7 +38,7 @@ const Radio = ({
         vertical-${labelPlacement === 'bottom' || labelPlacement === 'top'}
         ${className}
       `}>
-      <div className="form-label-nm">{name}</div>
+      <div className="form-label-nm">{label}</div>
 
       {React.Children.map(children, (child, idx) =>
         React.isValidElement(child) ? (
