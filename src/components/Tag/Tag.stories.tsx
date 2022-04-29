@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React, { useState } from 'react'
@@ -58,7 +58,7 @@ export default {
     children: [Categories.Display, true],
     icon: [Categories.Display, true],
   }),
-}
+} as Meta
 
 const TagStory: Story<TagProps> = args => {
   const cast: any[] = [

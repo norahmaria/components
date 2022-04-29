@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
@@ -40,7 +40,7 @@ export default {
     disabled: [Categories.State],
     defaultValue: [Categories.State],
   }),
-}
+} as Meta
 
 const RadioStory: Story<RadioProps> = args => (
   <RadioComponent

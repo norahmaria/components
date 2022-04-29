@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
@@ -90,7 +90,7 @@ export default {
     disabled: [Categories.State],
     defaultValue: [Categories.State, true],
   }),
-}
+} as Meta
 
 const SelectStory: Story<SelectProps> = args => (
   <SelectComponent

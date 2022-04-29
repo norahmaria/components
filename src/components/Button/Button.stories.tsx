@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
@@ -37,7 +37,7 @@ export default {
     rightIcon: [Categories.Display, true],
     type: [Categories.Native],
   }),
-}
+} as Meta
 
 const ButtonStory: Story<ButtonProps> = args => (
   <ButtonComponent

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
@@ -44,7 +44,7 @@ export default {
     round: [Categories.Appearance],
     defaultValue: [Categories.State],
   }),
-}
+} as Meta
 
 const TextInputStory: Story<TextInputProps> = args => (
   <TextInputComponent {...args} />

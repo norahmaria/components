@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
 import React from 'react'
 
@@ -38,7 +38,7 @@ export default {
     disabled: [Categories.State],
     vertical: [Categories.Appearance],
   }),
-}
+} as Meta
 
 const SliderStory: Story<SliderProps> = args => (
   <div style={{ width: '15rem' }}>
