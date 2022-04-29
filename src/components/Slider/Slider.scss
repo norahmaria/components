@@ -92,6 +92,10 @@
 .slider-nm {
   position: relative;
 
+  .form-label-nm {
+    margin-bottom: 0.65rem;
+  }
+
   &__range {
     position: relative;
     border-radius: $br * 4;
