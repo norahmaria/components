@@ -7,7 +7,7 @@ Stories:
 @NEXT Components:
   ☐ Upload Button
 
-Issues: 
+Issues:
   ☐ @thought: Slider a bit slow, and you have to drag way over the edges to get to them
 
 Components:
@@ -44,7 +44,7 @@ Structure:
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
-  ✔ Re-design neutrals to be consistent @done(22-04-29 21:59) @project(Design)
+  ✔ Re-design neutrals to be consistent @project(Design) @done(22-04-29 22:01)
   ✔ Placeholder and text color should be black, not the color prop @done(22-04-29 21:58) @project(Components.Text Input)
   ✔ Replace the 'Show Code' under doc pages @done(22-04-29 21:53) @project(Stories)
   ✔ Rounded corners not correct @done(22-04-29 20:22) @project(Components.Tag)
