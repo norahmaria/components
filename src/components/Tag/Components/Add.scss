@@ -24,7 +24,6 @@
     line-height: 1;
 
     padding: 0.4em 0.6em;
-    padding-left: 1.65rem;
 
     &:focus-visible,
     &:hover,
@@ -76,9 +75,25 @@
   }
 }
 
-.add-tag-nm.size-large {
+.add-tag-nm.size-small {
   svg {
-    top: 0.8rem;
+    transform: scale(1.1);
+  }
+
+  input {
+    padding-left: 1.55rem;
+  }
+}
+
+.add-tag-nm.size-medium {
+  input {
+    padding-left: 1.65rem;
+  }
+}
+
+.add-tag-nm.size-large {
+  input {
+    padding-left: 1.8rem;
   }
 }
 

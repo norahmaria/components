@@ -17,11 +17,6 @@
   transition: box-shadow 0.25s $cubic, border 0.25s $cubic,
     background 0.25s $cubic;
 
-  svg:not(.close-icon-nm),
-  .icon-img-nm {
-    transform: scale(1.2);
-  }
-
   .close-icon-nm {
     cursor: pointer;
     width: 0.6em;
@@ -34,6 +29,29 @@
 
   &.round-true {
     border-radius: 2rem;
+  }
+}
+
+.tag-nm.size-small {
+  svg:not(.close-icon-nm),
+  .icon-img-nm {
+    transform: scale(1.2);
+  }
+}
+
+.tag-nm.size-medium {
+  svg:not(.close-icon-nm),
+  .icon-img-nm {
+    transform: scale(1.3);
+  }
+}
+
+.tag-nm.size-large {
+  gap: 0.6rem;
+
+  svg:not(.close-icon-nm),
+  .icon-img-nm {
+    transform: scale(1.4);
   }
 }
 
