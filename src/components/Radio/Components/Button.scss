@@ -14,12 +14,21 @@
 
   .radio-nm__button.color-#{$name} input:checked + label::before,
   .radio-nm__button.color-#{$name} input:checked + label::after {
-    border: 3px solid scale-color($color, $lightness: -25%);
+    @if $name == 'neutral' {
+      border: 3px solid scale-color($black, $lightness: 30%);
+    } @else {
+      border: 3px solid scale-color($color, $lightness: -25%);
+    }
   }
 
   .radio-nm__button.color-#{$name} input:checked:disabled + label::before,
   .radio-nm__button.color-#{$name} input:checked:disabled + label::after {
-    background-color: $color;
     opacity: 0.65;
+
+    @if $name == 'neutral' {
+      background-color: scale-color($black, $lightness: 30%);
+    } @else {
+      background-color: $color;
+    }
   }
 }

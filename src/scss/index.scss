@@ -578,6 +578,16 @@ ol {
       }
     }
   }
+
+  .radio-nm__button.color-#{$name} {
+    @if $name == 'neutral' {
+      input:checked + label::before,
+      input:checked + label::after {
+        border: 1px solid scale-color($black, $lightness: 30%);
+        background: scale-color($black, $lightness: 30%);
+      }
+    }
+  }
 }
 
 %checkbox-radio-colors {
