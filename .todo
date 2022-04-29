@@ -1,43 +1,37 @@
 ━ https://marketplace.visualstudio.com/items?itemName=fabiospampinatovscode-todo-plus
 
 Stories:
-  ☐ Add intro page explaining events, basic styling / classname conventions
-  ☐ Replace the 'Show Code' under doc pages
+  ☐ Add intro page explaining events, basic styling and classname conventions
   ☐ Add overview of the classNames in the components
 
 @NEXT Components:
   ☐ Upload Button
 
+Issues: 
+  ☐ @thought: Slider a bit slow, and you have to drag way over the edges to get to them
+
 Components:
   Tag:
-    ✔ Rounded corners not correct @done(22-04-29 20:22)
-    ✔ Add functionality to add tags @done(22-04-29 07:49)
+    Add:
       ☐ Figure out design / placement of character limit
-      ✔ Remove default value @done(22-04-29 20:24)
-      ✔ move isLoading to the left @done(22-04-29 20:22)
-      ☐ Width when rounded is too small, and width in general messy
-      ✔ Add sizes @done(22-04-29 20:39)
+      ☐ Width when rounded is too small, and width in general broken
 
   Slider: 
-    ☐ Add number input beside slider (optional)
-    ☐ Add opportunity icon before and after
-    ☐ A bit slow, and you have to drag way over the edges to get to them
-
-  Text Input:
-    ☐ Placeholder and text color should be black, not the color prop
+    ☐ Add option number input beside slider
+    ☐ Add opportunity for icon before and after (for horizontal)
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
     ☐ Re-check accessibility ARIA label rules
     ☐ Fix z-index issue when there is a select right below a select
-    ☐ @consider search bar
-    ☐ @consider add/remove items from select
-    ☐ @consider copy/paste functionality
-    ☐ @consider clear one by one on multiple, not just _all_
+    ☐ @idea search bar
+    ☐ @idea add/remove items from select
+    ☐ @idea copy/paste functionality
+    ☐ @idea clear one by one on multiple, not just _all_
 
   Checkbox:
-    ☐ @consider indeterminate
+    ☐ @idea indeterminate
 
 Tools:
   useForm hook:
@@ -47,12 +41,17 @@ Tools:
 Structure:
   ☐ Make growTextArea an available hook
   ☐ Move buttons css to the button file rather than as mixins
-  ☐ Prettify code that prettier made ugly lol @started(22-04-26 23:30)
-
-Design:
-  ☐ Re-design neutrals to be consistent
+  ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Re-design neutrals to be consistent @done(22-04-29 21:59) @project(Design)
+  ✔ Placeholder and text color should be black, not the color prop @done(22-04-29 21:58) @project(Components.Text Input)
+  ✔ Replace the 'Show Code' under doc pages @done(22-04-29 21:53) @project(Stories)
+  ✔ Rounded corners not correct @done(22-04-29 20:22) @project(Components.Tag)
+  ✔ Add functionality to add tags @done(22-04-29 07:49) @project(Components.Tag)
+  ✔ Remove default value @done(22-04-29 20:24) @project(Components.Tag)
+  ✔ move isLoading to the left @done(22-04-29 20:22) @project(Components.Tag)
+  ✔ Add sizes @done(22-04-29 20:39) @project(Components.Tag)
   ✔ Find new spot for Private components and re-factor Extended* components @done(22-04-26 22:10) @project(Structure)
   ✔ Make util for adding storybook table options easier @done(22-04-26 23:30) @project(Structure)
   ✘ Reconsider where to put base checkbox css @cancelled(22-04-26 22:10) @project(Structure)
