@@ -40,7 +40,7 @@ const Switch = ({
     <label
       data-testid="switch-wrapper"
       style={style}
-      tabIndex={1}
+      tabIndex={0}
       onKeyDown={onKeyDown}
       className={`
         switch-nm 
