@@ -36,7 +36,7 @@ Components:
 Tools:
   useForm hook:
     ☐ Add base functionality
-    ☐ Make id/name consistent in components for easy usage
+    ☐ Select has no ids, add functionality for select in the hook
 
 Structure:
   ☐ Make growTextArea an available hook
@@ -44,6 +44,8 @@ Structure:
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Make id/name consistent in components for easy usage @done(22-04-29 22:56) @project(Tools.useForm hook)
+  ✔ Radio buttons have unique id for every field @done(22-04-29 22:57) @project(Tools.useForm hook)
   ✔ Re-design neutrals to be consistent @project(Design) @done(22-04-29 22:01)
   ✔ Placeholder and text color should be black, not the color prop @done(22-04-29 21:58) @project(Components.Text Input)
   ✔ Replace the 'Show Code' under doc pages @done(22-04-29 21:53) @project(Stories)
