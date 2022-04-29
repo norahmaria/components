@@ -8,3 +8,5 @@ export {
   Slider,
   Tag,
 } from './components'
+
+export { default as useForm } from './hooks/useForm'

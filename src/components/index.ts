@@ -5,7 +5,6 @@ export { default as Checkbox } from './Checkbox/Checkbox'
 export { default as TextInput } from './TextInput/TextInput'
 export { default as Switch } from './Switch/Switch'
 export { default as Slider } from './Slider/Slider'
-export { default as useForm } from '../hooks/useForm'
 
 import TagComponent from './Tag/Tag'
 import TagProps from './Tag/Tag.types'
