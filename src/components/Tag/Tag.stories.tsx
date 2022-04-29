@@ -89,6 +89,7 @@ const TagStory: Story<TagProps> = args => {
         </TagComponent>
       ))}
       <TagComponent.Add
+        round={args.round}
         size={args.size}
         id="tag-add"
         onAdd={(val, e) => action('onAdd')(val, e)}
