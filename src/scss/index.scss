@@ -126,17 +126,36 @@ ol {
 
   @each $name, $color in $colors {
     &.color-#{$name} {
-      &:hover,
-      &:focus-visible,
-      &:active,
-      &.open-true {
-        border-color: $color;
-      }
+      @if $name == 'neutral' {
+        &:hover,
+        &:focus-visible,
+        &:active,
+        &.open-true {
+          border-color: scale-color($black, $lightness: -25%);
+        }
 
-      &:focus-visible,
-      &:active,
-      &.open-true {
-        box-shadow: 0 0 0.5px 2px rgba($color, 0.3);
+        &:focus-visible,
+        &:active,
+        &.open-true {
+          box-shadow: 0
+            0
+            0.5px
+            2px
+            rgba(scale-color($black, $lightness: -25%), 0.3);
+        }
+      } @else {
+        &:hover,
+        &:focus-visible,
+        &:active,
+        &.open-true {
+          border-color: $color;
+        }
+
+        &:focus-visible,
+        &:active,
+        &.open-true {
+          box-shadow: 0 0 0.5px 2px rgba($color, 0.3);
+        }
       }
     }
   }
