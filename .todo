@@ -13,7 +13,7 @@ Components:
     ✔ Rounded corners not correct @done(22-04-29 20:22)
     ✔ Add functionality to add tags @done(22-04-29 07:49)
       ☐ Figure out design / placement of character limit
-      ☐ Remove default value
+      ✔ Remove default value @done(22-04-29 20:24)
       ✔ move isLoading to the left @done(22-04-29 20:22)
       ☐ Width when rounded is too small, and width in general messy
       ☐ Add sizes

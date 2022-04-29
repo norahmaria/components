@@ -18,8 +18,6 @@ interface AddProps extends Props {
 
   /** Set a character limit for the input */
   characterLimit?: number
-  /** The default value */
-  defaultValue?: string
 }
 
 export default AddProps

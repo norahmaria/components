@@ -15,12 +15,11 @@ const Add = ({
   disabled = false,
   isLoading = false,
   characterLimit,
-  defaultValue,
   id,
   className,
   style,
 }: AddProps) => {
-  const [value, setValue] = useState(defaultValue || '')
+  const [value, setValue] = useState('')
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(() => {
