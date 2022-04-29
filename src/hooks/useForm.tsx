@@ -4,7 +4,7 @@ const useForm = (initial: any) => {
   const [form, setForm] = useState(initial)
 
   const onChange = (
-    value: string | number | (string | number)[] | boolean,
+    value?: string | number | (string | number)[] | boolean,
     e?: any
   ) => {
     switch (e.target.type) {
