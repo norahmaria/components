@@ -13,14 +13,12 @@ const useForm = (initial: any) => {
           ...form,
           [e.target.name]: e.target.value,
         }))
-        break
 
       case 'range':
         return setForm(form => ({
           ...form,
           [e.target.id]: parseFloat(e.target.value),
         }))
-        break
 
       case 'checkbox':
         return setForm(form => ({
