@@ -41,9 +41,9 @@ const Add = ({
 
   return (
     <div
-      data-testid="add-input-wrapper"
+      data-testid="add-tag-wrapper"
       className={`
-        add-input-nm 
+        add-tag-nm 
         round-${round}
         color-${color}
         size-${size}
@@ -51,7 +51,7 @@ const Add = ({
       `}>
       <div
         className={`
-          add-input-nm__container
+          add-tag-nm__container
           disabled-${disabled} 
         `}>
         {<AddIcon className="plus-icon-nm" />}

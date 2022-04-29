@@ -10,7 +10,7 @@
   color: rgba($black, 0.75);
 }
 
-.add-input-nm {
+.add-tag-nm {
   .character-limit-nm {
     margin-top: 0.35rem;
     right: 0;
@@ -51,7 +51,7 @@
       padding-left: 2.5em;
     }
 
-    .add-input-nm__container {
+    .add-tag-nm__container {
       svg {
         left: 0.95rem;
       }
@@ -59,7 +59,7 @@
   }
 }
 
-.add-input-nm__container {
+.add-tag-nm__container {
   position: relative;
   display: flex;
   align-items: center;
@@ -78,14 +78,14 @@
   }
 }
 
-.add-input-nm.size-large {
+.add-tag-nm.size-large {
   svg {
     top: 0.8rem;
   }
 }
 
 @each $name, $color in $colors {
-  .add-input-nm.color-#{$name} {
+  .add-tag-nm.color-#{$name} {
     .plus-icon-nm path {
       @if $name == 'neutral' {
         fill: scale-color($color, $lightness: -50%, $saturation: -20%);
@@ -97,8 +97,7 @@
     }
   }
 
-  .add-input-nm,
-  input.color-#{$name} {
+  .add-tag-nm input.color-#{$name} {
     @if $name == 'neutral' {
       // background: scale-color($color, $saturation: 5%, $lightness: 70%);
       color: scale-color($color, $lightness: -50%, $saturation: -20%);
