@@ -16,7 +16,7 @@ Components:
       ✔ Remove default value @done(22-04-29 20:24)
       ✔ move isLoading to the left @done(22-04-29 20:22)
       ☐ Width when rounded is too small, and width in general messy
-      ☐ Add sizes
+      ✔ Add sizes @done(22-04-29 20:39)
 
   Slider: 
     ☐ Add number input beside slider (optional)
@@ -47,6 +47,9 @@ Structure:
   ☐ Make growTextArea an available hook
   ☐ Move buttons css to the button file rather than as mixins
   ☐ Prettify code that prettier made ugly lol @started(22-04-26 23:30)
+
+Design:
+  ☐ Re-design neutrals to be consistent
 
 Archive:
   ✔ Find new spot for Private components and re-factor Extended* components @done(22-04-26 22:10) @project(Structure)
