@@ -8,6 +8,8 @@ Stories:
   ☐ Upload Button
 
 Issues:
+  ☐ Text Input and Switch @critical
+    Cannot update a component (<comp>) while rendering a different component (<comp>).
   ☐ @thought: Slider a bit slow, and you have to drag way over the edges to get to them
 
 Components:
@@ -19,10 +21,12 @@ Components:
   Slider: 
     ☐ Add option number input beside slider
     ☐ Add opportunity for icon before and after (for horizontal)
+    ☐ @critical Vertical Slider does not work in @firefox
+    ☐ Dot is not always 1:1, add min/max height/width
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
-    ☐ Font weight for disabled is too thick (Mozilla Firefox)
+    ☐ Font weight for disabled is too thick @firefox
     ☐ Re-check accessibility ARIA label rules
     ☐ Fix z-index issue when there is a select right below a select
     ☐ @idea search bar
@@ -32,6 +36,10 @@ Components:
 
   Checkbox:
     ☐ @idea indeterminate
+
+  Radio: 
+    Button:
+      ☐ Outline is not rounded @safari
 
 Tools:
   useForm hook:
