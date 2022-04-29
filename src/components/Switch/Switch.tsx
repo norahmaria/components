@@ -42,6 +42,7 @@ const Switch = ({
       style={style}
       tabIndex={0}
       onKeyDown={onKeyDown}
+      htmlFor={id}
       className={`
         switch-nm 
         color-${color} 
@@ -49,8 +50,7 @@ const Switch = ({
         checked-${checked} 
         disabled-${disabled}
         ${className}
-      `}
-      htmlFor={id}>
+      `}>
       <input
         data-testid="switch-input"
         tabIndex={-1}
