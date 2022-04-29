@@ -68,14 +68,18 @@
     .select-nm.color-#{$name} .options-nm__option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 50%);
-        border: 1px solid scale-color($color, $saturation: 5%, $lightness: 50%);
+        border: 1px
+          solid
+          scale-color($color, $saturation: 5%, $lightness: 50%);
       }
     }
   } @else {
     .select-nm.color-#{$name} .options-nm__option {
       &[aria-selected='true'] {
         background: scale-color($color, $saturation: 5%, $lightness: 90%);
-        border: 1px solid scale-color($color, $saturation: 5%, $lightness: 90%);
+        border: 1px
+          solid
+          scale-color($color, $saturation: 5%, $lightness: 90%);
       }
     }
   }
