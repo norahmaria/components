@@ -30,6 +30,7 @@ Components:
     ☐ Add Select keyboard navigation (up and down keys) @critical
     ☐ Font weight for disabled is too thick (Mozilla Firefox)
     ☐ Re-check accessibility ARIA label rules
+    ☐ Fix z-index issue when there is a select right below a select
     ☐ @consider search bar
     ☐ @consider add/remove items from select
     ☐ @consider copy/paste functionality
