@@ -29,7 +29,6 @@
 
   &,
   &[aria-selected='true'] {
-    font-weight: 500;
     &:hover,
     &:focus-visible,
     &:active {
@@ -42,6 +41,10 @@
     &:focus-visible {
       background: lighten($black, 77.5%);
     }
+  }
+
+  &[aria-selected='true'] {
+    font-weight: 500;
   }
 
   &[aria-disabled='true'] {
