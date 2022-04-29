@@ -41,19 +41,17 @@
 
   .loading-spinner-nm {
     position: absolute;
-    right: 0.95rem;
+    left: 0.65rem;
   }
 
   &.round-true {
     input {
       border-radius: 2rem;
-      padding: 0.65em 0.95em 0.65em 0.95em;
-      padding-left: 2.5em;
     }
 
     .add-tag-nm__container {
       svg {
-        left: 0.95rem;
+        left: 0.5rem;
       }
     }
   }

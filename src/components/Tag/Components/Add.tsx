@@ -54,7 +54,12 @@ const Add = ({
           add-tag-nm__container
           disabled-${disabled} 
         `}>
-        {<AddIcon className="plus-icon-nm" />}
+        {isLoading ? (
+          <LoadingSpinner color={color} />
+        ) : (
+          <AddIcon className="plus-icon-nm" />
+        )}
+
         <input
           data-testid="add-input"
           autoComplete="off"
@@ -76,8 +81,6 @@ const Add = ({
           }}
           id={id}
         />
-
-        {isLoading && <LoadingSpinner color={color} />}
       </div>
 
       {characterLimit && (
