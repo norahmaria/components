@@ -8,9 +8,9 @@ Stories:
   ☐ Upload Button
 
 Issues:
-  ☐ Text Input and Switch @critical
-    Cannot update a component (<comp>) while rendering a different component (<comp>).
-  ☐ @thought: Slider a bit slow, and you have to drag way over the edges to get to them
+  ☐ Text Input and Switch
+    @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
+  ☐ @thought: Slider is a bit slow, and you have to drag way over the edges to get to them
 
 Components:
   Tag:
@@ -22,7 +22,7 @@ Components:
     ☐ Add option number input beside slider
     ☐ Add opportunity for icon before and after (for horizontal)
     ☐ @critical Vertical Slider does not work in @firefox
-    ☐ Dot is not always 1:1, add min/max height/width
+    ✔ Dot is not always 1:1, add min/max height/width @done(22-04-30 07:41)
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
