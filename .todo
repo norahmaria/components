@@ -8,6 +8,10 @@ Stories:
   ☐ Upload Button
 
 Issues:
+  ☐ @critical Safari support (safari is a __bitch__???)
+    ☐ Hovers, literally all gone
+    ☐ TabIndex is __allegedly__ not a thing??
+    ☐ Outline not gone for components I want it gone, but gone for the button where i've explicitly added it ¯\_(ツ)_/¯
   ☐ Text Input and Switch
     @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
   ☐ @thought: Slider is a bit slow, and you have to drag way over the edges to get to them
@@ -22,7 +26,6 @@ Components:
     ☐ Add option number input beside slider
     ☐ Add opportunity for icon before and after (for horizontal)
     ☐ @critical Vertical Slider does not work in @firefox
-    ✔ Dot is not always 1:1, add min/max height/width @done(22-04-30 07:41)
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
@@ -52,6 +55,7 @@ Structure:
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Dot is not always 1:1, add min/max height/width @done(22-04-30 07:41) @project(Components.Slider)
   ✔ Make id/name consistent in components for easy usage @done(22-04-29 22:56) @project(Tools.useForm hook)
   ✔ Radio buttons have unique id for every field @done(22-04-29 22:57) @project(Tools.useForm hook)
   ✔ Re-design neutrals to be consistent @project(Design) @done(22-04-29 22:01)
