@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { action } from '@storybook/addon-actions'
 import { Meta, Story } from '@storybook/react'
+import useForm from '../hooks/useForm'
 
 import {
   Button,
@@ -43,23 +45,44 @@ export default {
 } as Meta
 
 const FormStory: Story<any> = args => {
-  const onChange = (
-    value: string | number | (string | number)[] | boolean,
-    e?: any
-  ) => {}
+  const { form, setForm, onChange } = useForm({
+    name: '',
+    country: '',
+    gender: '',
+    cries: 15,
+    darkMode: false,
+    notifications: false,
+    tags: [
+      { text: 'A tag', color: 'error' },
+      { text: 'Another Tag', color: 'success' },
+      { text: 'Third Tag', color: 'primary' },
+      { text: 'Four Tags', color: 'warning' },
+    ],
+  })
 
   const onAddTag = (
     value: string,
     e: React.KeyboardEvent<HTMLInputElement>
-  ) => {}
+  ) => {
+    setForm(it => ({
+      ...it,
+      tags: [...it.tags, { text: value, color: 'success' }],
+    }))
+
+    action('onAddTag')(value, e)
+  }
 
   const onButtonClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {}
+  ) => {
+    action('onButtonClick')
+  }
 
   return (
     <form style={{ display: 'grid', gap: '2rem', width: '30rem' }}>
       <div style={{ display: 'grid', gap: '1.5rem', width: '30rem' }}>
+        <h1 className="okay">Example Form</h1>
+
         <TextInput
           label="Name"
           placeholder="Jane Doe"
@@ -69,6 +92,7 @@ const FormStory: Story<any> = args => {
         />
 
         <Select
+          id="country"
           label="Country"
           placeholder="Select a country"
           onSelectionChange={onChange}
@@ -84,7 +108,12 @@ const FormStory: Story<any> = args => {
         </Select>
       </div>
 
-      <Radio name="Gender" onRadioChange={onChange} horizontal {...args}>
+      <Radio
+        label="Gender"
+        name="gender"
+        onRadioChange={onChange}
+        horizontal
+        {...args}>
         <Radio.Button label="She/Her" value="she/her" />
         <Radio.Button label="He/Him" value="he/him" />
         <Radio.Button label="They/Them" value="they/them" />
@@ -108,29 +137,24 @@ const FormStory: Story<any> = args => {
       <div style={{ display: 'grid', gap: '1.5rem', width: '30rem' }}>
         <Switch
           label="Dark Mode"
-          id="switch"
+          id="darkMode"
           onSwitchChange={onChange}
           {...args}
         />
         <Switch
           label="Notifications"
-          id="switch-two"
+          id="notifications"
           onSwitchChange={onChange}
           {...args}
         />
       </div>
 
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-        <Tag {...args} color="error">
-          A tag
-        </Tag>
-        <Tag {...args} color="neutral">
-          Another tag
-        </Tag>
-        <Tag {...args}>Third tag</Tag>
-        <Tag {...args} color="warning">
-          Four tags
-        </Tag>
+        {form.tags.map(tag => (
+          <Tag {...args} color={tag.color} key={tag.text}>
+            {tag.text}
+          </Tag>
+        ))}
 
         <Tag.Add
           {...args}

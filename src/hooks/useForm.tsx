@@ -7,6 +7,8 @@ const useForm = (initial: any) => {
     value?: string | number | (string | number)[] | boolean,
     e?: any
   ) => {
+    if (!e) return
+
     switch (e.target.type) {
       case 'radio':
         return setForm(form => ({
