@@ -36,10 +36,6 @@ const useForm = (initial: any) => {
     }
   }
 
-  useEffect(() => {
-    console.log(form)
-  }, [form])
-
   return {
     form,
     setForm,
