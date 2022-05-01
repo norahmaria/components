@@ -35,7 +35,10 @@ const Add = ({
   }
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') onAdd(value, e)
+    if (e.key === 'Enter') {
+      onAdd(value, e)
+      setValue('')
+    }
   }
 
   return (
