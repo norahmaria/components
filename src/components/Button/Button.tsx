@@ -19,7 +19,7 @@ const Button = ({
   disabled = false,
   style,
   className,
-  ...props
+  children,
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
 
@@ -45,7 +45,7 @@ const Button = ({
         variant-${variant}
         clicked-${clicked}
         round-${round}
-        ${!props.children && (leftIcon || rightIcon) ? 'icon' : ''}
+        ${!children && (leftIcon || rightIcon) ? 'icon' : ''}
         ${className}
       `}>
       {isLoading ? (
@@ -68,7 +68,7 @@ const Button = ({
               leftIcon
             ))}
 
-          {props.children}
+          {children}
 
           {rightIcon &&
             (typeof rightIcon === 'string' ? (
