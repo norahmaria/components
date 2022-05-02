@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { onSelectionChangeArgs } from '../components/Select/Select.types'
 
 import { CustomColor } from '../components/Tag/Tag.types'
-import getRandomColor from './getRandomColor'
+import getRandomColor from '../utils/getRandomColor'
 
 const useForm = (initial: any) => {
   const [form, setForm] = useState(initial)
