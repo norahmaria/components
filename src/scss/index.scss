@@ -72,6 +72,18 @@ ol {
   }
 }
 
+// # ━━━ REUSED ━━━ #
+.character-limit-nm {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  width: 100%;
+
+  font-size: 0.775rem;
+  color: rgba($black, 0.75);
+  margin-top: 0.5rem;
+}
+
 // # ━━━ INPUTS ━━━ #
 .form-label-nm {
   font-weight: 500;

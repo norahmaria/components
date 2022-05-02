@@ -1,15 +1,5 @@
 @use '../../../scss/variables' as *;
 
-.character-limit-nm {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.15rem;
-  width: 100%;
-
-  font-size: 0.775rem;
-  color: rgba($black, 0.75);
-}
-
 .add-tag-nm {
   .character-limit-nm {
     margin-top: 0.35rem;
