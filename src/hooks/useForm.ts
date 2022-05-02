@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { onSelectionChangeArgs } from '../components/Select/Select.types'
 
 import { CustomColor } from '../components/Tag/Tag.types'
