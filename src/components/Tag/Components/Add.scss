@@ -1,27 +1,26 @@
 @use '../../../scss/variables' as *;
 
 .add-tag-nm {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   max-width: 100%;
 
-  .character-limit-nm {
-    height: 100%;
-    width: max-content;
-    right: 0.65rem;
-    position: absolute;
+  &__container {
+    max-width: 100%;
   }
 
-  &.character-limit-true {
-    input {
-      padding-right: 4.5rem;
-    }
+  .character-limit-nm {
+    margin-top: 0;
+    width: max-content;
+    padding-left: 0.65rem;
   }
 
   input {
     border-style: dashed;
     transition: box-shadow 0.25s $cubic, border 0.25s ease;
     min-width: auto;
-    line-height: 1;
+    line-height: 1.1;
 
     padding: 0.4em 0.6em;
 
@@ -83,29 +82,17 @@
   input {
     padding-left: 1.55rem;
   }
-
-  .character-limit-nm {
-    top: 0rem;
-  }
 }
 
 .add-tag-nm.size-medium {
   input {
     padding-left: 1.65rem;
   }
-
-  .character-limit-nm {
-    top: 0.1rem;
-  }
 }
 
 .add-tag-nm.size-large {
   input {
     padding-left: 1.8rem;
-  }
-
-  .character-limit-nm {
-    top: 0.2rem;
   }
 }
 

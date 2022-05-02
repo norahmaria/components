@@ -81,17 +81,17 @@ const Add = ({
             ...style,
             width: `calc(${
               value.length ? value.length : placeholder.length
-            }ch + 2.5rem ${!!characterLimit ? '+ 2.5rem' : ''})`,
+            }ch + 2.5rem)`,
           }}
         />
-      </div>
 
-      {characterLimit && (
-        <div className="character-limit-nm">
-          <p className="character-count-nm">{value.length}</p> /{' '}
-          <p className="character-limit-count-nm">{characterLimit}</p>
-        </div>
-      )}
+        {characterLimit && (
+          <div className="character-limit-nm">
+            <p className="character-count-nm">{value.length}</p> /{' '}
+            <p className="character-limit-count-nm">{characterLimit}</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
