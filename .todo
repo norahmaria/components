@@ -3,6 +3,10 @@
 Stories:
   ☐ Add intro page explaining events, basic styling and classname conventions
   ☐ Add overview of the classNames in the components
+  ☐ Update stories to fit the new props from refactor
+
+Testing:
+  ☐ Fix tests for the components after refactor
 
 @NEXT Components:
   ☐ Upload Button
