@@ -7,12 +7,13 @@ import getRandomColor from './getRandomColor'
 const useForm = (initial: any) => {
   const [form, setForm] = useState(initial)
 
-  const onSelectionChange = (e: onSelectionChangeArgs) => {
-    return setForm(form => ({
-      ...form,
-      [e.id]: e.selected,
-    }))
-  }
+  const onSelectionChange =
+    (string?: boolean) => (e: onSelectionChangeArgs) => {
+      return setForm(form => ({
+        ...form,
+        [e.id]: string ? e.selected[0] : e.selected,
+      }))
+    }
 
   const onAddTag =
     (

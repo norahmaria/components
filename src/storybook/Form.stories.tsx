@@ -87,7 +87,7 @@ const FormStory: Story<any> = args => {
           label="Country"
           placeholder="Select a country"
           value={form.country}
-          onSelectionChange={onSelectionChange}
+          onSelectionChange={onSelectionChange(true)}
           {...args}>
           <Select.Option value="no">Norway</Select.Option>
           <Select.Option value="se">Sweden</Select.Option>
