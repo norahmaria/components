@@ -49,6 +49,7 @@ const Add = ({
         round-${round}
         color-${color}
         size-${size}
+        character-limit-${!!characterLimit}
         ${className}
       `}>
       <div
@@ -80,7 +81,7 @@ const Add = ({
             ...style,
             width: `calc(${
               value.length ? value.length : placeholder.length
-            }ch + 2.5rem)`,
+            }ch + 2.5rem ${!!characterLimit ? '+ 2.5rem' : ''})`,
           }}
         />
       </div>

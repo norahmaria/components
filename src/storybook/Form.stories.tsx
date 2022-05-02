@@ -157,7 +157,7 @@ const FormStory: Story<any> = args => {
           placeholder="New Tag"
           onAdd={onAddTag('text')}
           value={form.addingTag}
-          characterLimit={10}
+          characterLimit={20}
           {...args}
         />
       </div>
