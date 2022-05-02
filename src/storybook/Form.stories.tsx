@@ -55,8 +55,7 @@ const FormStory: Story<any> = args => {
     tags: [
       { text: 'A tag', color: 'error' },
       { text: 'Another Tag', color: 'success' },
-      { text: 'Third Tag', color: 'primary' },
-      { text: 'Four Tags', color: 'warning' },
+      { text: 'Three Tags', color: 'warning' },
     ],
     newsletter: false,
   })
