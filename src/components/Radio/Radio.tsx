@@ -7,7 +7,7 @@ import ExtendedButton from './Components/Private/ExtendedButton'
 const Radio = ({
   name,
   label,
-  onRadioChange,
+  onChange,
   size = 'medium',
   color = 'primary',
   labelPlacement = 'right',
@@ -37,7 +37,7 @@ const Radio = ({
             {...child.props}
             id={`${name}-${idx}`}
             checked={child.props.value === value}
-            onChange={onRadioChange}
+            onChange={onChange}
             name={name}
             size={size}
             color={color}

@@ -9,7 +9,7 @@ const Checkbox = ({
   disabled = false,
   label,
   labelPlacement = 'right',
-  onCheckboxChange,
+  onChange,
   value,
   size = 'medium',
   color = 'primary',
@@ -28,7 +28,7 @@ const Checkbox = ({
       `}>
       <input
         disabled={disabled}
-        onChange={onCheckboxChange}
+        onChange={onChange}
         id={id}
         type="checkbox"
         checked={value}

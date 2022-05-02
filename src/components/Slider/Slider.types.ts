@@ -16,7 +16,7 @@ interface SliderProps extends Props {
   step?: number
 
   /** The function to call when the value is changed */
-  onSliderChange: (e: React.ChangeEvent<HTMLInputElement>) => any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Set slider to be disabled */
   disabled?: boolean

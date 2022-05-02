@@ -15,7 +15,7 @@ interface SelectProps extends Props {
   id: string
 
   /** The function to call when selection changes */
-  onSelectionChange: ({}: onSelectionChangeArgs) => any
+  onChange: ({}: onSelectionChangeArgs) => any
 
   /** Allow for multi select */
   multiple?: boolean

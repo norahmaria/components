@@ -15,7 +15,7 @@ const Slider = ({
   className,
   style,
   disabled = false,
-  onSliderChange,
+  onChange,
   step = 1,
   prefix,
   suffix,
@@ -55,7 +55,7 @@ const Slider = ({
         min={min}
         max={max}
         value={value}
-        onChange={onSliderChange}
+        onChange={onChange}
         type="range"
       />
       <div

@@ -7,7 +7,7 @@ interface RadioProps extends Props {
   /** A unique id used to group the Radio buttons together */
   name: string
   /** The function to call when the Radio value is changed */
-  onRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Sets the Radio button group to be disabled or not */
   disabled?: boolean

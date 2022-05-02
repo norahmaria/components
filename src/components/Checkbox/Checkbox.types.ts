@@ -6,7 +6,7 @@ interface CheckboxProps extends Props {
   /** The checkbox label */
   label: string
   /** The function to call when checkbox is changed. */
-  onCheckboxChange: (e: React.ChangeEvent<HTMLInputElement>) => any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Sets the checkbox to be disabled or not */
   disabled?: boolean

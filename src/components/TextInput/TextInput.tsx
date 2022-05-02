@@ -12,7 +12,7 @@ import growTextArea from '../../utils/growTextArea'
 const TextInput = ({
   label,
   placeholder,
-  onTextInputChange,
+  onChange,
   color = 'primary',
   size = 'medium',
   round = false,
@@ -64,7 +64,7 @@ const TextInput = ({
             disabled={disabled}
             value={value}
             placeholder={placeholder}
-            onChange={onTextInputChange}
+            onChange={onChange}
             onKeyDown={growTextArea}
             id={id}
             className={`
@@ -89,7 +89,7 @@ const TextInput = ({
             type={password ? 'password' : 'text'}
             value={value}
             placeholder={placeholder}
-            onChange={onTextInputChange}
+            onChange={onChange}
             id={id}
           />
         )}

@@ -6,7 +6,7 @@ interface SwitchProps extends Props {
   /** The unique id to use for the switch and for the label for attribute */
   id: string
   /** The function to call when the switch changes */
-  onSwitchChange: (e: React.ChangeEvent<HTMLInputElement>) => any
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Set input to be disabled or not */
   disabled?: boolean

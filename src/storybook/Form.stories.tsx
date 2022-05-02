@@ -76,7 +76,7 @@ const FormStory: Story<any> = args => {
           placeholder="Jane Doe"
           id="name"
           value={form.name}
-          onTextInputChange={e => {
+          onChange={e => {
             onChange(e as React.ChangeEvent<HTMLInputElement>)
             action('onTextInputChange')(e)
           }}
@@ -109,7 +109,7 @@ const FormStory: Story<any> = args => {
         label="Gender"
         name="gender"
         value={form.gender}
-        onRadioChange={e => {
+        onChange={e => {
           onChange(e)
           action('onRadioChange')(e)
         }}
@@ -128,7 +128,7 @@ const FormStory: Story<any> = args => {
       <Slider
         id="cries"
         label="How many times a week do you cry because of CSS?"
-        onSliderChange={e => {
+        onChange={e => {
           onChange(e)
           action('onSliderChange')(e)
         }}
@@ -143,7 +143,7 @@ const FormStory: Story<any> = args => {
           label="Dark Mode"
           id="darkMode"
           value={form.darkMode}
-          onSwitchChange={e => {
+          onChange={e => {
             onChange(e)
             action('onSwitchChange')(e)
           }}
@@ -153,7 +153,7 @@ const FormStory: Story<any> = args => {
           label="Notifications"
           id="notifications"
           value={form.notifications}
-          onSwitchChange={e => {
+          onChange={e => {
             onChange(e)
             action('onSwitchChange')(e)
           }}
@@ -195,7 +195,7 @@ const FormStory: Story<any> = args => {
           alignItems: 'center',
           width: '30rem',
         }}>
-        <Button onButtonClick={onButtonClick} {...args}>
+        <Button onClick={onButtonClick} {...args}>
           Submit
         </Button>
 
@@ -203,7 +203,7 @@ const FormStory: Story<any> = args => {
           id="newsletter"
           label="I want to recieve newsletters"
           value={form.newsletter}
-          onCheckboxChange={e => {
+          onChange={e => {
             onChange(e)
             action('onCheckboxChange')(e)
           }}

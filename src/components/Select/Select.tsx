@@ -16,7 +16,7 @@ const Select = ({
   disabled = false,
   label,
   placeholder,
-  onSelectionChange,
+  onChange,
   status,
   defaultValue = [],
   size = 'medium',
@@ -43,7 +43,7 @@ const Select = ({
 
   useEffect(() => {
     if (didMountRef.current) {
-      onSelectionChange({ selected, id })
+      onChange({ selected, id })
     } else {
       didMountRef.current = true
     }

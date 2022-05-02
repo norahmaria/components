@@ -8,7 +8,7 @@ const Switch = ({
   label,
   disabled = false,
   value,
-  onSwitchChange,
+  onChange,
   id,
   style,
   className,
@@ -32,7 +32,7 @@ const Switch = ({
         type="checkbox"
         name={id}
         id={id}
-        onChange={onSwitchChange}
+        onChange={onChange}
         checked={value}
       />
       <div className="switch-nm__toggle">

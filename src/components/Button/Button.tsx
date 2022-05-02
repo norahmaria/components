@@ -15,7 +15,7 @@ const Button = ({
   variant = 'default',
   type = 'button',
   isLoading = false,
-  onButtonClick,
+  onClick,
   disabled = false,
   style,
   className,
@@ -29,7 +29,7 @@ const Button = ({
     setClicked(true)
     setTimeout(() => setClicked(false), 500)
 
-    if (onButtonClick) onButtonClick(e)
+    if (onClick) onClick(e)
   }
 
   return (

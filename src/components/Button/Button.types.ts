@@ -2,9 +2,7 @@ import Props from '../../types/Props'
 
 interface ButtonProps extends Props {
   /** The function to call when the button is clicked, the argument will give you the event. */
-  onButtonClick: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => any
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any
 
   /** Let the button take up the space it has around it */
   fullWidth?: boolean

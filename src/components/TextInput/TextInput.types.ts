@@ -8,7 +8,7 @@ interface TextInputProps extends Props {
   /** The unique id to use for the input and for the label for attribute */
   id: string
   /** The function to call when text input changes */
-  onTextInputChange: (
+  onChange: (
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
