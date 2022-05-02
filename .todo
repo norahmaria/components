@@ -38,10 +38,10 @@ Components:
     ☐ @idea indeterminate
 
 Structure:
-  ☐ Move buttons css to the button file rather than as mixins
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Move buttons css to the button file rather than as mixins @done(22-05-02 22:05) @project(Structure)
   ✔ Text Input and Switch @done(22-05-02 17:34) @project(Issues)
     @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
   ✘ Slider is a bit slow, and you have to drag way over the edges to get to them @cancelled(22-05-02 17:34) @project(Issues)
