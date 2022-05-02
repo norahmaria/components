@@ -28,16 +28,18 @@ const Switch = ({
       `}>
       <input
         data-testid="switch-input"
-        disabled={disabled}
         type="checkbox"
-        name={id}
-        id={id}
+        disabled={disabled}
         onChange={onChange}
         checked={value}
+        name={id}
+        id={id}
       />
+
       <div className="switch-nm__toggle">
         <div className="dot"></div>
       </div>
+
       {label}
     </label>
   )

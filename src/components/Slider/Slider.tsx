@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SliderProps from './Slider.types'
 
+import getPercentage from '../../utils/getPercentage'
 import './Slider.scss'
 
 const Slider = ({
@@ -23,8 +24,8 @@ const Slider = ({
   const [percentage, setPercentage] = useState(0)
   const [showTooltip, setShowTooltip] = useState(false)
 
-  const gradientColor =
-    color === 'neutral' || disabled ? '#606078' : `var(--${color}700)`
+  const isGray = color === 'neutral' || disabled
+  const gradientColor = isGray ? '#606078' : `var(--${color}700)`
 
   useEffect(() => {
     setPercentage(getPercentage(value, max, min))
@@ -43,6 +44,7 @@ const Slider = ({
       <label htmlFor={id} className={`form-label-nm disabled-${disabled}`}>
         {label}
       </label>
+
       <input
         data-testid="slider-input"
         disabled={disabled}
@@ -58,6 +60,7 @@ const Slider = ({
         onChange={onChange}
         type="range"
       />
+
       <div
         data-testid="slider-placebo"
         className={`slider-nm__range color-${color}`}
@@ -74,9 +77,7 @@ const Slider = ({
           style={
             vertical
               ? {
-                  bottom: `${
-                    percentage > 90 ? percentage - 10 : percentage
-                  }%`,
+                  bottom: `${percentage > 90 ? percentage - 10 : percentage}%`,
                 }
               : { marginLeft: `${percentage}%` }
           }>
@@ -91,13 +92,6 @@ const Slider = ({
       </div>
     </div>
   )
-}
-
-const getPercentage = (number: number, max: number, min: number) => {
-  const range = max - min
-  const positiveValue = number - min
-
-  return (positiveValue / range) * 100
 }
 
 export default Slider

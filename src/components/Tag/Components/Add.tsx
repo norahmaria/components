@@ -68,11 +68,6 @@ const Add = ({
           id={id}
           autoComplete="off"
           disabled={disabled}
-          className={`
-              input-base-nm 
-              color-${color} 
-              size-${size}
-            `}
           value={value}
           onKeyDown={onKeyDown}
           placeholder={placeholder}
@@ -83,6 +78,11 @@ const Add = ({
               value.length ? value.length : placeholder.length
             }ch + 2.5rem)`,
           }}
+          className={`
+            input-base-nm 
+            color-${color} 
+            size-${size}
+          `}
         />
 
         {characterLimit && (

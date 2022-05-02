@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import './Select.scss'
 
-import useOutsideClick from '../../hooks/useOutsideClick'
-import useOnKeyDown from './hooks/useOnKeyDown'
+import useSelect from './hooks/useSelect'
 
 import Group from './Components/Group'
 import ExtendedOption from './Components/Private/ExtendedOption'
@@ -26,51 +25,23 @@ const Select = ({
   id,
   ...props
 }: SelectProps) => {
-  const [selected, setSelected] =
-    useState<(string | number)[]>(defaultValue)
-
-  const container = useRef<HTMLDivElement>(null)
-  const didMountRef = useRef(false)
-
-  const { open, setOpen } = useOutsideClick(container, '.select')
-
-  const onKeyDown = useOnKeyDown({
-    updateSelected,
+  const {
+    onKeyDown,
     setSelected,
+    selected,
     setOpen,
+    updateSelected,
+    container,
+    open,
+    clear,
+  } = useSelect({
+    defaultValue,
     multiple,
+    onChange,
+    id,
   })
 
-  useEffect(() => {
-    if (didMountRef.current) {
-      onChange({ selected, id })
-    } else {
-      didMountRef.current = true
-    }
-  }, [selected])
-
-  function updateSelected(value: number | string) {
-    setSelected(prev => {
-      let modify = [...prev]
-      const selectedIndex = modify.indexOf(value)
-
-      if (multiple) {
-        selectedIndex > -1
-          ? modify.splice(selectedIndex, 1)
-          : modify.push(value)
-      } else {
-        if (modify[0] === value) {
-          modify = []
-        } else {
-          modify = [value]
-        }
-      }
-
-      return modify
-    })
-  }
-
-  const createProps = (value: string | number, disabled?: boolean) => {
+  const extendedProps = (value: string | number, disabled?: boolean) => {
     return {
       tabIndex: disabled ? -1 : open ? (disabled ? -1 : 0) : -1,
       selected: selected.includes(value),
@@ -82,11 +53,6 @@ const Select = ({
         }
       },
     }
-  }
-
-  const clear = () => {
-    setSelected([])
-    setTimeout(() => setOpen(required))
   }
 
   return (
@@ -101,9 +67,7 @@ const Select = ({
         ${status && status.type ? status.type : ''} 
         ${className}
       `}>
-      <label className={`form-label-nm disabled-${disabled}`}>
-        {label}
-      </label>
+      <label className={`form-label-nm disabled-${disabled}`}>{label}</label>
 
       <Button
         color={color}
@@ -117,9 +81,7 @@ const Select = ({
         placeholder={placeholder}
         labelChildren={props.children}
         onClick={() => setOpen(prev => !prev)}
-        onKeyDown={e =>
-          e.key === 'Backspace' ? setSelected([]) : () => {}
-        }
+        onKeyDown={e => (e.key === 'Backspace' ? setSelected([]) : () => {})}
         clear={clear}
       />
 
@@ -139,7 +101,7 @@ const Select = ({
                     {React.Children.map(child.props.children, nested => (
                       <ExtendedOption
                         {...nested.props}
-                        {...createProps(
+                        {...extendedProps(
                           nested.props.value,
                           nested.props.disabled
                         )}
@@ -151,17 +113,14 @@ const Select = ({
                 return (
                   <ExtendedOption
                     {...child.props}
-                    {...createProps(
-                      child.props.value,
-                      child.props.disabled
-                    )}
+                    {...extendedProps(child.props.value, child.props.disabled)}
                   />
                 )
               }
             }
           })
         ) : (
-          <div>No selects </div>
+          <div>No selects</div>
         )}
       </ul>
 

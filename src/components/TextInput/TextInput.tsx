@@ -93,6 +93,7 @@ const TextInput = ({
             id={id}
           />
         )}
+
         {isLoading ? (
           <LoadingSpinner color={color} />
         ) : value.length && hover ? (
@@ -104,10 +105,7 @@ const TextInput = ({
             onClick={onDelete}
           />
         ) : status?.type === 'error' ? (
-          <ErrorIcon
-            aria-label={status.message}
-            className="error-icon-nm"
-          />
+          <ErrorIcon aria-label={status.message} className="error-icon-nm" />
         ) : status?.type === 'warning' ? (
           <WarningIcon
             aria-label={status.message}

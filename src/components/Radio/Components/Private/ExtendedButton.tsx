@@ -22,12 +22,12 @@ const Child = ({
       `}>
       <input
         data-testid={`radio-button-input-${id}`}
-        id={id}
+        type="radio"
         value={props.value}
         disabled={disabled}
-        type="radio"
         onChange={onChange}
         name={name}
+        id={id}
       />
 
       <label

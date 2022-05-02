@@ -27,18 +27,20 @@ const Checkbox = ({
         ${className}
       `}>
       <input
+        data-testid="checkbox-input"
+        type="checkbox"
         disabled={disabled}
         onChange={onChange}
-        id={id}
-        type="checkbox"
         checked={value}
-        data-testid="checkbox-input"
+        id={id}
       />
+
       <label
+        data-testid="checkbox-label"
         htmlFor={id}
-        className={labelPlacement}
-        data-testid="checkbox-label">
+        className={labelPlacement}>
         <CheckMarkIcon />
+
         {label}
       </label>
     </div>

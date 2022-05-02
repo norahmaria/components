@@ -69,6 +69,12 @@ const Tag = ({
       onClick={onClick ? click : null}
       tabIndex={disabled ? -1 : !!onClick ? 0 : -1}
       aria-disabled={disabled}
+      onMouseOver={onHover}
+      onMouseOut={onHoverEnd}
+      style={{
+        ...colorState,
+        ...style,
+      }}
       className={`
         tag-nm 
         color-${color} 
@@ -78,13 +84,7 @@ const Tag = ({
         round-${round}
         disabled-${disabled}
         ${className}
-      `}
-      onMouseOver={onHover}
-      onMouseOut={onHoverEnd}
-      style={{
-        ...colorState,
-        ...style,
-      }}>
+      `}>
       {icon &&
         (typeof icon === 'string' ? (
           <img className="img-icon-nm" src={icon} />
