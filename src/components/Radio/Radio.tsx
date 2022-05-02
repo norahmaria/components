@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import RadioProps from './Radio.types'
 import './Radio.scss'
 
@@ -13,20 +13,11 @@ const Radio = ({
   labelPlacement = 'right',
   disabled = false,
   horizontal = false,
-  defaultValue,
+  value,
   children,
   className,
   style,
 }: RadioProps) => {
-  const [checked, setChecked] = useState<string | number>(
-    defaultValue || null
-  )
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.value)
-    if (!disabled) onRadioChange(e.target.value, e)
-  }
-
   return (
     <div
       data-testid="radio-wrapper"
@@ -45,9 +36,8 @@ const Radio = ({
           <ExtendedButton
             {...child.props}
             id={`${name}-${idx}`}
-            checked={child.props.value === checked}
-            onChange={onChange}
-            defaultChecked={child.props.value === defaultValue}
+            checked={child.props.value === value}
+            onChange={onRadioChange}
             name={name}
             size={size}
             color={color}

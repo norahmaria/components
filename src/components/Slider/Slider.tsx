@@ -4,7 +4,7 @@ import SliderProps from './Slider.types'
 import './Slider.scss'
 
 const Slider = ({
-  defaultValue = 20,
+  value,
   max = 100,
   min = 0,
   id,
@@ -21,16 +21,10 @@ const Slider = ({
   suffix,
 }: SliderProps) => {
   const [percentage, setPercentage] = useState(0)
-  const [value, setValue] = useState(defaultValue)
   const [showTooltip, setShowTooltip] = useState(false)
 
   const gradientColor =
     color === 'neutral' || disabled ? '#606078' : `var(--${color}700)`
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(parseFloat(e.target.value))
-    if (!disabled) onSliderChange(parseFloat(e.target.value), e)
-  }
 
   useEffect(() => {
     setPercentage(getPercentage(value, max, min))
@@ -61,7 +55,7 @@ const Slider = ({
         min={min}
         max={max}
         value={value}
-        onChange={onChange}
+        onChange={onSliderChange}
         type="range"
       />
       <div

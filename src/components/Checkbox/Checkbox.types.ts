@@ -5,11 +5,8 @@ interface CheckboxProps extends Props {
   id: string
   /** The checkbox label */
   label: string
-  /** The function to call when checkbox is changed, the first argument will give you the value of the checkbox, while the second argument will give you the event, either the onChange for the input, or the keydown event (for checking with enter). */
-  onCheckboxChange: (
-    checked: boolean,
-    e: React.ChangeEvent<HTMLInputElement> | KeyboardEvent
-  ) => any
+  /** The function to call when checkbox is changed. */
+  onCheckboxChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Sets the checkbox to be disabled or not */
   disabled?: boolean
@@ -17,8 +14,8 @@ interface CheckboxProps extends Props {
   /** Where to place the checkbox label */
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
 
-  /** 'The default value of the checkbox */
-  defaultValue?: boolean
+  /** 'The value of the checkbox */
+  value: boolean
 }
 
 export default CheckboxProps

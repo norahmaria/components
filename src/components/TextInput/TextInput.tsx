@@ -21,35 +21,15 @@ const TextInput = ({
   password = false,
   textarea = false,
   characterLimit,
-  defaultValue,
+  value,
   status,
   icon,
   id,
   className,
   style,
+  onDelete,
 }: TextInputProps) => {
-  const [value, setValue] = useState(defaultValue || '')
   const [hover, setHover] = useState(false)
-
-  const onChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setValue(() => {
-      const update =
-        characterLimit && e.target.value.length > characterLimit
-          ? value
-          : characterLimit
-          ? e.target.value.substring(0, characterLimit)
-          : e.target.value
-
-      onTextInputChange(update, e)
-      return update
-    })
-  }
-
-  const clear = () => setValue('')
 
   return (
     <div
@@ -84,7 +64,7 @@ const TextInput = ({
             disabled={disabled}
             value={value}
             placeholder={placeholder}
-            onChange={onChange}
+            onChange={onTextInputChange}
             onKeyDown={growTextArea}
             id={id}
             className={`
@@ -105,10 +85,11 @@ const TextInput = ({
               size-${size}
               ${status && status.type ? status.type : ''}
             `}
+            data-character-limit={characterLimit}
             type={password ? 'password' : 'text'}
             value={value}
             placeholder={placeholder}
-            onChange={onChange}
+            onChange={onTextInputChange}
             id={id}
           />
         )}
@@ -120,7 +101,7 @@ const TextInput = ({
             role="button"
             aria-label="Clear selected"
             className="close-icon-nm"
-            onClick={clear}
+            onClick={onDelete}
           />
         ) : status?.type === 'error' ? (
           <ErrorIcon

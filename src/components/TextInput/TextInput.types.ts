@@ -7,13 +7,15 @@ interface TextInputProps extends Props {
   placeholder: string
   /** The unique id to use for the input and for the label for attribute */
   id: string
-  /** The function to call when text input changes, the parameter will give you the value of the input */
+  /** The function to call when text input changes */
   onTextInputChange: (
-    value: string,
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => any
+
+  /** The function to clear the input */
+  onDelete: () => any
 
   /** Use rounded corners on the input or not */
   round?: boolean
@@ -38,8 +40,8 @@ interface TextInputProps extends Props {
   /** If it's a textarea or a normal text input */
   textarea?: boolean
 
-  /** The default value */
-  defaultValue?: string
+  /** The value of the Text Input */
+  value: string
 }
 interface TextInputAriaProps extends TextInputProps {
   password: true

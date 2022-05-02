@@ -1,13 +1,21 @@
 import React from 'react'
 import Props from '../../types/Props'
 
+export type onSelectionChangeArgs = {
+  selected: (string | number)[]
+  id: string
+}
+
 interface SelectProps extends Props {
   /** The select label */
   label: string
   /** The placeholder text */
   placeholder: string
-  /** The function to call when selection changes, the parameter will give you the value of the selected item(s) */
-  onSelectionChange: (selected: (string | number)[]) => any
+  /** A unique id for the select */
+  id: string
+
+  /** The function to call when selection changes */
+  onSelectionChange: ({}: onSelectionChangeArgs) => any
 
   /** Allow for multi select */
   multiple?: boolean

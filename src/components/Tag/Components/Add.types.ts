@@ -6,7 +6,7 @@ interface AddProps extends Props {
   /** The unique id to use for the input */
   id: string
   /** The function to call when text input is submitted, the parameter will give you the value of the input and the keyboard event */
-  onAdd: (value: string, e: React.KeyboardEvent<HTMLInputElement>) => any
+  onAdd: (event: { id: string; value: string }) => any
 
   /** Use rounded corners on the input or not */
   round?: boolean

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import CheckboxProps from './Checkbox.types'
 import './Checkbox.scss'
 
@@ -10,31 +10,12 @@ const Checkbox = ({
   label,
   labelPlacement = 'right',
   onCheckboxChange,
-  defaultValue = false,
+  value,
   size = 'medium',
   color = 'primary',
   className,
   style,
 }: CheckboxProps) => {
-  const [checked, setChecked] = useState(defaultValue)
-  const checkbox = useRef<HTMLInputElement>(null)
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked)
-    if (!disabled) onCheckboxChange(e.target.checked, e)
-  }
-
-  useEffect(() => {
-    checkbox.current.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        setChecked(prev => {
-          if (!disabled) onCheckboxChange(!prev, e)
-          return !prev
-        })
-      }
-    })
-  }, [])
-
   return (
     <div
       data-testid="checkbox-wrapper"
@@ -46,12 +27,11 @@ const Checkbox = ({
         ${className}
       `}>
       <input
-        ref={checkbox}
         disabled={disabled}
-        onChange={onChange}
+        onChange={onCheckboxChange}
         id={id}
         type="checkbox"
-        checked={checked}
+        checked={value}
         data-testid="checkbox-input"
       />
       <label

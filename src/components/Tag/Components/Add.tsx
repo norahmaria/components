@@ -36,7 +36,7 @@ const Add = ({
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onAdd(value, e)
+      onAdd({ value, id })
       setValue('')
     }
   }
@@ -64,6 +64,7 @@ const Add = ({
 
         <input
           data-testid="add-input"
+          id={id}
           autoComplete="off"
           disabled={disabled}
           className={`
@@ -81,7 +82,6 @@ const Add = ({
               value.length ? value.length : placeholder.length
             }ch + 2.5rem)`,
           }}
-          id={id}
         />
       </div>
 

@@ -10,3 +10,4 @@ export {
 } from './components'
 
 export { default as useForm } from './hooks/useForm'
+export { default as useOutsideClick } from './hooks/useOutsideClick'

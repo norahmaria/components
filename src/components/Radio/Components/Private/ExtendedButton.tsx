@@ -9,8 +9,6 @@ const Child = ({
   size = 'medium',
   color = 'primary',
   labelPlacement = 'right',
-  defaultChecked,
-
   disabled,
   ...props
 }: ExtendedButtonProps) => {
@@ -30,7 +28,6 @@ const Child = ({
         type="radio"
         onChange={onChange}
         name={name}
-        defaultChecked={defaultChecked}
       />
 
       <label

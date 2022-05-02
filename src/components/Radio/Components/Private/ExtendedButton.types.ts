@@ -7,7 +7,6 @@ interface ExtendedButtonProps extends ButtonProps {
   color?: 'primary' | 'neutral' | 'success' | 'warning' | 'error'
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any
   id: string
-  defaultChecked: boolean
 }
 
 export default ExtendedButtonProps

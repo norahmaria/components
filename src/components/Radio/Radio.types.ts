@@ -6,11 +6,8 @@ interface RadioProps extends Props {
   label: string
   /** A unique id used to group the Radio buttons together */
   name: string
-  /** The function to call when the Radio value is changed, the first argument will give you the value of the selected Radio button, while the second one will give you the event */
-  onRadioChange: (
-    value: string | number | null,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => any
+  /** The function to call when the Radio value is changed */
+  onRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => any
 
   /** Sets the Radio button group to be disabled or not */
   disabled?: boolean
@@ -22,8 +19,8 @@ interface RadioProps extends Props {
   /** Where to place the Radio buttons labels */
   labelPlacement?: 'left' | 'right' | 'top' | 'bottom'
 
-  /** The default selected value */
-  defaultValue?: string | number
+  /** The value of the Radio */
+  value: string | number
 }
 
 export default RadioProps

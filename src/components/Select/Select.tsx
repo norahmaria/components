@@ -23,28 +23,30 @@ const Select = ({
   color = 'primary',
   className,
   style,
+  id,
   ...props
 }: SelectProps) => {
   const [selected, setSelected] =
     useState<(string | number)[]>(defaultValue)
 
-  const [isOpen, setIsOpen] = useState(false)
   const container = useRef<HTMLDivElement>(null)
   const didMountRef = useRef(false)
+
+  const { open, setOpen } = useOutsideClick(container, '.select')
 
   const onKeyDown = useOnKeyDown({
     updateSelected,
     setSelected,
-    setIsOpen,
+    setOpen,
     multiple,
   })
 
-  useOutsideClick(container, '.select', () => setIsOpen(false))
-
   useEffect(() => {
-    if (didMountRef.current) onSelectionChange(selected)
-
-    didMountRef.current = true
+    if (didMountRef.current) {
+      onSelectionChange({ selected, id })
+    } else {
+      didMountRef.current = true
+    }
   }, [selected])
 
   function updateSelected(value: number | string) {
@@ -70,13 +72,13 @@ const Select = ({
 
   const createProps = (value: string | number, disabled?: boolean) => {
     return {
-      tabIndex: disabled ? -1 : isOpen ? (disabled ? -1 : 0) : -1,
+      tabIndex: disabled ? -1 : open ? (disabled ? -1 : 0) : -1,
       selected: selected.includes(value),
       onKeyDown: onKeyDown(value),
       onClick: () => {
         if (!disabled) {
           updateSelected(value)
-          if (!multiple) setIsOpen(false)
+          if (!multiple) setOpen(false)
         }
       },
     }
@@ -84,7 +86,7 @@ const Select = ({
 
   const clear = () => {
     setSelected([])
-    setTimeout(() => setIsOpen(required))
+    setTimeout(() => setOpen(required))
   }
 
   return (
@@ -105,7 +107,7 @@ const Select = ({
 
       <Button
         color={color}
-        isOpen={isOpen}
+        isOpen={open}
         multiple={multiple}
         selected={selected}
         disabled={disabled}
@@ -114,7 +116,7 @@ const Select = ({
         label={label}
         placeholder={placeholder}
         labelChildren={props.children}
-        onClick={() => setIsOpen(prev => !prev)}
+        onClick={() => setOpen(prev => !prev)}
         onKeyDown={e =>
           e.key === 'Backspace' ? setSelected([]) : () => {}
         }
@@ -122,7 +124,7 @@ const Select = ({
       />
 
       <ul
-        className={`options-nm open-${isOpen}`}
+        className={`options-nm open-${open}`}
         role="listbox"
         aria-label={label}
         aria-multiselectable={multiple}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { action } from '@storybook/addon-actions'
 import { Meta, Story } from '@storybook/react'
 import useForm from '../hooks/useForm'
@@ -45,7 +45,7 @@ export default {
 } as Meta
 
 const FormStory: Story<any> = args => {
-  const { form, setForm, onChange } = useForm({
+  const { form, onChange, onSelectionChange, onAddTag } = useForm({
     name: '',
     country: '',
     gender: '',
@@ -58,19 +58,8 @@ const FormStory: Story<any> = args => {
       { text: 'Third Tag', color: 'primary' },
       { text: 'Four Tags', color: 'warning' },
     ],
+    newsletter: false,
   })
-
-  const onAddTag = (
-    value: string,
-    e: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    setForm(it => ({
-      ...it,
-      tags: [...it.tags, { text: value, color: 'success' }],
-    }))
-
-    action('onAddTag')(value, e)
-  }
 
   const onButtonClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -87,15 +76,18 @@ const FormStory: Story<any> = args => {
           label="Name"
           placeholder="Jane Doe"
           id="name"
+          value={form.name}
           onTextInputChange={onChange}
           {...args}
+          characterLimit={10}
         />
 
         <Select
           id="country"
           label="Country"
           placeholder="Select a country"
-          onSelectionChange={onChange}
+          value={form.country}
+          onSelectionChange={onSelectionChange}
           {...args}>
           <Select.Option value="no">Norway</Select.Option>
           <Select.Option value="se">Sweden</Select.Option>
@@ -111,6 +103,7 @@ const FormStory: Story<any> = args => {
       <Radio
         label="Gender"
         name="gender"
+        value={form.gender}
         onRadioChange={onChange}
         horizontal
         {...args}>
@@ -130,7 +123,7 @@ const FormStory: Story<any> = args => {
         onSliderChange={onChange}
         min={0}
         max={50}
-        defaultValue={15}
+        value={form.cries}
         {...args}
       />
 
@@ -138,12 +131,14 @@ const FormStory: Story<any> = args => {
         <Switch
           label="Dark Mode"
           id="darkMode"
+          value={form.darkMode}
           onSwitchChange={onChange}
           {...args}
         />
         <Switch
           label="Notifications"
           id="notifications"
+          value={form.notifications}
           onSwitchChange={onChange}
           {...args}
         />
@@ -158,9 +153,11 @@ const FormStory: Story<any> = args => {
 
         <Tag.Add
           {...args}
-          id="tag-add"
+          id="tags"
           placeholder="New Tag"
-          onAdd={onAddTag}
+          onAdd={onAddTag('text')}
+          value={form.addingTag}
+          characterLimit={10}
           {...args}
         />
       </div>
@@ -171,8 +168,9 @@ const FormStory: Story<any> = args => {
         </Button>
 
         <Checkbox
-          id="checkbox"
+          id="newsletter"
           label="I want to recieve newsletters"
+          value={form.newsletter}
           onCheckboxChange={onChange}
           {...args}
         />

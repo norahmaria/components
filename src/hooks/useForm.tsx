@@ -1,14 +1,44 @@
 import React, { useEffect, useState } from 'react'
+import { onSelectionChangeArgs } from '../components/Select/Select.types'
+
+import { CustomColor } from '../components/Tag/Tag.types'
+import getRandomColor from './getRandomColor'
 
 const useForm = (initial: any) => {
   const [form, setForm] = useState(initial)
 
-  const onChange = (
-    value?: string | number | (string | number)[] | boolean,
-    e?: any
-  ) => {
-    if (!e) return
+  const onSelectionChange = (e: onSelectionChangeArgs) => {
+    return setForm(form => ({
+      ...form,
+      [e.id]: e.selected,
+    }))
+  }
 
+  const onAddTag =
+    (
+      contentPropertyName: string,
+      color?:
+        | 'primary'
+        | 'neutral'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | CustomColor
+    ) =>
+    ({ value, id }: { value: string; id: string }) => {
+      return setForm(form => ({
+        ...form,
+        [id]: [
+          ...form[id],
+          {
+            [contentPropertyName]: value,
+            color: color || getRandomColor(),
+          },
+        ],
+      }))
+    }
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.type) {
       case 'radio':
         return setForm(form => ({
@@ -28,6 +58,32 @@ const useForm = (initial: any) => {
           [e.target.id]: e.target.checked,
         }))
 
+      case 'text':
+        const characterLimit = parseFloat(
+          e.target.getAttribute('data-character-limit')
+        )
+
+        if (characterLimit) {
+          return setForm(form => {
+            const update =
+              characterLimit && e.target.value.length > characterLimit
+                ? form[e.target.id]
+                : characterLimit
+                ? e.target.value.substring(0, characterLimit)
+                : e.target.value
+
+            return {
+              ...form,
+              [e.target.id]: update,
+            }
+          })
+        } else {
+          return setForm(form => ({
+            ...form,
+            [e.target.id]: e.target.value,
+          }))
+        }
+
       default:
         return setForm(form => ({
           ...form,
@@ -40,6 +96,8 @@ const useForm = (initial: any) => {
     form,
     setForm,
     onChange,
+    onSelectionChange,
+    onAddTag,
   }
 }
 
