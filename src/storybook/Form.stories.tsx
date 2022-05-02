@@ -63,7 +63,7 @@ const FormStory: Story<any> = args => {
   const onButtonClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    action('onButtonClick')
+    action('onButtonClick')(e)
   }
 
   return (
@@ -76,7 +76,10 @@ const FormStory: Story<any> = args => {
           placeholder="Jane Doe"
           id="name"
           value={form.name}
-          onTextInputChange={onChange}
+          onTextInputChange={e => {
+            onChange(e as React.ChangeEvent<HTMLInputElement>)
+            action('onTextInputChange')(e)
+          }}
           {...args}
           characterLimit={10}
         />
@@ -86,7 +89,10 @@ const FormStory: Story<any> = args => {
           label="Country"
           placeholder="Select a country"
           value={form.country}
-          onSelectionChange={onSelectionChange(true)}
+          onSelectionChange={e => {
+            onSelectionChange(true)(e)
+            action('onSelectionChange')(e)
+          }}
           {...args}>
           <Select.Option value="no">Norway</Select.Option>
           <Select.Option value="se">Sweden</Select.Option>
@@ -103,7 +109,10 @@ const FormStory: Story<any> = args => {
         label="Gender"
         name="gender"
         value={form.gender}
-        onRadioChange={onChange}
+        onRadioChange={e => {
+          onChange(e)
+          action('onRadioChange')(e)
+        }}
         horizontal
         {...args}>
         <Radio.Button label="She/Her" value="she/her" />
@@ -119,7 +128,10 @@ const FormStory: Story<any> = args => {
       <Slider
         id="cries"
         label="How many times a week do you cry because of CSS?"
-        onSliderChange={onChange}
+        onSliderChange={e => {
+          onChange(e)
+          action('onSliderChange')(e)
+        }}
         min={0}
         max={50}
         value={form.cries}
@@ -131,14 +143,20 @@ const FormStory: Story<any> = args => {
           label="Dark Mode"
           id="darkMode"
           value={form.darkMode}
-          onSwitchChange={onChange}
+          onSwitchChange={e => {
+            onChange(e)
+            action('onSwitchChange')(e)
+          }}
           {...args}
         />
         <Switch
           label="Notifications"
           id="notifications"
           value={form.notifications}
-          onSwitchChange={onChange}
+          onSwitchChange={e => {
+            onChange(e)
+            action('onSwitchChange')(e)
+          }}
           {...args}
         />
       </div>
@@ -160,7 +178,10 @@ const FormStory: Story<any> = args => {
           {...args}
           id="tags"
           placeholder="New Tag"
-          onAdd={onAddTag('text')}
+          onAdd={e => {
+            onAddTag('text')(e)
+            action('onAddTag')(e)
+          }}
           value={form.addingTag}
           characterLimit={100}
           {...args}
@@ -182,7 +203,10 @@ const FormStory: Story<any> = args => {
           id="newsletter"
           label="I want to recieve newsletters"
           value={form.newsletter}
-          onCheckboxChange={onChange}
+          onCheckboxChange={e => {
+            onChange(e)
+            action('onCheckboxChange')(e)
+          }}
           {...args}
         />
       </div>
