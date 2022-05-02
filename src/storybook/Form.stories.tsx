@@ -144,7 +144,13 @@ const FormStory: Story<any> = args => {
         />
       </div>
 
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: '0.5rem',
+          flexWrap: 'wrap',
+          width: '30rem',
+        }}>
         {form.tags.map(tag => (
           <Tag {...args} color={tag.color} key={tag.text}>
             {tag.text}
@@ -157,12 +163,18 @@ const FormStory: Story<any> = args => {
           placeholder="New Tag"
           onAdd={onAddTag('text')}
           value={form.addingTag}
-          characterLimit={20}
+          characterLimit={100}
           {...args}
         />
       </div>
 
-      <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: '1.5rem',
+          alignItems: 'center',
+          width: '30rem',
+        }}>
         <Button onButtonClick={onButtonClick} {...args}>
           Submit
         </Button>

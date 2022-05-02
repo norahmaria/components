@@ -2,12 +2,19 @@
 
 .add-tag-nm {
   position: relative;
+  max-width: 100%;
 
   .character-limit-nm {
     height: 100%;
     width: max-content;
     right: 0.65rem;
     position: absolute;
+  }
+
+  &.character-limit-true {
+    input {
+      padding-right: 4.5rem;
+    }
   }
 
   input {
