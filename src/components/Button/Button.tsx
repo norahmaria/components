@@ -23,7 +23,9 @@ const Button = ({
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
 
-  const click = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onClickHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     if (isLoading) return
 
     setClicked(true)
@@ -36,7 +38,7 @@ const Button = ({
     <button
       style={{ ...style, width: fullWidth ? '100%' : 'max-content' }}
       type={type}
-      onClick={click}
+      onClick={onClickHandler}
       disabled={disabled}
       className={`
         btn-nm
@@ -45,7 +47,7 @@ const Button = ({
         variant-${variant}
         clicked-${clicked}
         round-${round}
-        ${!children && (leftIcon || rightIcon) ? 'icon' : ''}
+        icon-${!children && (leftIcon || rightIcon)}
         ${className}
       `}>
       {isLoading ? (
