@@ -8,13 +8,10 @@ Stories:
   ☐ Upload Button
 
 Issues:
-  ☐ @critical Safari support (safari is a __bitch__???)
+  ☐ @postponed @critical Safari support (safari is a __bitch__???)
     ☐ Hovers, literally all gone
     ☐ TabIndex is __allegedly__ not a thing??
     ☐ Outline not gone for components I want it gone, but gone for the button where i've explicitly added it ¯\_(ツ)_/¯
-  ☐ Text Input and Switch
-    @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
-  ☐ @thought: Slider is a bit slow, and you have to drag way over the edges to get to them
 
 Components:
   Tag:
@@ -40,21 +37,18 @@ Components:
   Checkbox:
     ☐ @idea indeterminate
 
-  Radio: 
-    Button:
-      ☐ Outline is not rounded @safari
-
-Tools:
-  useForm hook:
-    ☐ Add base functionality
-    ☐ Select has no ids, add functionality for select in the hook
-
 Structure:
-  ☐ Make growTextArea an available hook
   ☐ Move buttons css to the button file rather than as mixins
   ☐ Prettify code that prettier made ugly lol
 
 Archive:
+  ✔ Text Input and Switch @done(22-05-02 17:34) @project(Issues)
+    @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
+  ✘ Slider is a bit slow, and you have to drag way over the edges to get to them @cancelled(22-05-02 17:34) @project(Issues)
+  ✔ Outline is not rounded @done(22-05-02 17:33) @project(Components.Radio.Button)
+  ✔ Add base functionality @done(22-05-02 17:32) @project(Tools.useForm hook)
+  ✔ Select has no ids, add functionality for select in the hook @done(22-05-02 17:32) @project(Tools.useForm hook)
+  ✔ Make growTextArea an available function @done(22-05-02 17:32) @project(Structure)
   ✔ Dot is not always 1:1, add min/max height/width @done(22-04-30 07:41) @project(Components.Slider)
   ✔ Make id/name consistent in components for easy usage @done(22-04-29 22:56) @project(Tools.useForm hook)
   ✔ Radio buttons have unique id for every field @done(22-04-29 22:57) @project(Tools.useForm hook)

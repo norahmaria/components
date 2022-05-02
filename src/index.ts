@@ -11,3 +11,4 @@ export {
 
 export { default as useForm } from './hooks/useForm'
 export { default as useOutsideClick } from './hooks/useOutsideClick'
+export { default as growTextArea } from './utils/growTextArea'
