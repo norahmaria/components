@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
+
 import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { ReactComponent as Norway } from '../../assets/Norway.svg'
 import { TextInput as TextInputComponent } from '../'
@@ -31,7 +33,7 @@ export default {
     },
   },
   argTypes: createArgTypesCategoryAndControls({
-    onTextInputChange: [Categories.Actions],
+    onChange: [Categories.Actions],
     label: [Categories.Display],
     placeholder: [Categories.Display],
     characterLimit: [Categories.State],
@@ -42,24 +44,31 @@ export default {
     icon: [Categories.Display, true],
     isLoading: [Categories.State],
     round: [Categories.Appearance],
-    defaultValue: [Categories.State],
+    value: [Categories.State, true],
   }),
 } as Meta
 
-const TextInputStory: Story<TextInputProps> = args => (
-  <TextInputComponent {...args} />
-)
+const TextInputStory: Story<TextInputProps> = args => {
+  const { onChange, form } = useForm({ text: '' })
+  return (
+    <TextInputComponent
+      {...args}
+      value={form.text}
+      onChange={e => {
+        onChange(e as React.ChangeEvent<HTMLInputElement>)
+        action('onChange')(e)
+      }}
+    />
+  )
+}
 
 export const TextInput: Story<TextInputProps> = TextInputStory.bind({})
 TextInput.args = {
-  onTextInputChange: e => {
-    action('onTextInputChange')(e)
-  },
   label: 'Text Input',
   placeholder: 'Placeholder..',
   status: null,
   icon: <Norway />,
-  id: 'text-input',
+  id: 'text',
   disabled: false,
   round: false,
   size: 'medium',
@@ -68,6 +77,5 @@ TextInput.args = {
   characterLimit: null,
   password: false,
   textarea: false,
-  defaultValue: '',
   className: '',
 }

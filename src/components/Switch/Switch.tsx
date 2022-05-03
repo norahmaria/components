@@ -1,4 +1,5 @@
 import React from 'react'
+
 import SwitchProps from './Switch.types'
 import './Switch.scss'
 

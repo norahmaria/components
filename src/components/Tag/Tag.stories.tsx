@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
-import React, { useState } from 'react'
+
+import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { Tag as TagComponent } from '..'
 import TagProps from './Tag.types'
@@ -73,7 +75,7 @@ const TagStory: Story<TagProps> = args => {
     { actor: 'Leroy McClain', character: 'Shy Baldwin', color: 'primary' },
   ]
 
-  const [tags, setTags] = useState(cast)
+  const { onAddTag, form } = useForm({ tags: [...cast] })
 
   return (
     <div
@@ -83,18 +85,21 @@ const TagStory: Story<TagProps> = args => {
         flexWrap: 'wrap',
         gap: '0.5rem',
       }}>
-      {tags.map((tag, idx) => (
+      {form.tags.map((tag, idx) => (
         <TagComponent color={tag.color || 'primary'} key={idx} {...args}>
           {tag.character}
         </TagComponent>
       ))}
+
       <TagComponent.Add
         round={args.round}
         size={args.size}
-        id="tag-add"
-        onAdd={(val, e) => action('onAdd')(val, e)}
+        id="tags"
+        onAdd={e => {
+          onAddTag('character')(e)
+          action('onAdd')(e)
+        }}
         placeholder="New"
-        // characterLimit={80}
       />
     </div>
   )

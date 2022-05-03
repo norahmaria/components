@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
+
 import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { Radio as RadioComponent } from '../'
 import RadioProps from './Radio.types'
@@ -33,29 +35,34 @@ export default {
     },
   },
   argTypes: createArgTypesCategoryAndControls({
-    onRadioChange: [Categories.Actions],
+    onChange: [Categories.Actions],
     labelPlacement: [Categories.Appearance],
     children: [Categories.Display, true],
     horizontal: [Categories.Appearance],
     disabled: [Categories.State],
-    defaultValue: [Categories.State],
+    value: [Categories.State, true],
   }),
 } as Meta
 
-const RadioStory: Story<RadioProps> = args => (
-  <RadioComponent
-    {...args}
-    onRadioChange={value => {
-      action('onRadioChange')(value)
-    }}>
-    <RadioComponent.Button label="One Button" value="hello" />
-    <RadioComponent.Button label="Second Button" value="world" />
-  </RadioComponent>
-)
+const RadioStory: Story<RadioProps> = args => {
+  const { onChange, form } = useForm({ Radio: 'hello' })
+
+  return (
+    <RadioComponent
+      {...args}
+      value={form.Radio}
+      onChange={value => {
+        onChange(value)
+        action('onChange')(value)
+      }}>
+      <RadioComponent.Button label="One Button" value="hello" />
+      <RadioComponent.Button label="Second Button" value="world" />
+    </RadioComponent>
+  )
+}
 
 export const Radio: Story<RadioProps> = RadioStory.bind({})
 Radio.args = {
-  onRadioChange: checked => {},
   name: 'Radio',
   labelPlacement: 'right',
   children: null,
@@ -63,6 +70,5 @@ Radio.args = {
   disabled: false,
   size: 'medium',
   color: 'primary',
-  defaultValue: 'road',
   className: '',
 }

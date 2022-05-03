@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
+
 import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { Switch as SwitchComponent } from '../'
 import SwitchProps from './Switch.types'
@@ -28,25 +30,34 @@ export default {
     },
   },
   argTypes: createArgTypesCategoryAndControls({
-    onSwitchChange: [Categories.Actions],
+    onChange: [Categories.Actions, true],
     label: [Categories.Display],
     disabled: [Categories.State],
-    defaultValue: [Categories.State],
+    value: [Categories.State, true],
   }),
 } as Meta
 
-const SwitchStory: Story<SwitchProps> = args => <SwitchComponent {...args} />
+const SwitchStory: Story<SwitchProps> = args => {
+  const { onChange, form } = useForm({ switch: false })
+
+  return (
+    <SwitchComponent
+      {...args}
+      value={form.switch}
+      onChange={e => {
+        onChange(e)
+        action('onChange')(e)
+      }}
+    />
+  )
+}
 
 export const Switch: Story<SwitchProps> = SwitchStory.bind({})
 Switch.args = {
-  onSwitchChange: e => {
-    action('onSwitchChange')(e)
-  },
   label: 'Switch',
   disabled: false,
   size: 'medium',
   color: 'primary',
   className: '',
-  defaultValue: false,
   id: 'switch',
 }

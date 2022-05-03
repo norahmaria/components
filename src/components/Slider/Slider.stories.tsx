@@ -1,6 +1,9 @@
 import { Meta, Story } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
+
 import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { Slider as SliderComponent } from '../'
 import SliderProps from './Slider.types'
@@ -30,8 +33,8 @@ export default {
     label: [Categories.Display],
     suffix: [Categories.Display],
     prefix: [Categories.Display],
-    onSliderChange: [Categories.Actions],
-    defaultValue: [Categories.State, true],
+    onChange: [Categories.Actions, true],
+    value: [Categories.State, true],
     min: [Categories.Native],
     max: [Categories.Native],
     step: [Categories.Native],
@@ -40,17 +43,27 @@ export default {
   }),
 } as Meta
 
-const SliderStory: Story<SliderProps> = args => (
-  <div style={{ width: '15rem' }}>
-    <SliderComponent {...args} />
-  </div>
-)
+const SliderStory: Story<SliderProps> = args => {
+  const { onChange, form } = useForm({ slider: 20 })
+
+  return (
+    <div style={{ width: '15rem' }}>
+      <SliderComponent
+        {...args}
+        value={form.slider}
+        onChange={e => {
+          onChange(e)
+          action('onChange')(e)
+        }}
+      />
+    </div>
+  )
+}
 
 export const Slider: Story<SliderProps> = SliderStory.bind({})
 Slider.args = {
   min: 0,
   max: 100,
-  defaultValue: 20,
   id: 'slider',
   label: 'Slider',
   className: '',

@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { BADGE } from '@geometricpanda/storybook-addon-badges'
+
 import React from 'react'
+import useForm from '../../hooks/useForm'
 
 import { Checkbox as CheckboxComponent } from '../'
 import CheckboxProps from './Checkbox.types'
@@ -28,32 +30,36 @@ export default {
     },
   },
   argTypes: createArgTypesCategoryAndControls({
-    onCheckboxChange: [Categories.Actions],
+    onChange: [Categories.Actions],
     label: [Categories.Display],
     labelPlacement: [Categories.Appearance],
     disabled: [Categories.State],
-    defaultValue: [Categories.State],
+    value: [Categories.State, true],
   }),
 } as Meta
 
-const CheckboxStory: Story<CheckboxProps> = args => (
-  <CheckboxComponent
-    {...args}
-    onCheckboxChange={checked => {
-      action('onCheckboxChange')(checked)
-    }}
-  />
-)
+const CheckboxStory: Story<CheckboxProps> = args => {
+  const { form, onChange } = useForm({ checkbox: false })
+
+  return (
+    <CheckboxComponent
+      {...args}
+      value={form.checkbox}
+      onChange={checked => {
+        onChange(checked)
+        action('onChange')(checked)
+      }}
+    />
+  )
+}
 
 export const Checkbox: Story<CheckboxProps> = CheckboxStory.bind({})
 Checkbox.args = {
-  onCheckboxChange: checked => console.log(checked),
   label: 'Checkbox',
   labelPlacement: 'right',
   id: 'checkbox',
   disabled: false,
   size: 'medium',
   color: 'primary',
-  defaultValue: false,
   className: '',
 }

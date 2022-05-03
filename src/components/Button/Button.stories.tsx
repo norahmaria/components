@@ -26,7 +26,7 @@ export default {
     },
   },
   argTypes: createArgTypesCategoryAndControls({
-    onButtonClick: [Categories.Actions],
+    onClick: [Categories.Actions],
     children: [Categories.Display],
     isLoading: [Categories.State],
     round: [Categories.Appearance],
@@ -42,15 +42,14 @@ export default {
 const ButtonStory: Story<ButtonProps> = args => (
   <ButtonComponent
     {...args}
-    onButtonClick={e => {
-      action('onButtonClick')(e)
+    onClick={e => {
+      action('onClick')(e)
     }}
   />
 )
 
 export const Button: Story<ButtonProps> = ButtonStory.bind({})
 Button.args = {
-  onButtonClick: clicked => {},
   children: 'Hello World',
   isLoading: false,
   round: false,
