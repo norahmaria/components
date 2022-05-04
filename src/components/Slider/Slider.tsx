@@ -76,9 +76,7 @@ const Slider = ({
           className="slider-nm__dot"
           style={
             vertical
-              ? {
-                  bottom: `${percentage > 90 ? percentage - 10 : percentage}%`,
-                }
+              ? { bottom: `${percentage > 90 ? percentage - 10 : percentage}%` }
               : { marginLeft: `${percentage}%` }
           }>
           {showTooltip && (
