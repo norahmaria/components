@@ -3,10 +3,7 @@ import './Select.scss'
 
 import useSelect from './hooks/useSelect'
 
-import Group from './Components/Group'
-import ExtendedOption from './Components/Private/ExtendedOption'
 import Button from './Components/Private/Button'
-
 import Options from './Components/Private/Options'
 
 import SelectProps from './Select.types'
