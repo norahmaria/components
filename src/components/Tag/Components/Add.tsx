@@ -5,6 +5,7 @@ import { ReactComponent as AddIcon } from '../../../assets/Add.svg'
 
 import './Add.scss'
 import LoadingSpinner from '../../../shared/LoadingSpinner'
+import CharacterLimit from '../../../shared/CharacterLimit'
 
 const Add = ({
   placeholder,
@@ -86,10 +87,7 @@ const Add = ({
         />
 
         {characterLimit && (
-          <div className="character-limit-nm">
-            <p className="character-count-nm">{value.length}</p> /{' '}
-            <p className="character-limit-count-nm">{characterLimit}</p>
-          </div>
+          <CharacterLimit value={value} characterLimit={characterLimit} />
         )}
       </div>
     </div>

@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './keyframes' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
@@ -72,7 +73,7 @@ ol {
   }
 }
 
-// # ━━━ REUSED ━━━ #
+// # ━━━ SHARED ━━━ #
 .character-limit-nm {
   display: flex;
   justify-content: flex-end;
@@ -82,6 +83,46 @@ ol {
   font-size: 0.775rem;
   color: rgba($black, 0.75);
   margin-top: 0.5rem;
+}
+
+.loading-spinner-nm {
+  width: 0.7em;
+  height: 0.7em;
+  right: 0.75rem;
+  z-index: 5;
+
+  border-radius: 100%;
+  transform-origin: center;
+  animation: loading 2s cubic-bezier(0.65, 0.26, 0.8, 0.39) infinite;
+}
+
+.loading-spinner-nm.color-white {
+  border: 2px solid $white;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+@each $name, $color in $colors {
+  .loading-spinner-nm.color-#{$name}:not(.white) {
+    @if $name == 'neutral' {
+      border: 2px solid $black;
+    } @else {
+      border: 2px solid $color;
+    }
+
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .loading-spinner-nm.color-#{$name}:disabled,
+  .loading-spinner-nm.color-white:disabled {
+    border: 2px solid rgb($black, 0.4);
+  }
+}
+
+:disabled .loading-spinner-nm {
+  border-right-color: rgb($black, 0.4);
+  border-top-color: rgb($black, 0.4);
 }
 
 // # ━━━ INPUTS ━━━ #

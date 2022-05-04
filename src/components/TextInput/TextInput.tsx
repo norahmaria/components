@@ -7,6 +7,7 @@ import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
 
 import './TextInput.scss'
 import LoadingSpinner from '../../shared/LoadingSpinner'
+import CharacterLimit from '../../shared/CharacterLimit'
 import growTextArea from '../../utils/growTextArea'
 
 const TextInput = ({
@@ -117,10 +118,7 @@ const TextInput = ({
       </div>
 
       {characterLimit && (
-        <div className="character-limit-nm">
-          <p className="character-count-nm">{value.length}</p> /{' '}
-          <p className="character-limit-count-nm">{characterLimit}</p>
-        </div>
+        <CharacterLimit value={value} characterLimit={characterLimit} />
       )}
 
       {status && (
