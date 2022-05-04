@@ -43,20 +43,20 @@ Components:
 
 Structure:
   ☐ Prettify code that prettier made ugly lol
-    ☐ Slider
+    ☐ Select
     ☐ Add
     ☐ Extended Option (Select)
     ☐ Label (Select)
   ☐ Move some logic out of component for Tag / Tag.Add
 
 Archive:
-  ✔ Select @done(22-05-04 08:01) @project(Structure)
+  ✔ Slider @done(22-05-04 08:01) @project(Structure)
   ✔ Button @done(22-05-04 07:54) @project(Structure)
   ✔ Create component for Character Limit @done(22-05-04 07:43) @project(Structure)
   ✔ Move buttons css to the button file rather than as mixins @done(22-05-02 22:05) @project(Structure)
   ✔ Text Input and Switch @done(22-05-02 17:34) @project(Issues)
     @critical Cannot update a component (<comp>) while rendering a different component (<comp>).
-  ✘ Slider is a bit slow, and you have to drag way over the edges to get to them @cancelled(22-05-02 17:34) @project(Issues)
+  ✔ Slider is a bit slow, and you have to drag way over the edges to get to them @project(Issues) @done(22-05-04 08:01)
   ✔ Outline is not rounded @done(22-05-02 17:33) @project(Components.Radio.Button)
   ✔ Add base functionality @done(22-05-02 17:32) @project(Tools.useForm hook)
   ✔ Select has no ids, add functionality for select in the hook @done(22-05-02 17:32) @project(Tools.useForm hook)
