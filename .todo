@@ -44,12 +44,11 @@ Components:
 
 Structure:
   ☐ Prettify code that prettier made ugly lol
-    ☐ Select
-    ✔ Extended Option (Select) @done(22-05-04 08:05)
-    ☐ Label (Select)
+    ☐ Select & the Label of it
   ☐ Move some logic out of component for Tag / Tag.Add
 
 Archive:
+  ✔ Extended Option (Select) @done(22-05-04 08:05) @project(Structure)
   ✔ Slider @done(22-05-04 08:01) @project(Structure)
   ✔ Button @done(22-05-04 07:54) @project(Structure)
   ✔ Create component for Character Limit @done(22-05-04 07:43) @project(Structure)
