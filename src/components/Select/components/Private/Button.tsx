@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import ButtonProps from './Button.types'
 
 import { ReactComponent as ArrowIcon } from '../../../../assets/Arrow_Down.svg'
@@ -13,7 +13,6 @@ const Button = ({
   multiple,
   selected,
   labelChildren,
-  label,
   placeholder,
   disabled,
   status,
@@ -52,7 +51,6 @@ const Button = ({
         selected={selected}
         multiple={multiple}
         placeholder={placeholder}
-        label={label}
       />
 
       {selected.length && hover ? (

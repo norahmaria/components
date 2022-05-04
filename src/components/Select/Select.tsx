@@ -7,6 +7,8 @@ import Group from './Components/Group'
 import ExtendedOption from './Components/Private/ExtendedOption'
 import Button from './Components/Private/Button'
 
+import Options from './Components/Private/Options'
+
 import SelectProps from './Select.types'
 
 const Select = ({
@@ -77,7 +79,6 @@ const Select = ({
         disabled={disabled}
         status={status}
         size={size}
-        label={label}
         placeholder={placeholder}
         labelChildren={props.children}
         onClick={() => setOpen(prev => !prev)}
@@ -93,32 +94,14 @@ const Select = ({
         aria-activedescendant={selected[selected.length]?.toString()}
         tabIndex={-1}>
         {React.Children.count(props.children) ? (
-          React.Children.map(props.children, child => {
-            if (React.isValidElement(child)) {
-              if (child.props.title) {
-                return (
-                  <Group {...child.props}>
-                    {React.Children.map(child.props.children, nested => (
-                      <ExtendedOption
-                        {...nested.props}
-                        {...extendedProps(
-                          nested.props.value,
-                          nested.props.disabled
-                        )}
-                      />
-                    ))}
-                  </Group>
-                )
-              } else {
-                return (
-                  <ExtendedOption
-                    {...child.props}
-                    {...extendedProps(child.props.value, child.props.disabled)}
-                  />
-                )
-              }
-            }
-          })
+          <Options
+            selected={selected}
+            updateSelected={updateSelected}
+            onKeyDown={onKeyDown}
+            multiple={multiple}
+            setOpen={setOpen}
+            children={props.children}
+          />
         ) : (
           <div>No selects</div>
         )}

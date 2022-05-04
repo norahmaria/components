@@ -4,7 +4,6 @@ interface LabelProps {
   children: React.ReactNode
   multiple: boolean
   selected: (string | number)[]
-  label: string
   placeholder: string
 }
 

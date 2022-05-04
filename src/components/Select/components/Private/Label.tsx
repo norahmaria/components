@@ -1,7 +1,7 @@
 import React from 'react'
 import LabelProps from './Label.types'
 
-const Label = ({ label, placeholder, children, multiple, selected }: LabelProps) => {
+const Label = ({ placeholder, children, multiple, selected }: LabelProps) => {
   return (
     <div className="label-nm">
       {selected.length ? (
@@ -13,14 +13,18 @@ const Label = ({ label, placeholder, children, multiple, selected }: LabelProps)
               return React.Children.map(children, nested => {
                 if (selected.includes(nested.props.value))
                   return (
-                    <div className={multiple ? 'label-nm__tag' : 'label-nm__selected'}>
+                    <div
+                      className={
+                        multiple ? 'label-nm__tag' : 'label-nm__selected'
+                      }>
                       {nested.props.children}
                     </div>
                   )
               })
             } else if (selected.includes(value)) {
               return (
-                <div className={multiple ? 'label-nm__tag' : 'label-nm__selected'}>
+                <div
+                  className={multiple ? 'label-nm__tag' : 'label-nm__selected'}>
                   {children}
                 </div>
               )

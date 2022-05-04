@@ -10,20 +10,6 @@ const ExtendedOption = ({
   tabIndex,
   ...props
 }: ExtendedOptionProps) => {
-  const left =
-    typeof props.leftIcon === 'string' ? (
-      <img src={props.leftIcon} />
-    ) : (
-      props.leftIcon
-    )
-
-  const right =
-    typeof props.rightIcon === 'string' ? (
-      <img src={props.rightIcon} />
-    ) : (
-      props.rightIcon
-    )
-
   return (
     <li
       role="option"
@@ -35,9 +21,19 @@ const ExtendedOption = ({
       onClick={onClick}
       tabIndex={tabIndex}>
       <div className="options-nm__option-label">
-        {props.leftIcon && left}
+        {typeof props.leftIcon === 'string' ? (
+          <img src={props.leftIcon} />
+        ) : props.leftIcon ? (
+          props.leftIcon
+        ) : null}
+
         {props.children}
-        {props.rightIcon && right}
+
+        {typeof props.rightIcon === 'string' ? (
+          <img src={props.rightIcon} />
+        ) : props.rightIcon ? (
+          props.rightIcon
+        ) : null}
       </div>
 
       {selected && <CheckMarkIcon className="check-icon-nm" />}

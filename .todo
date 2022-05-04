@@ -30,6 +30,7 @@ Components:
   
   Select:
     ☐ Add Select keyboard navigation (up and down keys) @critical
+    ☐ Add type for Options children
     ☐ Font weight for disabled is too thick @firefox
     ☐ Re-check accessibility ARIA label rules
     ☐ Fix z-index issue when there is a select right below a select
@@ -44,8 +45,7 @@ Components:
 Structure:
   ☐ Prettify code that prettier made ugly lol
     ☐ Select
-    ☐ Add
-    ☐ Extended Option (Select)
+    ✔ Extended Option (Select) @done(22-05-04 08:05)
     ☐ Label (Select)
   ☐ Move some logic out of component for Tag / Tag.Add
 

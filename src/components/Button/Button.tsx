@@ -70,9 +70,9 @@ const Button = ({
 
       {typeof rightIcon === 'string' ? (
         <img src={rightIcon} alt="" />
-      ) : (
+      ) : rightIcon ? (
         rightIcon
-      )}
+      ) : null}
     </button>
   )
 }

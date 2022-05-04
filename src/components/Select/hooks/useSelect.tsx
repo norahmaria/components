@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import useOutsideClick from '../../../hooks/useOutsideClick'
 import useOnKeyDown from './useOnKeyDown'
 
-type Selected = (string | number)[]
+export type Selected = (string | number)[]
 
 const useSelect = ({ defaultValue, multiple, onChange, required, id }: any) => {
   const didMount = useRef(false)
