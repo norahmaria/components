@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ButtonProps from './Button.types'
 
 import LoadingSpinner from '../../shared/LoadingSpinner'
@@ -23,6 +23,10 @@ const Button = ({
 }: ButtonProps) => {
   const [clicked, setClicked] = useState(false)
 
+  const [whiteSpinner, setWhiteSpinner] = useState(
+    variant === 'default' && color !== 'neutral'
+  )
+
   const onClickHandler = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -33,6 +37,10 @@ const Button = ({
 
     if (onClick) onClick(e)
   }
+
+  useEffect(() => {
+    setWhiteSpinner(variant === 'default' && color !== 'neutral')
+  }, [variant, color])
 
   return (
     <button
@@ -51,34 +59,19 @@ const Button = ({
         ${className}
       `}>
       {isLoading ? (
-        <>
-          <LoadingSpinner
-            color={
-              variant === 'default' && color !== 'neutral'
-                ? 'white'
-                : color
-            }
-          />
-          Loading
-        </>
+        <LoadingSpinner color={whiteSpinner ? 'white' : color} />
+      ) : typeof leftIcon === 'string' ? (
+        <img src={leftIcon} alt="" />
+      ) : leftIcon ? (
+        leftIcon
+      ) : null}
+
+      {children}
+
+      {typeof rightIcon === 'string' ? (
+        <img src={rightIcon} alt="" />
       ) : (
-        <>
-          {leftIcon &&
-            (typeof leftIcon === 'string' ? (
-              <img src={leftIcon} alt="" />
-            ) : (
-              leftIcon
-            ))}
-
-          {children}
-
-          {rightIcon &&
-            (typeof rightIcon === 'string' ? (
-              <img src={rightIcon} alt="" />
-            ) : (
-              rightIcon
-            ))}
-        </>
+        rightIcon
       )}
     </button>
   )
