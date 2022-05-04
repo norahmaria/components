@@ -43,7 +43,6 @@ Components:
 
 Structure:
   ☐ Prettify code that prettier made ugly lol
-    ✔ Button @done(22-05-04 07:54)
     ☐ Select
     ☐ Slider
     ☐ Add
@@ -52,6 +51,7 @@ Structure:
   ☐ Move some logic out of component for Tag / Tag.Add
 
 Archive:
+  ✔ Button @done(22-05-04 07:54) @project(Structure)
   ✔ Create component for Character Limit @done(22-05-04 07:43) @project(Structure)
   ✔ Move buttons css to the button file rather than as mixins @done(22-05-02 22:05) @project(Structure)
   ✔ Text Input and Switch @done(22-05-02 17:34) @project(Issues)
